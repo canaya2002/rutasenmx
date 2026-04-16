@@ -18,7 +18,7 @@ export default async function AdminImportacionesPage() {
   let runs: Array<{
     id: string;
     sourceName: string;
-    status: string;
+    status: string; 
     startedAt: Date | null;
     completedAt: Date | null;
     totalRecords: number | null;
