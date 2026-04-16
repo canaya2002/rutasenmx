@@ -1,0 +1,2074 @@
+[
+  {
+    "keyword": "pueblos magicos de mexico",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "pueblos magicos",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "lista de pueblos magicos",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "todos los pueblos magicos de mexico",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "cuantos pueblos magicos hay en mexico",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "nuevos pueblos magicos 2026",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "mapa de pueblos magicos",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos cerca de cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/pueblos-magicos/ciudad-de-mexico",
+    "cluster": "pueblos-magicos-cdmx",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "pueblos magicos en hidalgo",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/hidalgo",
+    "cluster": "pueblos-magicos-hidalgo",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos en puebla",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/puebla",
+    "cluster": "pueblos-magicos-puebla",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos en oaxaca",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/oaxaca",
+    "cluster": "pueblos-magicos-oaxaca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos en jalisco",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/jalisco",
+    "cluster": "pueblos-magicos-jalisco",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos en guanajuato",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/guanajuato",
+    "cluster": "pueblos-magicos-guanajuato",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos en queretaro",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/queretaro",
+    "cluster": "pueblos-magicos-queretaro",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos en michoacan",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/michoacan",
+    "cluster": "pueblos-magicos-michoacan",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos en veracruz",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/veracruz",
+    "cluster": "pueblos-magicos-veracruz",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos en chiapas",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/chiapas",
+    "cluster": "pueblos-magicos-chiapas",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos en yucatan",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/yucatan",
+    "cluster": "pueblos-magicos-yucatan",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "museos de mexico",
+    "intent": "informacional",
+    "targetUrl": "/museos",
+    "cluster": "museos-hub",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "museos en cdmx",
+    "intent": "informacional",
+    "targetUrl": "/museos/ciudad-de-mexico",
+    "cluster": "museos-cdmx",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "museos en ciudad de mexico",
+    "intent": "informacional",
+    "targetUrl": "/museos/ciudad-de-mexico",
+    "cluster": "museos-cdmx",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "mejores museos cdmx",
+    "intent": "informacional",
+    "targetUrl": "/museos/ciudad-de-mexico",
+    "cluster": "museos-cdmx",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "museos gratis cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/museos/ciudad-de-mexico",
+    "cluster": "museos-cdmx",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "museos en oaxaca",
+    "intent": "informacional",
+    "targetUrl": "/museos/oaxaca",
+    "cluster": "museos-oaxaca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "museos en guadalajara",
+    "intent": "informacional",
+    "targetUrl": "/museos/jalisco",
+    "cluster": "museos-jalisco",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "museos en monterrey",
+    "intent": "informacional",
+    "targetUrl": "/museos/nuevo-leon",
+    "cluster": "museos-nuevo-leon",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "museos en puebla",
+    "intent": "informacional",
+    "targetUrl": "/museos/puebla",
+    "cluster": "museos-puebla",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "zonas arqueologicas de mexico",
+    "intent": "informacional",
+    "targetUrl": "/zonas-arqueologicas",
+    "cluster": "zonas-arqueologicas-hub",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "piramides de mexico",
+    "intent": "informacional",
+    "targetUrl": "/zonas-arqueologicas",
+    "cluster": "zonas-arqueologicas-hub",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "ruinas arqueologicas mexico",
+    "intent": "informacional",
+    "targetUrl": "/zonas-arqueologicas",
+    "cluster": "zonas-arqueologicas-hub",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "zonas arqueologicas cerca de cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/zonas-arqueologicas/ciudad-de-mexico",
+    "cluster": "zonas-arqueologicas-cdmx",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "zonas arqueologicas en yucatan",
+    "intent": "informacional",
+    "targetUrl": "/zonas-arqueologicas/yucatan",
+    "cluster": "zonas-arqueologicas-yucatan",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "zonas arqueologicas en oaxaca",
+    "intent": "informacional",
+    "targetUrl": "/zonas-arqueologicas/oaxaca",
+    "cluster": "zonas-arqueologicas-oaxaca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "zonas arqueologicas en chiapas",
+    "intent": "informacional",
+    "targetUrl": "/zonas-arqueologicas/chiapas",
+    "cluster": "zonas-arqueologicas-chiapas",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "zonas arqueologicas en quintana roo",
+    "intent": "informacional",
+    "targetUrl": "/zonas-arqueologicas/quintana-roo",
+    "cluster": "zonas-arqueologicas-quintana-roo",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "zonas arqueologicas en puebla",
+    "intent": "informacional",
+    "targetUrl": "/zonas-arqueologicas/puebla",
+    "cluster": "zonas-arqueologicas-puebla",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "zonas arqueologicas en veracruz",
+    "intent": "informacional",
+    "targetUrl": "/zonas-arqueologicas/veracruz",
+    "cluster": "zonas-arqueologicas-veracruz",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "rutas por mexico",
+    "intent": "informacional",
+    "targetUrl": "/rutas",
+    "cluster": "rutas-hub",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "road trip mexico",
+    "intent": "informacional",
+    "targetUrl": "/rutas",
+    "cluster": "rutas-hub",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "viaje por carretera mexico",
+    "intent": "informacional",
+    "targetUrl": "/rutas",
+    "cluster": "rutas-hub",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "itinerarios de viaje mexico",
+    "intent": "informacional",
+    "targetUrl": "/rutas",
+    "cluster": "rutas-hub",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "rutas en carro mexico",
+    "intent": "informacional",
+    "targetUrl": "/rutas",
+    "cluster": "rutas-hub",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta cdmx oaxaca",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/cdmx-oaxaca",
+    "cluster": "ruta-cdmx-oaxaca",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "cdmx a oaxaca en carro",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/cdmx-oaxaca",
+    "cluster": "ruta-cdmx-oaxaca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "como llegar a oaxaca desde cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/cdmx-oaxaca",
+    "cluster": "ruta-cdmx-oaxaca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta cdmx puebla",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/cdmx-puebla-cholula",
+    "cluster": "ruta-cdmx-puebla",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "cdmx a puebla en carro",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/cdmx-puebla-cholula",
+    "cluster": "ruta-cdmx-puebla",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta cdmx queretaro san miguel",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/cdmx-queretaro-san-miguel",
+    "cluster": "ruta-cdmx-queretaro",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta cdmx veracruz",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/cdmx-veracruz",
+    "cluster": "ruta-cdmx-veracruz",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta del vino baja california",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/ruta-del-vino-baja-california",
+    "cluster": "ruta-vino-bc",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "ruta maya yucatan",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/ruta-maya-yucatan",
+    "cluster": "ruta-maya",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "ruta huasteca potosina",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/ruta-huasteca-potosina",
+    "cluster": "ruta-huasteca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta del mezcal oaxaca",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/ruta-del-mezcal-oaxaca",
+    "cluster": "ruta-mezcal",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta del tequila jalisco",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/ruta-del-tequila-jalisco",
+    "cluster": "ruta-tequila",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta de cenotes yucatan",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/ruta-de-cenotes-yucatan",
+    "cluster": "ruta-cenotes",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta cdmx acapulco",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/cdmx-acapulco",
+    "cluster": "ruta-cdmx-acapulco",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "peninsula de yucatan ruta",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/peninsula-de-yucatan-completa",
+    "cluster": "ruta-peninsula-yucatan",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "ruta chiapas 7 dias",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/chiapas-completa",
+    "cluster": "ruta-chiapas",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta barrancas del cobre",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/barrancas-del-cobre-chihuahua",
+    "cluster": "ruta-barrancas",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en oaxaca",
+    "intent": "informacional",
+    "targetUrl": "/estados/oaxaca",
+    "cluster": "estado-oaxaca",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "que hacer en chiapas",
+    "intent": "informacional",
+    "targetUrl": "/estados/chiapas",
+    "cluster": "estado-chiapas",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "que hacer en yucatan",
+    "intent": "informacional",
+    "targetUrl": "/estados/yucatan",
+    "cluster": "estado-yucatan",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "que hacer en guanajuato",
+    "intent": "informacional",
+    "targetUrl": "/estados/guanajuato",
+    "cluster": "estado-guanajuato",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "que hacer en queretaro",
+    "intent": "informacional",
+    "targetUrl": "/estados/queretaro",
+    "cluster": "estado-queretaro",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "que hacer en puebla",
+    "intent": "informacional",
+    "targetUrl": "/estados/puebla",
+    "cluster": "estado-puebla",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "que hacer en jalisco",
+    "intent": "informacional",
+    "targetUrl": "/estados/jalisco",
+    "cluster": "estado-jalisco",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "que hacer en san luis potosi",
+    "intent": "informacional",
+    "targetUrl": "/estados/san-luis-potosi",
+    "cluster": "estado-slp",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en hidalgo",
+    "intent": "informacional",
+    "targetUrl": "/estados/hidalgo",
+    "cluster": "estado-hidalgo",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en veracruz",
+    "intent": "informacional",
+    "targetUrl": "/estados/veracruz",
+    "cluster": "estado-veracruz",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "que hacer en michoacan",
+    "intent": "informacional",
+    "targetUrl": "/estados/michoacan",
+    "cluster": "estado-michoacan",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en quintana roo",
+    "intent": "informacional",
+    "targetUrl": "/estados/quintana-roo",
+    "cluster": "estado-quintana-roo",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "que hacer en baja california",
+    "intent": "informacional",
+    "targetUrl": "/estados/baja-california",
+    "cluster": "estado-bc",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en morelos",
+    "intent": "informacional",
+    "targetUrl": "/estados/morelos",
+    "cluster": "estado-morelos",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en nayarit",
+    "intent": "informacional",
+    "targetUrl": "/estados/nayarit",
+    "cluster": "estado-nayarit",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "cenotes en yucatan",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/cenotes-yucatan",
+    "cluster": "cenotes-yucatan",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "mejores cenotes yucatan",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/cenotes-yucatan",
+    "cluster": "cenotes-yucatan",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "cenotes cerca de merida",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/cenotes-yucatan",
+    "cluster": "cenotes-yucatan",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "cenotes cerca de valladolid",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/cenotes-yucatan",
+    "cluster": "cenotes-yucatan",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "cascadas en hidalgo",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/cascadas-mexico",
+    "cluster": "cascadas",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "cascadas en mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/cascadas-mexico",
+    "cluster": "cascadas",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "cascadas cerca de cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/cascadas-mexico",
+    "cluster": "cascadas",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "vinedos en baja california",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/vinedos-baja-california",
+    "cluster": "vinedos-bc",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta del vino ensenada",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/vinedos-baja-california",
+    "cluster": "vinedos-bc",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "vinedos en valle de guadalupe",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/vinedos-baja-california",
+    "cluster": "vinedos-bc",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "playas de mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/mejores-playas-mexico",
+    "cluster": "playas",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "mejores playas de mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/mejores-playas-mexico",
+    "cluster": "playas",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "playas en oaxaca",
+    "intent": "informacional",
+    "targetUrl": "/estados/oaxaca",
+    "cluster": "estado-oaxaca",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "playas en nayarit",
+    "intent": "informacional",
+    "targetUrl": "/estados/nayarit",
+    "cluster": "estado-nayarit",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "grutas de tolantongo",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/grutas-de-tolantongo",
+    "cluster": "tolantongo",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "como llegar a grutas de tolantongo",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/grutas-de-tolantongo",
+    "cluster": "tolantongo",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "grutas de tolantongo precios",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/grutas-de-tolantongo",
+    "cluster": "tolantongo",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "hierve el agua oaxaca",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/hierve-el-agua",
+    "cluster": "hierve-el-agua",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "como llegar a hierve el agua",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/hierve-el-agua",
+    "cluster": "hierve-el-agua",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "teotihuacan",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/teotihuacan",
+    "cluster": "teotihuacan",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "teotihuacan horarios y precios",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/teotihuacan",
+    "cluster": "teotihuacan",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "como llegar a teotihuacan",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/teotihuacan",
+    "cluster": "teotihuacan",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "chichen itza",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/chichen-itza",
+    "cluster": "chichen-itza",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "chichen itza horarios y precios",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/chichen-itza",
+    "cluster": "chichen-itza",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "monte alban oaxaca",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/monte-alban",
+    "cluster": "monte-alban",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "palenque chiapas",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/palenque",
+    "cluster": "palenque",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "tulum ruinas",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/tulum",
+    "cluster": "tulum",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "real de catorce",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/real-de-catorce",
+    "cluster": "real-de-catorce",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "como llegar a real de catorce",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/real-de-catorce",
+    "cluster": "real-de-catorce",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "taxco guerrero",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/taxco",
+    "cluster": "taxco",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "san cristobal de las casas",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/san-cristobal-de-las-casas",
+    "cluster": "san-cristobal",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "que hacer en san cristobal de las casas",
+    "intent": "informacional",
+    "targetUrl": "/lugares/san-cristobal-de-las-casas",
+    "cluster": "san-cristobal",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "bacalar laguna",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/bacalar",
+    "cluster": "bacalar",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "isla holbox",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/isla-holbox",
+    "cluster": "holbox",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "como llegar a holbox",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/isla-holbox",
+    "cluster": "holbox",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "huasteca potosina que visitar",
+    "intent": "informacional",
+    "targetUrl": "/lugares/huasteca-potosina",
+    "cluster": "huasteca",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "escapadas de fin de semana cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/escapadas-fin-de-semana-cdmx",
+    "cluster": "escapadas-cdmx",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "a donde ir de fin de semana desde cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/escapadas-fin-de-semana-cdmx",
+    "cluster": "escapadas-cdmx",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "escapadas romanticas cerca de cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/destinos-romanticos-mexico",
+    "cluster": "viaje-romantico",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "viaje romantico mexico",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/destinos-romanticos-mexico",
+    "cluster": "viaje-romantico",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "destinos romanticos mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/destinos-romanticos-mexico",
+    "cluster": "viaje-romantico",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "viaje en familia mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/rutas-en-familia",
+    "cluster": "viaje-familia",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "a donde ir con ninos en mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/rutas-en-familia",
+    "cluster": "viaje-familia",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "viaje con mascotas mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/viaje-con-mascotas",
+    "cluster": "viaje-mascotas",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "destinos pet friendly mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/viaje-con-mascotas",
+    "cluster": "viaje-mascotas",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "viajar barato por mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/viajar-barato-mexico-tips",
+    "cluster": "viaje-barato",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "destinos baratos en mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/viajar-barato-mexico-tips",
+    "cluster": "viaje-barato",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "como planear un road trip mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/como-planear-road-trip-mexico",
+    "cluster": "planear-road-trip",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "planear viaje por carretera mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/como-planear-road-trip-mexico",
+    "cluster": "planear-road-trip",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "tips para viajar en carretera mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/conducir-en-mexico-consejos",
+    "cluster": "conducir-mexico",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "carreteras mas peligrosas de mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/seguridad-vial-mexico",
+    "cluster": "seguridad-vial",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "casetas de mexico precios",
+    "intent": "transaccional",
+    "targetUrl": "/guias/casetas-autopistas-mexico-costos",
+    "cluster": "casetas-mexico",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "costo casetas cdmx oaxaca",
+    "intent": "transaccional",
+    "targetUrl": "/guias/casetas-autopistas-mexico-costos",
+    "cluster": "casetas-mexico",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "costo casetas cdmx puebla",
+    "intent": "transaccional",
+    "targetUrl": "/guias/casetas-autopistas-mexico-costos",
+    "cluster": "casetas-mexico",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "costo casetas cdmx acapulco",
+    "intent": "transaccional",
+    "targetUrl": "/guias/casetas-autopistas-mexico-costos",
+    "cluster": "casetas-mexico",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "costo casetas cdmx queretaro",
+    "intent": "transaccional",
+    "targetUrl": "/guias/casetas-autopistas-mexico-costos",
+    "cluster": "casetas-mexico",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "mejor epoca para visitar oaxaca",
+    "intent": "informacional",
+    "targetUrl": "/guias/mejores-epocas-para-viajar-mexico",
+    "cluster": "cuando-viajar",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "mejor epoca para visitar chiapas",
+    "intent": "informacional",
+    "targetUrl": "/guias/mejores-epocas-para-viajar-mexico",
+    "cluster": "cuando-viajar",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "mejor temporada para viajar a mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/mejores-epocas-para-viajar-mexico",
+    "cluster": "cuando-viajar",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "que hacer en semana santa mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/semana-santa-destinos",
+    "cluster": "semana-santa",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "destinos semana santa mexico",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/semana-santa-destinos",
+    "cluster": "semana-santa",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "dia de muertos michoacan",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/dia-de-muertos-michoacan",
+    "cluster": "dia-de-muertos",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "dia de muertos patzcuaro",
+    "intent": "navegacional",
+    "targetUrl": "/colecciones/dia-de-muertos-michoacan",
+    "cluster": "dia-de-muertos",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "camping en mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/camping-mexico-guia",
+    "cluster": "camping",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "glamping mexico",
+    "intent": "transaccional",
+    "targetUrl": "/guias/camping-mexico-guia",
+    "cluster": "camping",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "glamping cerca de cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/guias/camping-mexico-guia",
+    "cluster": "camping",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ecoturismo en mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/ecoturismo-mexico-guia",
+    "cluster": "ecoturismo",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "turismo sustentable mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/ecoturismo-mexico-guia",
+    "cluster": "ecoturismo",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ecoturismo chiapas",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/ecoturismo-chiapas",
+    "cluster": "ecoturismo-chiapas",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "gastronomia oaxaca",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/gastronomia-oaxaca",
+    "cluster": "gastronomia-oaxaca",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "comida tipica oaxaca",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/gastronomia-oaxaca",
+    "cluster": "gastronomia-oaxaca",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "donde comer en oaxaca",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/gastronomia-oaxaca",
+    "cluster": "gastronomia-oaxaca",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "mercados en mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/gastronomia-oaxaca",
+    "cluster": "mercados",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "explorar mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "explorar",
+    "volume": "medium",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "mapa de destinos mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "explorar",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "mapa interactivo mexico turismo",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "explorar",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "planear ruta mexico",
+    "intent": "transaccional",
+    "targetUrl": "/planear",
+    "cluster": "planear",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "planificador de rutas mexico",
+    "intent": "transaccional",
+    "targetUrl": "/planear",
+    "cluster": "planear",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "planificador de viajes mexico",
+    "intent": "transaccional",
+    "targetUrl": "/planear",
+    "cluster": "planear",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "como llegar a taxco desde cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/taxco",
+    "cluster": "taxco",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "como llegar a san cristobal de las casas",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/san-cristobal-de-las-casas",
+    "cluster": "san-cristobal",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "como llegar a bacalar",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/bacalar",
+    "cluster": "bacalar",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "como llegar a huasteca potosina",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/huasteca-potosina",
+    "cluster": "huasteca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "horarios teotihuacan",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/teotihuacan",
+    "cluster": "teotihuacan",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "horarios chichen itza",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/chichen-itza",
+    "cluster": "chichen-itza",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "horarios monte alban",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/monte-alban",
+    "cluster": "monte-alban",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "horarios palenque",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/palenque",
+    "cluster": "palenque",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "costo entrada zonas arqueologicas",
+    "intent": "transaccional",
+    "targetUrl": "/zonas-arqueologicas",
+    "cluster": "zonas-arqueologicas-hub",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "museo frida kahlo boletos",
+    "intent": "transaccional",
+    "targetUrl": "/lugares/museo-frida-kahlo",
+    "cluster": "museo-frida-kahlo",
+    "volume": "high",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "museo nacional de antropologia",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/museo-nacional-de-antropologia",
+    "cluster": "museo-antropologia",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "museo soumaya",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/museo-soumaya",
+    "cluster": "museo-soumaya",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "lugares para visitar en mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "explorar",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "destinos turisticos mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "explorar",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "turismo en mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "explorar",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "que visitar en mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "explorar",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "lugares magicos de mexico",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "colecciones de viaje mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones",
+    "cluster": "colecciones-hub",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "guias de viaje mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias",
+    "cluster": "guias-hub",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "guia de viaje oaxaca",
+    "intent": "informacional",
+    "targetUrl": "/guias/guia-oaxaca-completa",
+    "cluster": "guia-oaxaca",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "guia de viaje chiapas",
+    "intent": "informacional",
+    "targetUrl": "/guias/guia-chiapas-7-dias",
+    "cluster": "guia-chiapas",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "guia huasteca potosina",
+    "intent": "informacional",
+    "targetUrl": "/guias/guia-huasteca-potosina",
+    "cluster": "guia-huasteca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta pueblos magicos hidalgo",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/pueblos-magicos-hidalgo",
+    "cluster": "ruta-pueblos-hidalgo",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ruta de los conventos morelos",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/ruta-de-los-conventos-morelos",
+    "cluster": "ruta-conventos-morelos",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "riviera nayarit que hacer",
+    "intent": "informacional",
+    "targetUrl": "/rutas/riviera-nayarit",
+    "cluster": "ruta-riviera-nayarit",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "ruta purepecha michoacan",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/ruta-purepecha-michoacan",
+    "cluster": "ruta-purepecha",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos estado de mexico",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/estado-de-mexico",
+    "cluster": "pueblos-magicos-edomex",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos morelos",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/morelos",
+    "cluster": "pueblos-magicos-morelos",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos tlaxcala",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/tlaxcala",
+    "cluster": "pueblos-magicos-tlaxcala",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos san luis potosi",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/san-luis-potosi",
+    "cluster": "pueblos-magicos-slp",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos nuevo leon",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos/nuevo-leon",
+    "cluster": "pueblos-magicos-nl",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "cenote ik kil",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/cenote-ik-kil",
+    "cluster": "cenotes-yucatan",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "cascada de tamul",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/cascada-de-tamul",
+    "cluster": "huasteca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "sayulita nayarit",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/sayulita",
+    "cluster": "estado-nayarit",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "xochimilco cdmx",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/xochimilco",
+    "cluster": "estado-cdmx",
+    "volume": "medium",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "guanajuato capital que hacer",
+    "intent": "informacional",
+    "targetUrl": "/lugares/guanajuato-capital",
+    "cluster": "estado-guanajuato",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "merida yucatan que hacer",
+    "intent": "informacional",
+    "targetUrl": "/lugares/merida",
+    "cluster": "estado-yucatan",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "oaxaca capital que hacer",
+    "intent": "informacional",
+    "targetUrl": "/lugares/oaxaca-capital",
+    "cluster": "estado-oaxaca",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "escapadas cerca de guadalajara",
+    "intent": "transaccional",
+    "targetUrl": "/estados/jalisco",
+    "cluster": "estado-jalisco",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "escapadas cerca de monterrey",
+    "intent": "transaccional",
+    "targetUrl": "/estados/nuevo-leon",
+    "cluster": "estado-nuevo-leon",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "viaje fin de semana desde guadalajara",
+    "intent": "transaccional",
+    "targetUrl": "/estados/jalisco",
+    "cluster": "estado-jalisco",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "haciendas en yucatan",
+    "intent": "informacional",
+    "targetUrl": "/estados/yucatan",
+    "cluster": "estado-yucatan",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "balnearios en hidalgo",
+    "intent": "informacional",
+    "targetUrl": "/estados/hidalgo",
+    "cluster": "estado-hidalgo",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "balnearios en morelos",
+    "intent": "informacional",
+    "targetUrl": "/estados/morelos",
+    "cluster": "estado-morelos",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "parques nacionales mexico",
+    "intent": "informacional",
+    "targetUrl": "/colecciones/cascadas-mexico",
+    "cluster": "naturaleza",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "areas naturales protegidas mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "naturaleza",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "senderismo en mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/ecoturismo-mexico-guia",
+    "cluster": "ecoturismo",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos con aguas termales",
+    "intent": "transaccional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos para ir en pareja",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/destinos-romanticos-mexico",
+    "cluster": "viaje-romantico",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos para ir con ninos",
+    "intent": "transaccional",
+    "targetUrl": "/colecciones/rutas-en-familia",
+    "cluster": "viaje-familia",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en cdmx fin de semana",
+    "intent": "informacional",
+    "targetUrl": "/estados/ciudad-de-mexico",
+    "cluster": "estado-cdmx",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "que hacer en guadalajara",
+    "intent": "informacional",
+    "targetUrl": "/estados/jalisco",
+    "cluster": "estado-jalisco",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "que hacer en monterrey",
+    "intent": "informacional",
+    "targetUrl": "/estados/nuevo-leon",
+    "cluster": "estado-nuevo-leon",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "que hacer en merida",
+    "intent": "informacional",
+    "targetUrl": "/estados/yucatan",
+    "cluster": "estado-yucatan",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "que hacer en cancun",
+    "intent": "informacional",
+    "targetUrl": "/estados/quintana-roo",
+    "cluster": "estado-quintana-roo",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "road trip baja california",
+    "intent": "transaccional",
+    "targetUrl": "/estados/baja-california",
+    "cluster": "estado-bc",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "road trip yucatan",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/ruta-maya-yucatan",
+    "cluster": "ruta-maya",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "road trip chiapas",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/chiapas-completa",
+    "cluster": "ruta-chiapas",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "road trip oaxaca",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/cdmx-oaxaca",
+    "cluster": "ruta-cdmx-oaxaca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "autopista mexico puebla costo",
+    "intent": "transaccional",
+    "targetUrl": "/guias/casetas-autopistas-mexico-costos",
+    "cluster": "casetas-mexico",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "autopista mexico queretaro costo",
+    "intent": "transaccional",
+    "targetUrl": "/guias/casetas-autopistas-mexico-costos",
+    "cluster": "casetas-mexico",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "gasolineras en carretera mexico",
+    "intent": "transaccional",
+    "targetUrl": "/explorar",
+    "cluster": "infraestructura-vial",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "auxilio vial en carretera",
+    "intent": "informacional",
+    "targetUrl": "/guias/seguridad-vial-mexico",
+    "cluster": "seguridad-vial",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "miradores en mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "naturaleza",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "grutas en mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "naturaleza",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "centros historicos de mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "explorar",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "festivales en mexico 2026",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "eventos",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "fiestas patronales mexico",
+    "intent": "informacional",
+    "targetUrl": "/explorar",
+    "cluster": "eventos",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "guelaguetza oaxaca",
+    "intent": "navegacional",
+    "targetUrl": "/estados/oaxaca",
+    "cluster": "estado-oaxaca",
+    "volume": "high",
+    "difficulty": "high"
+  },
+  {
+    "keyword": "turismo comunitario mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/ecoturismo-mexico-guia",
+    "cluster": "ecoturismo",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "turismo rural mexico",
+    "intent": "informacional",
+    "targetUrl": "/guias/ecoturismo-mexico-guia",
+    "cluster": "ecoturismo",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en durango",
+    "intent": "informacional",
+    "targetUrl": "/estados/durango",
+    "cluster": "estado-durango",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en aguascalientes",
+    "intent": "informacional",
+    "targetUrl": "/estados/aguascalientes",
+    "cluster": "estado-aguascalientes",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en zacatecas",
+    "intent": "informacional",
+    "targetUrl": "/estados/zacatecas",
+    "cluster": "estado-zacatecas",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en colima",
+    "intent": "informacional",
+    "targetUrl": "/estados/colima",
+    "cluster": "estado-colima",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en campeche",
+    "intent": "informacional",
+    "targetUrl": "/estados/campeche",
+    "cluster": "estado-campeche",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en tabasco",
+    "intent": "informacional",
+    "targetUrl": "/estados/tabasco",
+    "cluster": "estado-tabasco",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en tlaxcala",
+    "intent": "informacional",
+    "targetUrl": "/estados/tlaxcala",
+    "cluster": "estado-tlaxcala",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en sinaloa",
+    "intent": "informacional",
+    "targetUrl": "/estados/sinaloa",
+    "cluster": "estado-sinaloa",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en sonora",
+    "intent": "informacional",
+    "targetUrl": "/estados/sonora",
+    "cluster": "estado-sonora",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en tamaulipas",
+    "intent": "informacional",
+    "targetUrl": "/estados/tamaulipas",
+    "cluster": "estado-tamaulipas",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en chihuahua",
+    "intent": "informacional",
+    "targetUrl": "/estados/chihuahua",
+    "cluster": "estado-chihuahua",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en coahuila",
+    "intent": "informacional",
+    "targetUrl": "/estados/coahuila",
+    "cluster": "estado-coahuila",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en baja california sur",
+    "intent": "informacional",
+    "targetUrl": "/estados/baja-california-sur",
+    "cluster": "estado-bcs",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "que hacer en guerrero",
+    "intent": "informacional",
+    "targetUrl": "/estados/guerrero",
+    "cluster": "estado-guerrero",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "mazunte oaxaca",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/mazunte",
+    "cluster": "estado-oaxaca",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "barrancas del cobre chihuahua",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/barrancas-del-cobre",
+    "cluster": "estado-chihuahua",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "valladolid yucatan",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/valladolid",
+    "cluster": "estado-yucatan",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "uxmal yucatan",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/uxmal",
+    "cluster": "zonas-arqueologicas-yucatan",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "tajin veracruz",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/tajin",
+    "cluster": "zonas-arqueologicas-veracruz",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "calakmul campeche",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/calakmul",
+    "cluster": "zonas-arqueologicas-campeche",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "museo de arte popular cdmx",
+    "intent": "navegacional",
+    "targetUrl": "/lugares/museo-de-arte-popular",
+    "cluster": "museos-cdmx",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "museos para ninos cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/museos/ciudad-de-mexico",
+    "cluster": "museos-cdmx",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "itinerario oaxaca 5 dias",
+    "intent": "transaccional",
+    "targetUrl": "/guias/guia-oaxaca-completa",
+    "cluster": "guia-oaxaca",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "itinerario yucatan 7 dias",
+    "intent": "transaccional",
+    "targetUrl": "/guias/guia-ruta-maya-yucatan",
+    "cluster": "guia-yucatan",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "itinerario chiapas 5 dias",
+    "intent": "transaccional",
+    "targetUrl": "/guias/guia-chiapas-7-dias",
+    "cluster": "guia-chiapas",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "gastronomia mexicana por estado",
+    "intent": "informacional",
+    "targetUrl": "/guias/gastronomia-mexicana-por-estado",
+    "cluster": "gastronomia-general",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "comida tipica de mexico por estado",
+    "intent": "informacional",
+    "targetUrl": "/guias/gastronomia-mexicana-por-estado",
+    "cluster": "gastronomia-general",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "viajar con ninos a la playa mexico",
+    "intent": "transaccional",
+    "targetUrl": "/guias/viajar-con-ninos-mexico",
+    "cluster": "viaje-familia",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "viaje en carro a la playa desde cdmx",
+    "intent": "transaccional",
+    "targetUrl": "/rutas/cdmx-acapulco",
+    "cluster": "ruta-cdmx-acapulco",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos bonitos",
+    "intent": "informacional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "medium",
+    "difficulty": "medium"
+  },
+  {
+    "keyword": "pueblos magicos baratos",
+    "intent": "transaccional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "pueblos magicos con playa",
+    "intent": "transaccional",
+    "targetUrl": "/pueblos-magicos",
+    "cluster": "pueblos-magicos-hub",
+    "volume": "medium",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "autopilot rutas mexico",
+    "intent": "navegacional",
+    "targetUrl": "/autopilot",
+    "cluster": "autopilot",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "planificador inteligente de rutas",
+    "intent": "transaccional",
+    "targetUrl": "/autopilot",
+    "cluster": "autopilot",
+    "volume": "low",
+    "difficulty": "low"
+  },
+  {
+    "keyword": "ia para planear viajes mexico",
+    "intent": "transaccional",
+    "targetUrl": "/autopilot",
+    "cluster": "autopilot",
+    "volume": "low",
+    "difficulty": "low"
+  }
+]

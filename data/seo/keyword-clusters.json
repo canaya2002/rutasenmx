@@ -1,0 +1,640 @@
+[
+  {
+    "cluster": "pueblos-magicos-hub",
+    "primaryKeyword": "pueblos magicos de mexico",
+    "ownerUrl": "/pueblos-magicos",
+    "secondaryKeywords": [
+      "pueblos magicos",
+      "lista de pueblos magicos",
+      "todos los pueblos magicos de mexico",
+      "cuantos pueblos magicos hay en mexico",
+      "nuevos pueblos magicos 2026",
+      "mapa de pueblos magicos",
+      "lugares magicos de mexico",
+      "pueblos magicos bonitos",
+      "pueblos magicos baratos",
+      "pueblos magicos con playa",
+      "pueblos magicos con aguas termales"
+    ],
+    "intent": "informacional",
+    "avoid": [
+      "No crear una segunda pagina de listado general",
+      "Variantes por estado van a /pueblos-magicos/[estado]"
+    ]
+  },
+  {
+    "cluster": "pueblos-magicos-cdmx",
+    "primaryKeyword": "pueblos magicos cerca de cdmx",
+    "ownerUrl": "/pueblos-magicos/ciudad-de-mexico",
+    "secondaryKeywords": [
+      "pueblos magicos a 2 horas de cdmx",
+      "escapadas pueblos magicos cdmx"
+    ],
+    "intent": "transaccional",
+    "avoid": [
+      "No duplicar con colecciones de escapadas fin de semana"
+    ]
+  },
+  {
+    "cluster": "pueblos-magicos-hidalgo",
+    "primaryKeyword": "pueblos magicos en hidalgo",
+    "ownerUrl": "/pueblos-magicos/hidalgo",
+    "secondaryKeywords": [
+      "pueblos magicos hidalgo mapa",
+      "pueblos magicos hidalgo ruta"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "pueblos-magicos-puebla",
+    "primaryKeyword": "pueblos magicos en puebla",
+    "ownerUrl": "/pueblos-magicos/puebla",
+    "secondaryKeywords": [
+      "pueblos magicos puebla lista"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "pueblos-magicos-oaxaca",
+    "primaryKeyword": "pueblos magicos en oaxaca",
+    "ownerUrl": "/pueblos-magicos/oaxaca",
+    "secondaryKeywords": [
+      "pueblos magicos oaxaca lista"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "pueblos-magicos-jalisco",
+    "primaryKeyword": "pueblos magicos en jalisco",
+    "ownerUrl": "/pueblos-magicos/jalisco",
+    "secondaryKeywords": [
+      "pueblos magicos jalisco ruta"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "museos-hub",
+    "primaryKeyword": "museos de mexico",
+    "ownerUrl": "/museos",
+    "secondaryKeywords": [
+      "museos en mexico",
+      "mejores museos de mexico",
+      "museos mas importantes de mexico"
+    ],
+    "intent": "informacional",
+    "avoid": [
+      "No duplicar con paginas por estado en /museos/[estado]"
+    ]
+  },
+  {
+    "cluster": "museos-cdmx",
+    "primaryKeyword": "museos en cdmx",
+    "ownerUrl": "/museos/ciudad-de-mexico",
+    "secondaryKeywords": [
+      "museos en ciudad de mexico",
+      "mejores museos cdmx",
+      "museos gratis cdmx",
+      "museos para ninos cdmx",
+      "museo de arte popular cdmx"
+    ],
+    "intent": "informacional",
+    "avoid": [
+      "No crear paginas individuales para museos que son mejor servidos por la pagina de estado"
+    ]
+  },
+  {
+    "cluster": "zonas-arqueologicas-hub",
+    "primaryKeyword": "zonas arqueologicas de mexico",
+    "ownerUrl": "/zonas-arqueologicas",
+    "secondaryKeywords": [
+      "piramides de mexico",
+      "ruinas arqueologicas mexico",
+      "costo entrada zonas arqueologicas"
+    ],
+    "intent": "informacional",
+    "avoid": [
+      "No duplicar con /zonas-arqueologicas/[estado]"
+    ]
+  },
+  {
+    "cluster": "zonas-arqueologicas-cdmx",
+    "primaryKeyword": "zonas arqueologicas cerca de cdmx",
+    "ownerUrl": "/zonas-arqueologicas/ciudad-de-mexico",
+    "secondaryKeywords": [
+      "piramides cerca de cdmx"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "zonas-arqueologicas-yucatan",
+    "primaryKeyword": "zonas arqueologicas en yucatan",
+    "ownerUrl": "/zonas-arqueologicas/yucatan",
+    "secondaryKeywords": [
+      "ruinas mayas yucatan",
+      "uxmal yucatan"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "zonas-arqueologicas-oaxaca",
+    "primaryKeyword": "zonas arqueologicas en oaxaca",
+    "ownerUrl": "/zonas-arqueologicas/oaxaca",
+    "secondaryKeywords": [
+      "monte alban oaxaca"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "zonas-arqueologicas-chiapas",
+    "primaryKeyword": "zonas arqueologicas en chiapas",
+    "ownerUrl": "/zonas-arqueologicas/chiapas",
+    "secondaryKeywords": [
+      "palenque chiapas"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "rutas-hub",
+    "primaryKeyword": "rutas por mexico",
+    "ownerUrl": "/rutas",
+    "secondaryKeywords": [
+      "road trip mexico",
+      "viaje por carretera mexico",
+      "itinerarios de viaje mexico",
+      "rutas en carro mexico"
+    ],
+    "intent": "informacional",
+    "avoid": [
+      "No crear rutas genericas: cada ruta individual va a /rutas/[slug]"
+    ]
+  },
+  {
+    "cluster": "ruta-cdmx-oaxaca",
+    "primaryKeyword": "ruta cdmx oaxaca",
+    "ownerUrl": "/rutas/cdmx-oaxaca",
+    "secondaryKeywords": [
+      "cdmx a oaxaca en carro",
+      "como llegar a oaxaca desde cdmx",
+      "road trip oaxaca"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "ruta-cdmx-puebla",
+    "primaryKeyword": "ruta cdmx puebla",
+    "ownerUrl": "/rutas/cdmx-puebla-cholula",
+    "secondaryKeywords": [
+      "cdmx a puebla en carro"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "ruta-maya",
+    "primaryKeyword": "ruta maya yucatan",
+    "ownerUrl": "/rutas/ruta-maya-yucatan",
+    "secondaryKeywords": [
+      "road trip yucatan",
+      "peninsula de yucatan ruta"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "ruta-huasteca",
+    "primaryKeyword": "ruta huasteca potosina",
+    "ownerUrl": "/rutas/ruta-huasteca-potosina",
+    "secondaryKeywords": [
+      "huasteca potosina que visitar",
+      "como llegar a huasteca potosina"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "ruta-vino-bc",
+    "primaryKeyword": "ruta del vino baja california",
+    "ownerUrl": "/rutas/ruta-del-vino-baja-california",
+    "secondaryKeywords": [
+      "ruta del vino ensenada",
+      "vinedos en valle de guadalupe"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "ruta-cenotes",
+    "primaryKeyword": "ruta de cenotes yucatan",
+    "ownerUrl": "/rutas/ruta-de-cenotes-yucatan",
+    "secondaryKeywords": [
+      "cenotes cerca de merida",
+      "cenotes cerca de valladolid"
+    ],
+    "intent": "transaccional",
+    "avoid": [
+      "No duplicar con la coleccion de cenotes yucatan"
+    ]
+  },
+  {
+    "cluster": "escapadas-cdmx",
+    "primaryKeyword": "escapadas de fin de semana cdmx",
+    "ownerUrl": "/colecciones/escapadas-fin-de-semana-cdmx",
+    "secondaryKeywords": [
+      "a donde ir de fin de semana desde cdmx",
+      "que hacer en cdmx fin de semana"
+    ],
+    "intent": "transaccional",
+    "avoid": [
+      "No duplicar con pueblos magicos cerca de cdmx"
+    ]
+  },
+  {
+    "cluster": "viaje-romantico",
+    "primaryKeyword": "destinos romanticos mexico",
+    "ownerUrl": "/colecciones/destinos-romanticos-mexico",
+    "secondaryKeywords": [
+      "viaje romantico mexico",
+      "escapadas romanticas cerca de cdmx",
+      "pueblos magicos para ir en pareja"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "viaje-familia",
+    "primaryKeyword": "viaje en familia mexico",
+    "ownerUrl": "/colecciones/rutas-en-familia",
+    "secondaryKeywords": [
+      "a donde ir con ninos en mexico",
+      "pueblos magicos para ir con ninos",
+      "viajar con ninos a la playa mexico"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "viaje-mascotas",
+    "primaryKeyword": "viaje con mascotas mexico",
+    "ownerUrl": "/colecciones/viaje-con-mascotas",
+    "secondaryKeywords": [
+      "destinos pet friendly mexico"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "cenotes-yucatan",
+    "primaryKeyword": "cenotes en yucatan",
+    "ownerUrl": "/colecciones/cenotes-yucatan",
+    "secondaryKeywords": [
+      "mejores cenotes yucatan",
+      "cenote ik kil",
+      "cenotes cerca de merida",
+      "cenotes cerca de valladolid"
+    ],
+    "intent": "informacional",
+    "avoid": [
+      "Ruta de cenotes va a /rutas/, la coleccion es informacional"
+    ]
+  },
+  {
+    "cluster": "cascadas",
+    "primaryKeyword": "cascadas en mexico",
+    "ownerUrl": "/colecciones/cascadas-mexico",
+    "secondaryKeywords": [
+      "cascadas en hidalgo",
+      "cascadas cerca de cdmx",
+      "cascada de tamul"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "vinedos-bc",
+    "primaryKeyword": "vinedos en baja california",
+    "ownerUrl": "/colecciones/vinedos-baja-california",
+    "secondaryKeywords": [
+      "vinedos en valle de guadalupe",
+      "ruta del vino ensenada"
+    ],
+    "intent": "informacional",
+    "avoid": [
+      "La ruta del vino va a /rutas/, los vinedos como coleccion"
+    ]
+  },
+  {
+    "cluster": "playas",
+    "primaryKeyword": "mejores playas de mexico",
+    "ownerUrl": "/colecciones/mejores-playas-mexico",
+    "secondaryKeywords": [
+      "playas de mexico",
+      "playas en oaxaca",
+      "playas en nayarit"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "casetas-mexico",
+    "primaryKeyword": "casetas de mexico precios",
+    "ownerUrl": "/guias/casetas-autopistas-mexico-costos",
+    "secondaryKeywords": [
+      "costo casetas cdmx oaxaca",
+      "costo casetas cdmx puebla",
+      "costo casetas cdmx acapulco",
+      "costo casetas cdmx queretaro",
+      "autopista mexico puebla costo",
+      "autopista mexico queretaro costo"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "planear-road-trip",
+    "primaryKeyword": "como planear un road trip mexico",
+    "ownerUrl": "/guias/como-planear-road-trip-mexico",
+    "secondaryKeywords": [
+      "planear viaje por carretera mexico"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "conducir-mexico",
+    "primaryKeyword": "tips para viajar en carretera mexico",
+    "ownerUrl": "/guias/conducir-en-mexico-consejos",
+    "secondaryKeywords": [
+      "conducir en mexico consejos"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "cuando-viajar",
+    "primaryKeyword": "mejor temporada para viajar a mexico",
+    "ownerUrl": "/guias/mejores-epocas-para-viajar-mexico",
+    "secondaryKeywords": [
+      "mejor epoca para visitar oaxaca",
+      "mejor epoca para visitar chiapas"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "teotihuacan",
+    "primaryKeyword": "teotihuacan",
+    "ownerUrl": "/lugares/teotihuacan",
+    "secondaryKeywords": [
+      "teotihuacan horarios y precios",
+      "como llegar a teotihuacan",
+      "horarios teotihuacan"
+    ],
+    "intent": "navegacional",
+    "avoid": []
+  },
+  {
+    "cluster": "chichen-itza",
+    "primaryKeyword": "chichen itza",
+    "ownerUrl": "/lugares/chichen-itza",
+    "secondaryKeywords": [
+      "chichen itza horarios y precios",
+      "horarios chichen itza"
+    ],
+    "intent": "navegacional",
+    "avoid": []
+  },
+  {
+    "cluster": "san-cristobal",
+    "primaryKeyword": "san cristobal de las casas",
+    "ownerUrl": "/lugares/san-cristobal-de-las-casas",
+    "secondaryKeywords": [
+      "que hacer en san cristobal de las casas",
+      "como llegar a san cristobal de las casas"
+    ],
+    "intent": "navegacional",
+    "avoid": []
+  },
+  {
+    "cluster": "tolantongo",
+    "primaryKeyword": "grutas de tolantongo",
+    "ownerUrl": "/lugares/grutas-de-tolantongo",
+    "secondaryKeywords": [
+      "como llegar a grutas de tolantongo",
+      "grutas de tolantongo precios"
+    ],
+    "intent": "navegacional",
+    "avoid": []
+  },
+  {
+    "cluster": "holbox",
+    "primaryKeyword": "isla holbox",
+    "ownerUrl": "/lugares/isla-holbox",
+    "secondaryKeywords": [
+      "como llegar a holbox"
+    ],
+    "intent": "navegacional",
+    "avoid": []
+  },
+  {
+    "cluster": "explorar",
+    "primaryKeyword": "lugares para visitar en mexico",
+    "ownerUrl": "/explorar",
+    "secondaryKeywords": [
+      "explorar mexico",
+      "mapa de destinos mexico",
+      "mapa interactivo mexico turismo",
+      "destinos turisticos mexico",
+      "turismo en mexico",
+      "que visitar en mexico"
+    ],
+    "intent": "informacional",
+    "avoid": [
+      "Estas keywords son muy competitivas; el mapa interactivo es el diferenciador"
+    ]
+  },
+  {
+    "cluster": "planear",
+    "primaryKeyword": "planificador de rutas mexico",
+    "ownerUrl": "/planear",
+    "secondaryKeywords": [
+      "planear ruta mexico",
+      "planificador de viajes mexico"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "autopilot",
+    "primaryKeyword": "autopilot rutas mexico",
+    "ownerUrl": "/autopilot",
+    "secondaryKeywords": [
+      "planificador inteligente de rutas",
+      "ia para planear viajes mexico"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "estado-oaxaca",
+    "primaryKeyword": "que hacer en oaxaca",
+    "ownerUrl": "/estados/oaxaca",
+    "secondaryKeywords": [
+      "playas en oaxaca",
+      "oaxaca capital que hacer",
+      "guelaguetza oaxaca"
+    ],
+    "intent": "informacional",
+    "avoid": [
+      "Los pueblos magicos de Oaxaca van a /pueblos-magicos/oaxaca",
+      "Los museos van a /museos/oaxaca",
+      "Las zonas arqueologicas van a /zonas-arqueologicas/oaxaca"
+    ]
+  },
+  {
+    "cluster": "estado-chiapas",
+    "primaryKeyword": "que hacer en chiapas",
+    "ownerUrl": "/estados/chiapas",
+    "secondaryKeywords": [
+      "ecoturismo chiapas"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "estado-yucatan",
+    "primaryKeyword": "que hacer en yucatan",
+    "ownerUrl": "/estados/yucatan",
+    "secondaryKeywords": [
+      "haciendas en yucatan",
+      "merida yucatan que hacer"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "estado-jalisco",
+    "primaryKeyword": "que hacer en jalisco",
+    "ownerUrl": "/estados/jalisco",
+    "secondaryKeywords": [
+      "que hacer en guadalajara",
+      "escapadas cerca de guadalajara",
+      "viaje fin de semana desde guadalajara"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "estado-quintana-roo",
+    "primaryKeyword": "que hacer en quintana roo",
+    "ownerUrl": "/estados/quintana-roo",
+    "secondaryKeywords": [
+      "que hacer en cancun"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "colecciones-hub",
+    "primaryKeyword": "colecciones de viaje mexico",
+    "ownerUrl": "/colecciones",
+    "secondaryKeywords": [],
+    "intent": "informacional",
+    "avoid": [
+      "El hub es solo un listado: las colecciones individuales son las que capturan trafico"
+    ]
+  },
+  {
+    "cluster": "guias-hub",
+    "primaryKeyword": "guias de viaje mexico",
+    "ownerUrl": "/guias",
+    "secondaryKeywords": [],
+    "intent": "informacional",
+    "avoid": [
+      "El hub es solo un listado: las guias individuales son las que capturan trafico"
+    ]
+  },
+  {
+    "cluster": "semana-santa",
+    "primaryKeyword": "destinos semana santa mexico",
+    "ownerUrl": "/colecciones/semana-santa-destinos",
+    "secondaryKeywords": [
+      "que hacer en semana santa mexico"
+    ],
+    "intent": "transaccional",
+    "avoid": []
+  },
+  {
+    "cluster": "dia-de-muertos",
+    "primaryKeyword": "dia de muertos michoacan",
+    "ownerUrl": "/colecciones/dia-de-muertos-michoacan",
+    "secondaryKeywords": [
+      "dia de muertos patzcuaro"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "camping",
+    "primaryKeyword": "camping en mexico",
+    "ownerUrl": "/guias/camping-mexico-guia",
+    "secondaryKeywords": [
+      "glamping mexico",
+      "glamping cerca de cdmx"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "ecoturismo",
+    "primaryKeyword": "ecoturismo en mexico",
+    "ownerUrl": "/guias/ecoturismo-mexico-guia",
+    "secondaryKeywords": [
+      "turismo sustentable mexico",
+      "turismo comunitario mexico",
+      "turismo rural mexico",
+      "senderismo en mexico"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "viaje-barato",
+    "primaryKeyword": "viajar barato por mexico",
+    "ownerUrl": "/guias/viajar-barato-mexico-tips",
+    "secondaryKeywords": [
+      "destinos baratos en mexico"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "gastronomia-oaxaca",
+    "primaryKeyword": "gastronomia oaxaca",
+    "ownerUrl": "/colecciones/gastronomia-oaxaca",
+    "secondaryKeywords": [
+      "comida tipica oaxaca",
+      "donde comer en oaxaca"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  },
+  {
+    "cluster": "seguridad-vial",
+    "primaryKeyword": "carreteras mas peligrosas de mexico",
+    "ownerUrl": "/guias/seguridad-vial-mexico",
+    "secondaryKeywords": [
+      "auxilio vial en carretera"
+    ],
+    "intent": "informacional",
+    "avoid": []
+  }
+]

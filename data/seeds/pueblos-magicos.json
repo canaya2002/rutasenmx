@@ -1,0 +1,578 @@
+[
+  {
+    "name": "Tepoztlán",
+    "state": "Morelos",
+    "municipality": "Tepoztlán",
+    "latitude": 18.9848,
+    "longitude": -99.0945,
+    "description": "Pueblo rodeado de montañas con pirámide prehispánica en la cima del cerro del Tepozteco y un vibrante mercado de artesanías.",
+    "yearDesignated": 2002
+  },
+  {
+    "name": "Taxco",
+    "state": "Guerrero",
+    "municipality": "Taxco de Alarcón",
+    "latitude": 18.5564,
+    "longitude": -99.6048,
+    "description": "Capital mexicana de la plata, con calles empedradas empinadas y la icónica iglesia de Santa Prisca en su plaza central.",
+    "yearDesignated": 2002
+  },
+  {
+    "name": "Real de Catorce",
+    "state": "San Luis Potosí",
+    "municipality": "Catorce",
+    "latitude": 23.6898,
+    "longitude": -100.8866,
+    "description": "Antiguo pueblo minero en la Sierra de Catorce, accesible por un túnel de 2.3 km, con paisajes desérticos y sitios sagrados huicholes.",
+    "yearDesignated": 2001
+  },
+  {
+    "name": "San Cristóbal de las Casas",
+    "state": "Chiapas",
+    "municipality": "San Cristóbal de las Casas",
+    "latitude": 16.7370,
+    "longitude": -92.6376,
+    "description": "Ciudad colonial en los Altos de Chiapas, rodeada de comunidades indígenas tzotziles y tzeltales, famosa por su andador turístico y mercado de artesanías.",
+    "yearDesignated": 2003
+  },
+  {
+    "name": "Pátzcuaro",
+    "state": "Michoacán",
+    "municipality": "Pátzcuaro",
+    "latitude": 19.5153,
+    "longitude": -101.6092,
+    "description": "Pueblo purépecha a orillas del lago de Pátzcuaro, famoso por su celebración del Día de Muertos en la isla de Janitzio.",
+    "yearDesignated": 2002
+  },
+  {
+    "name": "Tequila",
+    "state": "Jalisco",
+    "municipality": "Tequila",
+    "latitude": 20.8820,
+    "longitude": -103.8367,
+    "description": "Cuna del tequila, rodeado de campos de agave azul declarados Patrimonio de la Humanidad por la UNESCO.",
+    "yearDesignated": 2003
+  },
+  {
+    "name": "Bacalar",
+    "state": "Quintana Roo",
+    "municipality": "Bacalar",
+    "latitude": 18.6813,
+    "longitude": -88.3951,
+    "description": "Conocido como la Laguna de los Siete Colores por sus impresionantes tonalidades de azul, con fuerte colonial español.",
+    "yearDesignated": 2006
+  },
+  {
+    "name": "Valladolid",
+    "state": "Yucatán",
+    "municipality": "Valladolid",
+    "latitude": 20.6894,
+    "longitude": -88.2015,
+    "description": "Ciudad colonial con cenotes como el Zací en pleno centro y punto de partida hacia Chichén Itzá y Ek Balam.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Real del Monte",
+    "state": "Hidalgo",
+    "municipality": "Mineral del Monte",
+    "latitude": 20.1367,
+    "longitude": -98.6680,
+    "description": "Pueblo minero con fuerte influencia inglesa, famoso por sus pastes (empanadas de origen cornish) y su mina La Dificultad.",
+    "yearDesignated": 2004
+  },
+  {
+    "name": "Huasca de Ocampo",
+    "state": "Hidalgo",
+    "municipality": "Huasca de Ocampo",
+    "latitude": 20.2036,
+    "longitude": -98.5744,
+    "description": "Primer Pueblo Mágico de México, rodeado de prismas basálticos, haciendas coloniales y bosques de oyamel.",
+    "yearDesignated": 2001
+  },
+  {
+    "name": "Mineral del Chico",
+    "state": "Hidalgo",
+    "municipality": "Mineral del Chico",
+    "latitude": 20.2252,
+    "longitude": -98.7282,
+    "description": "Pueblo enclavado en el Parque Nacional El Chico, ideal para escalada en roca, senderismo y ciclismo de montaña.",
+    "yearDesignated": 2011
+  },
+  {
+    "name": "Cuetzalan del Progreso",
+    "state": "Puebla",
+    "municipality": "Cuetzalan del Progreso",
+    "latitude": 20.0337,
+    "longitude": -97.5210,
+    "description": "Pueblo en la Sierra Norte de Puebla con cascadas, grutas y tradiciones nahuas vivas, famoso por su Danza de los Voladores.",
+    "yearDesignated": 2002
+  },
+  {
+    "name": "Izamal",
+    "state": "Yucatán",
+    "municipality": "Izamal",
+    "latitude": 20.9312,
+    "longitude": -89.0175,
+    "description": "Ciudad amarilla de Yucatán con pirámides mayas y el convento franciscano de San Antonio de Padua sobre una base prehispánica.",
+    "yearDesignated": 2002
+  },
+  {
+    "name": "San Miguel de Allende",
+    "state": "Guanajuato",
+    "municipality": "San Miguel de Allende",
+    "latitude": 20.9144,
+    "longitude": -100.7452,
+    "description": "Ciudad colonial Patrimonio de la Humanidad, famosa por la Parroquia de San Miguel Arcángel y su vibrante escena artística.",
+    "yearDesignated": 2002
+  },
+  {
+    "name": "Dolores Hidalgo",
+    "state": "Guanajuato",
+    "municipality": "Dolores Hidalgo Cuna de la Independencia Nacional",
+    "latitude": 21.1567,
+    "longitude": -100.9339,
+    "description": "Cuna de la Independencia de México donde el cura Hidalgo dio el Grito en 1810, famoso por su cerámica de Talavera.",
+    "yearDesignated": 2002
+  },
+  {
+    "name": "Bernal",
+    "state": "Querétaro",
+    "municipality": "Ezequiel Montes",
+    "latitude": 20.7415,
+    "longitude": -99.9453,
+    "description": "Pueblo dominado por la Peña de Bernal, el tercer monolito más grande del mundo, con artesanías de lana y gorditas.",
+    "yearDesignated": 2005
+  },
+  {
+    "name": "Tlalpujahua",
+    "state": "Michoacán",
+    "municipality": "Tlalpujahua",
+    "latitude": 19.8050,
+    "longitude": -100.1772,
+    "description": "Pueblo minero conocido como la capital de la esfera navideña, con hermosa arquitectura colonial y bosques circundantes.",
+    "yearDesignated": 2005
+  },
+  {
+    "name": "Mazamitla",
+    "state": "Jalisco",
+    "municipality": "Mazamitla",
+    "latitude": 19.9093,
+    "longitude": -103.0225,
+    "description": "Pueblo serrano conocido como la Suiza Mexicana por su clima fresco, bosques de pinos y cabañas de madera.",
+    "yearDesignated": 2005
+  },
+  {
+    "name": "Tapalpa",
+    "state": "Jalisco",
+    "municipality": "Tapalpa",
+    "latitude": 19.9476,
+    "longitude": -103.7583,
+    "description": "Pueblo en la sierra de Jalisco con casas de adobe blanco, piedrotas gigantes y paisajes de valle verde.",
+    "yearDesignated": 2002
+  },
+  {
+    "name": "Comala",
+    "state": "Colima",
+    "municipality": "Comala",
+    "latitude": 19.3236,
+    "longitude": -103.7595,
+    "description": "Pueblo blanco al pie del volcán de Colima, inmortalizado por Juan Rulfo en Pedro Páramo, famoso por sus botanas y ponche.",
+    "yearDesignated": 2002
+  },
+  {
+    "name": "Todos Santos",
+    "state": "Baja California Sur",
+    "municipality": "La Paz",
+    "latitude": 23.4474,
+    "longitude": -110.2236,
+    "description": "Oasis artístico y surfista en la costa del Pacífico bajacaliforniano con galerías, playas desiertas y huertas de mango.",
+    "yearDesignated": 2006
+  },
+  {
+    "name": "Loreto",
+    "state": "Baja California Sur",
+    "municipality": "Loreto",
+    "latitude": 26.0122,
+    "longitude": -111.3473,
+    "description": "Primera capital de las Californias con misión jesuita del siglo XVII y acceso al Parque Nacional Bahía de Loreto.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Creel",
+    "state": "Chihuahua",
+    "municipality": "Bocoyna",
+    "latitude": 27.7514,
+    "longitude": -107.6343,
+    "description": "Puerta de entrada a las Barrancas del Cobre, con comunidades rarámuris, bosques de pinos y el tren Chepe.",
+    "yearDesignated": 2007
+  },
+  {
+    "name": "Batopilas",
+    "state": "Chihuahua",
+    "municipality": "Batopilas",
+    "latitude": 27.0239,
+    "longitude": -107.7421,
+    "description": "Antiguo pueblo minero en el fondo de una barranca, accesible por camino serpenteante con vistas espectaculares.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Cosalá",
+    "state": "Sinaloa",
+    "municipality": "Cosalá",
+    "latitude": 24.4122,
+    "longitude": -106.6895,
+    "description": "Pueblo colonial minero en la Sierra Madre Occidental con casonas del siglo XVIII y presa de aguas termales.",
+    "yearDesignated": 2005
+  },
+  {
+    "name": "El Fuerte",
+    "state": "Sinaloa",
+    "municipality": "El Fuerte",
+    "latitude": 26.4214,
+    "longitude": -108.6183,
+    "description": "Pueblo colonial fundado en 1564, punto de partida del tren Chepe y entrada a la Barranca del Cobre desde Sinaloa.",
+    "yearDesignated": 2009
+  },
+  {
+    "name": "Álamos",
+    "state": "Sonora",
+    "municipality": "Álamos",
+    "latitude": 27.0258,
+    "longitude": -108.9413,
+    "description": "Ciudad de la plata en Sonora con portales coloniales, jardines tropicales y el Festival Alfonso Ortiz Tirado de música.",
+    "yearDesignated": 2005
+  },
+  {
+    "name": "Magdalena de Kino",
+    "state": "Sonora",
+    "municipality": "Magdalena",
+    "latitude": 30.6269,
+    "longitude": -110.9646,
+    "description": "Pueblo sonorense donde descansan los restos del padre Eusebio Francisco Kino, fundador de misiones en el noroeste.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Mapimí",
+    "state": "Durango",
+    "municipality": "Mapimí",
+    "latitude": 25.8444,
+    "longitude": -103.8492,
+    "description": "Pueblo minero colonial cerca de la Zona del Silencio, con la imponente mina de Ojuela y su puente colgante.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Parras de la Fuente",
+    "state": "Coahuila",
+    "municipality": "Parras",
+    "latitude": 25.4420,
+    "longitude": -102.1793,
+    "description": "Oasis vitivinícola en el desierto coahuilense, sede de Casa Madero, la vinícola más antigua de América (1597).",
+    "yearDesignated": 2004
+  },
+  {
+    "name": "Santiago",
+    "state": "Nuevo León",
+    "municipality": "Santiago",
+    "latitude": 25.4236,
+    "longitude": -100.1539,
+    "description": "Pueblo en la Huasteca nuevoleonesa con la Cola de Caballo, cañón de Matacanes y el Parque Ecológico La Huasteca.",
+    "yearDesignated": 2006
+  },
+  {
+    "name": "Xilitla",
+    "state": "San Luis Potosí",
+    "municipality": "Xilitla",
+    "latitude": 21.3853,
+    "longitude": -98.9928,
+    "description": "Pueblo en la Huasteca potosina con el surrealista Jardín Escultórico de Edward James entre la selva y las cascadas.",
+    "yearDesignated": 2011
+  },
+  {
+    "name": "Aquismón",
+    "state": "San Luis Potosí",
+    "municipality": "Aquismón",
+    "latitude": 21.6234,
+    "longitude": -99.0252,
+    "description": "Pueblo huasteco con el Sótano de las Golondrinas, cascada de Tamul y pozas de aguas turquesa en el río Tampaón.",
+    "yearDesignated": 2018
+  },
+  {
+    "name": "Jalpan de Serra",
+    "state": "Querétaro",
+    "municipality": "Jalpan de Serra",
+    "latitude": 21.2167,
+    "longitude": -99.4730,
+    "description": "Corazón de la Sierra Gorda con misión franciscana del siglo XVIII, Patrimonio de la Humanidad, y reserva de biósfera.",
+    "yearDesignated": 2010
+  },
+  {
+    "name": "Tecozautla",
+    "state": "Hidalgo",
+    "municipality": "Tecozautla",
+    "latitude": 20.5350,
+    "longitude": -99.6340,
+    "description": "Pueblo famoso por sus aguas termales, géiseres naturales y la zona arqueológica de Pahñú con vistas panorámicas.",
+    "yearDesignated": 2015
+  },
+  {
+    "name": "Cholula",
+    "state": "Puebla",
+    "municipality": "San Andrés Cholula",
+    "latitude": 19.0634,
+    "longitude": -98.3030,
+    "description": "Pueblo con la pirámide más grande del mundo por su base, coronada por la iglesia de los Remedios con vista al Popocatépetl.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Atlixco",
+    "state": "Puebla",
+    "municipality": "Atlixco",
+    "latitude": 18.9065,
+    "longitude": -98.4366,
+    "description": "Ciudad de las Flores con vista permanente al Popocatépetl, festival de las luces Huey Atlixcáyotl y viveros.",
+    "yearDesignated": 2015
+  },
+  {
+    "name": "Zacatlán de las Manzanas",
+    "state": "Puebla",
+    "municipality": "Zacatlán",
+    "latitude": 19.9310,
+    "longitude": -97.9598,
+    "description": "Pueblo de la Sierra Norte famoso por sus manzanas, sidra artesanal, reloj floral monumental y cascada de Quetzalapan.",
+    "yearDesignated": 2011
+  },
+  {
+    "name": "Chignahuapan",
+    "state": "Puebla",
+    "municipality": "Chignahuapan",
+    "latitude": 19.8376,
+    "longitude": -98.0298,
+    "description": "Capital mexicana de la esfera navideña con laguna central, iglesia con Cristo monumental y aguas termales.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Papantla",
+    "state": "Veracruz",
+    "municipality": "Papantla",
+    "latitude": 20.4470,
+    "longitude": -97.3216,
+    "description": "Cuna de la vainilla y los Voladores de Papantla, cerca de la zona arqueológica del Tajín, Patrimonio de la Humanidad.",
+    "yearDesignated": 2006
+  },
+  {
+    "name": "Coatepec",
+    "state": "Veracruz",
+    "municipality": "Coatepec",
+    "latitude": 19.4526,
+    "longitude": -96.9612,
+    "description": "Capital cafetalera de México con fincas visitables, orquídeas y cercanía al Pueblo Mágico de Xico y cascadas.",
+    "yearDesignated": 2006
+  },
+  {
+    "name": "Xico",
+    "state": "Veracruz",
+    "municipality": "Xico",
+    "latitude": 19.4183,
+    "longitude": -97.0081,
+    "description": "Pintoresco pueblo cafetalero al pie del Cofre de Perote con la cascada de Texolo y festividad de la Magdalena.",
+    "yearDesignated": 2011
+  },
+  {
+    "name": "Tlacotalpan",
+    "state": "Veracruz",
+    "municipality": "Tlacotalpan",
+    "latitude": 18.6182,
+    "longitude": -95.6556,
+    "description": "Ciudad ribereña Patrimonio de la Humanidad con casas de colores, portales y la fiesta de la Candelaria con toros y son jarocho.",
+    "yearDesignated": 2011
+  },
+  {
+    "name": "Sayulita",
+    "state": "Nayarit",
+    "municipality": "Bahía de Banderas",
+    "latitude": 20.8689,
+    "longitude": -105.4406,
+    "description": "Pueblo surfista y bohemio en la Riviera Nayarit con playas doradas, arte huichol y ambiente cosmopolita relajado.",
+    "yearDesignated": 2015
+  },
+  {
+    "name": "Jala",
+    "state": "Nayarit",
+    "municipality": "Jala",
+    "latitude": 21.0556,
+    "longitude": -104.4301,
+    "description": "Pueblo al pie del volcán Ceboruco, famoso por sus elotes gigantes, basílica lateranense y feria del elote.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Guanajuato",
+    "state": "Guanajuato",
+    "municipality": "Guanajuato",
+    "latitude": 21.0190,
+    "longitude": -101.2574,
+    "description": "Ciudad universitaria Patrimonio de la Humanidad con callejones subterráneos, momias, teatro Juárez y Festival Cervantino.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Salvatierra",
+    "state": "Guanajuato",
+    "municipality": "Salvatierra",
+    "latitude": 20.2131,
+    "longitude": -100.8791,
+    "description": "Primera ciudad de Guanajuato con conventos barrocos, haciendas y el puente colonial sobre el río Lerma.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Yuriria",
+    "state": "Guanajuato",
+    "municipality": "Yuriria",
+    "latitude": 20.2041,
+    "longitude": -101.1336,
+    "description": "Pueblo con laguna artificial del siglo XVI, convento agustino monumental y tradición de bordado.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Malinalco",
+    "state": "Estado de México",
+    "municipality": "Malinalco",
+    "latitude": 18.9489,
+    "longitude": -99.4942,
+    "description": "Pueblo en un valle rodeado de cerros con zona arqueológica azteca tallada en roca viva y convento agustino.",
+    "yearDesignated": 2010
+  },
+  {
+    "name": "Tepotzotlán",
+    "state": "Estado de México",
+    "municipality": "Tepotzotlán",
+    "latitude": 19.7152,
+    "longitude": -99.2236,
+    "description": "Sede del Museo Nacional del Virreinato en un espléndido complejo jesuita barroco del siglo XVIII.",
+    "yearDesignated": 2002
+  },
+  {
+    "name": "Valle de Bravo",
+    "state": "Estado de México",
+    "municipality": "Valle de Bravo",
+    "latitude": 19.1932,
+    "longitude": -100.1316,
+    "description": "Destino de fin de semana junto a un lago con deportes acuáticos, parapente, bosques y cascada Velo de Novia.",
+    "yearDesignated": 2005
+  },
+  {
+    "name": "El Oro",
+    "state": "Estado de México",
+    "municipality": "El Oro",
+    "latitude": 19.8019,
+    "longitude": -100.0103,
+    "description": "Pueblo minero con arquitectura art nouveau, teatro art déco y presa de Brockman rodeada de bosques.",
+    "yearDesignated": 2011
+  },
+  {
+    "name": "Palenque",
+    "state": "Chiapas",
+    "municipality": "Palenque",
+    "latitude": 17.4839,
+    "longitude": -91.9803,
+    "description": "Puerta de entrada a la zona arqueológica maya con el Templo de las Inscripciones, cascadas de Misol-Há y Agua Azul.",
+    "yearDesignated": 2015
+  },
+  {
+    "name": "Chiapa de Corzo",
+    "state": "Chiapas",
+    "municipality": "Chiapa de Corzo",
+    "latitude": 16.7064,
+    "longitude": -93.0142,
+    "description": "Pueblo a orillas del río Grijalva con la Fiesta Grande de Enero, lanchas al Cañón del Sumidero y fuente mudéjar.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Comitán de Domínguez",
+    "state": "Chiapas",
+    "municipality": "Comitán de Domínguez",
+    "latitude": 16.2511,
+    "longitude": -92.1339,
+    "description": "Ciudad colonial chiapaneca con lagos de Montebello, ruinas mayas de Tenam Puente y ruta del café.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Capulálpam de Méndez",
+    "state": "Oaxaca",
+    "municipality": "Capulálpam de Méndez",
+    "latitude": 17.3081,
+    "longitude": -96.4452,
+    "description": "Comunidad zapoteca en la Sierra Norte de Oaxaca con ecoturismo comunitario, bosques de niebla y medicina tradicional.",
+    "yearDesignated": 2007
+  },
+  {
+    "name": "Mazunte",
+    "state": "Oaxaca",
+    "municipality": "Santa María Tonameca",
+    "latitude": 15.6683,
+    "longitude": -96.5553,
+    "description": "Pueblo costero ecológico con centro de conservación de tortugas marinas, cosmética natural y Punta Cometa.",
+    "yearDesignated": 2015
+  },
+  {
+    "name": "Isla Mujeres",
+    "state": "Quintana Roo",
+    "municipality": "Isla Mujeres",
+    "latitude": 21.2320,
+    "longitude": -86.7335,
+    "description": "Isla caribeña frente a Cancún con playas de arena blanca, snorkel en arrecifes y el Museo Subacuático de Arte.",
+    "yearDesignated": 2015
+  },
+  {
+    "name": "Tulum",
+    "state": "Quintana Roo",
+    "municipality": "Tulum",
+    "latitude": 20.2114,
+    "longitude": -87.4654,
+    "description": "Zona arqueológica maya frente al mar Caribe con playas paradisíacas, cenotes cercanos y Gran Arrecife Maya.",
+    "yearDesignated": 2015
+  },
+  {
+    "name": "Jerez de García Salinas",
+    "state": "Zacatecas",
+    "municipality": "Jerez",
+    "latitude": 22.6476,
+    "longitude": -102.9883,
+    "description": "Pueblo de cantera con tradición charra, teatro Hinojosa, santuario de la Soledad y tamborrazo zacatecano.",
+    "yearDesignated": 2007
+  },
+  {
+    "name": "Sombrerete",
+    "state": "Zacatecas",
+    "municipality": "Sombrerete",
+    "latitude": 23.6323,
+    "longitude": -103.6409,
+    "description": "Pueblo minero con sierra de Órganos de formaciones rocosas espectaculares y conventos franciscanos del siglo XVI.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Calvillo",
+    "state": "Aguascalientes",
+    "municipality": "Calvillo",
+    "latitude": 21.8453,
+    "longitude": -102.7180,
+    "description": "Capital mundial de la guayaba con presa de Malpaso, templo barroco y feria de la guayaba cada diciembre.",
+    "yearDesignated": 2012
+  },
+  {
+    "name": "Campeche",
+    "state": "Campeche",
+    "municipality": "Campeche",
+    "latitude": 19.8446,
+    "longitude": -90.5253,
+    "description": "Ciudad amurallada Patrimonio de la Humanidad con baluartes, casas de colores pastel y malecón frente al Golfo.",
+    "yearDesignated": 2015
+  },
+  {
+    "name": "Palizada",
+    "state": "Campeche",
+    "municipality": "Palizada",
+    "latitude": 18.2528,
+    "longitude": -92.0920,
+    "description": "Pueblo ribereño con casonas de madera preciosa, iglesia del siglo XVIII y naturaleza selvática del río Palizada.",
+    "yearDesignated": 2011
+  }
+]

@@ -1,0 +1,322 @@
+[
+  {
+    "name": "Teotihuacán",
+    "state": "Estado de México",
+    "municipality": "Teotihuacán",
+    "latitude": 19.6925,
+    "longitude": -98.8438,
+    "description": "Ciudad de los Dioses con las pirámides del Sol y la Luna, la Calzada de los Muertos y el templo de Quetzalcóatl. Patrimonio de la Humanidad.",
+    "culture": "Teotihuacana",
+    "period": "100 a.C. – 650 d.C."
+  },
+  {
+    "name": "Chichén Itzá",
+    "state": "Yucatán",
+    "municipality": "Tinum",
+    "latitude": 20.6843,
+    "longitude": -88.5678,
+    "description": "Una de las Nuevas Siete Maravillas del Mundo. El Castillo de Kukulcán muestra el descenso de la serpiente emplumada durante los equinoccios.",
+    "culture": "Maya",
+    "period": "600 – 1200 d.C."
+  },
+  {
+    "name": "Palenque",
+    "state": "Chiapas",
+    "municipality": "Palenque",
+    "latitude": 17.4838,
+    "longitude": -92.0461,
+    "description": "Joya del arte maya en la selva chiapaneca. El Templo de las Inscripciones alberga la tumba del rey Pakal.",
+    "culture": "Maya",
+    "period": "226 – 799 d.C."
+  },
+  {
+    "name": "Monte Albán",
+    "state": "Oaxaca",
+    "municipality": "Oaxaca de Juárez",
+    "latitude": 17.0434,
+    "longitude": -96.7677,
+    "description": "Capital zapoteca en la cima de una montaña aplanada artificialmente. Patrimonio de la Humanidad con juego de pelota y observatorio.",
+    "culture": "Zapoteca",
+    "period": "500 a.C. – 850 d.C."
+  },
+  {
+    "name": "Tulum",
+    "state": "Quintana Roo",
+    "municipality": "Tulum",
+    "latitude": 20.2155,
+    "longitude": -87.4291,
+    "description": "Fortaleza maya amurallada con vista al mar Caribe. El Castillo se alza sobre un acantilado frente a playas de arena blanca.",
+    "culture": "Maya",
+    "period": "1200 – 1521 d.C."
+  },
+  {
+    "name": "Uxmal",
+    "state": "Yucatán",
+    "municipality": "Santa Elena",
+    "latitude": 20.3594,
+    "longitude": -89.7714,
+    "description": "Obra maestra del estilo Puuc con la Pirámide del Adivino de esquinas redondeadas y el Cuadrángulo de las Monjas.",
+    "culture": "Maya",
+    "period": "700 – 1000 d.C."
+  },
+  {
+    "name": "El Tajín",
+    "state": "Veracruz",
+    "municipality": "Papantla",
+    "latitude": 20.4475,
+    "longitude": -97.3780,
+    "description": "Ciudad de los truenos con la icónica Pirámide de los Nichos de 365 nichos. Patrimonio de la Humanidad.",
+    "culture": "Totonaca",
+    "period": "600 – 1200 d.C."
+  },
+  {
+    "name": "Templo Mayor",
+    "state": "Ciudad de México",
+    "municipality": "Cuauhtémoc",
+    "latitude": 19.4348,
+    "longitude": -99.1318,
+    "description": "Corazón ceremonial de México-Tenochtitlan en pleno Centro Histórico de CDMX. Museo de sitio con más de 14,000 piezas.",
+    "culture": "Mexica (Azteca)",
+    "period": "1325 – 1521 d.C."
+  },
+  {
+    "name": "Cholula",
+    "state": "Puebla",
+    "municipality": "San Andrés Cholula",
+    "latitude": 19.0577,
+    "longitude": -98.3017,
+    "description": "La pirámide más grande del mundo por volumen, con 8 km de túneles explorados. Coronada por la iglesia de los Remedios.",
+    "culture": "Olmeca-Xicalanca / Tolteca-Chichimeca",
+    "period": "300 a.C. – 1521 d.C."
+  },
+  {
+    "name": "Cobá",
+    "state": "Quintana Roo",
+    "municipality": "Cobá",
+    "latitude": 20.4943,
+    "longitude": -87.7362,
+    "description": "Extensa ciudad maya en la selva con la pirámide Nohoch Mul de 42 metros, la más alta de la Península de Yucatán.",
+    "culture": "Maya",
+    "period": "100 – 1550 d.C."
+  },
+  {
+    "name": "Mitla",
+    "state": "Oaxaca",
+    "municipality": "San Pablo Villa de Mitla",
+    "latitude": 16.9252,
+    "longitude": -96.3601,
+    "description": "Lugar de los Muertos zapoteca con los mosaicos de grecas de piedra más elaborados de toda Mesoamérica.",
+    "culture": "Zapoteca / Mixteca",
+    "period": "100 – 1521 d.C."
+  },
+  {
+    "name": "Xochicalco",
+    "state": "Morelos",
+    "municipality": "Miacatlán",
+    "latitude": 18.8039,
+    "longitude": -99.2957,
+    "description": "Ciudad fortaleza Patrimonio de la Humanidad con la Pirámide de la Serpiente Emplumada y observatorio astronómico subterráneo.",
+    "culture": "Epiclásica multicultural",
+    "period": "650 – 900 d.C."
+  },
+  {
+    "name": "Calakmul",
+    "state": "Campeche",
+    "municipality": "Calakmul",
+    "latitude": 18.1054,
+    "longitude": -89.8107,
+    "description": "Rival maya de Tikal en la Reserva de la Biósfera más grande de México. Patrimonio Mixto (cultural y natural) de la Humanidad.",
+    "culture": "Maya",
+    "period": "300 a.C. – 900 d.C."
+  },
+  {
+    "name": "Bonampak",
+    "state": "Chiapas",
+    "municipality": "Ocosingo",
+    "latitude": 16.7042,
+    "longitude": -91.0655,
+    "description": "Sitio famoso por sus murales polícromos mayas, los mejor conservados de Mesoamérica, que muestran escenas de guerra y ritual.",
+    "culture": "Maya",
+    "period": "580 – 800 d.C."
+  },
+  {
+    "name": "Yaxchilán",
+    "state": "Chiapas",
+    "municipality": "Ocosingo",
+    "latitude": 16.8998,
+    "longitude": -90.9667,
+    "description": "Ciudad maya en una curva del río Usumacinta, accesible solo por lancha, con dinteles esculpidos y la acrópolis mayor.",
+    "culture": "Maya",
+    "period": "250 – 810 d.C."
+  },
+  {
+    "name": "Ek Balam",
+    "state": "Yucatán",
+    "municipality": "Temozón",
+    "latitude": 20.8822,
+    "longitude": -88.1397,
+    "description": "Ciudad maya con la impresionante Acrópolis y frisos de estuco en excelente conservación, menos visitada que Chichén.",
+    "culture": "Maya",
+    "period": "300 a.C. – 1200 d.C."
+  },
+  {
+    "name": "Cacaxtla-Xochitécatl",
+    "state": "Tlaxcala",
+    "municipality": "Nativitas",
+    "latitude": 19.2462,
+    "longitude": -98.3384,
+    "description": "Murales polícromos del Epiclásico con representaciones de guerreros-ave y guerreros-jaguar únicas en Mesoamérica.",
+    "culture": "Olmeca-Xicalanca",
+    "period": "600 – 950 d.C."
+  },
+  {
+    "name": "Cantona",
+    "state": "Puebla",
+    "municipality": "Tepeyahualco",
+    "latitude": 19.5500,
+    "longitude": -97.4952,
+    "description": "Inmensa ciudad prehispánica con 24 juegos de pelota, la mayor concentración en Mesoamérica, sobre un malpaís volcánico.",
+    "culture": "Desconocida / multicultural",
+    "period": "600 – 1050 d.C."
+  },
+  {
+    "name": "Tzintzuntzan",
+    "state": "Michoacán",
+    "municipality": "Tzintzuntzan",
+    "latitude": 19.6261,
+    "longitude": -101.5783,
+    "description": "Capital del imperio purépecha con cinco yácatas (bases piramidales circulares) frente al lago de Pátzcuaro.",
+    "culture": "Purépecha (Tarasca)",
+    "period": "1000 – 1530 d.C."
+  },
+  {
+    "name": "La Venta",
+    "state": "Tabasco",
+    "municipality": "Huimanguillo",
+    "latitude": 18.1033,
+    "longitude": -94.0421,
+    "description": "Centro ceremonial olmeca donde se hallaron las colosales cabezas de piedra. Parque-museo al aire libre en Villahermosa.",
+    "culture": "Olmeca",
+    "period": "1200 – 400 a.C."
+  },
+  {
+    "name": "Tula",
+    "state": "Hidalgo",
+    "municipality": "Tula de Allende",
+    "latitude": 20.0630,
+    "longitude": -99.3405,
+    "description": "Capital tolteca con los icónicos Atlantes de 4.6 metros de altura sobre la pirámide de Tlahuizcalpantecuhtli.",
+    "culture": "Tolteca",
+    "period": "713 – 1168 d.C."
+  },
+  {
+    "name": "Malinalco",
+    "state": "Estado de México",
+    "municipality": "Malinalco",
+    "latitude": 18.9518,
+    "longitude": -99.4972,
+    "description": "Templo monolítico mexica tallado directamente en la roca del cerro, único en Mesoamérica. Cuauhcalli (casa del águila).",
+    "culture": "Mexica (Azteca)",
+    "period": "1476 – 1521 d.C."
+  },
+  {
+    "name": "Paquimé",
+    "state": "Chihuahua",
+    "municipality": "Casas Grandes",
+    "latitude": 30.3766,
+    "longitude": -107.9543,
+    "description": "Ciudad de adobe Patrimonio de la Humanidad, nexo entre Mesoamérica y el suroeste norteamericano, con edificios de hasta 5 pisos.",
+    "culture": "Culturas del Desierto (Mogollón)",
+    "period": "700 – 1450 d.C."
+  },
+  {
+    "name": "Zona Arqueológica de Becán",
+    "state": "Campeche",
+    "municipality": "Calakmul",
+    "latitude": 18.5217,
+    "longitude": -89.4658,
+    "description": "Ciudad maya fortificada con foso seco defensivo único, sobre la ruta Río Bec con torres decorativas.",
+    "culture": "Maya",
+    "period": "550 a.C. – 1000 d.C."
+  },
+  {
+    "name": "Edzná",
+    "state": "Campeche",
+    "municipality": "Campeche",
+    "latitude": 19.5934,
+    "longitude": -90.2312,
+    "description": "Ciudad maya con el Edificio de los Cinco Pisos y un elaborado sistema hidráulico de canales prehispánicos.",
+    "culture": "Maya",
+    "period": "400 a.C. – 1500 d.C."
+  },
+  {
+    "name": "Dzibilchaltún",
+    "state": "Yucatán",
+    "municipality": "Mérida",
+    "latitude": 21.0919,
+    "longitude": -89.5978,
+    "description": "Ciudad maya donde el sol cruza la puerta del Templo de las Siete Muñecas durante los equinoccios. Cenote Xlacah visitable.",
+    "culture": "Maya",
+    "period": "500 a.C. – 1540 d.C."
+  },
+  {
+    "name": "Zempoala",
+    "state": "Veracruz",
+    "municipality": "Úrsulo Galván",
+    "latitude": 19.4440,
+    "longitude": -96.4048,
+    "description": "Capital totonaca donde Cortés formó alianza contra los mexicas. Templo del Sol con 13 cuerpos y sistema de canales.",
+    "culture": "Totonaca",
+    "period": "1200 – 1521 d.C."
+  },
+  {
+    "name": "Kabah",
+    "state": "Yucatán",
+    "municipality": "Santa Elena",
+    "latitude": 20.2506,
+    "longitude": -89.6506,
+    "description": "Sitio Puuc con el Codz Pop, fachada cubierta de 260 máscaras del dios Chaac, y arco ceremonial sobre el sacbé a Uxmal.",
+    "culture": "Maya",
+    "period": "600 – 1000 d.C."
+  },
+  {
+    "name": "Tonina",
+    "state": "Chiapas",
+    "municipality": "Ocosingo",
+    "latitude": 16.9027,
+    "longitude": -92.0065,
+    "description": "Acrópolis maya más alta de Mesoamérica (75 metros) con frisos de estuco, laberinto subterráneo y campo de juego de pelota.",
+    "culture": "Maya",
+    "period": "217 – 909 d.C."
+  },
+  {
+    "name": "Guachimontones",
+    "state": "Jalisco",
+    "municipality": "Teuchitlán",
+    "latitude": 20.6944,
+    "longitude": -103.8411,
+    "description": "Pirámides circulares únicas de la tradición Teuchitlán, con el Palo Volador como rito central, frente a la presa La Vega.",
+    "culture": "Tradición Teuchitlán",
+    "period": "300 a.C. – 900 d.C."
+  },
+  {
+    "name": "Tenam Puente",
+    "state": "Chiapas",
+    "municipality": "Comitán de Domínguez",
+    "latitude": 16.2189,
+    "longitude": -92.0875,
+    "description": "Sitio maya en las tierras altas chiapanecas con juego de pelota en acantilado y vistas al valle de Comitán.",
+    "culture": "Maya",
+    "period": "600 – 1200 d.C."
+  },
+  {
+    "name": "Xlapak",
+    "state": "Yucatán",
+    "municipality": "Santa Elena",
+    "latitude": 20.2844,
+    "longitude": -89.7206,
+    "description": "Pequeño pero exquisito sitio Puuc en la Ruta Puuc con un solo edificio restaurado de fina decoración geométrica.",
+    "culture": "Maya",
+    "period": "600 – 1000 d.C."
+  }
+]

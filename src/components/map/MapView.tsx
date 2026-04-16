@@ -1,0 +1,169 @@
+'use client';
+
+import { useRef, useEffect, useCallback, useState } from 'react';
+import { useMap } from './MapProvider';
+import { MEXICO_CENTER, MEXICO_ZOOM } from '@/lib/constants';
+
+/* ------------------------------------------------------------------ */
+/*  Types                                                              */
+/* ------------------------------------------------------------------ */
+export interface MapPin {
+  id: string;
+  lat: number;
+  lng: number;
+  category?: string;
+  name?: string;
+}
+
+export interface MapBounds {
+  north: number;
+  south: number;
+  east: number;
+  west: number;
+}
+
+export interface MapViewProps {
+  /** Called once the map finishes loading */
+  onMapLoad?: (map: unknown) => void;
+  /** Markers to display */
+  markers?: MapPin[];
+  /** If supplied the map will fit these bounds on mount */
+  bounds?: MapBounds;
+  /** Tailwind classes for the wrapper div */
+  className?: string;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Component                                                          */
+/* ------------------------------------------------------------------ */
+export default function MapView({
+  onMapLoad,
+  markers: _markers,
+  bounds,
+  className = '',
+}: MapViewProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { setMap } = useMap();
+  const mapInstanceRef = useRef<mapboxgl.Map | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  /* Stable callback so we can pass to the effect without re-running */
+  const onMapLoadRef = useRef(onMapLoad);
+  onMapLoadRef.current = onMapLoad;
+
+  const boundsRef = useRef(bounds);
+  boundsRef.current = bounds;
+
+  const initMap = useCallback(async () => {
+    if (!containerRef.current || mapInstanceRef.current) return;
+
+    const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+    if (!token || token === 'your_mapbox_token') {
+      setError('missing-token');
+      return;
+    }
+
+    try {
+      /* Dynamically import mapbox-gl so the CSS is only loaded client-side */
+      const mapboxgl = (await import('mapbox-gl')).default;
+      await import('mapbox-gl/dist/mapbox-gl.css');
+
+      mapboxgl.accessToken = token;
+
+      const map = new mapboxgl.Map({
+        container: containerRef.current,
+        style: 'mapbox://styles/mapbox/light-v11',
+        center: [MEXICO_CENTER.lng, MEXICO_CENTER.lat],
+        zoom: MEXICO_ZOOM,
+        attributionControl: true,
+      });
+
+      /* Controls */
+      map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+      map.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: { enableHighAccuracy: true },
+          trackUserLocation: true,
+          showUserHeading: true,
+        }),
+        'top-right',
+      );
+      map.addControl(new mapboxgl.ScaleControl({ maxWidth: 200 }), 'bottom-left');
+
+      map.on('load', () => {
+        mapInstanceRef.current = map;
+        setMap(map);
+
+        /* Fit bounds if provided */
+        if (boundsRef.current) {
+          const { west, south, east, north } = boundsRef.current;
+          map.fitBounds(
+            [
+              [west, south],
+              [east, north],
+            ],
+            { padding: 40 },
+          );
+        }
+
+        onMapLoadRef.current?.(map);
+      });
+
+      map.on('error', (e) => {
+        console.warn('Mapbox error:', e.error?.message || e);
+      });
+    } catch (err) {
+      console.error('Failed to initialize map:', err);
+      setError('init-failed');
+    }
+  }, [setMap]);
+
+  /* Mount / cleanup */
+  useEffect(() => {
+    initMap();
+
+    return () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
+        mapInstanceRef.current = null;
+        setMap(null);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  /* Fallback when no token is configured */
+  if (error) {
+    return (
+      <div
+        className={`flex h-[calc(100dvh-4rem)] w-full items-center justify-center bg-slate-50 ${className}`}
+        aria-label="Mapa no disponible"
+      >
+        <div className="mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-orange-50">
+            <svg className="h-8 w-8 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+            </svg>
+          </div>
+          <h3 className="mb-2 text-lg font-semibold text-slate-900">
+            Mapa no disponible
+          </h3>
+          <p className="text-sm text-slate-500">
+            {error === 'missing-token'
+              ? 'Configura tu token de Mapbox en NEXT_PUBLIC_MAPBOX_TOKEN para ver el mapa interactivo.'
+              : 'No se pudo cargar el mapa. Intenta recargar la página.'}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      className={`h-[calc(100dvh-4rem)] w-full ${className}`}
+      aria-label="Mapa interactivo de México"
+    />
+  );
+}

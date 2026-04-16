@@ -1,0 +1,258 @@
+[
+  {
+    "name": "Aguascalientes",
+    "slug": "aguascalientes",
+    "abbr": "AGS",
+    "capital": "Aguascalientes",
+    "description": "Estado del Bajío famoso por la Feria Nacional de San Marcos, sus aguas termales, viñedos y la tradición de bordado en deshilado.",
+    "descriptionSeo": "Descubre Aguascalientes: la Feria de San Marcos, aguas termales, viñedos, gastronomía del Bajío y pueblos mágicos como Calvillo."
+  },
+  {
+    "name": "Baja California",
+    "slug": "baja-california",
+    "abbr": "BC",
+    "capital": "Mexicali",
+    "description": "Península norteña con la Ruta del Vino en Valle de Guadalupe, gastronomía de vanguardia en Ensenada y playas del Pacífico.",
+    "descriptionSeo": "Viaja por Baja California: Valle de Guadalupe, la Ruta del Vino, Ensenada, Tijuana, playas de Rosarito y el desierto central."
+  },
+  {
+    "name": "Baja California Sur",
+    "slug": "baja-california-sur",
+    "abbr": "BCS",
+    "capital": "La Paz",
+    "description": "Destino de aventura con el Mar de Cortés, el Arco de Cabo San Lucas, avistamiento de ballenas grises y oasis desérticos.",
+    "descriptionSeo": "Explora Baja California Sur: Los Cabos, La Paz, avistamiento de ballenas, Todos Santos, Loreto y playas vírgenes del Mar de Cortés."
+  },
+  {
+    "name": "Campeche",
+    "slug": "campeche",
+    "abbr": "CAM",
+    "capital": "San Francisco de Campeche",
+    "description": "Estado con ciudad amurallada Patrimonio de la Humanidad, la zona arqueológica maya de Calakmul y selvas tropicales.",
+    "descriptionSeo": "Descubre Campeche: ciudad amurallada, Calakmul, Edzná, Palizada, gastronomía campechana y la Reserva de la Biósfera."
+  },
+  {
+    "name": "Chiapas",
+    "slug": "chiapas",
+    "abbr": "CHIS",
+    "capital": "Tuxtla Gutiérrez",
+    "description": "Estado de contrastes con selvas, zonas arqueológicas mayas, comunidades indígenas, cascadas de Agua Azul y el Cañón del Sumidero.",
+    "descriptionSeo": "Viaja por Chiapas: Palenque, San Cristóbal de las Casas, Cañón del Sumidero, Agua Azul, Lagos de Montebello y Bonampak."
+  },
+  {
+    "name": "Chihuahua",
+    "slug": "chihuahua",
+    "abbr": "CHIH",
+    "capital": "Chihuahua",
+    "description": "Estado más grande de México con las Barrancas del Cobre, el tren Chepe, el desierto de Samalayuca y Paquimé.",
+    "descriptionSeo": "Explora Chihuahua: Barrancas del Cobre, tren Chepe, Paquimé, Creel, Batopilas y las dunas de Samalayuca."
+  },
+  {
+    "name": "Ciudad de México",
+    "slug": "ciudad-de-mexico",
+    "abbr": "CDMX",
+    "capital": "Ciudad de México",
+    "description": "Megalópolis vibrante con el Centro Histórico, Xochimilco, Coyoacán, museos de talla mundial y la mejor oferta gastronómica del país.",
+    "descriptionSeo": "Descubre CDMX: Templo Mayor, Chapultepec, Coyoacán, Xochimilco, museos, gastronomía, vida nocturna y arte urbano."
+  },
+  {
+    "name": "Coahuila",
+    "slug": "coahuila",
+    "abbr": "COAH",
+    "capital": "Saltillo",
+    "description": "Estado desértico con dunas de Bilbao, la zona vinícola de Parras de la Fuente, Cuatrociénegas y el Museo del Desierto.",
+    "descriptionSeo": "Viaja por Coahuila: Cuatrociénegas, Parras de la Fuente, dunas de Bilbao, Saltillo, Museo del Desierto y Sierra de Arteaga."
+  },
+  {
+    "name": "Colima",
+    "slug": "colima",
+    "abbr": "COL",
+    "capital": "Colima",
+    "description": "Pequeño estado dominado por el Volcán de Fuego activo, con playas en Manzanillo y el Pueblo Mágico de Comala.",
+    "descriptionSeo": "Descubre Colima: volcán de Fuego, Comala, playas de Manzanillo, lagunas de Cuyutlán y gastronomía de la costa del Pacífico."
+  },
+  {
+    "name": "Durango",
+    "slug": "durango",
+    "abbr": "DGO",
+    "capital": "Victoria de Durango",
+    "description": "Estado de la Sierra Madre Occidental con la Espinazo del Diablo, sets de cine del western, Mapimí y la Zona del Silencio.",
+    "descriptionSeo": "Explora Durango: Espinazo del Diablo, Mapimí, Zona del Silencio, Puente de Ojuela, cine western y Sierra Madre Occidental."
+  },
+  {
+    "name": "Estado de México",
+    "slug": "estado-de-mexico",
+    "abbr": "MEX",
+    "capital": "Toluca de Lerdo",
+    "description": "Estado que rodea CDMX con Teotihuacán, Valle de Bravo, Malinalco, el Nevado de Toluca y pueblos mágicos serranos.",
+    "descriptionSeo": "Viaja por el Estado de México: Teotihuacán, Valle de Bravo, Malinalco, Nevado de Toluca, Tepotzotlán y El Oro."
+  },
+  {
+    "name": "Guanajuato",
+    "slug": "guanajuato",
+    "abbr": "GTO",
+    "capital": "Guanajuato",
+    "description": "Corazón del Bajío con ciudades coloniales Patrimonio de la Humanidad, Festival Cervantino, San Miguel de Allende y ruta de la Independencia.",
+    "descriptionSeo": "Descubre Guanajuato: San Miguel de Allende, ciudad de Guanajuato, Dolores Hidalgo, Festival Cervantino, gastronomía y viñedos."
+  },
+  {
+    "name": "Guerrero",
+    "slug": "guerrero",
+    "abbr": "GRO",
+    "capital": "Chilpancingo de los Bravo",
+    "description": "Estado del Pacífico con Acapulco, Taxco de la plata, Ixtapa-Zihuatanejo y la Costa Chica con tradiciones afromexicanas.",
+    "descriptionSeo": "Explora Guerrero: Acapulco, Taxco, Ixtapa-Zihuatanejo, playas vírgenes de la Costa Grande y artesanías de plata."
+  },
+  {
+    "name": "Hidalgo",
+    "slug": "hidalgo",
+    "abbr": "HGO",
+    "capital": "Pachuca de Soto",
+    "description": "Estado serrano con pueblos mágicos mineros, prismas basálticos, grutas de Tolantongo, pastes y barbacoa tradicional.",
+    "descriptionSeo": "Viaja por Hidalgo: Huasca, Real del Monte, Mineral del Chico, Grutas de Tolantongo, Prismas Basálticos y Tula."
+  },
+  {
+    "name": "Jalisco",
+    "slug": "jalisco",
+    "abbr": "JAL",
+    "capital": "Guadalajara",
+    "description": "Cuna del tequila y el mariachi, con Guadalajara cosmopolita, Puerto Vallarta, Lago de Chapala y los pueblos serranos.",
+    "descriptionSeo": "Descubre Jalisco: Guadalajara, Tequila, Puerto Vallarta, Tapalpa, Mazamitla, Lago de Chapala y la Ruta del Tequila."
+  },
+  {
+    "name": "Michoacán",
+    "slug": "michoacan",
+    "abbr": "MICH",
+    "capital": "Morelia",
+    "description": "Estado purépecha con Morelia colonial, mariposas monarca, Pátzcuaro, Uruapan y la costa de playa Azul.",
+    "descriptionSeo": "Explora Michoacán: Morelia, Pátzcuaro, santuario de la mariposa monarca, Uruapan, Angangueo y la Meseta Purépecha."
+  },
+  {
+    "name": "Morelos",
+    "slug": "morelos",
+    "abbr": "MOR",
+    "capital": "Cuernavaca",
+    "description": "Estado de la eterna primavera con Cuernavaca, Tepoztlán, balnearios, haciendas coloniales y Xochicalco.",
+    "descriptionSeo": "Viaja por Morelos: Tepoztlán, Cuernavaca, Xochicalco, balnearios de aguas termales, haciendas y jardines tropicales."
+  },
+  {
+    "name": "Nayarit",
+    "slug": "nayarit",
+    "abbr": "NAY",
+    "capital": "Tepic",
+    "description": "Estado del Pacífico con la Riviera Nayarit, Sayulita surfista, Islas Marietas y comunidades huicholes en la sierra.",
+    "descriptionSeo": "Descubre Nayarit: Sayulita, Riviera Nayarit, Islas Marietas, Jala, arte huichol y playas vírgenes del Pacífico."
+  },
+  {
+    "name": "Nuevo León",
+    "slug": "nuevo-leon",
+    "abbr": "NL",
+    "capital": "Monterrey",
+    "description": "Estado industrial con Monterrey cosmopolita, la Huasteca, Cola de Caballo, Grutas de García y Santiago pueblo mágico.",
+    "descriptionSeo": "Explora Nuevo León: Monterrey, cañón de la Huasteca, Cola de Caballo, Santiago, Grutas de García y gastronomía norteña."
+  },
+  {
+    "name": "Oaxaca",
+    "slug": "oaxaca",
+    "abbr": "OAX",
+    "capital": "Oaxaca de Juárez",
+    "description": "Estado con la mayor diversidad cultural de México, Monte Albán, mezcal, mole, playas del Pacífico y Guelaguetza.",
+    "descriptionSeo": "Viaja por Oaxaca: ciudad de Oaxaca, Monte Albán, Hierve el Agua, costa de Puerto Escondido, mezcal, mole y Guelaguetza."
+  },
+  {
+    "name": "Puebla",
+    "slug": "puebla",
+    "abbr": "PUE",
+    "capital": "Puebla de Zaragoza",
+    "description": "Estado con centro histórico barroco, Cholula, la Sierra Norte, Talavera, mole poblano y vista al Popocatépetl.",
+    "descriptionSeo": "Descubre Puebla: centro histórico, Cholula, Cuetzalan, Zacatlán, Chignahuapan, Atlixco, mole poblano y Talavera."
+  },
+  {
+    "name": "Querétaro",
+    "slug": "queretaro",
+    "abbr": "QRO",
+    "capital": "Santiago de Querétaro",
+    "description": "Estado del Bajío con centro histórico Patrimonio, acueducto monumental, Sierra Gorda, Bernal y ruta del queso y vino.",
+    "descriptionSeo": "Explora Querétaro: centro histórico, Peña de Bernal, Sierra Gorda, Jalpan de Serra, ruta del queso y vino, Tequisquiapan."
+  },
+  {
+    "name": "Quintana Roo",
+    "slug": "quintana-roo",
+    "abbr": "QROO",
+    "capital": "Chetumal",
+    "description": "Estado caribeño con Cancún, Riviera Maya, Tulum, Bacalar, cenotes, arrecifes de coral y ruinas mayas costeras.",
+    "descriptionSeo": "Viaja por Quintana Roo: Cancún, Tulum, Playa del Carmen, Bacalar, Isla Mujeres, Cozumel, cenotes y Riviera Maya."
+  },
+  {
+    "name": "San Luis Potosí",
+    "slug": "san-luis-potosi",
+    "abbr": "SLP",
+    "capital": "San Luis Potosí",
+    "description": "Estado con la Huasteca potosina de aguas turquesa, Real de Catorce en el desierto, centro histórico barroco y Xilitla surrealista.",
+    "descriptionSeo": "Descubre San Luis Potosí: Huasteca potosina, Real de Catorce, Xilitla, cascada de Tamul, Sótano de las Golondrinas y mezcal."
+  },
+  {
+    "name": "Sinaloa",
+    "slug": "sinaloa",
+    "abbr": "SIN",
+    "capital": "Culiacán",
+    "description": "Estado costero del Pacífico con Mazatlán, El Fuerte, Cosalá y una de las gastronomías de mariscos más ricas de México.",
+    "descriptionSeo": "Explora Sinaloa: Mazatlán, El Fuerte, Cosalá, playas del Pacífico, gastronomía de mariscos y carnaval de Mazatlán."
+  },
+  {
+    "name": "Sonora",
+    "slug": "sonora",
+    "abbr": "SON",
+    "capital": "Hermosillo",
+    "description": "Estado desértico con el desierto de Altar, Álamos colonial, Puerto Peñasco, gastronomía de carne asada y tradición yaqui.",
+    "descriptionSeo": "Viaja por Sonora: Puerto Peñasco, Álamos, desierto de Altar, San Carlos, carne asada sonorense y cultura yaqui."
+  },
+  {
+    "name": "Tabasco",
+    "slug": "tabasco",
+    "abbr": "TAB",
+    "capital": "Villahermosa",
+    "description": "Estado tropical cuna de la cultura olmeca, con el Parque Museo La Venta, ríos, selvas y chocolate tabasqueño.",
+    "descriptionSeo": "Descubre Tabasco: Villahermosa, Parque La Venta, cabezas olmecas, ríos, cascadas de Agua Blanca y chocolate artesanal."
+  },
+  {
+    "name": "Tamaulipas",
+    "slug": "tamaulipas",
+    "abbr": "TAMPS",
+    "capital": "Ciudad Victoria",
+    "description": "Estado fronterizo con la Reserva de la Biósfera El Cielo, playas de Tampico, Miquihuana y la Sierra Madre Oriental.",
+    "descriptionSeo": "Explora Tamaulipas: Reserva El Cielo, Tampico, Ciudad Victoria, Sierra Madre Oriental y playas del Golfo de México."
+  },
+  {
+    "name": "Tlaxcala",
+    "slug": "tlaxcala",
+    "abbr": "TLAX",
+    "capital": "Tlaxcala de Xicohténcatl",
+    "description": "Estado más pequeño de México con murales de Cacaxtla, haciendas pulqueras, santuario de luciérnagas y tradición taurina.",
+    "descriptionSeo": "Viaja por Tlaxcala: Cacaxtla, haciendas pulqueras, santuario de luciérnagas, Val'Quirico y gastronomía tlaxcalteca."
+  },
+  {
+    "name": "Veracruz",
+    "slug": "veracruz",
+    "abbr": "VER",
+    "capital": "Xalapa",
+    "description": "Estado del Golfo con El Tajín, Tlacotalpan, Puerto de Veracruz, Coatepec cafetalero, rafting en Jalcomulco y son jarocho.",
+    "descriptionSeo": "Descubre Veracruz: El Tajín, Tlacotalpan, Coatepec, Xico, Puerto de Veracruz, Pico de Orizaba y son jarocho."
+  },
+  {
+    "name": "Yucatán",
+    "slug": "yucatan",
+    "abbr": "YUC",
+    "capital": "Mérida",
+    "description": "Estado maya con Chichén Itzá, Mérida la Ciudad Blanca, cenotes, Izamal, Valladolid y gastronomía yucateca única.",
+    "descriptionSeo": "Explora Yucatán: Chichén Itzá, Mérida, Izamal, Valladolid, cenotes, Uxmal, cochinita pibil y cultura maya viva."
+  },
+  {
+    "name": "Zacatecas",
+    "slug": "zacatecas",
+    "abbr": "ZAC",
+    "capital": "Zacatecas",
+    "description": "Estado minero con centro histórico Patrimonio, mina El Edén, Sierra de Órganos, tamborrazo y callejoneadas nocturnas.",
+    "descriptionSeo": "Viaja por Zacatecas: centro histórico, mina El Edén, Jerez, Sombrerete, Sierra de Órganos y tamborrazo zacatecano."
+  }
+]

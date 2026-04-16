@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand colors */
+  --color-terracotta: #C4532B;
+  --color-terracotta-light: #E8734D;
+  --color-terracotta-dark: #9A3E1E;
+  --color-jade: #0F766E;
+  --color-jade-light: #14B8A6;
+  --color-jade-dark: #0D5C56;
+  --color-obsidiana: #1E293B;
+  --color-obsidiana-light: #334155;
+  --color-arena: #FAFAF5;
+  --color-arena-dark: #F5F3EE;
+  --color-cantera: #F5F0EB;
+  --color-oro: #D97706;
+  --color-oro-light: #F59E0B;
+
+  /* Semantic colors — clean white light mode */
+  --color-background: #ffffff;
+  --color-foreground: #111827;
+  --color-muted: #f9fafb;
+  --color-muted-foreground: #6b7280;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #111827;
+  --color-border: #e5e7eb;
+  --color-input: #e5e7eb;
+  --color-card: #ffffff;
+  --color-card-foreground: #111827;
+  --color-primary: #C4532B;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #0F766E;
+  --color-secondary-foreground: #ffffff;
+  --color-accent: #f9fafb;
+  --color-accent-foreground: #111827;
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #fafafa;
+  --color-ring: #C4532B;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+
+  /* Radius */
+  --radius: 0.625rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base styles */
+* {
+  border-color: var(--color-border);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Map styles */
+.mapboxgl-popup-content {
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,.08), 0 4px 6px -4px rgba(0,0,0,.04);
+  border: 1px solid var(--color-border);
+  padding: 0;
+}
+
+.mapboxgl-ctrl-attrib {
+  font-size: 0.75rem;
+}
+
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(107, 114, 128, 0.15);
+  border-radius: 9999px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(196, 83, 43, 0.15);
+  color: inherit;
 }
