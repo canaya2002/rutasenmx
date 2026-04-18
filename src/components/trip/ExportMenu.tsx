@@ -19,6 +19,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuLabel,
 } from '@/components/ui/dropdown-menu';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -39,6 +40,9 @@ export interface ExportMenuProps {
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 export default function ExportMenu({ trip, className }: ExportMenuProps) {
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
+  const T = (es: string, en: string) => (isEn ? en : es);
   const [copied, setCopied] = useState(false);
 
   /* GPX export */
@@ -90,7 +94,7 @@ export default function ExportMenu({ trip, className }: ExportMenuProps) {
     try {
       await navigator.share({
         title: trip.title,
-        text: `Mira mi ruta por Mexico: ${trip.title}`,
+        text: T(`Mira mi ruta por México: ${trip.title}`, `Check out my route through Mexico: ${trip.title}`),
         url: shareUrl,
       });
     } catch {
@@ -101,7 +105,7 @@ export default function ExportMenu({ trip, className }: ExportMenuProps) {
   /* WhatsApp direct */
   const handleWhatsApp = useCallback(() => {
     const text = encodeURIComponent(
-      `Mira mi ruta por Mexico: ${trip.title} ${shareUrl}`,
+      T(`Mira mi ruta por México: ${trip.title} ${shareUrl}`, `Check out my route through Mexico: ${trip.title} ${shareUrl}`),
     );
     window.open(`https://wa.me/?text=${text}`, '_blank');
   }, [trip.title, shareUrl]);
@@ -111,25 +115,25 @@ export default function ExportMenu({ trip, className }: ExportMenuProps) {
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="sm" className={className}>
           <Download className="mr-1.5 h-4 w-4" />
-          Exportar
+          {T('Exportar', 'Export')}
         </Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end" className="w-52">
-        <DropdownMenuLabel>Exportar viaje</DropdownMenuLabel>
+        <DropdownMenuLabel>{T('Exportar viaje', 'Export trip')}</DropdownMenuLabel>
 
         <DropdownMenuItem onClick={handleGPX}>
           <Map className="mr-2 h-4 w-4" />
-          Descargar GPX
+          {T('Descargar GPX', 'Download GPX')}
         </DropdownMenuItem>
 
         <DropdownMenuItem onClick={handlePDF}>
           <FileText className="mr-2 h-4 w-4" />
-          Descargar PDF
+          {T('Descargar PDF', 'Download PDF')}
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
-        <DropdownMenuLabel>Compartir</DropdownMenuLabel>
+        <DropdownMenuLabel>{T('Compartir', 'Share')}</DropdownMenuLabel>
 
         <DropdownMenuItem onClick={handleCopyLink}>
           {copied ? (
@@ -137,18 +141,18 @@ export default function ExportMenu({ trip, className }: ExportMenuProps) {
           ) : (
             <Link2 className="mr-2 h-4 w-4" />
           )}
-          {copied ? 'Enlace copiado' : 'Copiar enlace'}
+          {copied ? T('Enlace copiado', 'Link copied') : T('Copiar enlace', 'Copy link')}
         </DropdownMenuItem>
 
         <DropdownMenuItem onClick={handleWhatsApp}>
           <MessageCircle className="mr-2 h-4 w-4" />
-          Compartir en WhatsApp
+          {T('Compartir en WhatsApp', 'Share on WhatsApp')}
         </DropdownMenuItem>
 
         {typeof navigator !== 'undefined' && 'share' in navigator && (
           <DropdownMenuItem onClick={handleWebShare}>
             <Share2 className="mr-2 h-4 w-4" />
-            Compartir...
+            {T('Compartir...', 'Share…')}
           </DropdownMenuItem>
         )}
       </DropdownMenuContent>

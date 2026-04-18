@@ -17,7 +17,7 @@ export default function AuthLayout({
           href="/"
           className="flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-600 text-lg text-white">
+          <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-black text-lg text-white">
             R
           </span>
           Rutas en MX

@@ -18,6 +18,7 @@ import {
   DISCOVERY_RADII,
 } from '@/lib/constants';
 import { cn } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -47,34 +48,56 @@ export const defaultFilterValues: MapFilterValues = {
 };
 
 /* ------------------------------------------------------------------ */
-/*  Friendly labels                                                    */
-/* ------------------------------------------------------------------ */
-const budgetLabels: Record<string, string> = {
-  economico: 'Economico',
-  moderado: 'Moderado',
-  premium: 'Premium',
-  lujo: 'Lujo',
-};
-
-const travelerLabels: Record<string, string> = {
-  familia: 'Familia',
-  pareja: 'Pareja',
-  solo: 'Solo',
-  'con-mascotas': 'Con mascotas',
-  accesible: 'Accesible',
-  'bajo-presupuesto': 'Bajo presupuesto',
-  premium: 'Premium',
-  foodie: 'Foodie',
-  cultural: 'Cultural',
-  naturaleza: 'Naturaleza',
-  aventura: 'Aventura',
-};
-
-/* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 export default function MapFilters({ values, onChange, className }: MapFiltersProps) {
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const budgetLabels: Record<string, string> = isEn
+    ? { economico: 'Budget', moderado: 'Moderate', premium: 'Premium', lujo: 'Luxury' }
+    : { economico: 'Económico', moderado: 'Moderado', premium: 'Premium', lujo: 'Lujo' };
+
+  const travelerLabels: Record<string, string> = isEn
+    ? {
+        familia: 'Family',
+        pareja: 'Couple',
+        solo: 'Solo',
+        'con-mascotas': 'With pets',
+        accesible: 'Accessible',
+        'bajo-presupuesto': 'Low budget',
+        premium: 'Premium',
+        foodie: 'Foodie',
+        cultural: 'Cultural',
+        naturaleza: 'Nature',
+        aventura: 'Adventure',
+      }
+    : {
+        familia: 'Familia',
+        pareja: 'Pareja',
+        solo: 'Solo',
+        'con-mascotas': 'Con mascotas',
+        accesible: 'Accesible',
+        'bajo-presupuesto': 'Bajo presupuesto',
+        premium: 'Premium',
+        foodie: 'Foodie',
+        cultural: 'Cultural',
+        naturaleza: 'Naturaleza',
+        aventura: 'Aventura',
+      };
+
+  const L = {
+    categories: isEn ? 'Categories' : 'Categorías',
+    state: isEn ? 'State' : 'Estado',
+    allStates: isEn ? 'All states' : 'Todos los estados',
+    budget: isEn ? 'Budget' : 'Presupuesto',
+    travelerType: isEn ? 'Traveler type' : 'Tipo de viajero',
+    nearRoute: isEn ? 'Near my route' : 'Cerca de mi ruta',
+    radius: isEn ? 'Radius:' : 'Radio:',
+    clearFilters: isEn ? 'Clear filters' : 'Limpiar filtros',
+    filters: isEn ? 'Filters' : 'Filtros',
+  };
 
   const update = useCallback(
     (patch: Partial<MapFilterValues>) => onChange({ ...values, ...patch }),
@@ -110,7 +133,7 @@ export default function MapFilters({ values, onChange, className }: MapFiltersPr
       {/* Category chips */}
       <section>
         <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-          Categorias
+          {L.categories}
         </h4>
         <div className="flex flex-wrap gap-1.5">
           {PLACE_CATEGORIES.map((cat) => {
@@ -138,14 +161,14 @@ export default function MapFilters({ values, onChange, className }: MapFiltersPr
       {/* Estado dropdown */}
       <section>
         <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-          Estado
+          {L.state}
         </h4>
         <select
           value={values.estado}
           onChange={(e) => update({ estado: e.target.value })}
           className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
         >
-          <option value="">Todos los estados</option>
+          <option value="">{L.allStates}</option>
           {ESTADOS_MEXICO.map((e) => (
             <option key={e.slug} value={e.slug}>
               {e.name}
@@ -157,7 +180,7 @@ export default function MapFilters({ values, onChange, className }: MapFiltersPr
       {/* Budget */}
       <section>
         <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-          Presupuesto
+          {L.budget}
         </h4>
         <div className="flex flex-wrap gap-1.5">
           {BUDGET_LEVELS.map((b) => (
@@ -181,7 +204,7 @@ export default function MapFilters({ values, onChange, className }: MapFiltersPr
       {/* Traveler type */}
       <section>
         <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-          Tipo de viajero
+          {L.travelerType}
         </h4>
         <div className="flex flex-wrap gap-1.5">
           {TRAVELER_TYPES.map((t) => (
@@ -226,13 +249,13 @@ export default function MapFilters({ values, onChange, className }: MapFiltersPr
           </button>
           <span className="flex items-center gap-1.5 text-sm font-medium">
             <MapPin className="h-4 w-4" />
-            Cerca de mi ruta
+            {L.nearRoute}
           </span>
         </div>
 
         {values.nearRoute && (
           <div className="mt-2 flex items-center gap-2">
-            <span className="text-xs text-slate-500">Radio:</span>
+            <span className="text-xs text-slate-500">{L.radius}</span>
             {DISCOVERY_RADII.map((r) => (
               <button
                 key={r}
@@ -256,7 +279,7 @@ export default function MapFilters({ values, onChange, className }: MapFiltersPr
       {hasActiveFilters && (
         <Button variant="ghost" size="sm" onClick={clearAll} className="w-full gap-1.5">
           <X className="h-3.5 w-3.5" />
-          Limpiar filtros
+          {L.clearFilters}
         </Button>
       )}
     </div>
@@ -273,7 +296,7 @@ export default function MapFilters({ values, onChange, className }: MapFiltersPr
       >
         <h3 className="mb-4 flex items-center gap-2 text-sm font-bold p-4 pb-0">
           <SlidersHorizontal className="h-4 w-4" />
-          Filtros
+          {L.filters}
         </h3>
         <div className="flex-1 overflow-y-auto p-4 pt-0">
           {filterBody}
@@ -290,7 +313,7 @@ export default function MapFilters({ values, onChange, className }: MapFiltersPr
         >
           <span className="flex items-center gap-2 text-sm font-semibold">
             <SlidersHorizontal className="h-4 w-4" />
-            Filtros
+            {L.filters}
             {hasActiveFilters && (
               <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-terracotta text-[10px] text-white">
                 {values.categories.length +

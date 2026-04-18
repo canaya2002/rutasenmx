@@ -3,6 +3,7 @@
 import { useRef, useEffect, useCallback, useState } from 'react';
 import { useMap } from './MapProvider';
 import { MEXICO_CENTER, MEXICO_ZOOM } from '@/lib/constants';
+import { useTranslation } from '@/components/providers/LocaleProvider';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -42,6 +43,7 @@ export default function MapView({
   bounds,
   className = '',
 }: MapViewProps) {
+  const t = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const { setMap } = useMap();
   const mapInstanceRef = useRef<mapboxgl.Map | null>(null);
@@ -124,7 +126,11 @@ export default function MapView({
 
     return () => {
       if (mapInstanceRef.current) {
-        mapInstanceRef.current.remove();
+        try {
+          mapInstanceRef.current.remove();
+        } catch {
+          // Map may already be partially destroyed during navigation
+        }
         mapInstanceRef.current = null;
         setMap(null);
       }
@@ -137,22 +143,20 @@ export default function MapView({
     return (
       <div
         className={`flex h-[calc(100dvh-4rem)] w-full items-center justify-center bg-slate-50 ${className}`}
-        aria-label="Mapa no disponible"
+        aria-label={t.map.unavailable}
       >
         <div className="mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-orange-50">
-            <svg className="h-8 w-8 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50">
+            <svg className="h-8 w-8 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
             </svg>
           </div>
           <h3 className="mb-2 text-lg font-semibold text-slate-900">
-            Mapa no disponible
+            {t.map.unavailable}
           </h3>
           <p className="text-sm text-slate-500">
-            {error === 'missing-token'
-              ? 'Configura tu token de Mapbox en NEXT_PUBLIC_MAPBOX_TOKEN para ver el mapa interactivo.'
-              : 'No se pudo cargar el mapa. Intenta recargar la página.'}
+            {error === 'missing-token' ? t.map.configureToken : t.map.loadError}
           </p>
         </div>
       </div>
@@ -163,7 +167,7 @@ export default function MapView({
     <div
       ref={containerRef}
       className={`h-[calc(100dvh-4rem)] w-full ${className}`}
-      aria-label="Mapa interactivo de México"
+      aria-label={t.map.interactive}
     />
   );
 }

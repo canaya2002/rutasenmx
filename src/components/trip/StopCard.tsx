@@ -4,6 +4,7 @@ import { GripVertical, Trash2, ChevronUp, ChevronDown, Clock, DollarSign } from 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -47,6 +48,18 @@ export default function StopCard({
   onMoveDown,
   className,
 }: StopCardProps) {
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
+  const L = {
+    moveUp: isEn ? 'Move up' : 'Mover arriba',
+    moveDown: isEn ? 'Move down' : 'Mover abajo',
+    stopNum: (n: number) => (isEn ? `Stop ${n}` : `Parada ${n}`),
+    day: isEn ? 'Day' : 'Día',
+    arrival: isEn ? 'Arrival' : 'Llegada',
+    departure: isEn ? 'Departure' : 'Salida',
+    notesOptional: isEn ? 'Notes (optional)' : 'Notas (opcional)',
+    removeStop: isEn ? 'Remove stop' : 'Eliminar parada',
+  };
   return (
     <div
       className={cn(
@@ -64,7 +77,7 @@ export default function StopCard({
               type="button"
               onClick={onMoveUp}
               className="rounded p-0.5 hover:bg-muted"
-              aria-label="Mover arriba"
+              aria-label={L.moveUp}
             >
               <ChevronUp className="h-3 w-3 text-muted-foreground" />
             </button>
@@ -74,7 +87,7 @@ export default function StopCard({
               type="button"
               onClick={onMoveDown}
               className="rounded p-0.5 hover:bg-muted"
-              aria-label="Mover abajo"
+              aria-label={L.moveDown}
             >
               <ChevronDown className="h-3 w-3 text-muted-foreground" />
             </button>
@@ -84,7 +97,7 @@ export default function StopCard({
         {/* Name */}
         <div className="flex-1 space-y-2">
           <Input
-            placeholder={`Parada ${index + 1}`}
+            placeholder={L.stopNum(index + 1)}
             value={stop.name}
             onChange={(e) => onChange({ name: e.target.value })}
             className="h-8 text-sm font-medium"
@@ -95,7 +108,7 @@ export default function StopCard({
             {/* Day */}
             <div className="flex items-center gap-1">
               <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                Dia
+                {L.day}
               </span>
               <Input
                 type="number"
@@ -143,7 +156,7 @@ export default function StopCard({
           <div className="flex flex-wrap items-center gap-2">
             <div className="flex items-center gap-1">
               <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                Llegada
+                {L.arrival}
               </span>
               <Input
                 type="time"
@@ -154,7 +167,7 @@ export default function StopCard({
             </div>
             <div className="flex items-center gap-1">
               <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                Salida
+                {L.departure}
               </span>
               <Input
                 type="time"
@@ -167,7 +180,7 @@ export default function StopCard({
 
           {/* Notes */}
           <textarea
-            placeholder="Notas (opcional)"
+            placeholder={L.notesOptional}
             value={stop.notes}
             onChange={(e) => onChange({ notes: e.target.value })}
             rows={2}
@@ -181,7 +194,7 @@ export default function StopCard({
           size="icon"
           className="h-7 w-7 shrink-0 opacity-0 transition-opacity group-hover:opacity-100"
           onClick={onRemove}
-          aria-label="Eliminar parada"
+          aria-label={L.removeStop}
         >
           <Trash2 className="h-3.5 w-3.5 text-destructive" />
         </Button>

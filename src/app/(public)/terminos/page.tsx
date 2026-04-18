@@ -4,320 +4,483 @@ import { buildPageMetadata } from '@/lib/seo/metadata';
 import { buildBreadcrumbs } from '@/lib/seo/breadcrumbs';
 import { buildBreadcrumbSchema } from '@/lib/seo/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { getLocale } from '@/lib/i18n/server';
+import { LegalShell, type LegalSection } from '@/components/legal/LegalShell';
 
 const PAGE_PATH = '/terminos';
-const PAGE_TITLE = 'Terminos de servicio';
+const PAGE_TITLE = 'Términos de servicio / Terms of service';
 const PAGE_DESCRIPTION =
-  'Terminos y condiciones de uso de la plataforma Rutas en MX. Lee las reglas que rigen el uso de nuestros servicios de planificacion de viajes.';
+  'Condiciones que rigen el uso de la plataforma Rutas en MX: cuentas, planes, contenido del usuario, propiedad intelectual, responsabilidades y resolución de conflictos.';
+const LAST_UPDATED = '2026-04-18';
+const EFFECTIVE = '2026-04-18';
+const VERSION = 'v2.1';
 
 export function generateMetadata(): Metadata {
   return buildPageMetadata({
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
     path: PAGE_PATH,
-    noIndex: true,
   });
 }
 
-export default function TerminosPage() {
-  const breadcrumbs = buildBreadcrumbs([{ label: 'Terminos de servicio', href: PAGE_PATH }]);
+const SECTIONS_ES: LegalSection[] = [
+  { id: 'aceptacion',    title: 'Aceptación de los términos' },
+  { id: 'descripcion',   title: 'Descripción del servicio' },
+  { id: 'cuentas',       title: 'Cuentas y registro' },
+  { id: 'planes',        title: 'Planes y facturación' },
+  { id: 'cancelacion',   title: 'Cancelación y reembolsos' },
+  { id: 'uso-aceptable', title: 'Uso aceptable' },
+  { id: 'contenido',     title: 'Contenido del usuario' },
+  { id: 'propiedad',     title: 'Propiedad intelectual' },
+  { id: 'terceros',      title: 'Servicios de terceros' },
+  { id: 'garantias',     title: 'Descargo de garantías' },
+  { id: 'responsabilidad', title: 'Limitación de responsabilidad' },
+  { id: 'indemnizacion', title: 'Indemnización' },
+  { id: 'terminacion',   title: 'Suspensión y terminación' },
+  { id: 'cambios',       title: 'Cambios a los términos' },
+  { id: 'ley-aplicable', title: 'Ley aplicable y jurisdicción' },
+  { id: 'contacto',      title: 'Contacto' },
+];
+
+const SECTIONS_EN: LegalSection[] = [
+  { id: 'aceptacion',    title: 'Acceptance of terms' },
+  { id: 'descripcion',   title: 'Service description' },
+  { id: 'cuentas',       title: 'Accounts & registration' },
+  { id: 'planes',        title: 'Plans & billing' },
+  { id: 'cancelacion',   title: 'Cancellation & refunds' },
+  { id: 'uso-aceptable', title: 'Acceptable use' },
+  { id: 'contenido',     title: 'User content' },
+  { id: 'propiedad',     title: 'Intellectual property' },
+  { id: 'terceros',      title: 'Third-party services' },
+  { id: 'garantias',     title: 'Disclaimer of warranties' },
+  { id: 'responsabilidad', title: 'Limitation of liability' },
+  { id: 'indemnizacion', title: 'Indemnification' },
+  { id: 'terminacion',   title: 'Suspension & termination' },
+  { id: 'cambios',       title: 'Changes to the terms' },
+  { id: 'ley-aplicable', title: 'Governing law & jurisdiction' },
+  { id: 'contacto',      title: 'Contact' },
+];
+
+export default async function TerminosPage() {
+  const locale = await getLocale();
+  const isEn = locale === 'en';
+  const breadcrumbs = buildBreadcrumbs([
+    { label: isEn ? 'Terms of service' : 'Términos de servicio', href: PAGE_PATH },
+  ]);
   const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbs);
+
+  const title = isEn ? 'Terms of service' : 'Términos de servicio';
+  const kicker = isEn ? 'Legal · Terms' : 'Legal · Términos';
+  const summary = isEn
+    ? 'The rules that govern your use of Rutas en MX: accounts, paid plans, user content, intellectual property and how we resolve disputes.'
+    : 'Las reglas que rigen tu uso de Rutas en MX: cuentas, planes de pago, contenido del usuario, propiedad intelectual y resolución de conflictos.';
 
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
+      <LegalShell
+        title={title}
+        kicker={kicker}
+        summary={summary}
+        lastUpdated={LAST_UPDATED}
+        effectiveDate={EFFECTIVE}
+        version={VERSION}
+        readingMinutes={11}
+        isEn={isEn}
+        current="terminos"
+        sections={isEn ? SECTIONS_EN : SECTIONS_ES}
+      >
+        {isEn ? <TermsEn /> : <TermsEs />}
+      </LegalShell>
+    </>
+  );
+}
 
-      <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-zinc-500">
-          <ol className="flex items-center gap-2">
-            {breadcrumbs.map((item, idx) => (
-              <li key={item.href} className="flex items-center gap-2">
-                {idx > 0 && <span aria-hidden="true">/</span>}
-                {idx === breadcrumbs.length - 1 ? (
-                  <span className="text-zinc-900">{item.label}</span>
-                ) : (
-                  <Link href={item.href} className="hover:text-zinc-900">
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ol>
-        </nav>
+function TermsEs() {
+  return (
+    <>
+      <section id="aceptacion">
+        <h2>1. Aceptación de los términos</h2>
+        <p>
+          Al crear una cuenta o utilizar cualquier parte del sitio{' '}
+          <strong>rutasenmx.com</strong> aceptas estos Términos de Servicio
+          (&ldquo;Términos&rdquo;) y nuestra{' '}
+          <Link href="/privacidad">Política de privacidad</Link>. Si no estás de
+          acuerdo, no utilices la plataforma.
+        </p>
+      </section>
 
-        {/* Hero */}
-        <header className="mb-12">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl">
-            Terminos de servicio
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
-            Al acceder y utilizar Rutas en MX aceptas estos terminos de servicio. Te recomendamos
-            leerlos con atencion antes de usar nuestra plataforma.
-          </p>
-          <p className="mt-2 text-sm text-zinc-500">
-            Ultima actualizacion: 16 de abril de 2026
-          </p>
-        </header>
+      <section id="descripcion">
+        <h2>2. Descripción del servicio</h2>
+        <p>
+          Rutas en MX es una plataforma editorial e interactiva para descubrir y
+          planear viajes por carretera en México. Ofrece:
+        </p>
+        <ul>
+          <li>Catálogos de Pueblos Mágicos, museos, zonas arqueológicas y otros puntos de interés.</li>
+          <li>Rutas curadas, guías editoriales y un planificador con IA.</li>
+          <li>Mapas interactivos, exportación de itinerarios y colaboración entre viajeros.</li>
+        </ul>
+      </section>
 
-        <div className="space-y-10">
-          {/* 1. Aceptacion */}
-          <section>
-            <h2 className="text-2xl font-bold text-zinc-900">
-              1. Aceptacion de los terminos
-            </h2>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Estos terminos de servicio (&quot;Terminos&quot;) constituyen un acuerdo legal entre
-              tu (&quot;Usuario&quot;) y Rutas en MX (&quot;Nosotros&quot;, &quot;la
-              Plataforma&quot;). Al crear una cuenta, navegar por el sitio web o utilizar cualquiera
-              de nuestros servicios, aceptas cumplir con estos Terminos y con nuestra{' '}
-              <Link href="/privacidad" className="text-blue-600 hover:underline">
-                politica de privacidad
-              </Link>
-              .
-            </p>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Si no estas de acuerdo con estos Terminos, no debes utilizar la Plataforma.
-            </p>
-          </section>
+      <section id="cuentas">
+        <h2>3. Cuentas y registro</h2>
+        <ul>
+          <li>Debes tener al menos <strong>16 años</strong> para crear una cuenta.</li>
+          <li>Eres responsable de mantener la confidencialidad de tu contraseña.</li>
+          <li>Sólo puedes crear una cuenta personal; cada cuenta es intransferible.</li>
+          <li>Debes proporcionar información verídica y mantenerla actualizada.</li>
+        </ul>
+      </section>
 
-          {/* 2. Descripcion del servicio */}
-          <section>
-            <h2 className="text-2xl font-bold text-zinc-900">
-              2. Descripcion del servicio
-            </h2>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Rutas en MX es una plataforma de planificacion de viajes por carretera en Mexico que
-              ofrece:
-            </p>
-            <ul className="mt-3 list-disc space-y-2 pl-6 text-zinc-600">
-              <li>
-                Un directorio de destinos turisticos incluyendo{' '}
-                <Link
-                  href="/pueblos-magicos"
-                  className="text-blue-600 hover:underline"
-                >
-                  Pueblos Magicos
-                </Link>
-                ,{' '}
-                <Link href="/museos" className="text-blue-600 hover:underline">
-                  museos
-                </Link>{' '}
-                y{' '}
-                <Link
-                  href="/zonas-arqueologicas"
-                  className="text-blue-600 hover:underline"
-                >
-                  zonas arqueologicas
-                </Link>
-                .
-              </li>
-              <li>Herramientas de planificacion de rutas e itinerarios.</li>
-              <li>Guias de viaje y contenido editorial.</li>
-              <li>Informacion sobre costos, distancias y tiempos de recorrido.</li>
-            </ul>
-          </section>
+      <section id="planes">
+        <h2>4. Planes y facturación</h2>
+        <h3>4.1. Planes disponibles</h3>
+        <p>
+          Ofrecemos un plan gratuito y planes de pago (Basic, Pro, Premium) cuyos
+          precios y beneficios se detallan en{' '}
+          <Link href="/precios">/precios</Link>. Los precios están expresados en
+          pesos mexicanos (MXN) o dólares estadounidenses (USD), según tu país.
+        </p>
+        <h3>4.2. Facturación</h3>
+        <ul>
+          <li>Los pagos se procesan mediante <strong>Stripe</strong>.</li>
+          <li>La suscripción se renueva automáticamente al final de cada ciclo salvo que la canceles.</li>
+          <li>Podemos modificar los precios con al menos 30 días de aviso por correo.</li>
+          <li>Los impuestos aplicables (IVA, etc.) se añaden al momento del cobro.</li>
+        </ul>
+      </section>
 
-          {/* 3. Cuentas de usuario */}
-          <section>
-            <h2 className="text-2xl font-bold text-zinc-900">
-              3. Cuentas de usuario
-            </h2>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Para acceder a ciertas funcionalidades es necesario crear una cuenta. Al hacerlo te
-              comprometes a:
-            </p>
-            <ul className="mt-3 list-disc space-y-2 pl-6 text-zinc-600">
-              <li>Proporcionar informacion veraz y actualizada.</li>
-              <li>Mantener la confidencialidad de tus credenciales de acceso.</li>
-              <li>Notificarnos de cualquier uso no autorizado de tu cuenta.</li>
-              <li>No crear mas de una cuenta por persona.</li>
-            </ul>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Nos reservamos el derecho de suspender o cancelar cuentas que violen estos Terminos.
-            </p>
-          </section>
+      <section id="cancelacion">
+        <h2>5. Cancelación y reembolsos</h2>
+        <ul>
+          <li>Puedes cancelar tu suscripción en cualquier momento desde <Link href="/suscripcion">/suscripcion</Link>; conservarás las funciones pagadas hasta el final del ciclo vigente.</li>
+          <li>Ofrecemos reembolso completo dentro de los primeros <strong>14 días</strong> de un nuevo cargo, siempre que no hayas exportado itinerarios o descargado archivos premium.</li>
+          <li>No hay reembolsos prorrateados por ciclos ya transcurridos.</li>
+        </ul>
+      </section>
 
-          {/* 4. Uso aceptable */}
-          <section>
-            <h2 className="text-2xl font-bold text-zinc-900">
-              4. Uso aceptable
-            </h2>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Al usar la Plataforma te comprometes a no:
-            </p>
-            <ul className="mt-3 list-disc space-y-2 pl-6 text-zinc-600">
-              <li>
-                Realizar scraping, mineria de datos o extraccion automatizada de contenido sin
-                autorizacion escrita.
-              </li>
-              <li>
-                Intentar acceder a areas restringidas del sistema o vulnerar medidas de seguridad.
-              </li>
-              <li>Utilizar el servicio para fines ilegales o no autorizados.</li>
-              <li>
-                Publicar contenido ofensivo, difamatorio, falso o que infrinja derechos de
-                terceros.
-              </li>
-              <li>
-                Sobrecargar intencionalmente la infraestructura del servicio.
-              </li>
-              <li>
-                Suplantar la identidad de otra persona o entidad.
-              </li>
-            </ul>
-          </section>
+      <section id="uso-aceptable">
+        <h2>6. Uso aceptable</h2>
+        <p>No puedes usar la plataforma para:</p>
+        <ul>
+          <li>Realizar scraping automatizado, ingeniería inversa o redistribuir el contenido sin licencia.</li>
+          <li>Subir contenido ilegal, difamatorio, discriminatorio, violento o sexualmente explícito.</li>
+          <li>Hacerte pasar por otra persona, empresa o funcionario.</li>
+          <li>Intentar vulnerar la seguridad de la plataforma o acceder a datos ajenos.</li>
+          <li>Usar el servicio para spam, phishing o cualquier actividad fraudulenta.</li>
+        </ul>
+      </section>
 
-          {/* 5. Propiedad intelectual */}
-          <section>
-            <h2 className="text-2xl font-bold text-zinc-900">
-              5. Propiedad intelectual
-            </h2>
-            <p className="mt-4 text-zinc-600 leading-7">
-              El contenido de la Plataforma, incluyendo textos, diseno, logotipos, iconografia y
-              codigo fuente, es propiedad de Rutas en MX o se utiliza bajo licencia. Los datos
-              provenientes de fuentes gubernamentales se utilizan conforme a las politicas de datos
-              abiertos del gobierno de Mexico. Consulta nuestra pagina de{' '}
-              <Link
-                href="/fuentes-de-datos"
-                className="text-blue-600 hover:underline"
-              >
-                fuentes de datos
-              </Link>{' '}
-              para mas informacion.
-            </p>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Los itinerarios y rutas que crees son de tu propiedad. Al publicar contenido en la
-              Plataforma (resenas, fotos, comentarios), nos otorgas una licencia no exclusiva,
-              mundial y libre de regalias para utilizarlo con fines de mejora del servicio.
-            </p>
-          </section>
+      <section id="contenido">
+        <h2>7. Contenido del usuario</h2>
+        <p>
+          Tú conservas la propiedad sobre el contenido que subes (viajes, reseñas,
+          fotos). Al publicarlo, nos otorgas una licencia mundial, no exclusiva,
+          libre de regalías para mostrarlo, reproducirlo y adaptarlo dentro de la
+          plataforma. Esta licencia termina cuando eliminas el contenido, salvo
+          copias en respaldos por hasta 30 días.
+        </p>
+        <p>
+          Nos reservamos el derecho de revisar y eliminar contenido que viole estos
+          Términos, nuestra <Link href="/politica-editorial">Política editorial</Link>{' '}
+          o cualquier ley aplicable.
+        </p>
+      </section>
 
-          {/* 6. Planes y pagos */}
-          <section>
-            <h2 className="text-2xl font-bold text-zinc-900">
-              6. Planes y pagos
-            </h2>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Rutas en MX ofrece un plan gratuito y planes de pago con funcionalidades adicionales.
-              Consulta los detalles en la pagina de{' '}
-              <Link href="/precios" className="text-blue-600 hover:underline">
-                precios
-              </Link>
-              . Al contratar un plan de pago:
-            </p>
-            <ul className="mt-3 list-disc space-y-2 pl-6 text-zinc-600">
-              <li>
-                Los pagos se procesan a traves de Stripe y estan sujetos a sus terminos de
-                servicio.
-              </li>
-              <li>
-                Las suscripciones se renuevan automaticamente al final de cada periodo, salvo que
-                canceles antes.
-              </li>
-              <li>
-                Los precios estan en pesos mexicanos (MXN) e incluyen IVA cuando corresponda.
-              </li>
-              <li>
-                Puedes cancelar tu suscripcion en cualquier momento. El acceso al plan pagado se
-                mantendra hasta el final del periodo ya pagado.
-              </li>
-            </ul>
-          </section>
+      <section id="propiedad">
+        <h2>8. Propiedad intelectual</h2>
+        <ul>
+          <li>La marca, el logo, el diseño y el código son propiedad de Rutas en MX.</li>
+          <li>Las guías editoriales están licenciadas bajo <strong>CC BY-NC 4.0</strong> (atribución, no comercial).</li>
+          <li>Los datos oficiales de SECTUR, INAH y SIC Cultura se usan bajo sus licencias abiertas respectivas; ver <Link href="/fuentes-de-datos">fuentes de datos</Link>.</li>
+          <li>Las fotografías con créditos de autor conservan los derechos de sus autores.</li>
+        </ul>
+      </section>
 
-          {/* 7. Limitacion de responsabilidad */}
-          <section>
-            <h2 className="text-2xl font-bold text-zinc-900">
-              7. Limitacion de responsabilidad
-            </h2>
-            <p className="mt-4 text-zinc-600 leading-7">
-              La informacion proporcionada en la Plataforma tiene fines informativos y de
-              planificacion. Aunque nos esforzamos por mantener datos precisos y actualizados:
-            </p>
-            <ul className="mt-3 list-disc space-y-2 pl-6 text-zinc-600">
-              <li>
-                No garantizamos la exactitud, integridad o vigencia de la informacion sobre
-                destinos, horarios, precios o condiciones de las carreteras.
-              </li>
-              <li>
-                No somos responsables de danos, perdidas o inconvenientes derivados del uso de la
-                informacion de la Plataforma.
-              </li>
-              <li>
-                Recomendamos siempre verificar la informacion directamente con las autoridades
-                locales antes de emprender un viaje.
-              </li>
-              <li>
-                Los tiempos y costos estimados son aproximados y pueden variar segun las
-                condiciones reales.
-              </li>
-            </ul>
-          </section>
+      <section id="terceros">
+        <h2>9. Servicios de terceros</h2>
+        <p>
+          La plataforma integra servicios de Stripe, Mapbox, Amazon Web Services,
+          Google Maps (enlaces profundos) y otros. Al utilizarlos aceptas también
+          sus términos. No somos responsables del contenido ni del desempeño de
+          dichos servicios externos.
+        </p>
+      </section>
 
-          {/* 8. Disponibilidad */}
-          <section>
-            <h2 className="text-2xl font-bold text-zinc-900">
-              8. Disponibilidad del servicio
-            </h2>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Nos esforzamos por mantener la Plataforma disponible las 24 horas, los 7 dias de la
-              semana. Sin embargo, no garantizamos disponibilidad ininterrumpida. Podemos realizar
-              mantenimiento programado o experimentar interrupciones por causas ajenas a nuestro
-              control.
-            </p>
-          </section>
+      <section id="garantias">
+        <h2>10. Descargo de garantías</h2>
+        <p>
+          El servicio se provee <strong>&ldquo;tal cual&rdquo; y &ldquo;según
+          disponibilidad&rdquo;</strong>. Hacemos esfuerzos razonables por
+          mantener la información precisa y actualizada, pero no garantizamos:
+        </p>
+        <ul>
+          <li>Que los lugares estén abiertos a una hora específica.</li>
+          <li>Que los precios mostrados (casetas, gasolina, entradas) sean exactos.</li>
+          <li>Que las rutas estén libres de obstáculos, cierres o condiciones climáticas adversas.</li>
+        </ul>
+        <p>Siempre verifica con la fuente oficial antes de iniciar un viaje.</p>
+      </section>
 
-          {/* 9. Modificaciones */}
-          <section>
-            <h2 className="text-2xl font-bold text-zinc-900">
-              9. Modificaciones a los terminos
-            </h2>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Podemos modificar estos Terminos en cualquier momento. Los cambios significativos se
-              comunicaran a traves de la Plataforma o por correo electronico con al menos 15 dias de
-              anticipacion. El uso continuado de la Plataforma despues de las modificaciones implica
-              la aceptacion de los nuevos Terminos.
-            </p>
-          </section>
+      <section id="responsabilidad">
+        <h2>11. Limitación de responsabilidad</h2>
+        <p>
+          En la medida máxima permitida por la ley, Rutas en MX no será responsable
+          por daños indirectos, incidentales, consecuentes o punitivos, incluidos
+          pero no limitados a pérdida de datos, ingresos, utilidades o
+          oportunidades.
+        </p>
+        <p>
+          Nuestra responsabilidad total agregada no excederá el monto que hayas
+          pagado en los <strong>12 meses</strong> anteriores al evento que dio
+          lugar al reclamo.
+        </p>
+      </section>
 
-          {/* 10. Ley aplicable */}
-          <section>
-            <h2 className="text-2xl font-bold text-zinc-900">
-              10. Ley aplicable y jurisdiccion
-            </h2>
-            <p className="mt-4 text-zinc-600 leading-7">
-              Estos Terminos se rigen por las leyes de los Estados Unidos Mexicanos. Cualquier
-              controversia derivada de estos Terminos se sometera a la jurisdiccion de los
-              tribunales competentes en la Ciudad de Mexico, renunciando las partes a cualquier otro
-              fuero que pudiera corresponderles.
-            </p>
-          </section>
+      <section id="indemnizacion">
+        <h2>12. Indemnización</h2>
+        <p>
+          Aceptas indemnizar y mantener libre de reclamos a Rutas en MX, sus
+          directivos, empleados y afiliados, por cualquier acción derivada de (i)
+          tu uso indebido del servicio, (ii) el contenido que subes o (iii) tu
+          incumplimiento de estos Términos.
+        </p>
+      </section>
 
-          {/* 11. Contacto */}
-          <section className="rounded-2xl border border-zinc-200 bg-zinc-50 p-8">
-            <h2 className="text-xl font-bold text-zinc-900">
-              Preguntas sobre estos terminos?
-            </h2>
-            <p className="mt-2 text-zinc-600">
-              Si tienes dudas sobre nuestros terminos de servicio, contactanos.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-4">
-              <a
-                href="mailto:soporte@rutasenmx.com"
-                className="inline-block rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
-              >
-                soporte@rutasenmx.com
-              </a>
-              <Link
-                href="/contacto"
-                className="inline-block rounded-lg border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-100"
-              >
-                Formulario de contacto
-              </Link>
-            </div>
-          </section>
-        </div>
-      </main>
+      <section id="terminacion">
+        <h2>13. Suspensión y terminación</h2>
+        <p>Podemos suspender o terminar tu cuenta, previa notificación razonable cuando sea posible, si:</p>
+        <ul>
+          <li>Incumples estos Términos o la política de uso aceptable.</li>
+          <li>Detectamos actividad fraudulenta, abusiva o ilegal.</li>
+          <li>Lo requiere una autoridad competente.</li>
+        </ul>
+        <p>
+          Puedes cerrar tu cuenta en cualquier momento desde la configuración del
+          perfil. Al cerrarla se aplican los plazos de retención descritos en la
+          Política de privacidad.
+        </p>
+      </section>
+
+      <section id="cambios">
+        <h2>14. Cambios a los términos</h2>
+        <p>
+          Podemos actualizar estos Términos. Los cambios materiales se notifican por
+          correo con al menos <strong>30 días</strong> de anticipación y el
+          historial completo se publica en{' '}
+          <Link href="/correcciones">/correcciones</Link>. El uso continuado tras la
+          fecha de vigencia implica aceptación.
+        </p>
+      </section>
+
+      <section id="ley-aplicable">
+        <h2>15. Ley aplicable y jurisdicción</h2>
+        <p>
+          Estos Términos se rigen por las leyes de los <strong>Estados Unidos
+          Mexicanos</strong>. Cualquier controversia se someterá a los tribunales
+          competentes de la <strong>Ciudad de México</strong>, renunciando
+          expresamente a cualquier otra jurisdicción que pudiera corresponder.
+        </p>
+      </section>
+
+      <section id="contacto">
+        <h2>16. Contacto</h2>
+        <ul>
+          <li><strong>Correo:</strong> <a href="mailto:legal@rutasenmx.com">legal@rutasenmx.com</a></li>
+          <li><strong>Formulario:</strong> <Link href="/contacto">/contacto</Link></li>
+        </ul>
+      </section>
+    </>
+  );
+}
+
+function TermsEn() {
+  return (
+    <>
+      <section id="aceptacion">
+        <h2>1. Acceptance of terms</h2>
+        <p>
+          By creating an account or using any part of <strong>rutasenmx.com</strong>{' '}
+          you agree to these Terms of Service and our{' '}
+          <Link href="/privacidad">Privacy Policy</Link>. If you do not agree, do
+          not use the platform.
+        </p>
+      </section>
+
+      <section id="descripcion">
+        <h2>2. Service description</h2>
+        <p>Rutas en MX is an editorial and interactive platform to discover and plan road trips across Mexico. It offers:</p>
+        <ul>
+          <li>Catalogues of Pueblos Mágicos, museums, archaeological zones and other points of interest.</li>
+          <li>Curated routes, editorial guides and an AI planner.</li>
+          <li>Interactive maps, itinerary exports and collaboration between travellers.</li>
+        </ul>
+      </section>
+
+      <section id="cuentas">
+        <h2>3. Accounts &amp; registration</h2>
+        <ul>
+          <li>You must be at least <strong>16 years old</strong> to open an account.</li>
+          <li>You are responsible for keeping your password confidential.</li>
+          <li>One personal account only; accounts are non-transferable.</li>
+          <li>You must provide truthful information and keep it up to date.</li>
+        </ul>
+      </section>
+
+      <section id="planes">
+        <h2>4. Plans &amp; billing</h2>
+        <h3>4.1. Available plans</h3>
+        <p>
+          We offer a free plan and paid plans (Basic, Pro, Premium). Prices and
+          benefits are listed at <Link href="/precios">/pricing</Link>. Prices are
+          shown in Mexican pesos (MXN) or US dollars (USD) based on your country.
+        </p>
+        <h3>4.2. Billing</h3>
+        <ul>
+          <li>Payments are processed through <strong>Stripe</strong>.</li>
+          <li>Subscriptions renew automatically at the end of each cycle unless you cancel.</li>
+          <li>We may change prices with at least 30 days&rsquo; email notice.</li>
+          <li>Applicable taxes (VAT, etc.) are added at checkout.</li>
+        </ul>
+      </section>
+
+      <section id="cancelacion">
+        <h2>5. Cancellation &amp; refunds</h2>
+        <ul>
+          <li>Cancel anytime from <Link href="/suscripcion">/subscription</Link>; you keep paid features until the end of the current cycle.</li>
+          <li>Full refund available within the first <strong>14 days</strong> of a new charge, provided you have not exported itineraries or downloaded premium files.</li>
+          <li>No pro-rated refunds for elapsed cycles.</li>
+        </ul>
+      </section>
+
+      <section id="uso-aceptable">
+        <h2>6. Acceptable use</h2>
+        <p>You may not use the platform to:</p>
+        <ul>
+          <li>Perform automated scraping, reverse engineering or redistribute content without a licence.</li>
+          <li>Upload illegal, defamatory, discriminatory, violent or sexually explicit content.</li>
+          <li>Impersonate any person, company or official.</li>
+          <li>Attempt to breach platform security or access other users&rsquo; data.</li>
+          <li>Use the service for spam, phishing or any fraudulent activity.</li>
+        </ul>
+      </section>
+
+      <section id="contenido">
+        <h2>7. User content</h2>
+        <p>
+          You retain ownership of the content you upload (trips, reviews, photos).
+          By posting, you grant us a worldwide, non-exclusive, royalty-free licence
+          to display, reproduce and adapt it on the platform. This licence ends
+          when you delete the content, except for backup copies kept for up to 30
+          days.
+        </p>
+        <p>
+          We reserve the right to review and remove content that violates these
+          Terms, our <Link href="/politica-editorial">Editorial Policy</Link> or any
+          applicable law.
+        </p>
+      </section>
+
+      <section id="propiedad">
+        <h2>8. Intellectual property</h2>
+        <ul>
+          <li>Brand, logo, design and code are owned by Rutas en MX.</li>
+          <li>Editorial guides are licensed under <strong>CC BY-NC 4.0</strong> (attribution, non-commercial).</li>
+          <li>Official SECTUR, INAH and SIC Cultura data is used under their respective open licences; see <Link href="/fuentes-de-datos">data sources</Link>.</li>
+          <li>Photographs credited to their authors retain those authors&rsquo; rights.</li>
+        </ul>
+      </section>
+
+      <section id="terceros">
+        <h2>9. Third-party services</h2>
+        <p>
+          The platform integrates services from Stripe, Mapbox, Amazon Web Services,
+          Google Maps (deep links) and others. Using them implies accepting their
+          own terms. We are not responsible for the content or performance of such
+          third-party services.
+        </p>
+      </section>
+
+      <section id="garantias">
+        <h2>10. Disclaimer of warranties</h2>
+        <p>
+          The service is provided <strong>&ldquo;as is&rdquo; and &ldquo;as available&rdquo;</strong>.
+          We make reasonable efforts to keep the information accurate and
+          up-to-date, but we do not warrant that:
+        </p>
+        <ul>
+          <li>Places are open at a given time.</li>
+          <li>Displayed prices (tolls, fuel, entrance fees) are exact.</li>
+          <li>Routes are free of obstacles, closures or adverse weather.</li>
+        </ul>
+        <p>Always check with the official source before departing.</p>
+      </section>
+
+      <section id="responsabilidad">
+        <h2>11. Limitation of liability</h2>
+        <p>
+          To the fullest extent permitted by law, Rutas en MX is not liable for
+          indirect, incidental, consequential or punitive damages, including loss
+          of data, revenue, profit or opportunity.
+        </p>
+        <p>
+          Our total aggregate liability will not exceed the amount you have paid in
+          the <strong>12 months</strong> prior to the event giving rise to the
+          claim.
+        </p>
+      </section>
+
+      <section id="indemnizacion">
+        <h2>12. Indemnification</h2>
+        <p>
+          You agree to indemnify and hold Rutas en MX, its officers, employees and
+          affiliates harmless from any claim arising out of (i) misuse of the
+          service, (ii) content you upload, or (iii) your breach of these Terms.
+        </p>
+      </section>
+
+      <section id="terminacion">
+        <h2>13. Suspension &amp; termination</h2>
+        <p>We may suspend or terminate your account, with reasonable notice when possible, if:</p>
+        <ul>
+          <li>You breach these Terms or the acceptable-use policy.</li>
+          <li>We detect fraudulent, abusive or illegal activity.</li>
+          <li>A competent authority requires it.</li>
+        </ul>
+        <p>
+          You can close your account any time from profile settings. Retention
+          windows described in the Privacy Policy apply afterwards.
+        </p>
+      </section>
+
+      <section id="cambios">
+        <h2>14. Changes to the terms</h2>
+        <p>
+          We may update these Terms. Material changes are notified by email at
+          least <strong>30 days</strong> in advance and the full history is
+          published at <Link href="/correcciones">/corrections</Link>. Continued
+          use after the effective date constitutes acceptance.
+        </p>
+      </section>
+
+      <section id="ley-aplicable">
+        <h2>15. Governing law &amp; jurisdiction</h2>
+        <p>
+          These Terms are governed by the laws of the <strong>United Mexican
+          States</strong>. Any dispute will be submitted to the competent courts
+          of <strong>Mexico City</strong>, expressly waiving any other
+          jurisdiction that may apply.
+        </p>
+      </section>
+
+      <section id="contacto">
+        <h2>16. Contact</h2>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:legal@rutasenmx.com">legal@rutasenmx.com</a></li>
+          <li><strong>Form:</strong> <Link href="/contacto">/contact</Link></li>
+        </ul>
+      </section>
     </>
   );
 }

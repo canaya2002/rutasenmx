@@ -32,6 +32,7 @@ import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { formatDistance, formatDuration } from '@/lib/utils';
 import type { TripStop } from './StopCard';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -63,6 +64,8 @@ function SortableStop({
   stop: TripStop;
   onRemove: () => void;
 }) {
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
   const {
     attributes,
     listeners,
@@ -92,7 +95,7 @@ function SortableStop({
       >
         <GripVertical className="h-4 w-4 text-muted-foreground" />
       </button>
-      <span className="flex-1 truncate text-sm">{stop.name || 'Sin nombre'}</span>
+      <span className="flex-1 truncate text-sm">{stop.name || (isEn ? 'Untitled' : 'Sin nombre')}</span>
       {stop.durationMinutes > 0 && (
         <span className="flex items-center gap-0.5 text-xs text-muted-foreground">
           <Clock className="h-3 w-3" />
@@ -103,7 +106,7 @@ function SortableStop({
         type="button"
         onClick={onRemove}
         className="rounded p-1 hover:bg-muted"
-        aria-label="Eliminar"
+        aria-label={isEn ? 'Remove' : 'Eliminar'}
       >
         <Trash2 className="h-3.5 w-3.5 text-destructive" />
       </button>
@@ -120,6 +123,9 @@ export default function ItineraryBuilder({
   isSaving,
   className,
 }: ItineraryBuilderProps) {
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
+  const T = useCallback((es: string, en: string) => (isEn ? en : es), [isEn]);
   const [printMode, setPrintMode] = useState(false);
 
   const sensors = useSensors(
@@ -136,12 +142,12 @@ export default function ItineraryBuilder({
       {
         id: crypto.randomUUID(),
         dayNumber: days.length + 1,
-        title: `Dia ${days.length + 1}`,
+        title: T(`Día ${days.length + 1}`, `Day ${days.length + 1}`),
         notes: '',
         stops: [],
       },
     ]);
-  }, [days, onChange]);
+  }, [days, onChange, T]);
 
   const removeDay = useCallback(
     (dayId: string) => {
@@ -240,19 +246,19 @@ export default function ItineraryBuilder({
       <div className="flex items-center justify-between">
         <h3 className="flex items-center gap-2 text-lg font-bold">
           <CalendarDays className="h-5 w-5" />
-          Itinerario
+          {T('Itinerario', 'Itinerary')}
         </h3>
         <div className="flex items-center gap-2">
           {isSaving !== undefined && (
             <span className="text-xs text-muted-foreground">
-              {isSaving ? 'Guardando...' : 'Guardado'}
+              {isSaving ? T('Guardando...', 'Saving…') : T('Guardado', 'Saved')}
             </span>
           )}
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setPrintMode((p) => !p)}
-            aria-label="Vista de impresion"
+            aria-label={T('Vista de impresión', 'Print view')}
           >
             <Printer className="h-4 w-4" />
           </Button>
@@ -285,14 +291,14 @@ export default function ItineraryBuilder({
                 <Clock className="h-3 w-3" />
                 {formatDuration(dayAggregates[di].totalMinutes)}
               </span>
-              <span>{dayAggregates[di].stopCount} paradas</span>
+              <span>{dayAggregates[di].stopCount} {T('paradas', 'stops')}</span>
             </div>
             <Button
               variant="ghost"
               size="icon"
               className="h-7 w-7"
               onClick={() => removeDay(day.id)}
-              aria-label={`Eliminar dia ${day.dayNumber}`}
+              aria-label={T(`Eliminar día ${day.dayNumber}`, `Remove day ${day.dayNumber}`)}
             >
               <Trash2 className="h-3.5 w-3.5 text-destructive" />
             </Button>
@@ -301,7 +307,7 @@ export default function ItineraryBuilder({
           {/* Day notes */}
           <div className="border-b border-border px-4 py-2">
             <textarea
-              placeholder="Notas del dia..."
+              placeholder={T('Notas del día...', "Day's notes…")}
               value={day.notes}
               onChange={(e) => updateDay(day.id, { notes: e.target.value })}
               rows={1}
@@ -337,7 +343,7 @@ export default function ItineraryBuilder({
               onClick={() => addStopToDay(day.id)}
             >
               <Plus className="h-3.5 w-3.5" />
-              Agregar parada
+              {T('Agregar parada', 'Add stop')}
             </Button>
           </div>
         </section>
@@ -345,7 +351,7 @@ export default function ItineraryBuilder({
 
       <Button variant="outline" onClick={addDay} className="w-full gap-1.5">
         <Plus className="h-4 w-4" />
-        Agregar dia
+        {T('Agregar día', 'Add day')}
       </Button>
     </div>
   );

@@ -1,6 +1,10 @@
 // ---------------------------------------------------------------------------
-// Mock data for RutasEnMX public SEO pages
+// Mock data + real data for RutasEnMX public SEO pages
 // ---------------------------------------------------------------------------
+
+import { allRealPlaces } from './real-places';
+import extraPlacesJson from '../../../data/seeds/extra-places.json';
+import pueblosMagicosSeed from '../../../data/seeds/pueblos-magicos.json';
 
 export interface MockState {
   slug: string;
@@ -18,7 +22,7 @@ export interface MockPlace {
   name: string;
   stateSlug: string;
   stateName: string;
-  category: 'pueblos-magicos' | 'museos' | 'zonas-arqueologicas';
+  category: 'pueblos-magicos' | 'museos' | 'zonas-arqueologicas' | 'playas' | 'cenotes' | 'haciendas' | 'centros-historicos';
   categoryName: string;
   lat: number;
   lng: number;
@@ -39,6 +43,9 @@ export interface MockRouteStop {
   order: number;
   stayMinutes: number;
   note: string;
+  /** Optional fallback coordinates when `placeSlug` can't be resolved to a MockPlace. */
+  lat?: number;
+  lng?: number;
 }
 
 export interface MockRoute {
@@ -2489,6 +2496,103 @@ export const mockPlaces: MockPlace[] = [
 ];
 
 // ---------------------------------------------------------------------------
+// Merge real government data into mockPlaces
+// ---------------------------------------------------------------------------
+
+// Convert real places to MockPlace format and merge (avoiding slug collisions)
+const _existingSlugs = new Set(mockPlaces.map((p) => p.slug));
+
+// Government API data (museos, zonas arqueológicas)
+for (const rp of allRealPlaces) {
+  if (_existingSlugs.has(rp.slug)) continue;
+  _existingSlugs.add(rp.slug);
+  mockPlaces.push({
+    id: rp.id,
+    slug: rp.slug,
+    name: rp.name,
+    stateSlug: rp.stateSlug,
+    stateName: rp.state,
+    category: rp.category as MockPlace['category'],
+    categoryName: rp.categoryName,
+    lat: rp.lat,
+    lng: rp.lng,
+    description: rp.description,
+    longDescription: rp.description,
+    badges: rp.badges,
+    image: '',
+  });
+}
+
+// Official SECTUR Pueblos Mágicos seed (lat/lng verified)
+function stateNameToSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+function slugifyName(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+for (const pm of pueblosMagicosSeed as Array<{
+  name: string; state: string; municipality: string;
+  latitude: number; longitude: number; description: string; yearDesignated: number;
+}>) {
+  const slug = slugifyName(pm.name);
+  if (_existingSlugs.has(slug)) continue;
+  _existingSlugs.add(slug);
+  mockPlaces.push({
+    id: `pm-${slug}`,
+    slug,
+    name: pm.name,
+    stateSlug: stateNameToSlug(pm.state),
+    stateName: pm.state,
+    category: 'pueblos-magicos',
+    categoryName: 'Pueblo Mágico',
+    lat: pm.latitude,
+    lng: pm.longitude,
+    description: pm.description,
+    longDescription: pm.description,
+    badges: ['pueblo-magico', 'sectur-oficial'],
+    image: '',
+  });
+}
+
+// Extra seed data (playas, cenotes, haciendas, centros históricos)
+const catNames: Record<string, string> = {
+  playas: 'Playa',
+  cenotes: 'Cenote',
+  haciendas: 'Hacienda',
+  'centros-historicos': 'Centro histórico',
+};
+for (const ep of extraPlacesJson) {
+  const slug = ep.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  if (_existingSlugs.has(slug)) continue;
+  _existingSlugs.add(slug);
+  mockPlaces.push({
+    id: `extra-${slug}`,
+    slug,
+    name: ep.name,
+    stateSlug: ep.stateSlug,
+    stateName: ep.state,
+    category: ep.category as MockPlace['category'],
+    categoryName: catNames[ep.category] || ep.category,
+    lat: ep.lat,
+    lng: ep.lng,
+    description: ep.description,
+    longDescription: ep.description,
+    badges: [],
+    image: '',
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Routes
 // ---------------------------------------------------------------------------
 
@@ -2552,7 +2656,12 @@ export const mockRoutes: MockRoute[] = [
     drivingHours: 15,
     difficulty: 'moderada',
     stops: [
-      { placeSlug: 'creel', placeName: 'Creel', order: 1, stayMinutes: 480, note: 'Base para explorar la Sierra Tarahumara' },
+      { placeSlug: 'chihuahua', placeName: 'Chihuahua', order: 1, stayMinutes: 0,   note: 'Punto de partida del tren Chepe Express.', lat: 28.6353, lng: -106.0889 },
+      { placeSlug: 'creel',     placeName: 'Creel',     order: 2, stayMinutes: 480, note: 'Pueblo Mágico base para explorar la Sierra Tarahumara.', lat: 27.7508, lng: -107.6358 },
+      { placeSlug: 'divisadero',placeName: 'Divisadero',order: 3, stayMinutes: 180, note: 'Mirador icónico del Parque de Aventura Barrancas del Cobre con el teleférico y la tirolesa.', lat: 27.5342, lng: -107.8258 },
+      { placeSlug: 'bahuichivo',placeName: 'Bahuichivo',order: 4, stayMinutes: 120, note: 'Estación clave para conectar con Cerocahui y el mirador del Cerro del Gallego.', lat: 27.3333, lng: -108.2000 },
+      { placeSlug: 'el-fuerte', placeName: 'El Fuerte', order: 5, stayMinutes: 300, note: 'Pueblo Mágico colonial a orillas del río, base alternativa al descenso final.', lat: 26.4189, lng: -108.6200 },
+      { placeSlug: 'los-mochis',placeName: 'Los Mochis',order: 6, stayMinutes: 180, note: 'Destino final; desde aquí puedes conectar con la costa del Pacífico.', lat: 25.7903, lng: -108.9981 },
     ],
     highlights: ['Tren Chepe por la Sierra Madre', 'Barrancas más profundas que el Gran Cañón', 'Cultura rarámuri', 'Paisajes dramáticos'],
     estimatedCostMXN: 950000,

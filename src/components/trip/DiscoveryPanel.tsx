@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { PLACE_CATEGORIES, DISCOVERY_RADII, TRAVELER_TYPES } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { formatDistance, formatDuration } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -41,20 +42,6 @@ function categoryName(slug: string) {
   return PLACE_CATEGORIES.find((c) => c.slug === slug)?.name ?? slug;
 }
 
-const travelerLabels: Record<string, string> = {
-  familia: 'Familia',
-  pareja: 'Pareja',
-  solo: 'Solo',
-  'con-mascotas': 'Con mascotas',
-  accesible: 'Accesible',
-  'bajo-presupuesto': 'Bajo presupuesto',
-  premium: 'Premium',
-  foodie: 'Foodie',
-  cultural: 'Cultural',
-  naturaleza: 'Naturaleza',
-  aventura: 'Aventura',
-};
-
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
@@ -64,6 +51,38 @@ export default function DiscoveryPanel({
   loading = false,
   className,
 }: DiscoveryPanelProps) {
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
+  const T = (es: string, en: string) => (isEn ? en : es);
+
+  const travelerLabels: Record<string, string> = isEn
+    ? {
+        familia: 'Family',
+        pareja: 'Couple',
+        solo: 'Solo',
+        'con-mascotas': 'With pets',
+        accesible: 'Accessible',
+        'bajo-presupuesto': 'Low budget',
+        premium: 'Premium',
+        foodie: 'Foodie',
+        cultural: 'Cultural',
+        naturaleza: 'Nature',
+        aventura: 'Adventure',
+      }
+    : {
+        familia: 'Familia',
+        pareja: 'Pareja',
+        solo: 'Solo',
+        'con-mascotas': 'Con mascotas',
+        accesible: 'Accesible',
+        'bajo-presupuesto': 'Bajo presupuesto',
+        premium: 'Premium',
+        foodie: 'Foodie',
+        cultural: 'Cultural',
+        naturaleza: 'Naturaleza',
+        aventura: 'Aventura',
+      };
+
   const [radius, setRadius] = useState<number>(10);
   const [categoryFilter, setCategoryFilter] = useState<string>('');
   const [travelerFilter, setTravelerFilter] = useState<string>('');
@@ -81,13 +100,13 @@ export default function DiscoveryPanel({
     <div className={cn('space-y-5', className)}>
       <h3 className="flex items-center gap-2 text-sm font-bold">
         <Compass className="h-4 w-4 text-terracotta" />
-        Descubre cerca de tu ruta
+        {T('Descubre cerca de tu ruta', 'Discover near your route')}
       </h3>
 
       {/* Radius selector */}
       <div>
         <span className="mb-1.5 block text-xs text-muted-foreground">
-          Radio de busqueda
+          {T('Radio de búsqueda', 'Search radius')}
         </span>
         <div className="flex gap-2">
           {DISCOVERY_RADII.map((r) => (
@@ -110,13 +129,13 @@ export default function DiscoveryPanel({
 
       {/* Category filter */}
       <div>
-        <span className="mb-1.5 block text-xs text-muted-foreground">Categoria</span>
+        <span className="mb-1.5 block text-xs text-muted-foreground">{T('Categoría', 'Category')}</span>
         <select
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
           className="flex h-8 w-full rounded-md border border-input bg-background px-3 py-1 text-xs focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
         >
-          <option value="">Todas</option>
+          <option value="">{T('Todas', 'All')}</option>
           {PLACE_CATEGORIES.map((c) => (
             <option key={c.slug} value={c.slug}>
               {c.name}
@@ -128,7 +147,7 @@ export default function DiscoveryPanel({
       {/* Traveler type filter */}
       <div>
         <span className="mb-1.5 block text-xs text-muted-foreground">
-          Tipo de viajero
+          {T('Tipo de viajero', 'Traveler type')}
         </span>
         <div className="flex flex-wrap gap-1.5">
           {TRAVELER_TYPES.map((t) => (
@@ -155,13 +174,13 @@ export default function DiscoveryPanel({
       <div className="space-y-2">
         {loading && (
           <p className="py-4 text-center text-xs text-muted-foreground">
-            Buscando lugares...
+            {T('Buscando lugares...', 'Searching places…')}
           </p>
         )}
 
         {!loading && filtered.length === 0 && (
           <p className="py-4 text-center text-xs text-muted-foreground">
-            No se encontraron lugares dentro de {radius} km de tu ruta.
+            {T(`No se encontraron lugares dentro de ${radius} km de tu ruta.`, `No places found within ${radius} km of your route.`)}
           </p>
         )}
 
@@ -231,7 +250,7 @@ export default function DiscoveryPanel({
                 )}
                 <span className="flex items-center gap-0.5">
                   <Route className="h-3 w-3" />
-                  {formatDistance(result.distanceFromRouteKm)} de la ruta
+                  {formatDistance(result.distanceFromRouteKm)} {T('de la ruta', 'from route')}
                 </span>
                 <span className="flex items-center gap-0.5">
                   <Clock className="h-3 w-3" />+{formatDuration(result.detourMinutes)}
@@ -246,7 +265,7 @@ export default function DiscoveryPanel({
               onClick={() => onAddToTrip(result.id)}
             >
               <Plus className="h-3 w-3" />
-              Agregar
+              {T('Agregar', 'Add')}
             </Button>
           </div>
         ))}

@@ -16,6 +16,7 @@
     "import:museos": "tsx scripts/import/sic-museos.ts",
     "import:zonas": "tsx scripts/import/inah-zonas.ts",
     "import:seed": "tsx scripts/seed.ts",
+    "fetch:real-data": "tsx scripts/fetch-all-places.ts",
     "seo:audit": "tsx scripts/seo-audit.ts",
     "seo:keywords": "tsx scripts/generate-keyword-universe.ts",
     "seo:validate-sitemaps": "tsx scripts/validate-sitemaps.ts",

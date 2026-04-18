@@ -46,7 +46,7 @@ function categoryMeta(slug?: string) {
 
 function badgeLabel(badge: string): string {
   const map: Record<string, string> = {
-    'pueblo-magico': 'Pueblo Magico',
+    'pueblo-magico': 'Pueblo Mágico',
     inah: 'INAH',
     'patrimonio-mundial': 'UNESCO',
   };
@@ -240,7 +240,7 @@ function buildPopupHtml(opts: {
     .join(' ');
 
   const detailLink = slug
-    ? `<a href="/lugar/${slug}" style="font-size:12px;color:${color};font-weight:600;text-decoration:underline;">Ver detalles</a>`
+    ? `<a href="/lugares/${slug}" style="font-size:12px;color:${color};font-weight:600;text-decoration:underline;">Ver detalles</a>`
     : '';
 
   return `

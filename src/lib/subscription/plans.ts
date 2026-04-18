@@ -160,12 +160,68 @@ export function canAccess(plan: PlanSlug, featureKey: string): boolean {
 }
 
 /** Format price in MXN from cents */
-export function formatPlanPrice(cents: number): string {
-  if (cents === 0) return 'Gratis';
-  return new Intl.NumberFormat('es-MX', {
+export function formatPlanPrice(cents: number, locale: 'es' | 'en' = 'es'): string {
+  if (cents === 0) return locale === 'en' ? 'Free' : 'Gratis';
+  return new Intl.NumberFormat(locale === 'en' ? 'en-US' : 'es-MX', {
     style: 'currency',
     currency: 'MXN',
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(cents / 100);
+}
+
+// ── i18n for plan labels ────────────────────────────────────────────────────
+const PLAN_NAME_EN: Record<PlanSlug, string> = {
+  free: 'Free',
+  basic: 'Basic',
+  pro: 'Pro',
+  premium: 'Premium',
+};
+
+const PLAN_DESC_EN: Record<PlanSlug, string> = {
+  free: 'To explore and try the platform',
+  basic: 'For frequent travelers',
+  pro: 'For passionate travelers',
+  premium: 'The complete experience',
+};
+
+const FEATURE_LABELS_EN: Record<string, (slug: PlanSlug) => string> = {
+  trips: (slug) => {
+    if (slug === 'free') return '1 saved trip';
+    if (slug === 'basic') return '3 saved trips';
+    if (slug === 'pro') return '5 saved trips';
+    return 'Unlimited trips';
+  },
+  stops: (slug) => {
+    if (slug === 'free') return 'Up to 7 stops per trip';
+    if (slug === 'basic') return 'Up to 20 stops per trip';
+    if (slug === 'pro') return 'Up to 50 stops per trip';
+    return 'Up to 150 stops per trip';
+  },
+  map: () => 'Basic map',
+  explore: () => 'Place exploration',
+  seo_pages: () => 'Public SEO pages',
+  pdf_export: () => 'PDF/GPX export',
+  no_ads: () => 'Ad-free',
+  collaboration: () => 'Collaboration',
+  ai_autopilot: () => 'AI Autopilot',
+  offline: () => 'Offline mode',
+};
+
+/** Return a localized version of a plan */
+export function localizePlan(plan: Plan, locale: 'es' | 'en'): Plan {
+  if (locale !== 'en') return plan;
+  return {
+    ...plan,
+    name: PLAN_NAME_EN[plan.slug] ?? plan.name,
+    description: PLAN_DESC_EN[plan.slug] ?? plan.description,
+    features: plan.features.map((f) => ({
+      ...f,
+      label: FEATURE_LABELS_EN[f.key]?.(plan.slug) ?? f.label,
+    })),
+  };
+}
+
+export function getLocalizedPlans(locale: 'es' | 'en'): Plan[] {
+  return PLANS.map((p) => localizePlan(p, locale));
 }

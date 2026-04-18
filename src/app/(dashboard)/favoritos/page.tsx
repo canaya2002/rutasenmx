@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import { db, savedPlaces, places, placeCategories } from '@/db';
 import { eq, desc } from 'drizzle-orm';
 import Link from 'next/link';
+import { getTranslations, getLocale } from '@/lib/i18n/server';
 
 export const metadata: Metadata = {
   title: 'Favoritos',
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
 export default async function FavoritosPage() {
   const session = await getSession();
   if (!session) redirect('/iniciar-sesion');
+  const t = await getTranslations();
+  const locale = await getLocale();
+  const isEn = locale === 'en';
 
   const favorites = await db
     .select({
@@ -37,10 +41,12 @@ export default async function FavoritosPage() {
     <div>
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-slate-900">
-          Favoritos
+          {t.common.favorites}
         </h1>
         <p className="mt-1 text-sm text-slate-500">
-          {favorites.length} lugar{favorites.length !== 1 ? 'es' : ''} guardado{favorites.length !== 1 ? 's' : ''}
+          {isEn
+            ? `${favorites.length} saved place${favorites.length !== 1 ? 's' : ''}`
+            : `${favorites.length} lugar${favorites.length !== 1 ? 'es' : ''} guardado${favorites.length !== 1 ? 's' : ''}`}
         </p>
       </div>
 
@@ -50,16 +56,18 @@ export default async function FavoritosPage() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
           <h2 className="mb-2 text-lg font-semibold text-slate-900">
-            No tienes favoritos aun
+            {isEn ? 'No favorites yet' : 'No tienes favoritos aún'}
           </h2>
           <p className="mb-6 text-sm text-slate-500">
-            Explora lugares y guarda tus favoritos para encontrarlos facilmente.
+            {isEn
+              ? 'Explore places and save your favorites to find them easily.'
+              : 'Explora lugares y guarda tus favoritos para encontrarlos fácilmente.'}
           </p>
           <Link
             href="/explorar"
-            className="rounded-lg bg-orange-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-700"
+            className="rounded-lg bg-black px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-gray-800"
           >
-            Explorar lugares
+            {isEn ? 'Explore places' : 'Explorar lugares'}
           </Link>
         </div>
       ) : (
@@ -79,7 +87,7 @@ export default async function FavoritosPage() {
                   />
                 ) : (
                   <div className="flex h-full items-center justify-center text-slate-400">
-                    Sin imagen
+                    {isEn ? 'No image' : 'Sin imagen'}
                   </div>
                 )}
               </div>
@@ -88,7 +96,7 @@ export default async function FavoritosPage() {
               <div className="p-4">
                 <Link
                   href={`/lugares/${fav.placeSlug}`}
-                  className="font-semibold text-slate-900 hover:text-orange-600"
+                  className="font-semibold text-slate-900 hover:text-emerald-600"
                 >
                   {fav.placeName}
                 </Link>

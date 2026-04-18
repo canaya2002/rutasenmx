@@ -2,13 +2,24 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { PLANS, formatPlanPrice, type BillingInterval } from '@/lib/subscription/plans';
+import { getLocalizedPlans, formatPlanPrice, type BillingInterval } from '@/lib/subscription/plans';
+import { useLocale, useTranslation } from '@/components/providers/LocaleProvider';
 
 interface PricingTableProps {
   currentPlan?: string;
 }
 
 export function PricingTable({ currentPlan }: PricingTableProps) {
+  const t = useTranslation();
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
+  const shortMonth = isEn ? 'mo' : 'mes';
+  const shortYear = isEn ? 'yr' : 'año';
+  const currentPlanLabel = t.subscription.currentPlan;
+  const startFreeLabel = t.subscription.startFree;
+  const changePlanLabel = t.subscription.changePlan;
+  const subscribeLabel = t.subscription.subscribe;
+  const PLANS = getLocalizedPlans(locale);
   const [interval, setInterval] = useState<BillingInterval>('monthly');
 
   return (
@@ -20,7 +31,7 @@ export function PricingTable({ currentPlan }: PricingTableProps) {
             interval === 'monthly' ? 'text-slate-900' : 'text-slate-500'
           }`}
         >
-          Mensual
+          {t.subscription.monthly}
         </span>
         <button
           type="button"
@@ -28,7 +39,7 @@ export function PricingTable({ currentPlan }: PricingTableProps) {
           aria-checked={interval === 'annual'}
           onClick={() => setInterval(interval === 'monthly' ? 'annual' : 'monthly')}
           className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${
-            interval === 'annual' ? 'bg-orange-600' : 'bg-slate-200'
+            interval === 'annual' ? 'bg-black' : 'bg-slate-200'
           }`}
         >
           <span
@@ -42,9 +53,9 @@ export function PricingTable({ currentPlan }: PricingTableProps) {
             interval === 'annual' ? 'text-slate-900' : 'text-slate-500'
           }`}
         >
-          Anual
+          {t.subscription.annual}
           <span className="ml-1 rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">
-            Ahorra hasta 33%
+            {t.subscription.saveUp}
           </span>
         </span>
       </div>
@@ -61,13 +72,13 @@ export function PricingTable({ currentPlan }: PricingTableProps) {
               key={plan.slug}
               className={`relative flex flex-col rounded-xl border p-6 ${
                 isRecommended
-                  ? 'border-orange-600 shadow-lg shadow-orange-100'
+                  ? 'border-black shadow-lg shadow-emerald-100'
                   : 'border-slate-200'
               }`}
             >
               {isRecommended && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-orange-600 px-3 py-1 text-xs font-semibold text-white">
-                  Recomendado
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
+                  {t.subscription.recommended}
                 </div>
               )}
 
@@ -80,11 +91,11 @@ export function PricingTable({ currentPlan }: PricingTableProps) {
 
               <div className="mt-4">
                 <span className="text-3xl font-bold text-slate-900">
-                  {formatPlanPrice(price)}
+                  {formatPlanPrice(price, locale)}
                 </span>
                 {price > 0 && (
                   <span className="text-sm text-slate-500">
-                    /{interval === 'monthly' ? 'mes' : 'año'}
+                    /{interval === 'monthly' ? shortMonth : shortYear}
                   </span>
                 )}
               </div>
@@ -127,25 +138,25 @@ export function PricingTable({ currentPlan }: PricingTableProps) {
               <div className="mt-6">
                 {isCurrent ? (
                   <div className="w-full rounded-lg border border-slate-300 bg-slate-50 px-4 py-2.5 text-center text-sm font-medium text-slate-600">
-                    Plan actual
+                    {currentPlanLabel}
                   </div>
                 ) : plan.slug === 'free' ? (
                   <Link
                     href="/registrarse"
                     className="block w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-center text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
                   >
-                    Empezar gratis
+                    {startFreeLabel}
                   </Link>
                 ) : (
                   <Link
                     href={`/api/stripe/checkout?plan=${plan.slug}&interval=${interval}`}
                     className={`block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold shadow-sm transition ${
                       isRecommended
-                        ? 'bg-orange-600 text-white hover:bg-orange-700'
-                        : 'border border-orange-600 text-orange-600 hover:bg-orange-50'
+                        ? 'bg-black text-white hover:bg-gray-800'
+                        : 'border border-black text-emerald-600 hover:bg-emerald-50'
                     }`}
                   >
-                    {currentPlan ? 'Cambiar plan' : 'Suscribirse'}
+                    {currentPlan ? changePlanLabel : subscribeLabel}
                   </Link>
                 )}
               </div>

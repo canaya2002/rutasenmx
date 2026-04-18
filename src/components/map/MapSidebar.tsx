@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { PLACE_CATEGORIES } from '@/lib/constants';
 import { cn } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -58,6 +59,8 @@ export default function MapSidebar({
   loading = false,
   className,
 }: MapSidebarProps) {
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState<SortMode>('relevance');
   const [activeCategories, setActiveCategories] = useState<string[]>([]);
@@ -84,11 +87,9 @@ export default function MapSidebar({
       return 0; // relevance: keep server order
     });
 
-  const cycleSortLabel: Record<SortMode, string> = {
-    relevance: 'Relevancia',
-    distance: 'Distancia',
-    rating: 'Calificacion',
-  };
+  const cycleSortLabel: Record<SortMode, string> = isEn
+    ? { relevance: 'Relevance', distance: 'Distance', rating: 'Rating' }
+    : { relevance: 'Relevancia', distance: 'Distancia', rating: 'Calificación' };
 
   const cycleSort = useCallback(() => {
     setSort((prev) => {
@@ -110,7 +111,7 @@ export default function MapSidebar({
         <div className="relative">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
           <Input
-            placeholder="Buscar lugar..."
+            placeholder={isEn ? 'Search place…' : 'Buscar lugar...'}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="pl-9"
@@ -221,7 +222,7 @@ export default function MapSidebar({
               disabled={loading}
               onClick={onLoadMore}
             >
-              {loading ? 'Cargando...' : 'Cargar mas'}
+              {loading ? (isEn ? 'Loading…' : 'Cargando...') : (isEn ? 'Load more' : 'Cargar más')}
             </Button>
           </div>
         )}

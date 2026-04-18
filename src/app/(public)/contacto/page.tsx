@@ -1,223 +1,133 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildPageMetadata } from '@/lib/seo/metadata';
-import { buildBreadcrumbs } from '@/lib/seo/breadcrumbs';
-import { buildBreadcrumbSchema } from '@/lib/seo/schema';
-import { JsonLd } from '@/components/seo/JsonLd';
-import { getTranslations } from '@/lib/i18n/server';
+import { getLocale } from '@/lib/i18n/server';
+import { PageShell } from '@/components/layout/PageShell';
+import { pickDecoration } from '@/lib/data/general-images';
+import { Mail, MessageSquare, Newspaper, Shield, Briefcase, AlertTriangle } from 'lucide-react';
 
 const PAGE_PATH = '/contacto';
 const PAGE_TITLE = 'Contacto';
 const PAGE_DESCRIPTION =
-  'Ponte en contacto con el equipo de Rutas en MX. Envíanos tus preguntas, sugerencias o reportes sobre la informacion de nuestra plataforma.';
+  'Escríbele al equipo editorial, comercial, legal y técnico de Rutas en MX. Sabemos qué buzón responde más rápido según tu mensaje.';
 
 export function generateMetadata(): Metadata {
   return buildPageMetadata({
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
     path: PAGE_PATH,
-    noIndex: true,
   });
 }
 
+interface ContactChannel {
+  icon: typeof Mail;
+  label: string;
+  email: string;
+  purpose: string;
+  sla: string;
+  tint: string;
+}
+
+const CHANNELS_ES: ContactChannel[] = [
+  { icon: Newspaper,     label: 'Redacción editorial', email: 'editorial@rutasenmx.com',    purpose: 'Pitch de historias, colaboraciones editoriales, correcciones.', sla: 'Respuesta en 5 días hábiles.', tint: 'from-emerald-500 to-emerald-700' },
+  { icon: AlertTriangle, label: 'Correcciones',        email: 'correcciones@rutasenmx.com', purpose: 'Reportar un dato incorrecto o desactualizado en cualquier página.', sla: 'Acuse en 48 h, corrección en 7 días.', tint: 'from-amber-500 to-amber-700' },
+  { icon: Shield,        label: 'Privacidad y legal',  email: 'legal@rutasenmx.com',        purpose: 'Solicitudes ARCO, incidentes de privacidad, temas legales.', sla: 'Respuesta en 10 días hábiles.', tint: 'from-slate-800 to-slate-950' },
+  { icon: Briefcase,     label: 'Alianzas y prensa',   email: 'partners@rutasenmx.com',     purpose: 'Acuerdos comerciales, afiliados, sponsorships, prensa.', sla: 'Respuesta en 3 días hábiles.', tint: 'from-sky-500 to-sky-700' },
+  { icon: MessageSquare, label: 'Soporte general',     email: 'hola@rutasenmx.com',         purpose: 'Dudas sobre uso, cuenta, suscripción o feedback general.', sla: 'Respuesta en 2 días hábiles.', tint: 'from-violet-500 to-violet-700' },
+  { icon: Mail,          label: 'Todo lo demás',       email: 'hola@rutasenmx.com',         purpose: '¿No estás seguro? Escríbenos y redirigimos al buzón correcto.', sla: 'Respuesta en 2 días hábiles.', tint: 'from-rose-500 to-rose-700' },
+];
+
+const CHANNELS_EN: ContactChannel[] = [
+  { icon: Newspaper,     label: 'Editorial desk',      email: 'editorial@rutasenmx.com',    purpose: 'Story pitches, editorial collaborations, corrections.', sla: 'Reply within 5 business days.', tint: 'from-emerald-500 to-emerald-700' },
+  { icon: AlertTriangle, label: 'Corrections',         email: 'correcciones@rutasenmx.com', purpose: 'Report incorrect or outdated information on any page.', sla: 'Ack within 48h, fix in 7 days.', tint: 'from-amber-500 to-amber-700' },
+  { icon: Shield,        label: 'Privacy & legal',     email: 'legal@rutasenmx.com',        purpose: 'ARCO requests, privacy incidents, legal matters.', sla: 'Reply within 10 business days.', tint: 'from-slate-800 to-slate-950' },
+  { icon: Briefcase,     label: 'Partnerships & press',email: 'partners@rutasenmx.com',     purpose: 'Commercial deals, affiliate setups, sponsorships, press.', sla: 'Reply within 3 business days.', tint: 'from-sky-500 to-sky-700' },
+  { icon: MessageSquare, label: 'General support',     email: 'hola@rutasenmx.com',         purpose: 'Questions about usage, accounts, subscriptions or feedback.', sla: 'Reply within 2 business days.', tint: 'from-violet-500 to-violet-700' },
+  { icon: Mail,          label: 'Anything else',       email: 'hola@rutasenmx.com',         purpose: 'Not sure? Write to us and we will route you.', sla: 'Reply within 2 business days.', tint: 'from-rose-500 to-rose-700' },
+];
+
 export default async function ContactoPage() {
-  const t = await getTranslations();
-  const breadcrumbs = buildBreadcrumbs([{ label: t.common.contact, href: PAGE_PATH }]);
-  const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbs);
+  const locale = await getLocale();
+  const isEn = locale === 'en';  const channels = isEn ? CHANNELS_EN : CHANNELS_ES;
 
   return (
-    <>
-      <JsonLd data={breadcrumbSchema} />
+    <PageShell
+      title={isEn ? 'Contact us' : 'Contáctanos'}
+      kicker={isEn ? 'Company · Contact' : 'Empresa · Contacto'}
+      summary={
+        isEn
+          ? 'Pick the right inbox so we can reply faster. Every channel has its own response window.'
+          : 'Elige el buzón adecuado y te respondemos más rápido. Cada canal tiene su propio tiempo de respuesta.'
+      }
+      decorKey="contacto"
+      current="contacto"
+      accent="violet"
+      stats={[
+        { value: '48 h', label: isEn ? 'Corrections ack' : 'Acuse correcciones' },
+        { value: '2 d',  label: isEn ? 'General support' : 'Soporte general' },
+        { value: '10 d', label: isEn ? 'Legal requests'  : 'Solicitudes legales' },
+        { value: '5 d',  label: isEn ? 'Editorial pitches' : 'Pitch editorial' },
+      ]}
+    >
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+          {isEn ? 'Which inbox fits your message?' : '¿Qué buzón va con tu mensaje?'}
+        </h2>
+        <p className="mt-2 leading-7 text-slate-600">
+          {isEn
+            ? 'Routing correctly helps us reply faster — every inbox is monitored by the team that can help.'
+            : 'Elegir el canal correcto nos ayuda a responder más rápido — cada buzón lo monitorea el equipo que puede ayudarte.'}
+        </p>
 
-      <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-zinc-500">
-          <ol className="flex items-center gap-2">
-            {breadcrumbs.map((item, idx) => (
-              <li key={item.href} className="flex items-center gap-2">
-                {idx > 0 && <span aria-hidden="true">/</span>}
-                {idx === breadcrumbs.length - 1 ? (
-                  <span className="text-zinc-900">{item.label}</span>
-                ) : (
-                  <Link href={item.href} className="hover:text-zinc-900">
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ol>
-        </nav>
-
-        {/* Hero */}
-        <header className="mb-12">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl">
-            {t.pages.contacto.title}
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
-            {t.pages.contacto.description}
-          </p>
-        </header>
-
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-          {/* Formulario de contacto */}
-          <section>
-            <h2 className="text-xl font-bold text-zinc-900">
-              {t.pages.contacto.sendMessage}
-            </h2>
-            <form className="mt-6 space-y-6">
-              <div>
-                <label
-                  htmlFor="nombre"
-                  className="block text-sm font-medium text-zinc-700"
-                >
-                  {t.pages.contacto.fullName}
-                </label>
-                <input
-                  type="text"
-                  id="nombre"
-                  name="nombre"
-                  autoComplete="name"
-                  required
-                  className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                  placeholder={t.pages.contacto.fullNamePlaceholder}
-                />
+        <div className="mt-8 grid gap-5 sm:grid-cols-2">
+          {channels.map(({ icon: Icon, label, email, purpose, sla, tint }) => (
+            <a
+              key={email + label}
+              href={`mailto:${email}`}
+              className="group relative flex flex-col gap-4 overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-xl"
+            >
+              <div aria-hidden className={`absolute -right-12 -top-12 h-40 w-40 rounded-full bg-gradient-to-br ${tint} opacity-10 blur-2xl transition group-hover:opacity-20`} />
+              <div className="relative flex items-center gap-3">
+                <span className={`flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br ${tint} text-white shadow-md`}>
+                  <Icon className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">{label}</p>
+                  <p className="font-mono text-xs text-emerald-700">{email}</p>
+                </div>
               </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-zinc-700"
-                >
-                  {t.pages.contacto.emailLabel}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  autoComplete="email"
-                  required
-                  className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                  placeholder={t.pages.contacto.emailPlaceholder}
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="asunto"
-                  className="block text-sm font-medium text-zinc-700"
-                >
-                  {t.pages.contacto.subject}
-                </label>
-                <select
-                  id="asunto"
-                  name="asunto"
-                  required
-                  className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">{t.pages.contacto.subjectPlaceholder}</option>
-                  <option value="pregunta">{t.pages.contacto.subjectGeneral}</option>
-                  <option value="sugerencia">{t.pages.contacto.subjectSuggestion}</option>
-                  <option value="error">{t.pages.contacto.subjectError}</option>
-                  <option value="colaboracion">{t.pages.contacto.subjectCollaboration}</option>
-                  <option value="prensa">{t.pages.contacto.subjectPress}</option>
-                  <option value="otro">{t.pages.contacto.subjectOther}</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  htmlFor="mensaje"
-                  className="block text-sm font-medium text-zinc-700"
-                >
-                  {t.pages.contacto.message}
-                </label>
-                <textarea
-                  id="mensaje"
-                  name="mensaje"
-                  rows={5}
-                  required
-                  className="mt-1 block w-full rounded-lg border border-zinc-300 bg-white px-4 py-3 text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                  placeholder={t.pages.contacto.messagePlaceholder}
-                />
-              </div>
-              <button
-                type="submit"
-                className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              >
-                {t.pages.contacto.sendButton}
-              </button>
-              <p className="text-xs text-zinc-500">
-                {t.pages.contacto.privacyNotice}{' '}
-                <Link href="/privacidad" className="text-blue-600 hover:underline">
-                  {t.pages.contacto.privacyPolicy}
-                </Link>
-                .
-              </p>
-            </form>
-          </section>
-
-          {/* Informacion de contacto */}
-          <section>
-            <h2 className="text-xl font-bold text-zinc-900">
-              {t.pages.contacto.otherWays}
-            </h2>
-            <div className="mt-6 space-y-6">
-              <div className="rounded-xl border border-zinc-200 bg-white p-6">
-                <h3 className="text-base font-semibold text-zinc-900">
-                  {t.pages.contacto.emailTitle}
-                </h3>
-                <p className="mt-2 text-sm text-zinc-600">
-                  {t.pages.contacto.forGeneralInquiries}
-                </p>
-                <a
-                  href="mailto:soporte@rutasenmx.com"
-                  className="mt-1 inline-block text-sm font-medium text-blue-600 hover:underline"
-                >
-                  soporte@rutasenmx.com
-                </a>
-              </div>
-
-              <div className="rounded-xl border border-zinc-200 bg-white p-6">
-                <h3 className="text-base font-semibold text-zinc-900">
-                  {t.pages.contacto.reportErrors}
-                </h3>
-                <p className="mt-2 text-sm text-zinc-600">
-                  {t.pages.contacto.reportErrorsDesc}{' '}
-                  <Link
-                    href="/correcciones"
-                    className="text-blue-600 hover:underline"
-                  >
-                    {t.pages.contacto.corrections}
-                  </Link>{' '}
-                  {t.pages.contacto.reportErrorsSuffix}
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-zinc-200 bg-white p-6">
-                <h3 className="text-base font-semibold text-zinc-900">
-                  {t.pages.contacto.responseTimes}
-                </h3>
-                <p className="mt-2 text-sm text-zinc-600">
-                  {t.pages.contacto.responseTimesDesc}
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-zinc-200 bg-white p-6">
-                <h3 className="text-base font-semibold text-zinc-900">
-                  {t.pages.contacto.collaborationsAndPress}
-                </h3>
-                <p className="mt-2 text-sm text-zinc-600">
-                  {t.pages.contacto.collaborationsDesc}{' '}
-                  <a
-                    href="mailto:colaboraciones@rutasenmx.com"
-                    className="text-blue-600 hover:underline"
-                  >
-                    colaboraciones@rutasenmx.com
-                  </a>
-                  .
-                </p>
-              </div>
-            </div>
-          </section>
+              <p className="text-sm leading-6 text-slate-600">{purpose}</p>
+              <p className="text-xs font-medium text-slate-500">{sla}</p>
+            </a>
+          ))}
         </div>
-      </main>
-    </>
+      </section>
+
+      <section className="mb-12 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+        <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+          {isEn ? 'Response & privacy' : 'Tiempos y privacidad'}
+        </h2>
+        <ul className="mt-5 list-disc space-y-2 pl-6 leading-7 text-slate-600 marker:text-violet-500">
+          <li>{isEn ? 'We read and classify every message within 48 hours.' : 'Leemos y clasificamos cada mensaje en 48 horas.'}</li>
+          <li>{isEn ? 'Messages carry the privacy commitments described in our Privacy Policy.' : 'Los mensajes se tratan según los compromisos de nuestra Política de Privacidad.'}</li>
+          <li>{isEn ? 'Urgent safety issues (road closures, active incidents) are prioritised.' : 'Los asuntos urgentes de seguridad (cierres de carretera, incidentes) tienen prioridad.'}</li>
+          <li>{isEn ? 'We never ask for passwords, payment details or sensitive data by email.' : 'Nunca pedimos contraseñas, datos de pago ni información sensible por correo.'}</li>
+        </ul>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <Link
+            href="/privacidad"
+            className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            {isEn ? 'Privacy policy' : 'Política de privacidad'} →
+          </Link>
+          <Link
+            href="/politica-editorial"
+            className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            {isEn ? 'Editorial policy' : 'Política editorial'} →
+          </Link>
+        </div>
+      </section>
+    </PageShell>
   );
 }

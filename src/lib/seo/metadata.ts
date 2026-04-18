@@ -3,7 +3,19 @@ import type { Metadata } from "next";
 const SITE_URL = "https://rutasenmx.com";
 const APP_NAME = "Rutas en MX";
 const DEFAULT_DESCRIPTION =
-  "Descubre las mejores rutas, pueblos magicos, museos y zonas arqueologicas de Mexico. Planifica tu viaje con guias detalladas y mapas interactivos.";
+  "Descubre las mejores rutas por carretera, Pueblos Mágicos, museos y zonas arqueológicas de México. Más de 100 rutas, 200+ guías editoriales y herramientas para planear tu próximo road trip con mapas interactivos, paradas recomendadas y costos estimados.";
+const DEFAULT_KEYWORDS = [
+  "rutas México",
+  "road trip México",
+  "pueblos mágicos",
+  "zonas arqueológicas",
+  "museos México",
+  "viaje por carretera",
+  "turismo México",
+  "guías de viaje",
+  "planear viaje México",
+  "itinerarios México",
+];
 const DEFAULT_OG_IMAGE = "/og-default.png";
 
 /**
@@ -19,9 +31,20 @@ export function getBaseMetadata(): Metadata {
       template: `%s | ${APP_NAME}`,
     },
     description: DEFAULT_DESCRIPTION,
+    keywords: DEFAULT_KEYWORDS,
+    authors: [{ name: APP_NAME, url: SITE_URL }],
+    creator: APP_NAME,
+    publisher: APP_NAME,
+    category: "travel",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     openGraph: {
       type: "website",
       locale: "es_MX",
+      alternateLocale: ["en_US"],
       url: SITE_URL,
       siteName: APP_NAME,
       title: {
@@ -40,6 +63,8 @@ export function getBaseMetadata(): Metadata {
     },
     twitter: {
       card: "summary_large_image",
+      site: "@rutasenmx",
+      creator: "@rutasenmx",
       title: {
         default: APP_NAME,
         template: `%s | ${APP_NAME}`,
@@ -60,9 +85,18 @@ export function getBaseMetadata(): Metadata {
     },
     alternates: {
       canonical: SITE_URL,
+      languages: {
+        "es-MX": SITE_URL,
+        "en-US": SITE_URL,
+      },
     },
     icons: {
       icon: "/favicon.ico",
+      apple: "/apple-icon.png",
+    },
+    verification: {
+      // Placeholders listos para ser sobreescritos con envs si se configuran
+      // google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     },
   };
 }
@@ -74,6 +108,9 @@ export interface PageMetadataOptions {
   image?: string;
   noIndex?: boolean;
   keywords?: string[];
+  type?: "article" | "website" | "profile";
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 /**
@@ -81,22 +118,45 @@ export interface PageMetadataOptions {
  * Merges page-specific data with application defaults.
  */
 export function buildPageMetadata(options: PageMetadataOptions): Metadata {
-  const { title, description, path, image, noIndex, keywords } = options;
+  const {
+    title,
+    description,
+    path,
+    image,
+    noIndex,
+    keywords,
+    type = "website",
+    publishedTime,
+    modifiedTime,
+  } = options;
 
   const canonicalUrl = `${SITE_URL}${path}`;
   const ogImage = image ?? DEFAULT_OG_IMAGE;
+  const mergedKeywords = keywords
+    ? Array.from(new Set([...keywords, ...DEFAULT_KEYWORDS.slice(0, 4)]))
+    : DEFAULT_KEYWORDS;
 
   return {
     title,
     description,
-    keywords: keywords ?? undefined,
+    keywords: mergedKeywords,
     alternates: {
       canonical: canonicalUrl,
+      languages: {
+        "es-MX": canonicalUrl,
+        "en-US": canonicalUrl,
+      },
     },
     openGraph: {
       title,
       description,
       url: canonicalUrl,
+      type: type === "article" ? "article" : "website",
+      locale: "es_MX",
+      alternateLocale: ["en_US"],
+      siteName: APP_NAME,
+      ...(publishedTime && { publishedTime }),
+      ...(modifiedTime && { modifiedTime }),
       images: [
         {
           url: ogImage,
@@ -107,6 +167,9 @@ export function buildPageMetadata(options: PageMetadataOptions): Metadata {
       ],
     },
     twitter: {
+      card: "summary_large_image",
+      site: "@rutasenmx",
+      creator: "@rutasenmx",
       title,
       description,
       images: [ogImage],

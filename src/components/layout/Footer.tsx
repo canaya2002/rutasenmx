@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { MapPin } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { Logo } from "./Logo";
 import { getLocale, getTranslations } from "@/lib/i18n/server";
 
 export async function Footer() {
@@ -63,15 +63,7 @@ export async function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
           {/* Brand */}
           <div className="col-span-2">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 font-display text-xl font-bold text-foreground"
-            >
-              <MapPin className="h-5 w-5 text-terracotta" />
-              <span>
-                Rutas <span className="text-terracotta">en MX</span>
-              </span>
-            </Link>
+            <Logo height={48} />
             <p className="mt-3 max-w-xs text-sm text-muted-foreground">
               {brandDescription}
             </p>

@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { MapPin } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -40,11 +40,15 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent side="left" className="w-72 p-0">
         <SheetHeader className="border-b border-border px-6 py-4">
-          <SheetTitle className="flex items-center gap-2 text-left">
-            <MapPin className="h-5 w-5 text-terracotta" />
-            <span className="font-display text-lg font-bold">
-              Rutas <span className="text-terracotta">en MX</span>
-            </span>
+          <SheetTitle className="text-left">
+            <Image
+              src="/icon.png"
+              alt="Rutas en México"
+              width={180}
+              height={60}
+              priority
+              className="h-10 w-auto object-contain"
+            />
           </SheetTitle>
         </SheetHeader>
 

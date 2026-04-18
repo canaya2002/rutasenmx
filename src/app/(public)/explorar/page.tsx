@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import ExplorarClient from './explorar-client';
 
 export const metadata: Metadata = {
-  title: 'Explorar Mexico: mapa interactivo de lugares | Rutas en MX',
+  title: 'Explorar México: mapa interactivo de lugares | Rutas en MX',
   description:
-    'Descubre Pueblos Magicos, museos, zonas arqueologicas y mas en un mapa interactivo. Filtra por categoria, estado y presupuesto.',
-  robots: { index: false, follow: true }, // noindex for dynamic filter combos
+    'Descubre Pueblos Mágicos, museos, zonas arqueológicas y más en un mapa interactivo. Filtra por categoría, estado y presupuesto.',
+  robots: { index: false, follow: true },
 };
 
 export default async function ExplorarPage({
@@ -15,22 +15,18 @@ export default async function ExplorarPage({
 }) {
   const params = await searchParams;
 
-  /* Extract initial filter values from URL */
   const initialCategory =
     typeof params.category === 'string' ? params.category : '';
   const initialEstado =
     typeof params.estado === 'string' ? params.estado : '';
-  const initialBudget =
-    typeof params.budget === 'string' ? params.budget : '';
-  const initialTraveler =
-    typeof params.viajero === 'string' ? params.viajero : '';
+  const initialSearch =
+    typeof params.search === 'string' ? params.search : '';
 
   return (
     <ExplorarClient
       initialCategory={initialCategory}
       initialEstado={initialEstado}
-      initialBudget={initialBudget}
-      initialTraveler={initialTraveler}
+      initialSearch={initialSearch}
     />
   );
 }

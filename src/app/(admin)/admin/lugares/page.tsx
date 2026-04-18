@@ -21,7 +21,7 @@ export default async function AdminLugaresPage({
   const [totalResult] = await db.select({ value: count() }).from(places).where(isNull(places.deletedAt));
   const total = totalResult.value;
 
-  let query = db
+  const query = db
     .select({
       id: places.id,
       name: places.name,

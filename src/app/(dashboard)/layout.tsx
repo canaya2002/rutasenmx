@@ -2,17 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getSession } from '@/lib/auth/session';
 import { redirect } from 'next/navigation';
+import { getTranslations } from '@/lib/i18n/server';
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
-
-const SIDEBAR_LINKS = [
-  { href: '/mis-viajes', label: 'Mis viajes', icon: 'map' },
-  { href: '/favoritos', label: 'Favoritos', icon: 'heart' },
-  { href: '/perfil', label: 'Perfil', icon: 'user' },
-  { href: '/suscripcion', label: 'Suscripcion', icon: 'credit-card' },
-] as const;
 
 function SidebarIcon({ icon }: { icon: string }) {
   switch (icon) {
@@ -55,6 +49,14 @@ export default async function DashboardLayout({
     redirect('/iniciar-sesion');
   }
 
+  const t = await getTranslations();
+  const SIDEBAR_LINKS = [
+    { href: '/mis-viajes', label: t.common.myTrips, icon: 'map' },
+    { href: '/favoritos', label: t.common.favorites, icon: 'heart' },
+    { href: '/perfil', label: t.common.profile, icon: 'user' },
+    { href: '/suscripcion', label: t.common.subscription, icon: 'credit-card' },
+  ] as const;
+
   return (
     <div className="flex min-h-screen">
       {/* Sidebar */}
@@ -64,7 +66,7 @@ export default async function DashboardLayout({
             href="/"
             className="flex items-center gap-2 text-lg font-bold tracking-tight text-slate-900"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-600 text-sm text-white">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-black text-sm text-white">
               R
             </span>
             Rutas en MX
@@ -96,7 +98,7 @@ export default async function DashboardLayout({
               href="/"
               className="flex items-center gap-2 text-lg font-bold text-slate-900"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-600 text-sm text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-black text-sm text-white">
                 R
               </span>
             </Link>

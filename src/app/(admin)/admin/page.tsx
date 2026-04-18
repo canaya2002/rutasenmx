@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { db, places, users, trips, subscriptions, importRuns } from '@/db';
 import { count, eq, desc, isNull } from 'drizzle-orm';
 import Link from 'next/link';
+import { getLocale } from '@/lib/i18n/server';
 
 export const metadata: Metadata = {
   title: 'Admin Dashboard',
@@ -26,6 +27,9 @@ async function getStats() {
 
 export default async function AdminDashboardPage() {
   const stats = await getStats();
+  const locale = await getLocale();
+  const isEn = locale === 'en';
+  const T = (es: string, en: string) => (isEn ? en : es);
 
   let recentImports: Array<{
     id: string;
@@ -54,10 +58,10 @@ export default async function AdminDashboardPage() {
   }
 
   const statCards = [
-    { label: 'Lugares', value: stats.places, href: '/admin/lugares', color: 'bg-blue-100 text-blue-700' },
-    { label: 'Usuarios', value: stats.users, href: '#', color: 'bg-green-100 text-green-700' },
-    { label: 'Viajes', value: stats.trips, href: '#', color: 'bg-purple-100 text-purple-700' },
-    { label: 'Suscripciones activas', value: stats.subscriptions, href: '/admin/planes', color: 'bg-orange-100 text-orange-700' },
+    { label: T('Lugares', 'Places'), value: stats.places, href: '/admin/lugares', color: 'bg-blue-100 text-blue-700' },
+    { label: T('Usuarios', 'Users'), value: stats.users, href: '#', color: 'bg-green-100 text-green-700' },
+    { label: T('Viajes', 'Trips'), value: stats.trips, href: '#', color: 'bg-purple-100 text-purple-700' },
+    { label: T('Suscripciones activas', 'Active subscriptions'), value: stats.subscriptions, href: '/admin/planes', color: 'bg-emerald-50 text-emerald-700' },
   ];
 
   return (
@@ -78,7 +82,7 @@ export default async function AdminDashboardPage() {
               {stat.label}
             </p>
             <p className="mt-1 text-3xl font-bold text-slate-900">
-              {stat.value.toLocaleString('es-MX')}
+              {stat.value.toLocaleString(isEn ? 'en-US' : 'es-MX')}
             </p>
           </Link>
         ))}
@@ -87,20 +91,20 @@ export default async function AdminDashboardPage() {
       {/* Quick actions */}
       <div className="mb-8">
         <h2 className="mb-4 text-lg font-semibold text-slate-900">
-          Acciones rapidas
+          {T('Acciones rápidas', 'Quick actions')}
         </h2>
         <div className="flex flex-wrap gap-3">
           <Link
             href="/admin/importaciones"
             className="rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
           >
-            Ejecutar importacion
+            {T('Ejecutar importación', 'Run import')}
           </Link>
           <Link
             href="/admin/lugares"
             className="rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50"
           >
-            Gestionar lugares
+            {T('Gestionar lugares', 'Manage places')}
           </Link>
           <Link
             href="/admin/feature-flags"
@@ -114,11 +118,11 @@ export default async function AdminDashboardPage() {
       {/* Recent imports */}
       <div>
         <h2 className="mb-4 text-lg font-semibold text-slate-900">
-          Importaciones recientes
+          {T('Importaciones recientes', 'Recent imports')}
         </h2>
         {recentImports.length === 0 ? (
           <p className="text-sm text-slate-500">
-            No hay importaciones registradas.
+            {T('No hay importaciones registradas.', 'No imports recorded.')}
           </p>
         ) : (
           <div className="overflow-hidden rounded-lg border border-slate-200">
@@ -126,19 +130,19 @@ export default async function AdminDashboardPage() {
               <thead className="bg-slate-50">
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
-                    Fuente
+                    {T('Fuente', 'Source')}
                   </th>
                   <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
-                    Estado
+                    {T('Estado', 'Status')}
                   </th>
                   <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
-                    Registros
+                    {T('Registros', 'Records')}
                   </th>
                   <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
-                    Errores
+                    {T('Errores', 'Errors')}
                   </th>
                   <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
-                    Fecha
+                    {T('Fecha', 'Date')}
                   </th>
                 </tr>
               </thead>
@@ -165,7 +169,7 @@ export default async function AdminDashboardPage() {
                       {run.errors ?? 0}
                     </td>
                     <td className="px-4 py-3 text-sm text-slate-500">
-                      {new Date(run.createdAt).toLocaleDateString('es-MX')}
+                      {new Date(run.createdAt).toLocaleDateString(isEn ? 'en-US' : 'es-MX')}
                     </td>
                   </tr>
                 ))}

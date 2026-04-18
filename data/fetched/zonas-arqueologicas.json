@@ -1,0 +1,3334 @@
+[
+  {
+    "id": "sic-za-1",
+    "slug": "el-vallecito",
+    "name": "El Vallecito",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 32.53888,
+    "lng": -116.09759,
+    "state": "Baja California",
+    "stateSlug": "baja-california",
+    "municipality": "Tecate",
+    "description": "El Vallecito es una zona arqueológica ubicada en Tecate, Baja California.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-159",
+    "slug": "sierra-de-san-francisco",
+    "name": "Sierra de San Francisco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 27.59809,
+    "lng": -113.01538,
+    "state": "Baja California Sur",
+    "stateSlug": "baja-california-sur",
+    "municipality": "Mulegé",
+    "description": "Sierra de San Francisco es una zona arqueológica ubicada en Mulegé, Baja California Sur.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-9",
+    "slug": "edzna",
+    "name": "Edzná",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.59718,
+    "lng": -90.23044,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Campeche",
+    "description": "Edzná es una zona arqueológica ubicada en Campeche, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-13",
+    "slug": "xcalumkin",
+    "name": "Xcalumkín",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.1721,
+    "lng": -90.01018,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Hecelchakán",
+    "description": "Xcalumkín es una zona arqueológica ubicada en Hecelchakán, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-148",
+    "slug": "tabasqueno",
+    "name": "Tabasqueño",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.50032,
+    "lng": -89.7836,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Hopelchén",
+    "description": "Tabasqueño es una zona arqueológica ubicada en Hopelchén, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-147",
+    "slug": "toh-cok",
+    "name": "Toh Cok",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.77027,
+    "lng": -89.87528,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Hopelchén",
+    "description": "Toh Cok es una zona arqueológica ubicada en Hopelchén, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-11",
+    "slug": "hochob",
+    "name": "Hochob",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.40864,
+    "lng": -89.77093,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Hopelchén",
+    "description": "Hochob es una zona arqueológica ubicada en Hopelchén, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-8",
+    "slug": "dzibilnocac",
+    "name": "Dzibilnocac",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.57794,
+    "lng": -89.59475,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Hopelchén",
+    "description": "Dzibilnocac es una zona arqueológica ubicada en Hopelchén, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-7",
+    "slug": "chunhuhub",
+    "name": "Chunhuhub",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.1577,
+    "lng": -89.7962,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Hopelchén",
+    "description": "Chunhuhub es una zona arqueológica ubicada en Hopelchén, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-10",
+    "slug": "santa-rosa-xtampak",
+    "name": "Santa Rosa Xtampak",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.77249,
+    "lng": -89.59744,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Hopelchén",
+    "description": "Santa Rosa Xtampak es una zona arqueológica ubicada en Hopelchén, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-146",
+    "slug": "kanki",
+    "name": "Kankí",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.99842,
+    "lng": -90.11149,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Tenabo",
+    "description": "Kankí es una zona arqueológica ubicada en Tenabo, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-3",
+    "slug": "balamku",
+    "name": "Balamkú",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.55963,
+    "lng": -89.94525,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Calakmul",
+    "description": "Balamkú es una zona arqueológica ubicada en Calakmul, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-5",
+    "slug": "calakmul",
+    "name": "Calakmul",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.1051,
+    "lng": -89.81106,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Calakmul",
+    "description": "Calakmul es una zona arqueológica ubicada en Calakmul, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-4",
+    "slug": "becan",
+    "name": "Becán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.51721,
+    "lng": -89.46697,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Calakmul",
+    "description": "Becán es una zona arqueológica ubicada en Calakmul, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-12",
+    "slug": "hormiguero",
+    "name": "Hormiguero",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.40998,
+    "lng": -89.4929,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Calakmul",
+    "description": "Hormiguero es una zona arqueológica ubicada en Calakmul, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-6",
+    "slug": "chicanna",
+    "name": "Chicanná",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.50683,
+    "lng": -89.48688,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Calakmul",
+    "description": "Chicanná es una zona arqueológica ubicada en Calakmul, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-14",
+    "slug": "xpuhil",
+    "name": "Xpuhil",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.51024,
+    "lng": -89.4039,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Calakmul",
+    "description": "Xpuhil es una zona arqueológica ubicada en Calakmul, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-145",
+    "slug": "nadzca-an",
+    "name": "Nadzca'an",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.6066,
+    "lng": -89.85013,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Calakmul",
+    "description": "Nadzca'an es una zona arqueológica ubicada en Calakmul, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-144",
+    "slug": "el-tigre-itzamkanac",
+    "name": "El Tigre (itzamkanac)",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.12059,
+    "lng": -90.8371,
+    "state": "Campeche",
+    "stateSlug": "campeche",
+    "municipality": "Candelaria",
+    "description": "El Tigre (itzamkanac) es una zona arqueológica ubicada en Candelaria, Campeche.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-220",
+    "slug": "zona-paleontologica-rincon-colorado",
+    "name": "Zona paleontológica Rincón Colorado",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 25.51712,
+    "lng": -101.32636,
+    "state": "Coahuila de Zaragoza",
+    "stateSlug": "coahuila",
+    "municipality": "General Cepeda",
+    "description": "Zona paleontológica Rincón Colorado es una zona arqueológica ubicada en General Cepeda, Coahuila de Zaragoza.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-25",
+    "slug": "el-chanal",
+    "name": "El Chanal",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.29295,
+    "lng": -103.70543,
+    "state": "Colima",
+    "stateSlug": "colima",
+    "municipality": "Colima",
+    "description": "El Chanal es una zona arqueológica ubicada en Colima, Colima.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-24",
+    "slug": "la-campana",
+    "name": "La Campana",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.2683,
+    "lng": -103.72539,
+    "state": "Colima",
+    "stateSlug": "colima",
+    "municipality": "Villa de Álvarez",
+    "description": "La Campana es una zona arqueológica ubicada en Villa de Álvarez, Colima.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-19",
+    "slug": "tenam-puente",
+    "name": "Tenam Puente",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.14127,
+    "lng": -92.10831,
+    "state": "Chiapas",
+    "stateSlug": "chiapas",
+    "municipality": "Comitán de Domínguez",
+    "description": "Tenam Puente es una zona arqueológica ubicada en Comitán de Domínguez, Chiapas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-193",
+    "slug": "chiapa-de-corzo",
+    "name": "Chiapa de Corzo",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.70321,
+    "lng": -93.00367,
+    "state": "Chiapas",
+    "stateSlug": "chiapas",
+    "municipality": "Chiapa de Corzo",
+    "description": "Chiapa de Corzo es una zona arqueológica ubicada en Chiapa de Corzo, Chiapas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-21",
+    "slug": "yaxchilan",
+    "name": "Yaxchilán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.8996,
+    "lng": -90.96451,
+    "state": "Chiapas",
+    "stateSlug": "chiapas",
+    "municipality": "Ocosingo",
+    "description": "Yaxchilán es una zona arqueológica ubicada en Ocosingo, Chiapas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-20",
+    "slug": "tonina",
+    "name": "Toniná",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.90127,
+    "lng": -92.00943,
+    "state": "Chiapas",
+    "stateSlug": "chiapas",
+    "municipality": "Ocosingo",
+    "description": "Toniná es una zona arqueológica ubicada en Ocosingo, Chiapas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-15",
+    "slug": "bonampak",
+    "name": "Bonampak",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.7034,
+    "lng": -91.06502,
+    "state": "Chiapas",
+    "stateSlug": "chiapas",
+    "municipality": "Ocosingo",
+    "description": "Bonampak es una zona arqueológica ubicada en Ocosingo, Chiapas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-17",
+    "slug": "palenque",
+    "name": "Palenque",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.48508,
+    "lng": -92.04806,
+    "state": "Chiapas",
+    "stateSlug": "chiapas",
+    "municipality": "Palenque",
+    "description": "Palenque es una zona arqueológica ubicada en Palenque, Chiapas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-202",
+    "slug": "iglesia-vieja",
+    "name": "Iglesia Vieja",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.13144,
+    "lng": -93.74732,
+    "state": "Chiapas",
+    "stateSlug": "chiapas",
+    "municipality": "Tonalá",
+    "description": "Iglesia Vieja es una zona arqueológica ubicada en Tonalá, Chiapas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-16",
+    "slug": "chinkultic",
+    "name": "Chinkultic",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.12387,
+    "lng": -91.7813,
+    "state": "Chiapas",
+    "stateSlug": "chiapas",
+    "municipality": "La Trinitaria",
+    "description": "Chinkultic es una zona arqueológica ubicada en La Trinitaria, Chiapas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-201",
+    "slug": "lagartero",
+    "name": "Lagartero",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 15.82763,
+    "lng": -91.88415,
+    "state": "Chiapas",
+    "stateSlug": "chiapas",
+    "municipality": "La Trinitaria",
+    "description": "Lagartero es una zona arqueológica ubicada en La Trinitaria, Chiapas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-18",
+    "slug": "izapa",
+    "name": "Izapa",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 14.91352,
+    "lng": -92.18442,
+    "state": "Chiapas",
+    "stateSlug": "chiapas",
+    "municipality": "Tuxtla Chico",
+    "description": "Izapa es una zona arqueológica ubicada en Tuxtla Chico, Chiapas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-22",
+    "slug": "paquime",
+    "name": "Paquimé",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 30.36608,
+    "lng": -107.94777,
+    "state": "Chihuahua",
+    "stateSlug": "chihuahua",
+    "municipality": "Casas Grandes",
+    "description": "Paquimé es una zona arqueológica ubicada en Casas Grandes, Chihuahua.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-178",
+    "slug": "cueva-de-la-olla",
+    "name": "Cueva de la Olla",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 30.17257,
+    "lng": -108.31483,
+    "state": "Chihuahua",
+    "stateSlug": "chihuahua",
+    "municipality": "Casas Grandes",
+    "description": "Cueva de la Olla es una zona arqueológica ubicada en Casas Grandes, Chihuahua.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-180",
+    "slug": "huapoca",
+    "name": "Huapoca",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 29.18088,
+    "lng": -108.32046,
+    "state": "Chihuahua",
+    "stateSlug": "chihuahua",
+    "municipality": "Madera",
+    "description": "Huapoca es una zona arqueológica ubicada en Madera, Chihuahua.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-179",
+    "slug": "cueva-grande",
+    "name": "Cueva Grande",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 29.18671,
+    "lng": -108.34119,
+    "state": "Chihuahua",
+    "stateSlug": "chihuahua",
+    "municipality": "Madera",
+    "description": "Cueva Grande es una zona arqueológica ubicada en Madera, Chihuahua.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-23",
+    "slug": "cuarenta-casas",
+    "name": "Cuarenta Casas",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 29.55505,
+    "lng": -108.15181,
+    "state": "Chihuahua",
+    "stateSlug": "chihuahua",
+    "municipality": "Madera",
+    "description": "Cuarenta Casas es una zona arqueológica ubicada en Madera, Chihuahua.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-26",
+    "slug": "cerro-de-la-estrella",
+    "name": "Cerro de la Estrella",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.34387,
+    "lng": -99.08979,
+    "state": "Ciudad de México",
+    "stateSlug": "ciudad-de-mexico",
+    "municipality": "Iztapalapa",
+    "description": "Cerro de la Estrella es una zona arqueológica ubicada en Iztapalapa, Ciudad de México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-27",
+    "slug": "cuicuilco",
+    "name": "Cuicuilco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.30169,
+    "lng": -99.18165,
+    "state": "Ciudad de México",
+    "stateSlug": "ciudad-de-mexico",
+    "municipality": "Tlalpan",
+    "description": "Cuicuilco es una zona arqueológica ubicada en Tlalpan, Ciudad de México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-223",
+    "slug": "mixcoac",
+    "name": "Mixcoac",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.38628,
+    "lng": -99.18989,
+    "state": "Ciudad de México",
+    "stateSlug": "ciudad-de-mexico",
+    "municipality": "Benito Juárez",
+    "description": "Mixcoac es una zona arqueológica ubicada en Benito Juárez, Ciudad de México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-29",
+    "slug": "tlatelolco",
+    "name": "Tlatelolco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.45112,
+    "lng": -99.13742,
+    "state": "Ciudad de México",
+    "stateSlug": "ciudad-de-mexico",
+    "municipality": "Cuauhtémoc",
+    "description": "Tlatelolco es una zona arqueológica ubicada en Cuauhtémoc, Ciudad de México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-28",
+    "slug": "templo-mayor",
+    "name": "Templo Mayor",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.43495,
+    "lng": -99.13144,
+    "state": "Ciudad de México",
+    "stateSlug": "ciudad-de-mexico",
+    "municipality": "Cuauhtémoc",
+    "description": "Templo Mayor es una zona arqueológica ubicada en Cuauhtémoc, Ciudad de México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-30",
+    "slug": "la-ferreria",
+    "name": "La Ferrería",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 23.96088,
+    "lng": -104.64911,
+    "state": "Durango",
+    "stateSlug": "durango",
+    "municipality": "Durango",
+    "description": "La Ferrería es una zona arqueológica ubicada en Durango, Durango.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-192",
+    "slug": "peralta",
+    "name": "Peralta",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.47291,
+    "lng": -101.41691,
+    "state": "Guanajuato",
+    "stateSlug": "guanajuato",
+    "municipality": "Abasolo",
+    "description": "Peralta es una zona arqueológica ubicada en Abasolo, Guanajuato.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-190",
+    "slug": "canada-de-la-virgen",
+    "name": "Cañada de la Virgen",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.8582,
+    "lng": -100.9283,
+    "state": "Guanajuato",
+    "stateSlug": "guanajuato",
+    "municipality": "San Miguel de Allende",
+    "description": "Cañada de la Virgen es una zona arqueológica ubicada en San Miguel de Allende, Guanajuato.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-225",
+    "slug": "cerro-de-los-remedios-proxima-inauguracion",
+    "name": "Cerro de los Remedios (próxima inauguración)",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.72656,
+    "lng": -100.75385,
+    "state": "Guanajuato",
+    "stateSlug": "guanajuato",
+    "municipality": "Comonfort",
+    "description": "Cerro de los Remedios (próxima inauguración) es una zona arqueológica ubicada en Comonfort, Guanajuato.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-196",
+    "slug": "el-coporo",
+    "name": "El Cóporo",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.47759,
+    "lng": -101.4588,
+    "state": "Guanajuato",
+    "stateSlug": "guanajuato",
+    "municipality": "Ocampo",
+    "description": "El Cóporo es una zona arqueológica ubicada en Ocampo, Guanajuato.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-175",
+    "slug": "plazuelas",
+    "name": "Plazuelas",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.40172,
+    "lng": -101.82781,
+    "state": "Guanajuato",
+    "stateSlug": "guanajuato",
+    "municipality": "Pénjamo",
+    "description": "Plazuelas es una zona arqueológica ubicada en Pénjamo, Guanajuato.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-219",
+    "slug": "arroyo-seco",
+    "name": "Arroyo seco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.19319,
+    "lng": -100.20604,
+    "state": "Guanajuato",
+    "stateSlug": "guanajuato",
+    "municipality": "Victoria",
+    "description": "Arroyo seco es una zona arqueológica ubicada en Victoria, Guanajuato.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-51",
+    "slug": "la-sabana",
+    "name": "La Sabana",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.8628,
+    "lng": -99.82308,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Acapulco de Juárez",
+    "description": "La Sabana es una zona arqueológica ubicada en Acapulco de Juárez, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-50",
+    "slug": "palma-sola",
+    "name": "Palma Sola",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.89007,
+    "lng": -99.90038,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Acapulco de Juárez",
+    "description": "Palma Sola es una zona arqueológica ubicada en Acapulco de Juárez, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-45",
+    "slug": "teopantecuanitlan",
+    "name": "Teopantecuanitlán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.90537,
+    "lng": -99.10874,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Copalillo",
+    "description": "Teopantecuanitlán es una zona arqueológica ubicada en Copalillo, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-176",
+    "slug": "indeco-pezoapan",
+    "name": "INDECO Pezoapan",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.54997,
+    "lng": -99.49023,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Chilpancingo de los Bravo",
+    "description": "INDECO Pezoapan es una zona arqueológica ubicada en Chilpancingo de los Bravo, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-191",
+    "slug": "tehuacalco",
+    "name": "Tehuacalco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.18808,
+    "lng": -99.50243,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Chilpancingo de los Bravo",
+    "description": "Tehuacalco es una zona arqueológica ubicada en Chilpancingo de los Bravo, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-49",
+    "slug": "huamuxtitlan",
+    "name": "Huamuxtitlán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.79885,
+    "lng": -98.56503,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Huamuxtitlán",
+    "description": "Huamuxtitlán es una zona arqueológica ubicada en Huamuxtitlán, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-47",
+    "slug": "cuetlajuchitlan-los-querende",
+    "name": "Cuetlajuchitlán (Los Querende)",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.20448,
+    "lng": -99.21089,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Huitzuco de los Figueroa",
+    "description": "Cuetlajuchitlán (Los Querende) es una zona arqueológica ubicada en Huitzuco de los Figueroa, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-44",
+    "slug": "ixcateopan",
+    "name": "Ixcateopan",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.49799,
+    "lng": -99.79314,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Ixcateopan de Cuauhtémoc",
+    "description": "Ixcateopan es una zona arqueológica ubicada en Ixcateopan de Cuauhtémoc, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-210",
+    "slug": "soledad-de-maciel",
+    "name": "Soledad de Maciel",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.52639,
+    "lng": -101.33333,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Petatlán",
+    "description": "Soledad de Maciel es una zona arqueológica ubicada en Petatlán, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-48",
+    "slug": "los-tepoltzis",
+    "name": "Los Tepoltzis",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.60057,
+    "lng": -99.39735,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Tixtla de Guerrero",
+    "description": "Los Tepoltzis es una zona arqueológica ubicada en Tixtla de Guerrero, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-46",
+    "slug": "la-organera-xochipala",
+    "name": "La Organera  Xochipala",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.78441,
+    "lng": -99.63307,
+    "state": "Guerrero",
+    "stateSlug": "guerrero",
+    "municipality": "Eduardo Neri",
+    "description": "La Organera  Xochipala es una zona arqueológica ubicada en Eduardo Neri, Guerrero.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-207",
+    "slug": "panhu",
+    "name": "Pañhú",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.50576,
+    "lng": -99.68478,
+    "state": "Hidalgo",
+    "stateSlug": "hidalgo",
+    "municipality": "Tecozautla",
+    "description": "Pañhú es una zona arqueológica ubicada en Tecozautla, Hidalgo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-54",
+    "slug": "tepeapulco-o-xihuingo",
+    "name": "Tepeapulco o Xihuingo",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.81392,
+    "lng": -98.55668,
+    "state": "Hidalgo",
+    "stateSlug": "hidalgo",
+    "municipality": "Tepeapulco",
+    "description": "Tepeapulco o Xihuingo es una zona arqueológica ubicada en Tepeapulco, Hidalgo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-52",
+    "slug": "tula",
+    "name": "Tula",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.06384,
+    "lng": -99.34046,
+    "state": "Hidalgo",
+    "stateSlug": "hidalgo",
+    "municipality": "Tula de Allende",
+    "description": "Tula es una zona arqueológica ubicada en Tula de Allende, Hidalgo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-53",
+    "slug": "huapalcalco",
+    "name": "Huapalcalco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.11706,
+    "lng": -98.36289,
+    "state": "Hidalgo",
+    "stateSlug": "hidalgo",
+    "municipality": "Tulancingo de Bravo",
+    "description": "Huapalcalco es una zona arqueológica ubicada en Tulancingo de Bravo, Hidalgo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-155",
+    "slug": "teuchitlan-guachimontones",
+    "name": "Teuchitlán-Guachimontones",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.69549,
+    "lng": -103.83643,
+    "state": "Jalisco",
+    "stateSlug": "jalisco",
+    "municipality": "Teuchitlán",
+    "description": "Teuchitlán-Guachimontones es una zona arqueológica ubicada en Teuchitlán, Jalisco.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-154",
+    "slug": "el-grillo",
+    "name": "El Grillo",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.73329,
+    "lng": -103.36974,
+    "state": "Jalisco",
+    "stateSlug": "jalisco",
+    "municipality": "Zapopan",
+    "description": "El Grillo es una zona arqueológica ubicada en Zapopan, Jalisco.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-55",
+    "slug": "ixtepete",
+    "name": "Ixtépete",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.63228,
+    "lng": -103.44154,
+    "state": "Jalisco",
+    "stateSlug": "jalisco",
+    "municipality": "Zapopan",
+    "description": "Ixtépete es una zona arqueológica ubicada en Zapopan, Jalisco.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-149",
+    "slug": "huamango",
+    "name": "Huamango",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.97882,
+    "lng": -99.86612,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Acambay de Ruíz Castañeda",
+    "description": "Huamango es una zona arqueológica ubicada en Acambay de Ruíz Castañeda, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-33",
+    "slug": "chimalhuacan",
+    "name": "Chimalhuacán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.41816,
+    "lng": -98.94708,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Chimalhuacán",
+    "description": "Chimalhuacán es una zona arqueológica ubicada en Chimalhuacán, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-31",
+    "slug": "acozac-ixtapaluca",
+    "name": "Acozac Ixtapaluca",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.33517,
+    "lng": -98.8915,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Ixtapaluca",
+    "description": "Acozac Ixtapaluca es una zona arqueológica ubicada en Ixtapaluca, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-41",
+    "slug": "tlapacoya",
+    "name": "Tlapacoya",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.30182,
+    "lng": -98.91287,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Ixtapaluca",
+    "description": "Tlapacoya es una zona arqueológica ubicada en Ixtapaluca, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-37",
+    "slug": "malinalco",
+    "name": "Malinalco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.95321,
+    "lng": -99.50294,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Malinalco",
+    "description": "Malinalco es una zona arqueológica ubicada en Malinalco, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-34",
+    "slug": "el-conde",
+    "name": "El Conde",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.47055,
+    "lng": -99.23102,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Naucalpan de Juárez",
+    "description": "El Conde es una zona arqueológica ubicada en Naucalpan de Juárez, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-181",
+    "slug": "ocoyoacac",
+    "name": "Ocoyoacac",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.28254,
+    "lng": -99.47189,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Ocoyoacac",
+    "description": "Ocoyoacac es una zona arqueológica ubicada en Ocoyoacac, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-43",
+    "slug": "los-reyes-la-paz",
+    "name": "Los Reyes La Paz",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.3525,
+    "lng": -98.98357,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "La Paz",
+    "description": "Los Reyes La Paz es una zona arqueológica ubicada en La Paz, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-150",
+    "slug": "san-miguel-ixtapan",
+    "name": "San Miguel Ixtapan",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.80661,
+    "lng": -100.15489,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Tejupilco",
+    "description": "San Miguel Ixtapan es una zona arqueológica ubicada en Tejupilco, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-153",
+    "slug": "teotenango",
+    "name": "Teotenango",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.10845,
+    "lng": -99.59764,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Tenango del Valle",
+    "description": "Teotenango es una zona arqueológica ubicada en Tenango del Valle, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-39",
+    "slug": "teotihuacan",
+    "name": "Teotihuacán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.69314,
+    "lng": -98.84599,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Teotihuacán",
+    "description": "Teotihuacán es una zona arqueológica ubicada en Teotihuacán, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-35",
+    "slug": "huexotla",
+    "name": "Huexotla",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.47723,
+    "lng": -98.87187,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Texcoco",
+    "description": "Huexotla es una zona arqueológica ubicada en Texcoco, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-40",
+    "slug": "tetzcotzinco",
+    "name": "Tetzcotzinco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.49701,
+    "lng": -98.81791,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Texcoco",
+    "description": "Tetzcotzinco es una zona arqueológica ubicada en Texcoco, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-36",
+    "slug": "los-melones",
+    "name": "Los Melones",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.50895,
+    "lng": -98.88137,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Texcoco",
+    "description": "Los Melones es una zona arqueológica ubicada en Texcoco, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-152",
+    "slug": "tocuila-cerrado-temporalmente",
+    "name": "Tocuila (cerrado temporalmente)",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.52047,
+    "lng": -98.90794,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Texcoco",
+    "description": "Tocuila (cerrado temporalmente) es una zona arqueológica ubicada en Texcoco, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-42",
+    "slug": "santa-cecilia-acatitlan",
+    "name": "Santa Cecilia Acatitlán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.55266,
+    "lng": -99.17345,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Tlalnepantla de Baz",
+    "description": "Santa Cecilia Acatitlán es una zona arqueológica ubicada en Tlalnepantla de Baz, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-38",
+    "slug": "tenayuca",
+    "name": "Tenayuca",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.53213,
+    "lng": -99.16848,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Tlalnepantla de Baz",
+    "description": "Tenayuca es una zona arqueológica ubicada en Tlalnepantla de Baz, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-151",
+    "slug": "tenayuca-ii",
+    "name": "Tenayuca II",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.53504,
+    "lng": -99.16933,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Tlalnepantla de Baz",
+    "description": "Tenayuca II es una zona arqueológica ubicada en Tlalnepantla de Baz, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-32",
+    "slug": "calixtlahuaca",
+    "name": "Calixtlahuaca",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.33374,
+    "lng": -99.69299,
+    "state": "México",
+    "stateSlug": "estado-de-mexico",
+    "municipality": "Toluca",
+    "description": "Calixtlahuaca es una zona arqueológica ubicada en Toluca, México.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-60",
+    "slug": "tres-cerritos",
+    "name": "Tres Cerritos",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.96072,
+    "lng": -101.10482,
+    "state": "Michoacán de Ocampo",
+    "stateSlug": "michoacan",
+    "municipality": "Cuitzeo",
+    "description": "Tres Cerritos es una zona arqueológica ubicada en Cuitzeo, Michoacán de Ocampo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-56",
+    "slug": "huandacareo-la-nopalera",
+    "name": "Huandacareo (La Nopalera)",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.99505,
+    "lng": -101.28967,
+    "state": "Michoacán de Ocampo",
+    "stateSlug": "michoacan",
+    "municipality": "Huandacareo",
+    "description": "Huandacareo (La Nopalera) es una zona arqueológica ubicada en Huandacareo, Michoacán de Ocampo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-59",
+    "slug": "tingambato",
+    "name": "Tingambato",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.49438,
+    "lng": -101.85863,
+    "state": "Michoacán de Ocampo",
+    "stateSlug": "michoacan",
+    "municipality": "Tingambato",
+    "description": "Tingambato es una zona arqueológica ubicada en Tingambato, Michoacán de Ocampo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-61",
+    "slug": "tzintzuntzan",
+    "name": "Tzintzuntzan",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.62375,
+    "lng": -101.57346,
+    "state": "Michoacán de Ocampo",
+    "stateSlug": "michoacan",
+    "municipality": "Tzintzuntzan",
+    "description": "Tzintzuntzan es una zona arqueológica ubicada en Tzintzuntzan, Michoacán de Ocampo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-57",
+    "slug": "ihuatzio",
+    "name": "Ihuatzio",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.57749,
+    "lng": -101.62094,
+    "state": "Michoacán de Ocampo",
+    "stateSlug": "michoacan",
+    "municipality": "Tzintzuntzan",
+    "description": "Ihuatzio es una zona arqueológica ubicada en Tzintzuntzan, Michoacán de Ocampo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-58",
+    "slug": "zona-arqueologica-san-felipe-los-alzati",
+    "name": "Zona Arqueológica San Felipe Los Alzati",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.50595,
+    "lng": -100.39156,
+    "state": "Michoacán de Ocampo",
+    "stateSlug": "michoacan",
+    "municipality": "Zitácuaro",
+    "description": "Zona Arqueológica San Felipe Los Alzati es una zona arqueológica ubicada en Zitácuaro, Michoacán de Ocampo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-65",
+    "slug": "olintepec",
+    "name": "Olintepec",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.73981,
+    "lng": -98.98587,
+    "state": "Morelos",
+    "stateSlug": "morelos",
+    "municipality": "Ayala",
+    "description": "Olintepec es una zona arqueológica ubicada en Ayala, Morelos.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-66",
+    "slug": "teopanzolco",
+    "name": "Teopanzolco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.93042,
+    "lng": -99.22215,
+    "state": "Morelos",
+    "stateSlug": "morelos",
+    "municipality": "Cuernavaca",
+    "description": "Teopanzolco es una zona arqueológica ubicada en Cuernavaca, Morelos.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-62",
+    "slug": "chalcatzingo",
+    "name": "Chalcatzingo",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.67704,
+    "lng": -98.77152,
+    "state": "Morelos",
+    "stateSlug": "morelos",
+    "municipality": "Jantetelco",
+    "description": "Chalcatzingo es una zona arqueológica ubicada en Jantetelco, Morelos.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-64",
+    "slug": "las-pilas",
+    "name": "Las Pilas",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.68765,
+    "lng": -98.79972,
+    "state": "Morelos",
+    "stateSlug": "morelos",
+    "municipality": "Jonacatepec de Leandro Valle",
+    "description": "Las Pilas es una zona arqueológica ubicada en Jonacatepec de Leandro Valle, Morelos.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-68",
+    "slug": "xochicalco",
+    "name": "Xochicalco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.80453,
+    "lng": -99.2967,
+    "state": "Morelos",
+    "stateSlug": "morelos",
+    "municipality": "Miacatlán",
+    "description": "Xochicalco es una zona arqueológica ubicada en Miacatlán, Morelos.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-182",
+    "slug": "tepozteco",
+    "name": "Tepozteco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.00068,
+    "lng": -99.10153,
+    "state": "Morelos",
+    "stateSlug": "morelos",
+    "municipality": "Tepoztlán",
+    "description": "Tepozteco es una zona arqueológica ubicada en Tepoztlán, Morelos.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-69",
+    "slug": "yautepec",
+    "name": "Yautepec",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.88081,
+    "lng": -99.06912,
+    "state": "Morelos",
+    "stateSlug": "morelos",
+    "municipality": "Yautepec",
+    "description": "Yautepec es una zona arqueológica ubicada en Yautepec, Morelos.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-63",
+    "slug": "coatetelco",
+    "name": "Coatetelco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.7265,
+    "lng": -99.32596,
+    "state": "Morelos",
+    "stateSlug": "morelos",
+    "municipality": "Coatetelco",
+    "description": "Coatetelco es una zona arqueológica ubicada en Coatetelco, Morelos.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-70",
+    "slug": "ixtlan-del-rio-los-toriles",
+    "name": "Ixtlán del Río (Los Toriles)",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.03831,
+    "lng": -104.34473,
+    "state": "Nayarit",
+    "stateSlug": "nayarit",
+    "municipality": "Ixtlán del Río",
+    "description": "Ixtlán del Río (Los Toriles) es una zona arqueológica ubicada en Ixtlán del Río, Nayarit.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-71",
+    "slug": "boca-de-potrerillos",
+    "name": "Boca de Potrerillos",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 26.04505,
+    "lng": -100.64204,
+    "state": "Nuevo León",
+    "stateSlug": "nuevo-leon",
+    "municipality": "Mina",
+    "description": "Boca de Potrerillos es una zona arqueológica ubicada en Mina, Nuevo León.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-183",
+    "slug": "huamelulpan",
+    "name": "Huamelulpan",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.3981,
+    "lng": -97.59942,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "San Martín Huamelúlpam",
+    "description": "Huamelulpan es una zona arqueológica ubicada en San Martín Huamelúlpam, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-75",
+    "slug": "mitla",
+    "name": "Mitla",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.9269,
+    "lng": -96.35931,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "San Pablo Villa de Mitla",
+    "description": "Mitla es una zona arqueológica ubicada en San Pablo Villa de Mitla, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-76",
+    "slug": "monte-alban",
+    "name": "Monte Albán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.04288,
+    "lng": -96.76814,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "Santa Cruz Xoxocotlán",
+    "description": "Monte Albán es una zona arqueológica ubicada en Santa Cruz Xoxocotlán, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-197",
+    "slug": "atzompa",
+    "name": "Atzompa",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.07931,
+    "lng": -96.7827,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "Santa María Atzompa",
+    "description": "Atzompa es una zona arqueológica ubicada en Santa María Atzompa, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-198",
+    "slug": "bocana-del-rio-copalita",
+    "name": "Bocana del Río Copalita",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 15.79259,
+    "lng": -96.05452,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "Santa María Huatulco",
+    "description": "Bocana del Río Copalita es una zona arqueológica ubicada en Santa María Huatulco, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-213",
+    "slug": "cerro-la-campana-huijazoo",
+    "name": "Cerro la Campana (Huijazoo)",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.26891,
+    "lng": -96.87051,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "Santiago Suchilquitongo",
+    "description": "Cerro la Campana (Huijazoo) es una zona arqueológica ubicada en Santiago Suchilquitongo, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-73",
+    "slug": "guiengola",
+    "name": "Guiengola",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.38584,
+    "lng": -95.32317,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "Santo Domingo Tehuantepec",
+    "description": "Guiengola es una zona arqueológica ubicada en Santo Domingo Tehuantepec, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-72",
+    "slug": "dainzu",
+    "name": "Dainzú",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.0036,
+    "lng": -96.55672,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "San Jerónimo Tlacochahuaya",
+    "description": "Dainzú es una zona arqueológica ubicada en San Jerónimo Tlacochahuaya, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-74",
+    "slug": "lambityeco",
+    "name": "Lambityeco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.97185,
+    "lng": -96.49196,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "Tlacolula de Matamoros",
+    "description": "Lambityeco es una zona arqueológica ubicada en Tlacolula de Matamoros, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-77",
+    "slug": "yagul",
+    "name": "Yagul",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.95834,
+    "lng": -96.45002,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "Tlacolula de Matamoros",
+    "description": "Yagul es una zona arqueológica ubicada en Tlacolula de Matamoros, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-226",
+    "slug": "cuevas-prehistoricas-de-mitla-y-yagul",
+    "name": "Cuevas Prehistóricas de Mitla y Yagul",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.95359,
+    "lng": -96.42019,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "Tlacolula de Matamoros",
+    "description": "Cuevas Prehistóricas de Mitla y Yagul es una zona arqueológica ubicada en Tlacolula de Matamoros, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-78",
+    "slug": "zaachila",
+    "name": "Zaachila",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 16.9526,
+    "lng": -96.74876,
+    "state": "Oaxaca",
+    "stateSlug": "oaxaca",
+    "municipality": "Villa de Zaachila",
+    "description": "Zaachila es una zona arqueológica ubicada en Villa de Zaachila, Oaxaca.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-84",
+    "slug": "yohualichan",
+    "name": "Yohualichan",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.06123,
+    "lng": -97.50292,
+    "state": "Puebla",
+    "stateSlug": "puebla",
+    "municipality": "Cuetzalan del Progreso",
+    "description": "Yohualichan es una zona arqueológica ubicada en Cuetzalan del Progreso, Puebla.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-80",
+    "slug": "cholula",
+    "name": "Cholula",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.05802,
+    "lng": -98.30247,
+    "state": "Puebla",
+    "stateSlug": "puebla",
+    "municipality": "San Andrés Cholula",
+    "description": "Cholula es una zona arqueológica ubicada en San Andrés Cholula, Puebla.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-81",
+    "slug": "los-cerritos-de-san-cristobal-tepatlaxco",
+    "name": "Los Cerritos de San Cristóbal Tepatlaxco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.31398,
+    "lng": -98.44542,
+    "state": "Puebla",
+    "stateSlug": "puebla",
+    "municipality": "San Martín Texmelucan",
+    "description": "Los Cerritos de San Cristóbal Tepatlaxco es una zona arqueológica ubicada en San Martín Texmelucan, Puebla.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-217",
+    "slug": "tehuacan-el-viejo",
+    "name": "Tehuacán el Viejo",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.45132,
+    "lng": -97.34532,
+    "state": "Puebla",
+    "stateSlug": "puebla",
+    "municipality": "Tehuacán",
+    "description": "Tehuacán el Viejo es una zona arqueológica ubicada en Tehuacán, Puebla.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-82",
+    "slug": "tepexi-el-viejo",
+    "name": "Tepexi el Viejo",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.59795,
+    "lng": -97.98334,
+    "state": "Puebla",
+    "stateSlug": "puebla",
+    "municipality": "Tepexi de Rodríguez",
+    "description": "Tepexi el Viejo es una zona arqueológica ubicada en Tepexi de Rodríguez, Puebla.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-79",
+    "slug": "cantona",
+    "name": "Cantona",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.5537,
+    "lng": -97.49157,
+    "state": "Puebla",
+    "stateSlug": "puebla",
+    "municipality": "Tepeyahualco",
+    "description": "Cantona es una zona arqueológica ubicada en Tepeyahualco, Puebla.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-205",
+    "slug": "teteles-de-santo-nombre",
+    "name": "Teteles de Santo Nombre",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.62877,
+    "lng": -97.71863,
+    "state": "Puebla",
+    "stateSlug": "puebla",
+    "municipality": "Tlacotepec de Benito Juárez",
+    "description": "Teteles de Santo Nombre es una zona arqueológica ubicada en Tlacotepec de Benito Juárez, Puebla.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-83",
+    "slug": "tepapayeca",
+    "name": "Tepapayeca",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.67392,
+    "lng": -98.53095,
+    "state": "Puebla",
+    "stateSlug": "puebla",
+    "municipality": "Tlapanalá",
+    "description": "Tepapayeca es una zona arqueológica ubicada en Tlapanalá, Puebla.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-87",
+    "slug": "toluquilla",
+    "name": "Toluquilla",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.88328,
+    "lng": -99.5306,
+    "state": "Querétaro",
+    "stateSlug": "queretaro",
+    "municipality": "Cadereyta de Montes",
+    "description": "Toluquilla es una zona arqueológica ubicada en Cadereyta de Montes, Querétaro.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-85",
+    "slug": "el-cerrito",
+    "name": "El Cerrito",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.55044,
+    "lng": -100.44321,
+    "state": "Querétaro",
+    "stateSlug": "queretaro",
+    "municipality": "Corregidora",
+    "description": "El Cerrito es una zona arqueológica ubicada en Corregidora, Querétaro.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-194",
+    "slug": "tancama",
+    "name": "Tancama",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.16171,
+    "lng": -99.39898,
+    "state": "Querétaro",
+    "stateSlug": "queretaro",
+    "municipality": "Jalpan de Serra",
+    "description": "Tancama es una zona arqueológica ubicada en Jalpan de Serra, Querétaro.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-86",
+    "slug": "ranas",
+    "name": "Ranas",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.92624,
+    "lng": -99.56389,
+    "state": "Querétaro",
+    "stateSlug": "queretaro",
+    "municipality": "San Joaquín",
+    "description": "Ranas es una zona arqueológica ubicada en San Joaquín, Querétaro.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-186",
+    "slug": "caracol-punta-sur",
+    "name": "Caracol-Punta Sur",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.28011,
+    "lng": -86.97925,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Cozumel",
+    "description": "Caracol-Punta Sur es una zona arqueológica ubicada en Cozumel, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-95",
+    "slug": "san-gervasio",
+    "name": "San Gervasio",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.49561,
+    "lng": -86.84583,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Cozumel",
+    "description": "San Gervasio es una zona arqueológica ubicada en Cozumel, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-94",
+    "slug": "muyil",
+    "name": "Muyil",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.07748,
+    "lng": -87.6108,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Felipe Carrillo Puerto",
+    "description": "Muyil es una zona arqueológica ubicada en Felipe Carrillo Puerto, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-90",
+    "slug": "el-meco",
+    "name": "El Meco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.21099,
+    "lng": -86.80389,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Isla Mujeres",
+    "description": "El Meco es una zona arqueológica ubicada en Isla Mujeres, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-93",
+    "slug": "oxtankah",
+    "name": "Oxtankah",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.60705,
+    "lng": -88.23457,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Othón P. Blanco",
+    "description": "Oxtankah es una zona arqueológica ubicada en Othón P. Blanco, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-174",
+    "slug": "chacchoben",
+    "name": "Chacchoben",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.52105,
+    "lng": -88.41944,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Othón P. Blanco",
+    "description": "Chacchoben es una zona arqueológica ubicada en Othón P. Blanco, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-92",
+    "slug": "zona-arqueologica-de-kohunlich",
+    "name": "Zona Arqueológica de Kohunlich",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.41924,
+    "lng": -88.79135,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Othón P. Blanco",
+    "description": "Zona Arqueológica de Kohunlich es una zona arqueológica ubicada en Othón P. Blanco, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-184",
+    "slug": "chakanbakan",
+    "name": "Chakanbakan",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.45177,
+    "lng": -89.08948,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Othón P. Blanco",
+    "description": "Chakanbakan es una zona arqueológica ubicada en Othón P. Blanco, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-89",
+    "slug": "dzibanche",
+    "name": "Dzibanché",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.63937,
+    "lng": -88.7591,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Othón P. Blanco",
+    "description": "Dzibanché es una zona arqueológica ubicada en Othón P. Blanco, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-218",
+    "slug": "kinichna",
+    "name": "Kinichná",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.66082,
+    "lng": -88.76732,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Othón P. Blanco",
+    "description": "Kinichná es una zona arqueológica ubicada en Othón P. Blanco, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-211",
+    "slug": "san-miguelito",
+    "name": "San Miguelito",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.07166,
+    "lng": -86.77844,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Benito Juárez",
+    "description": "San Miguelito es una zona arqueológica ubicada en Benito Juárez, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-91",
+    "slug": "el-rey",
+    "name": "El Rey",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.05924,
+    "lng": -86.78182,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Benito Juárez",
+    "description": "El Rey es una zona arqueológica ubicada en Benito Juárez, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-185",
+    "slug": "playa-del-carmen-playacar",
+    "name": "Playa del Carmen (Playacar)",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.6143,
+    "lng": -87.08296,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Solidaridad",
+    "description": "Playa del Carmen (Playacar) es una zona arqueológica ubicada en Solidaridad, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-142",
+    "slug": "calica",
+    "name": "Calica",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.58621,
+    "lng": -87.14583,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Solidaridad",
+    "description": "Calica es una zona arqueológica ubicada en Solidaridad, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-97",
+    "slug": "xcaret",
+    "name": "Xcaret",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.57874,
+    "lng": -87.11962,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Solidaridad",
+    "description": "Xcaret es una zona arqueológica ubicada en Solidaridad, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-221",
+    "slug": "coba",
+    "name": "Cobá",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.21078,
+    "lng": -87.46306,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Tulum",
+    "description": "Cobá es una zona arqueológica ubicada en Tulum, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-98",
+    "slug": "xel-ha",
+    "name": "Xel Há",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.31917,
+    "lng": -87.36718,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Tulum",
+    "description": "Xel Há es una zona arqueológica ubicada en Tulum, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-96",
+    "slug": "tulum-tankah",
+    "name": "Tulum-Tankah",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.2154,
+    "lng": -87.43046,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Tulum",
+    "description": "Tulum-Tankah es una zona arqueológica ubicada en Tulum, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-204",
+    "slug": "ichkabal",
+    "name": "Ichkabal",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.6857,
+    "lng": -88.66768,
+    "state": "Quintana Roo",
+    "stateSlug": "quintana-roo",
+    "municipality": "Bacalar",
+    "description": "Ichkabal es una zona arqueológica ubicada en Bacalar, Quintana Roo.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-177",
+    "slug": "tamtoc",
+    "name": "Tamtoc",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.92476,
+    "lng": -98.81268,
+    "state": "San Luis Potosí",
+    "stateSlug": "san-luis-potosi",
+    "municipality": "Tamuín",
+    "description": "Tamtoc es una zona arqueológica ubicada en Tamuín, San Luis Potosí.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-187",
+    "slug": "tamohi-el-consuelo",
+    "name": "Tamohi (El Consuelo)",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.95291,
+    "lng": -98.74975,
+    "state": "San Luis Potosí",
+    "stateSlug": "san-luis-potosi",
+    "municipality": "Tamuín",
+    "description": "Tamohi (El Consuelo) es una zona arqueológica ubicada en Tamuín, San Luis Potosí.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-212",
+    "slug": "las-labradas",
+    "name": "Las Labradas",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 23.62131,
+    "lng": -106.76605,
+    "state": "Sinaloa",
+    "stateSlug": "sinaloa",
+    "municipality": "San Ignacio",
+    "description": "Las Labradas es una zona arqueológica ubicada en San Ignacio, Sinaloa.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-200",
+    "slug": "cerro-de-trincheras",
+    "name": "Cerro de Trincheras",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 30.39338,
+    "lng": -111.53331,
+    "state": "Sonora",
+    "stateSlug": "sonora",
+    "municipality": "Trincheras",
+    "description": "Cerro de Trincheras es una zona arqueológica ubicada en Trincheras, Sonora.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-103",
+    "slug": "moral-reforma",
+    "name": "Moral-Reforma",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.76864,
+    "lng": -91.29803,
+    "state": "Tabasco",
+    "stateSlug": "tabasco",
+    "municipality": "Balancán",
+    "description": "Moral-Reforma es una zona arqueológica ubicada en Balancán, Tabasco.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-99",
+    "slug": "comalcalco",
+    "name": "Comalcalco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.28008,
+    "lng": -93.20175,
+    "state": "Tabasco",
+    "stateSlug": "tabasco",
+    "municipality": "Comalcalco",
+    "description": "Comalcalco es una zona arqueológica ubicada en Comalcalco, Tabasco.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-101",
+    "slug": "malpasito",
+    "name": "Malpasito",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.34062,
+    "lng": -93.59471,
+    "state": "Tabasco",
+    "stateSlug": "tabasco",
+    "municipality": "Huimanguillo",
+    "description": "Malpasito es una zona arqueológica ubicada en Huimanguillo, Tabasco.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-100",
+    "slug": "la-venta",
+    "name": "La Venta",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.10236,
+    "lng": -94.0401,
+    "state": "Tabasco",
+    "stateSlug": "tabasco",
+    "municipality": "Huimanguillo",
+    "description": "La Venta es una zona arqueológica ubicada en Huimanguillo, Tabasco.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-141",
+    "slug": "san-claudio",
+    "name": "San Claudio",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.33617,
+    "lng": -91.15879,
+    "state": "Tabasco",
+    "stateSlug": "tabasco",
+    "municipality": "Tenosique",
+    "description": "San Claudio es una zona arqueológica ubicada en Tenosique, Tabasco.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-102",
+    "slug": "pomona",
+    "name": "Pomoná",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.48418,
+    "lng": -91.57077,
+    "state": "Tabasco",
+    "stateSlug": "tabasco",
+    "municipality": "Tenosique",
+    "description": "Pomoná es una zona arqueológica ubicada en Tenosique, Tabasco.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-105",
+    "slug": "el-sabinito",
+    "name": "El Sabinito",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 23.63641,
+    "lng": -98.40722,
+    "state": "Tamaulipas",
+    "stateSlug": "tamaulipas",
+    "municipality": "Soto la Marina",
+    "description": "El Sabinito es una zona arqueológica ubicada en Soto la Marina, Tamaulipas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-104",
+    "slug": "las-flores",
+    "name": "Las Flores",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 22.24954,
+    "lng": -97.87679,
+    "state": "Tamaulipas",
+    "stateSlug": "tamaulipas",
+    "municipality": "Tampico",
+    "description": "Las Flores es una zona arqueológica ubicada en Tampico, Tamaulipas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-140",
+    "slug": "balcon-de-montezuma",
+    "name": "Balcón de Montezuma",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 23.59033,
+    "lng": -99.17756,
+    "state": "Tamaulipas",
+    "stateSlug": "tamaulipas",
+    "municipality": "Victoria",
+    "description": "Balcón de Montezuma es una zona arqueológica ubicada en Victoria, Tamaulipas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-227",
+    "slug": "la-herradura",
+    "name": "La Herradura",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.57972,
+    "lng": -98.56502,
+    "state": "Tlaxcala",
+    "stateSlug": "tlaxcala",
+    "municipality": "Calpulalpan",
+    "description": "La Herradura es una zona arqueológica ubicada en Calpulalpan, Tlaxcala.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-139",
+    "slug": "tecoaque",
+    "name": "Tecoaque",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.58518,
+    "lng": -98.62462,
+    "state": "Tlaxcala",
+    "stateSlug": "tlaxcala",
+    "municipality": "Calpulalpan",
+    "description": "Tecoaque es una zona arqueológica ubicada en Calpulalpan, Tlaxcala.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-106",
+    "slug": "cacaxtla-xochitecatl",
+    "name": "Cacaxtla-Xochitécatl",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.24373,
+    "lng": -98.33977,
+    "state": "Tlaxcala",
+    "stateSlug": "tlaxcala",
+    "municipality": "Natívitas",
+    "description": "Cacaxtla-Xochitécatl es una zona arqueológica ubicada en Natívitas, Tlaxcala.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-108",
+    "slug": "tizatlan",
+    "name": "Tizatlán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.33678,
+    "lng": -98.21816,
+    "state": "Tlaxcala",
+    "stateSlug": "tlaxcala",
+    "municipality": "Tlaxcala",
+    "description": "Tizatlán es una zona arqueológica ubicada en Tlaxcala, Tlaxcala.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-188",
+    "slug": "ocotelulco",
+    "name": "Ocotelulco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.33197,
+    "lng": -98.23342,
+    "state": "Tlaxcala",
+    "stateSlug": "tlaxcala",
+    "municipality": "Totolac",
+    "description": "Ocotelulco es una zona arqueológica ubicada en Totolac, Tlaxcala.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-112",
+    "slug": "quiahuiztlan",
+    "name": "Quiahuiztlán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.66951,
+    "lng": -96.41495,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Actopan",
+    "description": "Quiahuiztlán es una zona arqueológica ubicada en Actopan, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-117",
+    "slug": "vega-de-la-pena",
+    "name": "Vega de la Peña",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.96311,
+    "lng": -97.14881,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Atzalan",
+    "description": "Vega de la Peña es una zona arqueológica ubicada en Atzalan, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-118",
+    "slug": "cuajilote",
+    "name": "Cuajilote",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.94018,
+    "lng": -97.13519,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Atzalan",
+    "description": "Cuajilote es una zona arqueológica ubicada en Atzalan, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-138",
+    "slug": "cuauhtochco",
+    "name": "Cuauhtochco",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.82762,
+    "lng": -96.56038,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Carrillo Puerto",
+    "description": "Cuauhtochco es una zona arqueológica ubicada en Carrillo Puerto, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-228",
+    "slug": "las-limas",
+    "name": "Las Limas",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.43736,
+    "lng": -94.98278,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Jesús Carranza",
+    "description": "Las Limas es una zona arqueológica ubicada en Jesús Carranza, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-114",
+    "slug": "cuyuxquihui",
+    "name": "Cuyuxquihui",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.3128,
+    "lng": -97.2559,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Papantla",
+    "description": "Cuyuxquihui es una zona arqueológica ubicada en Papantla, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-115",
+    "slug": "el-tajin",
+    "name": "El Tajin",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.44695,
+    "lng": -97.37753,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Papantla",
+    "description": "El Tajin es una zona arqueológica ubicada en Papantla, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-116",
+    "slug": "tres-zapotes",
+    "name": "Tres Zapotes",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 18.46579,
+    "lng": -95.44025,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Santiago Tuxtla",
+    "description": "Tres Zapotes es una zona arqueológica ubicada en Santiago Tuxtla, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-110",
+    "slug": "castillo-de-teayo",
+    "name": "Castillo de Teayo",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.74998,
+    "lng": -97.63329,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Castillo de Teayo",
+    "description": "Castillo de Teayo es una zona arqueológica ubicada en Castillo de Teayo, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-113",
+    "slug": "san-lorenzo-tenochtitlan",
+    "name": "San Lorenzo Tenochtitlan",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 17.75057,
+    "lng": -94.76169,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Texistepec",
+    "description": "San Lorenzo Tenochtitlan es una zona arqueológica ubicada en Texistepec, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-109",
+    "slug": "cempoala",
+    "name": "Cempoala",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 19.44696,
+    "lng": -96.40407,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Ursulo Galván",
+    "description": "Cempoala es una zona arqueológica ubicada en Ursulo Galván, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-111",
+    "slug": "las-higueras",
+    "name": "Las Higueras",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.03374,
+    "lng": -96.6235,
+    "state": "Veracruz de Ignacio de la Llave",
+    "stateSlug": "veracruz",
+    "municipality": "Vega de Alatorre",
+    "description": "Las Higueras es una zona arqueológica ubicada en Vega de Alatorre, Veracruz de Ignacio de la Llave.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-121",
+    "slug": "acanceh",
+    "name": "Acanceh",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.81331,
+    "lng": -89.45249,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Acanceh",
+    "description": "Acanceh es una zona arqueológica ubicada en Acanceh, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-215",
+    "slug": "xcambo",
+    "name": "XCambó",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.32341,
+    "lng": -89.2883,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Dzemul",
+    "description": "XCambó es una zona arqueológica ubicada en Dzemul, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-127",
+    "slug": "izamal",
+    "name": "Izamal",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.93724,
+    "lng": -89.01659,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Izamal",
+    "description": "Izamal es una zona arqueológica ubicada en Izamal, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-124",
+    "slug": "oxkintok",
+    "name": "Oxkintok",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.56056,
+    "lng": -89.95397,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Maxcanú",
+    "description": "Oxkintok es una zona arqueológica ubicada en Maxcanú, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-133",
+    "slug": "dzibilchaltun",
+    "name": "Dzibilchaltún",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.09153,
+    "lng": -89.5966,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Mérida",
+    "description": "Dzibilchaltún es una zona arqueológica ubicada en Mérida, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-136",
+    "slug": "sayil",
+    "name": "Sayil",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.17778,
+    "lng": -89.6525,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Oxkutzcab",
+    "description": "Sayil es una zona arqueológica ubicada en Oxkutzcab, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-125",
+    "slug": "loltun",
+    "name": "Loltún",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.25367,
+    "lng": -89.45559,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Oxkutzcab",
+    "description": "Loltún es una zona arqueológica ubicada en Oxkutzcab, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-130",
+    "slug": "xlapac",
+    "name": "Xlapac",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.17566,
+    "lng": -89.60625,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Oxkutzcab",
+    "description": "Xlapac es una zona arqueológica ubicada en Oxkutzcab, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-123",
+    "slug": "labna",
+    "name": "Labná",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.17222,
+    "lng": -89.57894,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Oxkutzcab",
+    "description": "Labná es una zona arqueológica ubicada en Oxkutzcab, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-128",
+    "slug": "kabah",
+    "name": "Kabah",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.248,
+    "lng": -89.64727,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Santa Elena",
+    "description": "Kabah es una zona arqueológica ubicada en Santa Elena, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-120",
+    "slug": "uxmal",
+    "name": "Uxmal",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.3289,
+    "lng": -89.64306,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Santa Elena",
+    "description": "Uxmal es una zona arqueológica ubicada en Santa Elena, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-131",
+    "slug": "mayapan",
+    "name": "Mayapán",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.62957,
+    "lng": -89.46067,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Tecoh",
+    "description": "Mayapán es una zona arqueológica ubicada en Tecoh, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-122",
+    "slug": "chacmultun",
+    "name": "Chacmultún",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.17272,
+    "lng": -89.34517,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Tekax",
+    "description": "Chacmultún es una zona arqueológica ubicada en Tekax, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-129",
+    "slug": "ek-balam",
+    "name": "Ek' Balam",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.89348,
+    "lng": -88.14546,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Temozón",
+    "description": "Ek' Balam es una zona arqueológica ubicada en Temozón, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-119",
+    "slug": "chichen-ltza",
+    "name": "Chichén ltzá",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.68298,
+    "lng": -88.56864,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Tinum",
+    "description": "Chichén ltzá es una zona arqueológica ubicada en Tinum, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-132",
+    "slug": "balamcanche",
+    "name": "Balamcanché",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.65874,
+    "lng": -88.53467,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Tinum",
+    "description": "Balamcanché es una zona arqueológica ubicada en Tinum, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-126",
+    "slug": "ake",
+    "name": "Aké",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 20.9476,
+    "lng": -89.29958,
+    "state": "Yucatán",
+    "stateSlug": "yucatan",
+    "municipality": "Tixkokob",
+    "description": "Aké es una zona arqueológica ubicada en Tixkokob, Yucatán.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-135",
+    "slug": "alta-vista-o-chalchihuites",
+    "name": "Alta Vista o Chalchihuites",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 23.47936,
+    "lng": -103.92533,
+    "state": "Zacatecas",
+    "stateSlug": "zacatecas",
+    "municipality": "Chalchihuites",
+    "description": "Alta Vista o Chalchihuites es una zona arqueológica ubicada en Chalchihuites, Zacatecas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-189",
+    "slug": "cerro-de-las-ventanas",
+    "name": "Cerro de las Ventanas",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.37177,
+    "lng": -103.13569,
+    "state": "Zacatecas",
+    "stateSlug": "zacatecas",
+    "municipality": "Juchipila",
+    "description": "Cerro de las Ventanas es una zona arqueológica ubicada en Juchipila, Zacatecas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-208",
+    "slug": "cerro-del-teul",
+    "name": "Cerro del Teúl",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 21.45024,
+    "lng": -103.46623,
+    "state": "Zacatecas",
+    "stateSlug": "zacatecas",
+    "municipality": "Teúl de González Ortega",
+    "description": "Cerro del Teúl es una zona arqueológica ubicada en Teúl de González Ortega, Zacatecas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  },
+  {
+    "id": "sic-za-134",
+    "slug": "la-quemada",
+    "name": "La Quemada",
+    "category": "zonas-arqueologicas",
+    "categoryName": "Zona arqueológica",
+    "lat": 22.45531,
+    "lng": -102.82087,
+    "state": "Zacatecas",
+    "stateSlug": "zacatecas",
+    "municipality": "Villanueva",
+    "description": "La Quemada es una zona arqueológica ubicada en Villanueva, Zacatecas.",
+    "badges": [
+      "inah-oficial"
+    ],
+    "source": "SIC Cultura / INAH"
+  }
+]

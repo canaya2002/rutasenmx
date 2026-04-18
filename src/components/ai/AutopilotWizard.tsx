@@ -10,122 +10,165 @@ import { Spinner } from '@/components/ui/spinner';
 import { cn } from '@/lib/utils';
 import { PLACE_CATEGORIES, BUDGET_LEVELS } from '@/lib/constants';
 import type { AutopilotInput, AutopilotOutput } from '@/lib/ai/types';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 // ── Constants ───────────────────────────────────────────────────────────────
 
 const TOTAL_STEPS = 10;
 
-const PACE_OPTIONS = [
+const buildPaceOptions = (isEn: boolean) => [
   {
     value: 'relajado' as const,
-    label: 'Relajado',
-    description: 'Pocas paradas, mucho tiempo para disfrutar. 3-4h de manejo/dia.',
+    label: isEn ? 'Relaxed' : 'Relajado',
+    description: isEn
+      ? 'Few stops, lots of time to enjoy. 3-4h of driving/day.'
+      : 'Pocas paradas, mucho tiempo para disfrutar. 3-4h de manejo/día.',
     icon: '\u2615',
   },
   {
     value: 'moderado' as const,
-    label: 'Moderado',
-    description: 'Balance entre manejo y exploracion. 4-5h de manejo/dia.',
+    label: isEn ? 'Moderate' : 'Moderado',
+    description: isEn
+      ? 'Balance between driving and exploring. 4-5h of driving/day.'
+      : 'Balance entre manejo y exploración. 4-5h de manejo/día.',
     icon: '\u26F0\uFE0F',
   },
   {
     value: 'intenso' as const,
-    label: 'Intenso',
-    description: 'Muchas paradas, aprovechando cada minuto. 6-7h de manejo/dia.',
+    label: isEn ? 'Intense' : 'Intenso',
+    description: isEn
+      ? 'Many stops, making the most of every minute. 6-7h of driving/day.'
+      : 'Muchas paradas, aprovechando cada minuto. 6-7h de manejo/día.',
     icon: '\u26A1',
   },
 ];
 
-const TRAVELER_TYPES = [
-  { value: 'solo' as const, label: 'Solo', icon: '\uD83E\uDDD1' },
-  { value: 'pareja' as const, label: 'Pareja', icon: '\uD83D\uDC91' },
-  { value: 'familia' as const, label: 'Familia', icon: '\uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC67\u200D\uD83D\uDC66' },
-  { value: 'amigos' as const, label: 'Amigos', icon: '\uD83E\uDD1D' },
-  { value: 'grupo' as const, label: 'Grupo', icon: '\uD83D\uDC65' },
+const buildTravelerTypes = (isEn: boolean) => [
+  { value: 'solo' as const, label: isEn ? 'Solo' : 'Solo', icon: '\uD83E\uDDD1' },
+  { value: 'pareja' as const, label: isEn ? 'Couple' : 'Pareja', icon: '\uD83D\uDC91' },
+  { value: 'familia' as const, label: isEn ? 'Family' : 'Familia', icon: '\uD83D\uDC68\u200D\uD83D\uDC69\u200D\uD83D\uDC67\u200D\uD83D\uDC66' },
+  { value: 'amigos' as const, label: isEn ? 'Friends' : 'Amigos', icon: '\uD83E\uDD1D' },
+  { value: 'grupo' as const, label: isEn ? 'Group' : 'Grupo', icon: '\uD83D\uDC65' },
 ];
 
-const BUDGET_OPTIONS = [
+const buildBudgetOptions = (isEn: boolean) => [
   {
     value: 'economico' as const,
-    label: 'Economico',
-    description: 'Hospedaje basico, comida de mercado, actividades gratuitas.',
-    range: '$300 - $1,200 MXN/dia',
+    label: isEn ? 'Budget' : 'Económico',
+    description: isEn
+      ? 'Basic lodging, market food, free activities.'
+      : 'Hospedaje básico, comida de mercado, actividades gratuitas.',
+    range: isEn ? '$300 - $1,200 MXN/day' : '$300 - $1,200 MXN/día',
   },
   {
     value: 'moderado' as const,
-    label: 'Moderado',
-    description: 'Hoteles 3-4 estrellas, restaurantes locales.',
-    range: '$1,000 - $3,500 MXN/dia',
+    label: isEn ? 'Moderate' : 'Moderado',
+    description: isEn
+      ? '3-4 star hotels, local restaurants.'
+      : 'Hoteles 3-4 estrellas, restaurantes locales.',
+    range: isEn ? '$1,000 - $3,500 MXN/day' : '$1,000 - $3,500 MXN/día',
   },
   {
     value: 'premium' as const,
     label: 'Premium',
-    description: 'Hoteles boutique, restaurantes de calidad.',
-    range: '$3,000 - $8,000 MXN/dia',
+    description: isEn
+      ? 'Boutique hotels, quality restaurants.'
+      : 'Hoteles boutique, restaurantes de calidad.',
+    range: isEn ? '$3,000 - $8,000 MXN/day' : '$3,000 - $8,000 MXN/día',
   },
   {
     value: 'lujo' as const,
-    label: 'Lujo',
-    description: 'Los mejores hoteles y experiencias exclusivas.',
-    range: '$6,000+ MXN/dia',
+    label: isEn ? 'Luxury' : 'Lujo',
+    description: isEn
+      ? 'The best hotels and exclusive experiences.'
+      : 'Los mejores hoteles y experiencias exclusivas.',
+    range: isEn ? '$6,000+ MXN/day' : '$6,000+ MXN/día',
   },
 ];
 
-const STYLE_OPTIONS = [
+const buildStyleOptions = (isEn: boolean) => [
   {
     value: 'cultural' as const,
-    label: 'Cultural',
-    description: 'Museos, zonas arqueologicas, centros historicos.',
+    label: isEn ? 'Cultural' : 'Cultural',
+    description: isEn
+      ? 'Museums, archaeological zones, historic centers.'
+      : 'Museos, zonas arqueológicas, centros históricos.',
     icon: '\uD83C\uDFDB\uFE0F',
   },
   {
     value: 'foodie' as const,
     label: 'Foodie',
-    description: 'Mercados, comida regional, experiencias gastronomicas.',
+    description: isEn
+      ? 'Markets, regional food, gastronomic experiences.'
+      : 'Mercados, comida regional, experiencias gastronómicas.',
     icon: '\uD83C\uDF2E',
   },
   {
     value: 'familiar' as const,
-    label: 'Familiar',
-    description: 'Actividades para toda la familia.',
+    label: isEn ? 'Family' : 'Familiar',
+    description: isEn
+      ? 'Activities for the whole family.'
+      : 'Actividades para toda la familia.',
     icon: '\uD83C\uDFA0',
   },
   {
     value: 'naturaleza' as const,
-    label: 'Naturaleza',
-    description: 'Cascadas, cenotes, bosques, senderismo.',
+    label: isEn ? 'Nature' : 'Naturaleza',
+    description: isEn
+      ? 'Waterfalls, cenotes, forests, hiking.'
+      : 'Cascadas, cenotes, bosques, senderismo.',
     icon: '\uD83C\uDF3F',
   },
   {
     value: 'express' as const,
     label: 'Express',
-    description: 'Lo esencial, rapido y eficiente.',
+    description: isEn ? 'The essentials, quick and efficient.' : 'Lo esencial, rápido y eficiente.',
     icon: '\uD83D\uDE80',
   },
   {
     value: 'premium' as const,
     label: 'Premium',
-    description: 'Vinedos, haciendas, tours privados.',
+    description: isEn
+      ? 'Vineyards, haciendas, private tours.'
+      : 'Viñedos, haciendas, tours privados.',
     icon: '\uD83C\uDF1F',
   },
 ];
 
-const MEXICO_FUN_FACTS = [
-  'Mexico tiene 35 sitios declarados Patrimonio de la Humanidad por la UNESCO.',
-  'Existen mas de 130 Pueblos Magicos en todo el pais.',
-  'La gastronomia mexicana es Patrimonio Inmaterial de la Humanidad.',
-  'Mexico tiene la segunda barrera de coral mas grande del mundo.',
-  'En Mexico se hablan 68 lenguas indigenas ademas del espanol.',
-  'La Barranca del Cobre es mas grande y profunda que el Gran Canon.',
-  'Chichen Itza fue nombrada una de las Nuevas 7 Maravillas del Mundo.',
-  'Mexico es el pais con mas taxis en el mundo: mas de 300,000.',
-  'El cenote mas profundo de Mexico mide mas de 300 metros.',
-  'Mexico tiene mas de 11,000 km de costas en ambos oceanos.',
-  'La CDMX se hunde entre 5 y 40 cm por ano debido a la extraccion de agua.',
-  'El chile habanero de Yucatan es uno de los mas picantes del mundo.',
-  'Mexico tiene 6 zonas horarias diferentes.',
-  'El Nevado de Toluca tiene un lago dentro de su crater.',
-  'Guanajuato tiene una red de tuneles subterraneos que sirven como calles.',
+const MEXICO_FUN_FACTS_ES = [
+  'México tiene 35 sitios declarados Patrimonio de la Humanidad por la UNESCO.',
+  'Existen más de 130 Pueblos Mágicos en todo el país.',
+  'La gastronomía mexicana es Patrimonio Inmaterial de la Humanidad.',
+  'México tiene la segunda barrera de coral más grande del mundo.',
+  'En México se hablan 68 lenguas indígenas además del español.',
+  'La Barranca del Cobre es más grande y profunda que el Gran Cañón.',
+  'Chichén Itzá fue nombrada una de las Nuevas 7 Maravillas del Mundo.',
+  'México es el país con más taxis en el mundo: más de 300,000.',
+  'El cenote más profundo de México mide más de 300 metros.',
+  'México tiene más de 11,000 km de costas en ambos océanos.',
+  'La CDMX se hunde entre 5 y 40 cm por año debido a la extracción de agua.',
+  'El chile habanero de Yucatán es uno de los más picantes del mundo.',
+  'México tiene 6 zonas horarias diferentes.',
+  'El Nevado de Toluca tiene un lago dentro de su cráter.',
+  'Guanajuato tiene una red de túneles subterráneos que sirven como calles.',
+];
+
+const MEXICO_FUN_FACTS_EN = [
+  'Mexico has 35 UNESCO World Heritage sites.',
+  'There are more than 130 Pueblos Mágicos across the country.',
+  'Mexican cuisine is recognized as UNESCO Intangible Cultural Heritage.',
+  'Mexico has the second-largest coral barrier reef in the world.',
+  '68 indigenous languages are spoken in Mexico in addition to Spanish.',
+  'Copper Canyon is larger and deeper than the Grand Canyon.',
+  'Chichén Itzá was named one of the New 7 Wonders of the World.',
+  'Mexico has more taxis than any other country: over 300,000.',
+  "Mexico's deepest cenote is over 300 meters deep.",
+  'Mexico has more than 11,000 km of coastline on both oceans.',
+  'Mexico City sinks between 5 and 40 cm per year due to water extraction.',
+  'The Yucatán habanero pepper is one of the spiciest in the world.',
+  'Mexico has 6 different time zones.',
+  'Nevado de Toluca has a lake inside its crater.',
+  'Guanajuato has a network of underground tunnels used as streets.',
 ];
 
 // ── Types ───────────────────────────────────────────────────────────────────
@@ -159,6 +202,16 @@ interface AutopilotWizardProps {
 // ── Component ───────────────────────────────────────────────────────────────
 
 export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWizardProps) {
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
+  const T = (es: string, en: string) => (isEn ? en : es);
+
+  const PACE_OPTIONS = React.useMemo(() => buildPaceOptions(isEn), [isEn]);
+  const TRAVELER_TYPES = React.useMemo(() => buildTravelerTypes(isEn), [isEn]);
+  const BUDGET_OPTIONS = React.useMemo(() => buildBudgetOptions(isEn), [isEn]);
+  const STYLE_OPTIONS = React.useMemo(() => buildStyleOptions(isEn), [isEn]);
+  const MEXICO_FUN_FACTS = isEn ? MEXICO_FUN_FACTS_EN : MEXICO_FUN_FACTS_ES;
+
   const [step, setStep] = React.useState(1);
   const [isGenerating, setIsGenerating] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
@@ -264,7 +317,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(
-          errorData.message ?? `Error ${response.status}: No se pudo generar el itinerario.`,
+          errorData.message ?? `Error ${response.status}: ${T('No se pudo generar el itinerario.', 'Could not generate the itinerary.')}`,
         );
       }
 
@@ -274,12 +327,12 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
       setError(
         err instanceof Error
           ? err.message
-          : 'Ocurrio un error inesperado. Intenta de nuevo.',
+          : T('Ocurrió un error inesperado. Intenta de nuevo.', 'An unexpected error occurred. Please try again.'),
       );
     } finally {
       setIsGenerating(false);
     }
-  }, [state, onComplete]);
+  }, [state, onComplete, T]);
 
   // Geocode helper (simplified - uses coordinates from search text)
   const handleSetLocation = React.useCallback(
@@ -384,15 +437,17 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
     return (
       <div className="flex flex-col items-center justify-center gap-8 py-16 px-4">
         <div className="relative">
-          <Spinner size="xl" label="Generando itinerario..." />
+          <Spinner size="xl" label={T('Generando itinerario...', 'Generating itinerary…')} />
         </div>
         <div className="text-center max-w-md space-y-4">
           <h3 className="text-xl font-display font-semibold text-foreground">
-            Estamos planeando tu ruta...
+            {T('Estamos planeando tu ruta...', 'We are planning your route…')}
           </h3>
           <p className="text-muted-foreground text-sm">
-            Nuestro Autopilot esta analizando cientos de lugares para crear el itinerario
-            perfecto para ti.
+            {T(
+              'Nuestro Autopilot está analizando cientos de lugares para crear el itinerario perfecto para ti.',
+              'Our Autopilot is analyzing hundreds of places to create the perfect itinerary for you.',
+            )}
           </p>
           <div className="bg-muted/50 rounded-lg p-4 min-h-[80px] flex items-center justify-center transition-all duration-500">
             <p className="text-sm text-muted-foreground italic">
@@ -413,10 +468,13 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
         return (
           <div className="space-y-6">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground">Origen</label>
+              <label className="text-sm font-medium text-foreground">{T('Origen', 'Origin')}</label>
               <div className="flex gap-2">
                 <Input
-                  placeholder="Ej: Ciudad de Mexico, Guadalajara, Monterrey..."
+                  placeholder={T(
+                    'Ej: Ciudad de México, Guadalajara, Monterrey...',
+                    'E.g. Mexico City, Guadalajara, Monterrey…',
+                  )}
                   value={originSearch}
                   onChange={(e) => setOriginSearch(e.target.value)}
                   onKeyDown={(e) => {
@@ -431,7 +489,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                     if (originSearch.trim()) handleSetLocation('origin', originSearch.trim());
                   }}
                 >
-                  Fijar
+                  {T('Fijar', 'Set')}
                 </Button>
               </div>
               {state.origin && (
@@ -440,10 +498,13 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground">Destino</label>
+              <label className="text-sm font-medium text-foreground">{T('Destino', 'Destination')}</label>
               <div className="flex gap-2">
                 <Input
-                  placeholder="Ej: Cancun, Oaxaca, Merida..."
+                  placeholder={T(
+                    'Ej: Cancún, Oaxaca, Mérida...',
+                    'E.g. Cancún, Oaxaca, Mérida…',
+                  )}
                   value={destSearch}
                   onChange={(e) => setDestSearch(e.target.value)}
                   onKeyDown={(e) => {
@@ -458,7 +519,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                     if (destSearch.trim()) handleSetLocation('destination', destSearch.trim());
                   }}
                 >
-                  Fijar
+                  {T('Fijar', 'Set')}
                 </Button>
               </div>
               {state.destination && (
@@ -473,11 +534,14 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
         return (
           <div className="space-y-6">
             <p className="text-sm text-muted-foreground">
-              Las fechas son opcionales. Si no las defines, calcularemos la duracion ideal automaticamente.
+              {T(
+                'Las fechas son opcionales. Si no las defines, calcularemos la duración ideal automáticamente.',
+                "Dates are optional. If you don't set them, we'll calculate the ideal duration automatically.",
+              )}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">Fecha de salida</label>
+                <label className="text-sm font-medium text-foreground">{T('Fecha de salida', 'Start date')}</label>
                 <Input
                   type="date"
                   value={state.dateStart}
@@ -486,7 +550,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">Fecha de regreso</label>
+                <label className="text-sm font-medium text-foreground">{T('Fecha de regreso', 'Return date')}</label>
                 <Input
                   type="date"
                   value={state.dateEnd}
@@ -547,7 +611,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">
-                Numero de viajeros
+                {T('Número de viajeros', 'Number of travelers')}
               </label>
               <Input
                 type="number"
@@ -566,7 +630,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                   onChange={(e) => update('hasChildren', e.target.checked)}
                   className="h-5 w-5 rounded border-border text-terracotta focus:ring-terracotta"
                 />
-                <span className="text-sm">Viajamos con ninos</span>
+                <span className="text-sm">{T('Viajamos con niños', 'Traveling with children')}</span>
               </label>
 
               <label className="flex items-center gap-3 cursor-pointer">
@@ -576,7 +640,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                   onChange={(e) => update('hasPets', e.target.checked)}
                   className="h-5 w-5 rounded border-border text-terracotta focus:ring-terracotta"
                 />
-                <span className="text-sm">Viajamos con mascotas</span>
+                <span className="text-sm">{T('Viajamos con mascotas', 'Traveling with pets')}</span>
               </label>
             </div>
           </div>
@@ -611,7 +675,10 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
         return (
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Selecciona las categorias que te interesan. Puedes elegir varias.
+              {T(
+                'Selecciona las categorías que te interesan. Puedes elegir varias.',
+                'Select the categories that interest you. You can choose several.',
+              )}
             </p>
             <div className="flex flex-wrap gap-2">
               {PLACE_CATEGORIES.filter(
@@ -627,7 +694,9 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
             </div>
             {state.interests.length > 0 && (
               <p className="text-xs text-muted-foreground">
-                {state.interests.length} categoria{state.interests.length !== 1 ? 's' : ''} seleccionada{state.interests.length !== 1 ? 's' : ''}
+                {isEn
+                  ? `${state.interests.length} categor${state.interests.length !== 1 ? 'ies' : 'y'} selected`
+                  : `${state.interests.length} categoría${state.interests.length !== 1 ? 's' : ''} seleccionada${state.interests.length !== 1 ? 's' : ''}`}
               </p>
             )}
           </div>
@@ -646,8 +715,8 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                   className="h-5 w-5 rounded border-border text-terracotta focus:ring-terracotta"
                 />
                 <div>
-                  <span className="text-sm font-medium">Evitar casetas de peaje</span>
-                  <p className="text-xs text-muted-foreground">Preferir carreteras libres (el viaje puede ser mas largo).</p>
+                  <span className="text-sm font-medium">{T('Evitar casetas de peaje', 'Avoid tolls')}</span>
+                  <p className="text-xs text-muted-foreground">{T('Preferir carreteras libres (el viaje puede ser más largo).', 'Prefer free roads (the trip may take longer).')}</p>
                 </div>
               </label>
 
@@ -659,8 +728,8 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                   className="h-5 w-5 rounded border-border text-terracotta focus:ring-terracotta"
                 />
                 <div>
-                  <span className="text-sm font-medium">Evitar autopistas</span>
-                  <p className="text-xs text-muted-foreground">Viajar por carreteras secundarias y pueblitos.</p>
+                  <span className="text-sm font-medium">{T('Evitar autopistas', 'Avoid highways')}</span>
+                  <p className="text-xs text-muted-foreground">{T('Viajar por carreteras secundarias y pueblitos.', 'Travel by secondary roads and small towns.')}</p>
                 </div>
               </label>
 
@@ -672,8 +741,8 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                   className="h-5 w-5 rounded border-border text-terracotta focus:ring-terracotta"
                 />
                 <div>
-                  <span className="text-sm font-medium">Evitar terraceria</span>
-                  <p className="text-xs text-muted-foreground">Solo caminos pavimentados.</p>
+                  <span className="text-sm font-medium">{T('Evitar terracería', 'Avoid dirt roads')}</span>
+                  <p className="text-xs text-muted-foreground">{T('Solo caminos pavimentados.', 'Paved roads only.')}</p>
                 </div>
               </label>
 
@@ -685,15 +754,15 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                   className="h-5 w-5 rounded border-border text-terracotta focus:ring-terracotta"
                 />
                 <div>
-                  <span className="text-sm font-medium">Evitar transbordadores</span>
-                  <p className="text-xs text-muted-foreground">No cruzar por ferry o lancha.</p>
+                  <span className="text-sm font-medium">{T('Evitar transbordadores', 'Avoid ferries')}</span>
+                  <p className="text-xs text-muted-foreground">{T('No cruzar por ferry o lancha.', 'Do not cross by ferry or boat.')}</p>
                 </div>
               </label>
             </div>
 
             <div className="space-y-2">
               <label className="text-sm font-medium text-foreground">
-                Maximo de horas de manejo por dia: {state.maxDrivingHours}h
+                {T(`Máximo de horas de manejo por día: ${state.maxDrivingHours}h`, `Max driving hours per day: ${state.maxDrivingHours}h`)}
               </label>
               <input
                 type="range"
@@ -705,8 +774,8 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                 className="w-full accent-terracotta"
               />
               <div className="flex justify-between text-xs text-muted-foreground">
-                <span>2h (poco manejo)</span>
-                <span>10h (maximo)</span>
+                <span>{T('2h (poco manejo)', '2h (little driving)')}</span>
+                <span>{T('10h (máximo)', '10h (max)')}</span>
               </div>
             </div>
           </div>
@@ -717,11 +786,17 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
         return (
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Agrega lugares que no pueden faltar en tu viaje. Este paso es opcional.
+              {T(
+                'Agrega lugares que no pueden faltar en tu viaje. Este paso es opcional.',
+                'Add places that cannot be missed on your trip. This step is optional.',
+              )}
             </p>
             <div className="flex gap-2">
               <Input
-                placeholder="Ej: Chichen Itza, Teotihuacan, Monte Alban..."
+                placeholder={T(
+                  'Ej: Chichén Itzá, Teotihuacán, Monte Albán...',
+                  'E.g. Chichén Itzá, Teotihuacán, Monte Albán…',
+                )}
                 value={mustVisitSearch}
                 onChange={(e) => setMustVisitSearch(e.target.value)}
                 onKeyDown={(e) => {
@@ -733,7 +808,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                 onClick={() => addMustVisit(mustVisitSearch)}
                 disabled={!mustVisitSearch.trim()}
               >
-                Agregar
+                {T('Agregar', 'Add')}
               </Button>
             </div>
             {state.mustVisit.length > 0 && (
@@ -787,39 +862,39 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
           <div className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div className="space-y-1">
-                <span className="font-medium text-muted-foreground">Origen</span>
+                <span className="font-medium text-muted-foreground">{T('Origen', 'Origin')}</span>
                 <p className="text-foreground">{state.origin?.name ?? '-'}</p>
               </div>
               <div className="space-y-1">
-                <span className="font-medium text-muted-foreground">Destino</span>
+                <span className="font-medium text-muted-foreground">{T('Destino', 'Destination')}</span>
                 <p className="text-foreground">{state.destination?.name ?? '-'}</p>
               </div>
               <div className="space-y-1">
-                <span className="font-medium text-muted-foreground">Fechas</span>
+                <span className="font-medium text-muted-foreground">{T('Fechas', 'Dates')}</span>
                 <p className="text-foreground">
                   {state.dateStart && state.dateEnd
-                    ? `${state.dateStart} al ${state.dateEnd}`
-                    : 'Automatico'}
+                    ? `${state.dateStart} ${T('al', 'to')} ${state.dateEnd}`
+                    : T('Automático', 'Automatic')}
                 </p>
               </div>
               <div className="space-y-1">
-                <span className="font-medium text-muted-foreground">Ritmo</span>
+                <span className="font-medium text-muted-foreground">{T('Ritmo', 'Pace')}</span>
                 <p className="text-foreground capitalize">{state.pace}</p>
               </div>
               <div className="space-y-1">
-                <span className="font-medium text-muted-foreground">Viajeros</span>
+                <span className="font-medium text-muted-foreground">{T('Viajeros', 'Travelers')}</span>
                 <p className="text-foreground">
                   {state.travelerCount} - {state.travelerType}
-                  {state.hasChildren ? ' (con ninos)' : ''}
-                  {state.hasPets ? ' (con mascotas)' : ''}
+                  {state.hasChildren ? T(' (con niños)', ' (with children)') : ''}
+                  {state.hasPets ? T(' (con mascotas)', ' (with pets)') : ''}
                 </p>
               </div>
               <div className="space-y-1">
-                <span className="font-medium text-muted-foreground">Presupuesto</span>
+                <span className="font-medium text-muted-foreground">{T('Presupuesto', 'Budget')}</span>
                 <p className="text-foreground capitalize">{state.budget}</p>
               </div>
               <div className="space-y-1 sm:col-span-2">
-                <span className="font-medium text-muted-foreground">Intereses</span>
+                <span className="font-medium text-muted-foreground">{T('Intereses', 'Interests')}</span>
                 <div className="flex flex-wrap gap-1">
                   {state.interests.map((slug) => {
                     const cat = PLACE_CATEGORIES.find((c) => c.slug === slug);
@@ -832,11 +907,11 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                 </div>
               </div>
               <div className="space-y-1">
-                <span className="font-medium text-muted-foreground">Estilo</span>
+                <span className="font-medium text-muted-foreground">{T('Estilo', 'Style')}</span>
                 <p className="text-foreground capitalize">{state.style}</p>
               </div>
               <div className="space-y-1">
-                <span className="font-medium text-muted-foreground">Max manejo/dia</span>
+                <span className="font-medium text-muted-foreground">{T('Max manejo/día', 'Max driving/day')}</span>
                 <p className="text-foreground">{state.maxDrivingHours}h</p>
               </div>
             </div>
@@ -853,7 +928,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
               onClick={handleGenerate}
               disabled={isGenerating}
             >
-              Generar mi itinerario con Autopilot
+              {T('Generar mi itinerario con Autopilot', 'Generate my itinerary with Autopilot')}
             </Button>
           </div>
         );
@@ -865,18 +940,31 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
 
   // ── Step titles ─────────────────────────────────────────────────────────
 
-  const stepTitles: Record<number, { title: string; description: string }> = {
-    1: { title: 'Origen y destino', description: 'Define de donde sales y a donde quieres llegar.' },
-    2: { title: 'Fechas', description: 'Cuando quieres viajar? (opcional)' },
-    3: { title: 'Ritmo de viaje', description: 'Que tan rapido quieres ir?' },
-    4: { title: 'Viajeros', description: 'Quien va en el viaje?' },
-    5: { title: 'Presupuesto', description: 'Cuanto quieres gastar?' },
-    6: { title: 'Intereses', description: 'Que tipo de lugares te interesan?' },
-    7: { title: 'Restricciones', description: 'Hay algo que quieras evitar en el camino?' },
-    8: { title: 'Lugares imperdibles', description: 'Hay algun lugar que no puede faltar?' },
-    9: { title: 'Estilo del viaje', description: 'Que tipo de experiencia buscas?' },
-    10: { title: 'Resumen', description: 'Revisa tus preferencias antes de generar.' },
-  };
+  const stepTitles: Record<number, { title: string; description: string }> = isEn
+    ? {
+        1: { title: 'Origin and destination', description: 'Define where you start and where you want to go.' },
+        2: { title: 'Dates', description: 'When do you want to travel? (optional)' },
+        3: { title: 'Travel pace', description: 'How fast do you want to go?' },
+        4: { title: 'Travelers', description: 'Who is going on the trip?' },
+        5: { title: 'Budget', description: 'How much do you want to spend?' },
+        6: { title: 'Interests', description: 'What kind of places interest you?' },
+        7: { title: 'Restrictions', description: 'Is there anything you want to avoid on the way?' },
+        8: { title: 'Must-visit places', description: 'Any place you cannot miss?' },
+        9: { title: 'Travel style', description: 'What kind of experience are you looking for?' },
+        10: { title: 'Summary', description: 'Review your preferences before generating.' },
+      }
+    : {
+        1: { title: 'Origen y destino', description: 'Define de dónde sales y a dónde quieres llegar.' },
+        2: { title: 'Fechas', description: '¿Cuándo quieres viajar? (opcional)' },
+        3: { title: 'Ritmo de viaje', description: '¿Qué tan rápido quieres ir?' },
+        4: { title: 'Viajeros', description: '¿Quién va en el viaje?' },
+        5: { title: 'Presupuesto', description: '¿Cuánto quieres gastar?' },
+        6: { title: 'Intereses', description: '¿Qué tipo de lugares te interesan?' },
+        7: { title: 'Restricciones', description: '¿Hay algo que quieras evitar en el camino?' },
+        8: { title: 'Lugares imperdibles', description: '¿Hay algún lugar que no puede faltar?' },
+        9: { title: 'Estilo del viaje', description: '¿Qué tipo de experiencia buscas?' },
+        10: { title: 'Resumen', description: 'Revisa tus preferencias antes de generar.' },
+      };
 
   const currentStep = stepTitles[step];
 
@@ -898,7 +986,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
         <div className="flex items-center justify-between">
           <div>
             <CardDescription>
-              Paso {step} de {TOTAL_STEPS}
+              {T(`Paso ${step} de ${TOTAL_STEPS}`, `Step ${step} of ${TOTAL_STEPS}`)}
             </CardDescription>
             <CardTitle className="text-xl">{currentStep.title}</CardTitle>
           </div>
@@ -916,7 +1004,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
             onClick={() => setStep((s) => Math.max(1, s - 1))}
             disabled={step === 1}
           >
-            Anterior
+            {T('Anterior', 'Previous')}
           </Button>
 
           {step < TOTAL_STEPS ? (
@@ -924,7 +1012,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
               onClick={() => setStep((s) => Math.min(TOTAL_STEPS, s + 1))}
               disabled={!canAdvance}
             >
-              Siguiente
+              {T('Siguiente', 'Next')}
             </Button>
           ) : null}
         </div>

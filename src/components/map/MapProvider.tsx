@@ -37,11 +37,15 @@ export function useMap() {
 /*  Provider                                                           */
 /* ------------------------------------------------------------------ */
 export function MapProvider({ children }: { children: ReactNode }) {
+  // Keep the instance in state (and a ref for cleanup) so consumers subscribed
+  // through context re-render when the map becomes available.
+  const [map, setMapState] = useState<mapboxgl.Map | null>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
   const [isReady, setIsReady] = useState(false);
 
   const setMap = useCallback((instance: mapboxgl.Map | null) => {
     mapRef.current = instance;
+    setMapState(instance);
     setIsReady(instance !== null);
   }, []);
 
@@ -51,13 +55,12 @@ export function MapProvider({ children }: { children: ReactNode }) {
       if (mapRef.current) {
         mapRef.current.remove();
         mapRef.current = null;
-        setIsReady(false);
       }
     };
   }, []);
 
   return (
-    <MapContext.Provider value={{ map: mapRef.current, setMap, isReady }}>
+    <MapContext.Provider value={{ map, setMap, isReady }}>
       {children}
     </MapContext.Provider>
   );

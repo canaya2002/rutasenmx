@@ -1,0 +1,3808 @@
+{
+  "dataset_name": "mexico_road_routes_seed",
+  "version": "1.0.0",
+  "generated_for": "Carlos / Law Office of Manuel Solis",
+  "record_count": 104,
+  "schema_notes": {
+    "goal": "Seed inicial de rutas por carretera en Mexico para producto, DB o CMS.",
+    "coverage": "104 rutas agrupadas por corredores turisticos.",
+    "known_limits": [
+      "No incluye tiempos, peajes ni combustible live.",
+      "Los campos museums, archaeology y nature son hints iniciales, no inventario exhaustivo.",
+      "road_data_status queda pendiente para enriquecer con Mappir o equivalente."
+    ]
+  },
+  "routes": [
+    {
+      "id": 1,
+      "slug": "cdmx-cuernavaca-tepoztlan",
+      "route_name": "CDMX → Cuernavaca → Tepoztlán",
+      "origin_hub": "CDMX",
+      "region_cluster": "Centro",
+      "states": [
+        "Ciudad de México",
+        "Morelos"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Cuernavaca",
+        "Tepoztlán"
+      ],
+      "pueblos_magicos": [
+        "Tepoztlán"
+      ],
+      "museums": [
+        "Catedral/Ex Convento de la Asunción"
+      ],
+      "archaeology": [],
+      "nature": [
+        "Cerro del Tepozteco"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Centro",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "cdmx-cuernavaca-tlayacapan",
+      "route_name": "CDMX → Cuernavaca → Tlayacapan",
+      "origin_hub": "CDMX",
+      "region_cluster": "Centro",
+      "states": [
+        "Ciudad de México",
+        "Morelos"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Cuernavaca",
+        "Tlayacapan"
+      ],
+      "pueblos_magicos": [
+        "Tlayacapan"
+      ],
+      "museums": [
+        "Catedral/Ex Convento de la Asunción"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Centro",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "cdmx-cuernavaca-taxco",
+      "route_name": "CDMX → Cuernavaca → Taxco",
+      "origin_hub": "CDMX",
+      "region_cluster": "Centro",
+      "states": [
+        "Ciudad de México",
+        "Morelos",
+        "Guerrero"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Cuernavaca",
+        "Taxco"
+      ],
+      "pueblos_magicos": [
+        "Taxco"
+      ],
+      "museums": [
+        "Catedral/Ex Convento de la Asunción"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Centro",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "cdmx-tepoztlan-tlayacapan-oaxtepec",
+      "route_name": "CDMX → Tepoztlán → Tlayacapan → Oaxtepec",
+      "origin_hub": "CDMX",
+      "region_cluster": "Centro",
+      "states": [
+        "Ciudad de México",
+        "Morelos"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Tepoztlán",
+        "Tlayacapan",
+        "Oaxtepec"
+      ],
+      "pueblos_magicos": [
+        "Tepoztlán",
+        "Tlayacapan"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "Cerro del Tepozteco"
+      ],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Centro",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "cdmx-tepotzotlan-teotihuacan",
+      "route_name": "CDMX → Tepotzotlán → Teotihuacán",
+      "origin_hub": "CDMX",
+      "region_cluster": "Centro",
+      "states": [
+        "Ciudad de México",
+        "Estado de México"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Tepotzotlán",
+        "Teotihuacán"
+      ],
+      "pueblos_magicos": [
+        "Tepotzotlán",
+        "Teotihuacán"
+      ],
+      "museums": [
+        "Museo Nacional del Virreinato"
+      ],
+      "archaeology": [
+        "Zona Arqueológica de Teotihuacán"
+      ],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Centro",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "cdmx-tepotzotlan-villa-del-carbon",
+      "route_name": "CDMX → Tepotzotlán → Villa del Carbón",
+      "origin_hub": "CDMX",
+      "region_cluster": "Centro",
+      "states": [
+        "Ciudad de México",
+        "Estado de México"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Tepotzotlán",
+        "Villa del Carbón"
+      ],
+      "pueblos_magicos": [
+        "Tepotzotlán",
+        "Villa del Carbón"
+      ],
+      "museums": [
+        "Museo Nacional del Virreinato"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Centro",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "cdmx-pachuca-real-del-monte-mineral-del-chico",
+      "route_name": "CDMX → Pachuca → Real del Monte → Mineral del Chico",
+      "origin_hub": "CDMX",
+      "region_cluster": "Centro",
+      "states": [
+        "Ciudad de México",
+        "Hidalgo"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Pachuca",
+        "Real del Monte",
+        "Mineral del Chico"
+      ],
+      "pueblos_magicos": [
+        "Real del Monte",
+        "Mineral del Chico"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Centro",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "cdmx-pachuca-huasca-prismas-basalticos",
+      "route_name": "CDMX → Pachuca → Huasca → Prismas Basálticos",
+      "origin_hub": "CDMX",
+      "region_cluster": "Centro",
+      "states": [
+        "Ciudad de México",
+        "Hidalgo"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Pachuca",
+        "Huasca",
+        "Prismas Basálticos"
+      ],
+      "pueblos_magicos": [
+        "Huasca"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "Prismas Basálticos"
+      ],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Centro",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "cdmx-valle-de-bravo-el-oro",
+      "route_name": "CDMX → Valle de Bravo → El Oro",
+      "origin_hub": "CDMX",
+      "region_cluster": "Centro",
+      "states": [
+        "Ciudad de México",
+        "Estado de México"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Valle de Bravo",
+        "El Oro"
+      ],
+      "pueblos_magicos": [
+        "Valle de Bravo",
+        "El Oro"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "Lago de Valle de Bravo"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Centro",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "cdmx-ixtapan-de-la-sal-tonatico",
+      "route_name": "CDMX → Ixtapan de la Sal → Tonatico",
+      "origin_hub": "CDMX",
+      "region_cluster": "Centro",
+      "states": [
+        "Ciudad de México",
+        "Estado de México"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Ixtapan de la Sal",
+        "Tonatico"
+      ],
+      "pueblos_magicos": [
+        "Ixtapan de la Sal",
+        "Tonatico"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Centro",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "cdmx-puebla-cholula-atlixco",
+      "route_name": "CDMX → Puebla → Cholula → Atlixco",
+      "origin_hub": "CDMX",
+      "region_cluster": "Puebla-Querétaro-Guanajuato",
+      "states": [
+        "Ciudad de México",
+        "Puebla"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Puebla",
+        "Cholula",
+        "Atlixco"
+      ],
+      "pueblos_magicos": [
+        "Cholula",
+        "Atlixco"
+      ],
+      "museums": [
+        "Museo Amparo",
+        "Casa del Alfeñique"
+      ],
+      "archaeology": [
+        "Gran Pirámide de Cholula"
+      ],
+      "nature": [],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Puebla-Querétaro-Guanajuato",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "cdmx-puebla-zacatlan-chignahuapan",
+      "route_name": "CDMX → Puebla → Zacatlán → Chignahuapan",
+      "origin_hub": "CDMX",
+      "region_cluster": "Puebla-Querétaro-Guanajuato",
+      "states": [
+        "Ciudad de México",
+        "Puebla"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Puebla",
+        "Zacatlán",
+        "Chignahuapan"
+      ],
+      "pueblos_magicos": [
+        "Zacatlán",
+        "Chignahuapan"
+      ],
+      "museums": [
+        "Museo Amparo",
+        "Casa del Alfeñique"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Puebla-Querétaro-Guanajuato",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "cdmx-puebla-xicotepec-pahuatlan",
+      "route_name": "CDMX → Puebla → Xicotepec → Pahuatlán",
+      "origin_hub": "CDMX",
+      "region_cluster": "Puebla-Querétaro-Guanajuato",
+      "states": [
+        "Ciudad de México",
+        "Puebla"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Puebla",
+        "Xicotepec",
+        "Pahuatlán"
+      ],
+      "pueblos_magicos": [
+        "Xicotepec",
+        "Pahuatlán"
+      ],
+      "museums": [
+        "Museo Amparo",
+        "Casa del Alfeñique"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Puebla-Querétaro-Guanajuato",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 14,
+      "slug": "cdmx-queretaro-tequisquiapan-bernal",
+      "route_name": "CDMX → Querétaro → Tequisquiapan → Bernal",
+      "origin_hub": "CDMX",
+      "region_cluster": "Puebla-Querétaro-Guanajuato",
+      "states": [
+        "Ciudad de México",
+        "Querétaro"
+      ],
+      "stops_ordered": [
+        "CDMX",
+        "Querétaro",
+        "Tequisquiapan",
+        "Bernal"
+      ],
+      "pueblos_magicos": [
+        "Tequisquiapan",
+        "Bernal"
+      ],
+      "museums": [
+        "Museo Regional de Querétaro",
+        "Museo de Arte de Querétaro"
+      ],
+      "archaeology": [],
+      "nature": [
+        "Peña de Bernal"
+      ],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Puebla-Querétaro-Guanajuato",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 15,
+      "slug": "queretaro-amealco-san-juan-del-rio",
+      "route_name": "Querétaro → Amealco → San Juan del Río",
+      "origin_hub": "Querétaro",
+      "region_cluster": "Puebla-Querétaro-Guanajuato",
+      "states": [
+        "Querétaro"
+      ],
+      "stops_ordered": [
+        "Querétaro",
+        "Amealco",
+        "San Juan del Río"
+      ],
+      "pueblos_magicos": [
+        "Amealco"
+      ],
+      "museums": [
+        "Museo Regional de Querétaro",
+        "Museo de Arte de Querétaro"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Puebla-Querétaro-Guanajuato",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 16,
+      "slug": "queretaro-cadereyta-bernal-jalpan-de-serra",
+      "route_name": "Querétaro → Cadereyta → Bernal → Jalpan de Serra",
+      "origin_hub": "Querétaro",
+      "region_cluster": "Puebla-Querétaro-Guanajuato",
+      "states": [
+        "Querétaro"
+      ],
+      "stops_ordered": [
+        "Querétaro",
+        "Cadereyta",
+        "Bernal",
+        "Jalpan de Serra"
+      ],
+      "pueblos_magicos": [
+        "Cadereyta",
+        "Bernal",
+        "Jalpan de Serra"
+      ],
+      "museums": [
+        "Museo Regional de Querétaro",
+        "Museo de Arte de Querétaro"
+      ],
+      "archaeology": [],
+      "nature": [
+        "Peña de Bernal"
+      ],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Puebla-Querétaro-Guanajuato",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 17,
+      "slug": "queretaro-san-miguel-de-allende-dolores-hidalgo",
+      "route_name": "Querétaro → San Miguel de Allende → Dolores Hidalgo",
+      "origin_hub": "Querétaro",
+      "region_cluster": "Puebla-Querétaro-Guanajuato",
+      "states": [
+        "Querétaro",
+        "Guanajuato"
+      ],
+      "stops_ordered": [
+        "Querétaro",
+        "San Miguel de Allende",
+        "Dolores Hidalgo"
+      ],
+      "pueblos_magicos": [
+        "Dolores Hidalgo"
+      ],
+      "museums": [
+        "Museo Regional de Querétaro",
+        "Museo de Arte de Querétaro"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Puebla-Querétaro-Guanajuato",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 18,
+      "slug": "san-miguel-de-allende-canada-de-la-virgen-mineral-de-pozos",
+      "route_name": "San Miguel de Allende → Cañada de la Virgen → Mineral de Pozos",
+      "origin_hub": "San Miguel de Allende",
+      "region_cluster": "Puebla-Querétaro-Guanajuato",
+      "states": [
+        "Guanajuato"
+      ],
+      "stops_ordered": [
+        "San Miguel de Allende",
+        "Cañada de la Virgen",
+        "Mineral de Pozos"
+      ],
+      "pueblos_magicos": [
+        "Mineral de Pozos"
+      ],
+      "museums": [],
+      "archaeology": [
+        "Zona Arqueológica Cañada de la Virgen"
+      ],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Puebla-Querétaro-Guanajuato",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 19,
+      "slug": "guanajuato-capital-dolores-hidalgo-san-miguel-de-allende",
+      "route_name": "Guanajuato capital → Dolores Hidalgo → San Miguel de Allende",
+      "origin_hub": "Guanajuato capital",
+      "region_cluster": "Puebla-Querétaro-Guanajuato",
+      "states": [
+        "Guanajuato"
+      ],
+      "stops_ordered": [
+        "Guanajuato capital",
+        "Dolores Hidalgo",
+        "San Miguel de Allende"
+      ],
+      "pueblos_magicos": [
+        "Dolores Hidalgo"
+      ],
+      "museums": [
+        "Museo de las Momias"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Puebla-Querétaro-Guanajuato",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 20,
+      "slug": "leon-jalpa-de-canovas-yuriria",
+      "route_name": "León → Jalpa de Cánovas → Yuriria",
+      "origin_hub": "León",
+      "region_cluster": "Occidente-Jalisco",
+      "states": [
+        "Guanajuato"
+      ],
+      "stops_ordered": [
+        "León",
+        "Jalpa de Cánovas",
+        "Yuriria"
+      ],
+      "pueblos_magicos": [
+        "Jalpa de Cánovas",
+        "Yuriria"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Jalisco",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 21,
+      "slug": "leon-guanajuato-capital-dolores-hidalgo",
+      "route_name": "León → Guanajuato capital → Dolores Hidalgo",
+      "origin_hub": "León",
+      "region_cluster": "Occidente-Jalisco",
+      "states": [
+        "Guanajuato"
+      ],
+      "stops_ordered": [
+        "León",
+        "Guanajuato capital",
+        "Dolores Hidalgo"
+      ],
+      "pueblos_magicos": [
+        "Dolores Hidalgo"
+      ],
+      "museums": [
+        "Museo de las Momias"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Jalisco",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 22,
+      "slug": "guadalajara-tequila",
+      "route_name": "Guadalajara → Tequila",
+      "origin_hub": "Guadalajara",
+      "region_cluster": "Occidente-Jalisco",
+      "states": [
+        "Jalisco"
+      ],
+      "stops_ordered": [
+        "Guadalajara",
+        "Tequila"
+      ],
+      "pueblos_magicos": [
+        "Tequila"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Jalisco",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 23,
+      "slug": "guadalajara-tequila-magdalena",
+      "route_name": "Guadalajara → Tequila → Magdalena",
+      "origin_hub": "Guadalajara",
+      "region_cluster": "Occidente-Jalisco",
+      "states": [
+        "Jalisco"
+      ],
+      "stops_ordered": [
+        "Guadalajara",
+        "Tequila",
+        "Magdalena"
+      ],
+      "pueblos_magicos": [
+        "Tequila"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Jalisco",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 24,
+      "slug": "guadalajara-tapalpa",
+      "route_name": "Guadalajara → Tapalpa",
+      "origin_hub": "Guadalajara",
+      "region_cluster": "Occidente-Jalisco",
+      "states": [
+        "Jalisco"
+      ],
+      "stops_ordered": [
+        "Guadalajara",
+        "Tapalpa"
+      ],
+      "pueblos_magicos": [
+        "Tapalpa"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Jalisco",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 25,
+      "slug": "guadalajara-mazamitla",
+      "route_name": "Guadalajara → Mazamitla",
+      "origin_hub": "Guadalajara",
+      "region_cluster": "Occidente-Jalisco",
+      "states": [
+        "Jalisco"
+      ],
+      "stops_ordered": [
+        "Guadalajara",
+        "Mazamitla"
+      ],
+      "pueblos_magicos": [
+        "Mazamitla"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Jalisco",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 26,
+      "slug": "guadalajara-san-sebastian-del-oeste",
+      "route_name": "Guadalajara → San Sebastián del Oeste",
+      "origin_hub": "Guadalajara",
+      "region_cluster": "Occidente-Jalisco",
+      "states": [
+        "Jalisco"
+      ],
+      "stops_ordered": [
+        "Guadalajara",
+        "San Sebastián del Oeste"
+      ],
+      "pueblos_magicos": [
+        "San Sebastián del Oeste"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Jalisco",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 27,
+      "slug": "guadalajara-mascota-talpa-de-allende",
+      "route_name": "Guadalajara → Mascota → Talpa de Allende",
+      "origin_hub": "Guadalajara",
+      "region_cluster": "Occidente-Jalisco",
+      "states": [
+        "Jalisco"
+      ],
+      "stops_ordered": [
+        "Guadalajara",
+        "Mascota",
+        "Talpa de Allende"
+      ],
+      "pueblos_magicos": [
+        "Mascota",
+        "Talpa de Allende"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Jalisco",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 28,
+      "slug": "morelia-patzcuaro-tzintzuntzan",
+      "route_name": "Morelia → Pátzcuaro → Tzintzuntzan",
+      "origin_hub": "Morelia",
+      "region_cluster": "Michoacán",
+      "states": [
+        "Michoacán"
+      ],
+      "stops_ordered": [
+        "Morelia",
+        "Pátzcuaro",
+        "Tzintzuntzan"
+      ],
+      "pueblos_magicos": [
+        "Pátzcuaro",
+        "Tzintzuntzan"
+      ],
+      "museums": [],
+      "archaeology": [
+        "Yácatas de Tzintzuntzan"
+      ],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Michoacán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 29,
+      "slug": "morelia-patzcuaro-santa-clara-del-cobre",
+      "route_name": "Morelia → Pátzcuaro → Santa Clara del Cobre",
+      "origin_hub": "Morelia",
+      "region_cluster": "Michoacán",
+      "states": [
+        "Michoacán"
+      ],
+      "stops_ordered": [
+        "Morelia",
+        "Pátzcuaro",
+        "Santa Clara del Cobre"
+      ],
+      "pueblos_magicos": [
+        "Pátzcuaro",
+        "Santa Clara del Cobre"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Michoacán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 30,
+      "slug": "morelia-tacambaro-patzcuaro",
+      "route_name": "Morelia → Tacámbaro → Pátzcuaro",
+      "origin_hub": "Morelia",
+      "region_cluster": "Michoacán",
+      "states": [
+        "Michoacán"
+      ],
+      "stops_ordered": [
+        "Morelia",
+        "Tacámbaro",
+        "Pátzcuaro"
+      ],
+      "pueblos_magicos": [
+        "Tacámbaro",
+        "Pátzcuaro"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Michoacán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 31,
+      "slug": "morelia-tlalpujahua-el-oro",
+      "route_name": "Morelia → Tlalpujahua → El Oro",
+      "origin_hub": "Morelia",
+      "region_cluster": "Michoacán",
+      "states": [
+        "Michoacán",
+        "Estado de México"
+      ],
+      "stops_ordered": [
+        "Morelia",
+        "Tlalpujahua",
+        "El Oro"
+      ],
+      "pueblos_magicos": [
+        "Tlalpujahua",
+        "El Oro"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Michoacán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 32,
+      "slug": "uruapan-paracho-patzcuaro",
+      "route_name": "Uruapan → Paracho → Pátzcuaro",
+      "origin_hub": "Uruapan",
+      "region_cluster": "Michoacán",
+      "states": [
+        "Michoacán"
+      ],
+      "stops_ordered": [
+        "Uruapan",
+        "Paracho",
+        "Pátzcuaro"
+      ],
+      "pueblos_magicos": [
+        "Paracho",
+        "Pátzcuaro"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Michoacán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 33,
+      "slug": "morelia-cuitzeo-patzcuaro",
+      "route_name": "Morelia → Cuitzeo → Pátzcuaro",
+      "origin_hub": "Morelia",
+      "region_cluster": "Michoacán",
+      "states": [
+        "Michoacán"
+      ],
+      "stops_ordered": [
+        "Morelia",
+        "Cuitzeo",
+        "Pátzcuaro"
+      ],
+      "pueblos_magicos": [
+        "Cuitzeo",
+        "Pátzcuaro"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Michoacán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 34,
+      "slug": "zamora-jiquilpan-mazamitla",
+      "route_name": "Zamora → Jiquilpan → Mazamitla",
+      "origin_hub": "Zamora",
+      "region_cluster": "Michoacán",
+      "states": [
+        "Michoacán",
+        "Jalisco"
+      ],
+      "stops_ordered": [
+        "Zamora",
+        "Jiquilpan",
+        "Mazamitla"
+      ],
+      "pueblos_magicos": [
+        "Jiquilpan",
+        "Mazamitla"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Michoacán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 35,
+      "slug": "morelia-tzintzuntzan-santa-clara-del-cobre",
+      "route_name": "Morelia → Tzintzuntzan → Santa Clara del Cobre",
+      "origin_hub": "Morelia",
+      "region_cluster": "Michoacán",
+      "states": [
+        "Michoacán"
+      ],
+      "stops_ordered": [
+        "Morelia",
+        "Tzintzuntzan",
+        "Santa Clara del Cobre"
+      ],
+      "pueblos_magicos": [
+        "Tzintzuntzan",
+        "Santa Clara del Cobre"
+      ],
+      "museums": [],
+      "archaeology": [
+        "Yácatas de Tzintzuntzan"
+      ],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Michoacán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 36,
+      "slug": "san-luis-potosi-capital-santa-maria-del-rio-real-de-catorce",
+      "route_name": "San Luis Potosí capital → Santa María del Río → Real de Catorce",
+      "origin_hub": "San Luis Potosí capital",
+      "region_cluster": "SLP-Zacatecas-Aguascalientes",
+      "states": [
+        "San Luis Potosí"
+      ],
+      "stops_ordered": [
+        "San Luis Potosí capital",
+        "Santa María del Río",
+        "Real de Catorce"
+      ],
+      "pueblos_magicos": [
+        "Santa María del Río",
+        "Real de Catorce"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Altiplano/Huasteca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 37,
+      "slug": "queretaro-santa-maria-del-rio-san-luis-potosi-capital",
+      "route_name": "Querétaro → Santa María del Río → San Luis Potosí capital",
+      "origin_hub": "Querétaro",
+      "region_cluster": "SLP-Zacatecas-Aguascalientes",
+      "states": [
+        "Querétaro",
+        "San Luis Potosí"
+      ],
+      "stops_ordered": [
+        "Querétaro",
+        "Santa María del Río",
+        "San Luis Potosí capital"
+      ],
+      "pueblos_magicos": [
+        "Santa María del Río"
+      ],
+      "museums": [
+        "Museo Regional de Querétaro",
+        "Museo de Arte de Querétaro"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Altiplano/Huasteca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 38,
+      "slug": "ciudad-valles-aquismon-xilitla",
+      "route_name": "Ciudad Valles → Aquismón → Xilitla",
+      "origin_hub": "Ciudad Valles",
+      "region_cluster": "SLP-Zacatecas-Aguascalientes",
+      "states": [
+        "San Luis Potosí"
+      ],
+      "stops_ordered": [
+        "Ciudad Valles",
+        "Aquismón",
+        "Xilitla"
+      ],
+      "pueblos_magicos": [
+        "Aquismón",
+        "Xilitla"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "Sótano de las Golondrinas",
+        "Las Pozas y selva huasteca"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Altiplano/Huasteca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 39,
+      "slug": "san-luis-potosi-capital-real-de-catorce",
+      "route_name": "San Luis Potosí capital → Real de Catorce",
+      "origin_hub": "San Luis Potosí capital",
+      "region_cluster": "SLP-Zacatecas-Aguascalientes",
+      "states": [
+        "San Luis Potosí"
+      ],
+      "stops_ordered": [
+        "San Luis Potosí capital",
+        "Real de Catorce"
+      ],
+      "pueblos_magicos": [
+        "Real de Catorce"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Altiplano/Huasteca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 40,
+      "slug": "zacatecas-jerez-sombrerete",
+      "route_name": "Zacatecas → Jerez → Sombrerete",
+      "origin_hub": "Zacatecas",
+      "region_cluster": "SLP-Zacatecas-Aguascalientes",
+      "states": [
+        "Zacatecas"
+      ],
+      "stops_ordered": [
+        "Zacatecas",
+        "Jerez",
+        "Sombrerete"
+      ],
+      "pueblos_magicos": [
+        "Jerez",
+        "Sombrerete"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Altiplano/Huasteca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 41,
+      "slug": "zacatecas-teul-jerez",
+      "route_name": "Zacatecas → Teúl → Jerez",
+      "origin_hub": "Zacatecas",
+      "region_cluster": "SLP-Zacatecas-Aguascalientes",
+      "states": [
+        "Zacatecas"
+      ],
+      "stops_ordered": [
+        "Zacatecas",
+        "Teúl",
+        "Jerez"
+      ],
+      "pueblos_magicos": [
+        "Teúl",
+        "Jerez"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Altiplano/Huasteca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 42,
+      "slug": "aguascalientes-calvillo",
+      "route_name": "Aguascalientes → Calvillo",
+      "origin_hub": "Aguascalientes",
+      "region_cluster": "SLP-Zacatecas-Aguascalientes",
+      "states": [
+        "Aguascalientes"
+      ],
+      "stops_ordered": [
+        "Aguascalientes",
+        "Calvillo"
+      ],
+      "pueblos_magicos": [
+        "Calvillo"
+      ],
+      "museums": [
+        "Museo Nacional de la Muerte"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Altiplano/Huasteca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 43,
+      "slug": "aguascalientes-real-de-asientos-calvillo",
+      "route_name": "Aguascalientes → Real de Asientos → Calvillo",
+      "origin_hub": "Aguascalientes",
+      "region_cluster": "SLP-Zacatecas-Aguascalientes",
+      "states": [
+        "Aguascalientes"
+      ],
+      "stops_ordered": [
+        "Aguascalientes",
+        "Real de Asientos",
+        "Calvillo"
+      ],
+      "pueblos_magicos": [
+        "Real de Asientos",
+        "Calvillo"
+      ],
+      "museums": [
+        "Museo Nacional de la Muerte"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Altiplano/Huasteca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 44,
+      "slug": "leon-san-felipe-jalpa-de-canovas",
+      "route_name": "León → San Felipe → Jalpa de Cánovas",
+      "origin_hub": "León",
+      "region_cluster": "SLP-Zacatecas-Aguascalientes",
+      "states": [
+        "Guanajuato"
+      ],
+      "stops_ordered": [
+        "León",
+        "San Felipe",
+        "Jalpa de Cánovas"
+      ],
+      "pueblos_magicos": [
+        "Jalpa de Cánovas"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Altiplano/Huasteca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 45,
+      "slug": "puebla-papantla-el-tajin",
+      "route_name": "Puebla → Papantla → El Tajín",
+      "origin_hub": "Puebla",
+      "region_cluster": "Veracruz-Sierra Norte",
+      "states": [
+        "Puebla",
+        "Veracruz"
+      ],
+      "stops_ordered": [
+        "Puebla",
+        "Papantla",
+        "El Tajín"
+      ],
+      "pueblos_magicos": [
+        "Papantla"
+      ],
+      "museums": [
+        "Museo Amparo",
+        "Casa del Alfeñique"
+      ],
+      "archaeology": [
+        "Zona Arqueológica El Tajín"
+      ],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Veracruz y Puebla",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 46,
+      "slug": "poza-rica-papantla-zozocolco",
+      "route_name": "Poza Rica → Papantla → Zozocolco",
+      "origin_hub": "Poza Rica",
+      "region_cluster": "Veracruz-Sierra Norte",
+      "states": [
+        "Veracruz"
+      ],
+      "stops_ordered": [
+        "Poza Rica",
+        "Papantla",
+        "Zozocolco"
+      ],
+      "pueblos_magicos": [
+        "Papantla",
+        "Zozocolco"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Veracruz y Puebla",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 47,
+      "slug": "xalapa-coatepec-xico",
+      "route_name": "Xalapa → Coatepec → Xico",
+      "origin_hub": "Xalapa",
+      "region_cluster": "Veracruz-Sierra Norte",
+      "states": [
+        "Veracruz"
+      ],
+      "stops_ordered": [
+        "Xalapa",
+        "Coatepec",
+        "Xico"
+      ],
+      "pueblos_magicos": [
+        "Coatepec",
+        "Xico"
+      ],
+      "museums": [
+        "Museo de Antropología de Xalapa"
+      ],
+      "archaeology": [],
+      "nature": [
+        "cascadas y cafetales"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Veracruz y Puebla",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 48,
+      "slug": "veracruz-orizaba-coscomatepec",
+      "route_name": "Veracruz → Orizaba → Coscomatepec",
+      "origin_hub": "Veracruz",
+      "region_cluster": "Veracruz-Sierra Norte",
+      "states": [
+        "Veracruz"
+      ],
+      "stops_ordered": [
+        "Veracruz",
+        "Orizaba",
+        "Coscomatepec"
+      ],
+      "pueblos_magicos": [
+        "Orizaba",
+        "Coscomatepec"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Veracruz y Puebla",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 49,
+      "slug": "xalapa-orizaba-coatepec",
+      "route_name": "Xalapa → Orizaba → Coatepec",
+      "origin_hub": "Xalapa",
+      "region_cluster": "Veracruz-Sierra Norte",
+      "states": [
+        "Veracruz"
+      ],
+      "stops_ordered": [
+        "Xalapa",
+        "Orizaba",
+        "Coatepec"
+      ],
+      "pueblos_magicos": [
+        "Orizaba",
+        "Coatepec"
+      ],
+      "museums": [
+        "Museo de Antropología de Xalapa"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Veracruz y Puebla",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 50,
+      "slug": "puebla-huauchinango-xicotepec",
+      "route_name": "Puebla → Huauchinango → Xicotepec",
+      "origin_hub": "Puebla",
+      "region_cluster": "Veracruz-Sierra Norte",
+      "states": [
+        "Puebla"
+      ],
+      "stops_ordered": [
+        "Puebla",
+        "Huauchinango",
+        "Xicotepec"
+      ],
+      "pueblos_magicos": [
+        "Huauchinango",
+        "Xicotepec"
+      ],
+      "museums": [
+        "Museo Amparo",
+        "Casa del Alfeñique"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Veracruz y Puebla",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 51,
+      "slug": "puebla-tetela-de-ocampo-zacatlan",
+      "route_name": "Puebla → Tetela de Ocampo → Zacatlán",
+      "origin_hub": "Puebla",
+      "region_cluster": "Veracruz-Sierra Norte",
+      "states": [
+        "Puebla"
+      ],
+      "stops_ordered": [
+        "Puebla",
+        "Tetela de Ocampo",
+        "Zacatlán"
+      ],
+      "pueblos_magicos": [
+        "Tetela de Ocampo",
+        "Zacatlán"
+      ],
+      "museums": [
+        "Museo Amparo",
+        "Casa del Alfeñique"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Veracruz y Puebla",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 52,
+      "slug": "puebla-pahuatlan-xicotepec",
+      "route_name": "Puebla → Pahuatlán → Xicotepec",
+      "origin_hub": "Puebla",
+      "region_cluster": "Veracruz-Sierra Norte",
+      "states": [
+        "Puebla"
+      ],
+      "stops_ordered": [
+        "Puebla",
+        "Pahuatlán",
+        "Xicotepec"
+      ],
+      "pueblos_magicos": [
+        "Pahuatlán",
+        "Xicotepec"
+      ],
+      "museums": [
+        "Museo Amparo",
+        "Casa del Alfeñique"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Veracruz y Puebla",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 53,
+      "slug": "oaxaca-city-mitla-capulalpam",
+      "route_name": "Oaxaca city → Mitla → Capulálpam",
+      "origin_hub": "Oaxaca city",
+      "region_cluster": "Oaxaca",
+      "states": [
+        "Oaxaca"
+      ],
+      "stops_ordered": [
+        "Oaxaca city",
+        "Mitla",
+        "Capulálpam"
+      ],
+      "pueblos_magicos": [
+        "Capulálpam"
+      ],
+      "museums": [
+        "museos de Oaxaca de Juárez"
+      ],
+      "archaeology": [
+        "Zona Arqueológica de Mitla"
+      ],
+      "nature": [
+        "bosque de Sierra Juárez"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "arqueologia",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Oaxaca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 54,
+      "slug": "oaxaca-city-capulalpam",
+      "route_name": "Oaxaca city → Capulálpam",
+      "origin_hub": "Oaxaca city",
+      "region_cluster": "Oaxaca",
+      "states": [
+        "Oaxaca"
+      ],
+      "stops_ordered": [
+        "Oaxaca city",
+        "Capulálpam"
+      ],
+      "pueblos_magicos": [
+        "Capulálpam"
+      ],
+      "museums": [
+        "museos de Oaxaca de Juárez"
+      ],
+      "archaeology": [],
+      "nature": [
+        "bosque de Sierra Juárez"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Oaxaca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 55,
+      "slug": "oaxaca-city-mazunte",
+      "route_name": "Oaxaca city → Mazunte",
+      "origin_hub": "Oaxaca city",
+      "region_cluster": "Oaxaca",
+      "states": [
+        "Oaxaca"
+      ],
+      "stops_ordered": [
+        "Oaxaca city",
+        "Mazunte"
+      ],
+      "pueblos_magicos": [
+        "Mazunte"
+      ],
+      "museums": [
+        "museos de Oaxaca de Juárez"
+      ],
+      "archaeology": [],
+      "nature": [
+        "costa del Pacífico"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Oaxaca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 56,
+      "slug": "oaxaca-city-puerto-escondido",
+      "route_name": "Oaxaca city → Puerto Escondido",
+      "origin_hub": "Oaxaca city",
+      "region_cluster": "Oaxaca",
+      "states": [
+        "Oaxaca"
+      ],
+      "stops_ordered": [
+        "Oaxaca city",
+        "Puerto Escondido"
+      ],
+      "pueblos_magicos": [],
+      "museums": [
+        "museos de Oaxaca de Juárez"
+      ],
+      "archaeology": [],
+      "nature": [
+        "playas y surf"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Oaxaca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 57,
+      "slug": "oaxaca-city-huatulco",
+      "route_name": "Oaxaca city → Huatulco",
+      "origin_hub": "Oaxaca city",
+      "region_cluster": "Oaxaca",
+      "states": [
+        "Oaxaca"
+      ],
+      "stops_ordered": [
+        "Oaxaca city",
+        "Huatulco"
+      ],
+      "pueblos_magicos": [],
+      "museums": [
+        "museos de Oaxaca de Juárez"
+      ],
+      "archaeology": [],
+      "nature": [
+        "bahías y costa"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Oaxaca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 58,
+      "slug": "oaxaca-city-mazunte-puerto-escondido",
+      "route_name": "Oaxaca city → Mazunte → Puerto Escondido",
+      "origin_hub": "Oaxaca city",
+      "region_cluster": "Oaxaca",
+      "states": [
+        "Oaxaca"
+      ],
+      "stops_ordered": [
+        "Oaxaca city",
+        "Mazunte",
+        "Puerto Escondido"
+      ],
+      "pueblos_magicos": [
+        "Mazunte"
+      ],
+      "museums": [
+        "museos de Oaxaca de Juárez"
+      ],
+      "archaeology": [],
+      "nature": [
+        "costa del Pacífico",
+        "playas y surf"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Oaxaca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 59,
+      "slug": "puerto-escondido-mazunte-huatulco",
+      "route_name": "Puerto Escondido → Mazunte → Huatulco",
+      "origin_hub": "Puerto Escondido",
+      "region_cluster": "Oaxaca",
+      "states": [
+        "Oaxaca"
+      ],
+      "stops_ordered": [
+        "Puerto Escondido",
+        "Mazunte",
+        "Huatulco"
+      ],
+      "pueblos_magicos": [
+        "Mazunte"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "playas y surf",
+        "costa del Pacífico",
+        "bahías y costa"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Oaxaca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 60,
+      "slug": "oaxaca-city-juquila-mazunte",
+      "route_name": "Oaxaca city → Juquila → Mazunte",
+      "origin_hub": "Oaxaca city",
+      "region_cluster": "Oaxaca",
+      "states": [
+        "Oaxaca"
+      ],
+      "stops_ordered": [
+        "Oaxaca city",
+        "Juquila",
+        "Mazunte"
+      ],
+      "pueblos_magicos": [
+        "Mazunte"
+      ],
+      "museums": [
+        "museos de Oaxaca de Juárez"
+      ],
+      "archaeology": [],
+      "nature": [
+        "costa del Pacífico"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Oaxaca",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 61,
+      "slug": "tuxtla-chiapa-de-corzo-san-cristobal",
+      "route_name": "Tuxtla → Chiapa de Corzo → San Cristóbal",
+      "origin_hub": "Tuxtla",
+      "region_cluster": "Chiapas-Tabasco-Campeche",
+      "states": [
+        "Chiapas"
+      ],
+      "stops_ordered": [
+        "Tuxtla",
+        "Chiapa de Corzo",
+        "San Cristóbal"
+      ],
+      "pueblos_magicos": [
+        "Chiapa de Corzo",
+        "San Cristóbal"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "Cañón del Sumidero"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Sureste",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 62,
+      "slug": "tuxtla-chiapa-de-corzo-comitan",
+      "route_name": "Tuxtla → Chiapa de Corzo → Comitán",
+      "origin_hub": "Tuxtla",
+      "region_cluster": "Chiapas-Tabasco-Campeche",
+      "states": [
+        "Chiapas"
+      ],
+      "stops_ordered": [
+        "Tuxtla",
+        "Chiapa de Corzo",
+        "Comitán"
+      ],
+      "pueblos_magicos": [
+        "Chiapa de Corzo",
+        "Comitán"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "Cañón del Sumidero"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Sureste",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 63,
+      "slug": "san-cristobal-comitan-palenque",
+      "route_name": "San Cristóbal → Comitán → Palenque",
+      "origin_hub": "San Cristóbal",
+      "region_cluster": "Chiapas-Tabasco-Campeche",
+      "states": [
+        "Chiapas"
+      ],
+      "stops_ordered": [
+        "San Cristóbal",
+        "Comitán",
+        "Palenque"
+      ],
+      "pueblos_magicos": [
+        "San Cristóbal",
+        "Comitán",
+        "Palenque"
+      ],
+      "museums": [],
+      "archaeology": [
+        "Zona Arqueológica de Palenque"
+      ],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Sureste",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 64,
+      "slug": "tuxtla-chiapa-de-corzo-palenque",
+      "route_name": "Tuxtla → Chiapa de Corzo → Palenque",
+      "origin_hub": "Tuxtla",
+      "region_cluster": "Chiapas-Tabasco-Campeche",
+      "states": [
+        "Chiapas"
+      ],
+      "stops_ordered": [
+        "Tuxtla",
+        "Chiapa de Corzo",
+        "Palenque"
+      ],
+      "pueblos_magicos": [
+        "Chiapa de Corzo",
+        "Palenque"
+      ],
+      "museums": [],
+      "archaeology": [
+        "Zona Arqueológica de Palenque"
+      ],
+      "nature": [
+        "Cañón del Sumidero"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "arqueologia",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Sureste",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 65,
+      "slug": "villahermosa-tapijulapa",
+      "route_name": "Villahermosa → Tapijulapa",
+      "origin_hub": "Villahermosa",
+      "region_cluster": "Chiapas-Tabasco-Campeche",
+      "states": [
+        "Tabasco"
+      ],
+      "stops_ordered": [
+        "Villahermosa",
+        "Tapijulapa"
+      ],
+      "pueblos_magicos": [
+        "Tapijulapa"
+      ],
+      "museums": [
+        "Parque-Museo La Venta"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Sureste",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 66,
+      "slug": "villahermosa-palenque",
+      "route_name": "Villahermosa → Palenque",
+      "origin_hub": "Villahermosa",
+      "region_cluster": "Chiapas-Tabasco-Campeche",
+      "states": [
+        "Tabasco",
+        "Chiapas"
+      ],
+      "stops_ordered": [
+        "Villahermosa",
+        "Palenque"
+      ],
+      "pueblos_magicos": [
+        "Palenque"
+      ],
+      "museums": [
+        "Parque-Museo La Venta"
+      ],
+      "archaeology": [
+        "Zona Arqueológica de Palenque"
+      ],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Sureste",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 67,
+      "slug": "campeche-city-palizada",
+      "route_name": "Campeche city → Palizada",
+      "origin_hub": "Campeche city",
+      "region_cluster": "Chiapas-Tabasco-Campeche",
+      "states": [
+        "Campeche"
+      ],
+      "stops_ordered": [
+        "Campeche city",
+        "Palizada"
+      ],
+      "pueblos_magicos": [
+        "Palizada"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Sureste",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 68,
+      "slug": "campeche-city-isla-aguada",
+      "route_name": "Campeche city → Isla Aguada",
+      "origin_hub": "Campeche city",
+      "region_cluster": "Chiapas-Tabasco-Campeche",
+      "states": [
+        "Campeche"
+      ],
+      "stops_ordered": [
+        "Campeche city",
+        "Isla Aguada"
+      ],
+      "pueblos_magicos": [
+        "Isla Aguada"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Sureste",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 69,
+      "slug": "merida-izamal-valladolid",
+      "route_name": "Mérida → Izamal → Valladolid",
+      "origin_hub": "Mérida",
+      "region_cluster": "Yucatán-Quintana Roo",
+      "states": [
+        "Yucatán"
+      ],
+      "stops_ordered": [
+        "Mérida",
+        "Izamal",
+        "Valladolid"
+      ],
+      "pueblos_magicos": [
+        "Izamal",
+        "Valladolid"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Península de Yucatán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 70,
+      "slug": "merida-izamal-sisal",
+      "route_name": "Mérida → Izamal → Sisal",
+      "origin_hub": "Mérida",
+      "region_cluster": "Yucatán-Quintana Roo",
+      "states": [
+        "Yucatán"
+      ],
+      "stops_ordered": [
+        "Mérida",
+        "Izamal",
+        "Sisal"
+      ],
+      "pueblos_magicos": [
+        "Izamal",
+        "Sisal"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Península de Yucatán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 71,
+      "slug": "merida-mani-sisal",
+      "route_name": "Mérida → Maní → Sisal",
+      "origin_hub": "Mérida",
+      "region_cluster": "Yucatán-Quintana Roo",
+      "states": [
+        "Yucatán"
+      ],
+      "stops_ordered": [
+        "Mérida",
+        "Maní",
+        "Sisal"
+      ],
+      "pueblos_magicos": [
+        "Maní",
+        "Sisal"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Península de Yucatán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 72,
+      "slug": "merida-valladolid-tulum",
+      "route_name": "Mérida → Valladolid → Tulum",
+      "origin_hub": "Mérida",
+      "region_cluster": "Yucatán-Quintana Roo",
+      "states": [
+        "Yucatán",
+        "Quintana Roo"
+      ],
+      "stops_ordered": [
+        "Mérida",
+        "Valladolid",
+        "Tulum"
+      ],
+      "pueblos_magicos": [
+        "Valladolid",
+        "Tulum"
+      ],
+      "museums": [],
+      "archaeology": [
+        "Zona Arqueológica de Tulum"
+      ],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Península de Yucatán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 73,
+      "slug": "merida-valladolid-bacalar",
+      "route_name": "Mérida → Valladolid → Bacalar",
+      "origin_hub": "Mérida",
+      "region_cluster": "Yucatán-Quintana Roo",
+      "states": [
+        "Yucatán",
+        "Quintana Roo"
+      ],
+      "stops_ordered": [
+        "Mérida",
+        "Valladolid",
+        "Bacalar"
+      ],
+      "pueblos_magicos": [
+        "Valladolid",
+        "Bacalar"
+      ],
+      "museums": [
+        "Museo del Fuerte de San Felipe"
+      ],
+      "archaeology": [],
+      "nature": [
+        "Laguna de Bacalar"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Península de Yucatán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 74,
+      "slug": "cancun-tulum",
+      "route_name": "Cancún → Tulum",
+      "origin_hub": "Cancún",
+      "region_cluster": "Yucatán-Quintana Roo",
+      "states": [
+        "Quintana Roo"
+      ],
+      "stops_ordered": [
+        "Cancún",
+        "Tulum"
+      ],
+      "pueblos_magicos": [
+        "Tulum"
+      ],
+      "museums": [],
+      "archaeology": [
+        "Zona Arqueológica de Tulum"
+      ],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Península de Yucatán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 75,
+      "slug": "cancun-tulum-bacalar",
+      "route_name": "Cancún → Tulum → Bacalar",
+      "origin_hub": "Cancún",
+      "region_cluster": "Yucatán-Quintana Roo",
+      "states": [
+        "Quintana Roo"
+      ],
+      "stops_ordered": [
+        "Cancún",
+        "Tulum",
+        "Bacalar"
+      ],
+      "pueblos_magicos": [
+        "Tulum",
+        "Bacalar"
+      ],
+      "museums": [
+        "Museo del Fuerte de San Felipe"
+      ],
+      "archaeology": [
+        "Zona Arqueológica de Tulum"
+      ],
+      "nature": [
+        "Laguna de Bacalar"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "arqueologia",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Península de Yucatán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 76,
+      "slug": "chetumal-bacalar",
+      "route_name": "Chetumal → Bacalar",
+      "origin_hub": "Chetumal",
+      "region_cluster": "Yucatán-Quintana Roo",
+      "states": [
+        "Quintana Roo"
+      ],
+      "stops_ordered": [
+        "Chetumal",
+        "Bacalar"
+      ],
+      "pueblos_magicos": [
+        "Bacalar"
+      ],
+      "museums": [
+        "Museo de la Cultura Maya",
+        "Museo del Fuerte de San Felipe"
+      ],
+      "archaeology": [],
+      "nature": [
+        "Laguna de Bacalar"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Península de Yucatán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 77,
+      "slug": "valladolid-tulum-bacalar",
+      "route_name": "Valladolid → Tulum → Bacalar",
+      "origin_hub": "Valladolid",
+      "region_cluster": "Yucatán-Quintana Roo",
+      "states": [
+        "Yucatán",
+        "Quintana Roo"
+      ],
+      "stops_ordered": [
+        "Valladolid",
+        "Tulum",
+        "Bacalar"
+      ],
+      "pueblos_magicos": [
+        "Valladolid",
+        "Tulum",
+        "Bacalar"
+      ],
+      "museums": [
+        "Museo del Fuerte de San Felipe"
+      ],
+      "archaeology": [
+        "Zona Arqueológica de Tulum"
+      ],
+      "nature": [
+        "Laguna de Bacalar"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "arqueologia",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Península de Yucatán",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 78,
+      "slug": "saltillo-arteaga",
+      "route_name": "Saltillo → Arteaga",
+      "origin_hub": "Saltillo",
+      "region_cluster": "Coahuila-Nuevo León-Tamaulipas",
+      "states": [
+        "Coahuila"
+      ],
+      "stops_ordered": [
+        "Saltillo",
+        "Arteaga"
+      ],
+      "pueblos_magicos": [
+        "Arteaga"
+      ],
+      "museums": [
+        "museos de Saltillo"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 79,
+      "slug": "saltillo-parras-de-la-fuente",
+      "route_name": "Saltillo → Parras de la Fuente",
+      "origin_hub": "Saltillo",
+      "region_cluster": "Coahuila-Nuevo León-Tamaulipas",
+      "states": [
+        "Coahuila"
+      ],
+      "stops_ordered": [
+        "Saltillo",
+        "Parras de la Fuente"
+      ],
+      "pueblos_magicos": [
+        "Parras de la Fuente"
+      ],
+      "museums": [
+        "museos de Saltillo"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 80,
+      "slug": "torreon-parras-cuatro-cienegas",
+      "route_name": "Torreón → Parras → Cuatro Ciénegas",
+      "origin_hub": "Torreón",
+      "region_cluster": "Coahuila-Nuevo León-Tamaulipas",
+      "states": [
+        "Coahuila"
+      ],
+      "stops_ordered": [
+        "Torreón",
+        "Parras",
+        "Cuatro Ciénegas"
+      ],
+      "pueblos_magicos": [
+        "Cuatro Ciénegas"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "pozas y dunas de yeso"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 81,
+      "slug": "monclova-cuatro-cienegas",
+      "route_name": "Monclova → Cuatro Ciénegas",
+      "origin_hub": "Monclova",
+      "region_cluster": "Coahuila-Nuevo León-Tamaulipas",
+      "states": [
+        "Coahuila"
+      ],
+      "stops_ordered": [
+        "Monclova",
+        "Cuatro Ciénegas"
+      ],
+      "pueblos_magicos": [
+        "Cuatro Ciénegas"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "pozas y dunas de yeso"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 82,
+      "slug": "saltillo-viesca-parras",
+      "route_name": "Saltillo → Viesca → Parras",
+      "origin_hub": "Saltillo",
+      "region_cluster": "Coahuila-Nuevo León-Tamaulipas",
+      "states": [
+        "Coahuila"
+      ],
+      "stops_ordered": [
+        "Saltillo",
+        "Viesca",
+        "Parras"
+      ],
+      "pueblos_magicos": [
+        "Viesca"
+      ],
+      "museums": [
+        "museos de Saltillo"
+      ],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 83,
+      "slug": "monterrey-santiago-bustamante",
+      "route_name": "Monterrey → Santiago → Bustamante",
+      "origin_hub": "Monterrey",
+      "region_cluster": "Coahuila-Nuevo León-Tamaulipas",
+      "states": [
+        "Nuevo León"
+      ],
+      "stops_ordered": [
+        "Monterrey",
+        "Santiago",
+        "Bustamante"
+      ],
+      "pueblos_magicos": [
+        "Santiago",
+        "Bustamante"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 84,
+      "slug": "monterrey-linares",
+      "route_name": "Monterrey → Linares",
+      "origin_hub": "Monterrey",
+      "region_cluster": "Coahuila-Nuevo León-Tamaulipas",
+      "states": [
+        "Nuevo León"
+      ],
+      "stops_ordered": [
+        "Monterrey",
+        "Linares"
+      ],
+      "pueblos_magicos": [
+        "Linares"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 85,
+      "slug": "ciudad-victoria-tula",
+      "route_name": "Ciudad Victoria → Tula",
+      "origin_hub": "Ciudad Victoria",
+      "region_cluster": "Coahuila-Nuevo León-Tamaulipas",
+      "states": [
+        "Tamaulipas"
+      ],
+      "stops_ordered": [
+        "Ciudad Victoria",
+        "Tula"
+      ],
+      "pueblos_magicos": [
+        "Tula"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 86,
+      "slug": "monterrey-candela",
+      "route_name": "Monterrey → Candela",
+      "origin_hub": "Monterrey",
+      "region_cluster": "Coahuila-Nuevo León-Tamaulipas",
+      "states": [
+        "Nuevo León",
+        "Coahuila"
+      ],
+      "stops_ordered": [
+        "Monterrey",
+        "Candela"
+      ],
+      "pueblos_magicos": [
+        "Candela"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 87,
+      "slug": "chihuahua-city-creel",
+      "route_name": "Chihuahua city → Creel",
+      "origin_hub": "Chihuahua city",
+      "region_cluster": "Chihuahua-Durango",
+      "states": [
+        "Chihuahua"
+      ],
+      "stops_ordered": [
+        "Chihuahua city",
+        "Creel"
+      ],
+      "pueblos_magicos": [
+        "Creel"
+      ],
+      "museums": [
+        "Museo Casa Chihuahua"
+      ],
+      "archaeology": [],
+      "nature": [
+        "Sierra Tarahumara"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte y Sierra Tarahumara",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 88,
+      "slug": "creel-batopilas",
+      "route_name": "Creel → Batopilas",
+      "origin_hub": "Creel",
+      "region_cluster": "Chihuahua-Durango",
+      "states": [
+        "Chihuahua"
+      ],
+      "stops_ordered": [
+        "Creel",
+        "Batopilas"
+      ],
+      "pueblos_magicos": [
+        "Creel",
+        "Batopilas"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "Sierra Tarahumara"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte y Sierra Tarahumara",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 89,
+      "slug": "chihuahua-city-casas-grandes-paquime",
+      "route_name": "Chihuahua city → Casas Grandes → Paquimé",
+      "origin_hub": "Chihuahua city",
+      "region_cluster": "Chihuahua-Durango",
+      "states": [
+        "Chihuahua"
+      ],
+      "stops_ordered": [
+        "Chihuahua city",
+        "Casas Grandes",
+        "Paquimé"
+      ],
+      "pueblos_magicos": [
+        "Casas Grandes"
+      ],
+      "museums": [
+        "Museo Casa Chihuahua"
+      ],
+      "archaeology": [
+        "Zona Arqueológica Paquimé"
+      ],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte y Sierra Tarahumara",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 90,
+      "slug": "casas-grandes-cueva-de-la-olla",
+      "route_name": "Casas Grandes → Cueva de la Olla",
+      "origin_hub": "Casas Grandes",
+      "region_cluster": "Chihuahua-Durango",
+      "states": [
+        "Chihuahua"
+      ],
+      "stops_ordered": [
+        "Casas Grandes",
+        "Cueva de la Olla"
+      ],
+      "pueblos_magicos": [
+        "Casas Grandes"
+      ],
+      "museums": [],
+      "archaeology": [
+        "Sitio arqueológico Cueva de la Olla"
+      ],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte y Sierra Tarahumara",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 91,
+      "slug": "durango-nombre-de-dios-mapimi",
+      "route_name": "Durango → Nombre de Dios → Mapimí",
+      "origin_hub": "Durango",
+      "region_cluster": "Chihuahua-Durango",
+      "states": [
+        "Durango"
+      ],
+      "stops_ordered": [
+        "Durango",
+        "Nombre de Dios",
+        "Mapimí"
+      ],
+      "pueblos_magicos": [
+        "Nombre de Dios",
+        "Mapimí"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte y Sierra Tarahumara",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 92,
+      "slug": "durango-mapimi-parras",
+      "route_name": "Durango → Mapimí → Parras",
+      "origin_hub": "Durango",
+      "region_cluster": "Chihuahua-Durango",
+      "states": [
+        "Durango",
+        "Coahuila"
+      ],
+      "stops_ordered": [
+        "Durango",
+        "Mapimí",
+        "Parras"
+      ],
+      "pueblos_magicos": [
+        "Mapimí"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte y Sierra Tarahumara",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 93,
+      "slug": "chihuahua-city-creel-divisadero",
+      "route_name": "Chihuahua city → Creel → Divisadero",
+      "origin_hub": "Chihuahua city",
+      "region_cluster": "Chihuahua-Durango",
+      "states": [
+        "Chihuahua"
+      ],
+      "stops_ordered": [
+        "Chihuahua city",
+        "Creel",
+        "Divisadero"
+      ],
+      "pueblos_magicos": [
+        "Creel"
+      ],
+      "museums": [
+        "Museo Casa Chihuahua"
+      ],
+      "archaeology": [],
+      "nature": [
+        "Sierra Tarahumara"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte y Sierra Tarahumara",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 94,
+      "slug": "chihuahua-city-creel-batopilas-barrancas-del-cobre",
+      "route_name": "Chihuahua city → Creel → Batopilas → Barrancas del Cobre",
+      "origin_hub": "Chihuahua city",
+      "region_cluster": "Chihuahua-Durango",
+      "states": [
+        "Chihuahua"
+      ],
+      "stops_ordered": [
+        "Chihuahua city",
+        "Creel",
+        "Batopilas",
+        "Barrancas del Cobre"
+      ],
+      "pueblos_magicos": [
+        "Creel",
+        "Batopilas"
+      ],
+      "museums": [
+        "Museo Casa Chihuahua"
+      ],
+      "archaeology": [],
+      "nature": [
+        "Sierra Tarahumara",
+        "Barrancas del Cobre"
+      ],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos",
+        "museos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Norte y Sierra Tarahumara",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 95,
+      "slug": "mexicali-tecate-vallecito-la-rumorosa",
+      "route_name": "Mexicali → Tecate → Vallecito → La Rumorosa",
+      "origin_hub": "Mexicali",
+      "region_cluster": "Noroeste y Baja",
+      "states": [
+        "Baja California"
+      ],
+      "stops_ordered": [
+        "Mexicali",
+        "Tecate",
+        "Vallecito",
+        "La Rumorosa"
+      ],
+      "pueblos_magicos": [
+        "Tecate"
+      ],
+      "museums": [],
+      "archaeology": [
+        "Sitio arqueológico de Vallecito"
+      ],
+      "nature": [],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos",
+        "arqueologia"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Noroeste y Baja",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 96,
+      "slug": "tijuana-tecate-ruta-del-vino",
+      "route_name": "Tijuana → Tecate → Ruta del Vino",
+      "origin_hub": "Tijuana",
+      "region_cluster": "Noroeste y Baja",
+      "states": [
+        "Baja California"
+      ],
+      "stops_ordered": [
+        "Tijuana",
+        "Tecate",
+        "Ruta del Vino"
+      ],
+      "pueblos_magicos": [
+        "Tecate"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "Valle de Guadalupe y viñedos"
+      ],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Noroeste y Baja",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 97,
+      "slug": "tepic-jala-compostela-sayulita",
+      "route_name": "Tepic → Jala → Compostela → Sayulita",
+      "origin_hub": "Tepic",
+      "region_cluster": "Noroeste y Baja",
+      "states": [
+        "Nayarit"
+      ],
+      "stops_ordered": [
+        "Tepic",
+        "Jala",
+        "Compostela",
+        "Sayulita"
+      ],
+      "pueblos_magicos": [
+        "Jala",
+        "Compostela",
+        "Sayulita"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "costa de Nayarit"
+      ],
+      "distance_class": "long",
+      "best_trip_length_days": "3-5",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Noroeste y Baja",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 98,
+      "slug": "la-paz-loreto",
+      "route_name": "La Paz → Loreto",
+      "origin_hub": "La Paz",
+      "region_cluster": "Noroeste y Baja",
+      "states": [
+        "Baja California Sur"
+      ],
+      "stops_ordered": [
+        "La Paz",
+        "Loreto"
+      ],
+      "pueblos_magicos": [
+        "Loreto"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "Mar de Cortés"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Noroeste y Baja",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 99,
+      "slug": "los-cabos-todos-santos",
+      "route_name": "Los Cabos → Todos Santos",
+      "origin_hub": "Los Cabos",
+      "region_cluster": "Noroeste y Baja",
+      "states": [
+        "Baja California Sur"
+      ],
+      "stops_ordered": [
+        "Los Cabos",
+        "Todos Santos"
+      ],
+      "pueblos_magicos": [
+        "Todos Santos"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "costa del Pacífico"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Noroeste y Baja",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 100,
+      "slug": "la-paz-todos-santos",
+      "route_name": "La Paz → Todos Santos",
+      "origin_hub": "La Paz",
+      "region_cluster": "Noroeste y Baja",
+      "states": [
+        "Baja California Sur"
+      ],
+      "stops_ordered": [
+        "La Paz",
+        "Todos Santos"
+      ],
+      "pueblos_magicos": [
+        "Todos Santos"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "costa del Pacífico"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Noroeste y Baja",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 101,
+      "slug": "hermosillo-magdalena-de-kino",
+      "route_name": "Hermosillo → Magdalena de Kino",
+      "origin_hub": "Hermosillo",
+      "region_cluster": "Noroeste y Baja",
+      "states": [
+        "Sonora"
+      ],
+      "stops_ordered": [
+        "Hermosillo",
+        "Magdalena de Kino"
+      ],
+      "pueblos_magicos": [
+        "Magdalena de Kino"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Noroeste y Baja",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 102,
+      "slug": "ciudad-obregon-alamos",
+      "route_name": "Ciudad Obregón → Álamos",
+      "origin_hub": "Ciudad Obregón",
+      "region_cluster": "Noroeste y Baja",
+      "states": [
+        "Sonora"
+      ],
+      "stops_ordered": [
+        "Ciudad Obregón",
+        "Álamos"
+      ],
+      "pueblos_magicos": [
+        "Álamos"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [
+        "Sierra de Álamos-Río Cuchujaqui"
+      ],
+      "distance_class": "short",
+      "best_trip_length_days": "1-2",
+      "best_for": [
+        "pueblos_magicos",
+        "naturaleza"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Noroeste y Baja",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 103,
+      "slug": "culiacan-mocorito-cosala",
+      "route_name": "Culiacán → Mocorito → Cosalá",
+      "origin_hub": "Culiacán",
+      "region_cluster": "Noroeste y Baja",
+      "states": [
+        "Sinaloa"
+      ],
+      "stops_ordered": [
+        "Culiacán",
+        "Mocorito",
+        "Cosalá"
+      ],
+      "pueblos_magicos": [
+        "Mocorito",
+        "Cosalá"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Noroeste y Baja",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    },
+    {
+      "id": 104,
+      "slug": "mazatlan-el-rosario-cosala",
+      "route_name": "Mazatlán → El Rosario → Cosalá",
+      "origin_hub": "Mazatlán",
+      "region_cluster": "Noroeste y Baja",
+      "states": [
+        "Sinaloa"
+      ],
+      "stops_ordered": [
+        "Mazatlán",
+        "El Rosario",
+        "Cosalá"
+      ],
+      "pueblos_magicos": [
+        "El Rosario",
+        "Cosalá"
+      ],
+      "museums": [],
+      "archaeology": [],
+      "nature": [],
+      "distance_class": "medium",
+      "best_trip_length_days": "2-3",
+      "best_for": [
+        "pueblos_magicos"
+      ],
+      "curation_status": "manual_seed_v1",
+      "road_data_status": "pending_live_enrichment_from_mappir",
+      "official_source_hints": [
+        "VisitMexico Noroeste y Baja",
+        "Listado oficial de Pueblos Mágicos",
+        "Mappir / Traza tu Ruta"
+      ]
+    }
+  ]
+}

@@ -72,23 +72,6 @@ export default async function MuseosByEstadoPage({ params }: Props) {
       />
 
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-zinc-500">
-          <ol className="flex items-center gap-2">
-            {breadcrumbs.map((item, idx) => (
-              <li key={item.href} className="flex items-center gap-2">
-                {idx > 0 && <span aria-hidden="true">/</span>}
-                {idx === breadcrumbs.length - 1 ? (
-                  <span className="text-zinc-900">{item.label}</span>
-                ) : (
-                  <Link href={item.href} className="hover:text-zinc-900">
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ol>
-        </nav>
 
         {/* Header */}
         <header className="mb-12">

@@ -6,6 +6,7 @@ import { Star, Plus, Bookmark } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -30,7 +31,7 @@ export interface MapPopupProps {
 /* ------------------------------------------------------------------ */
 function badgeLabel(badge: string): string {
   const map: Record<string, string> = {
-    'pueblo-magico': 'Pueblo Magico',
+    'pueblo-magico': 'Pueblo Mágico',
     inah: 'INAH',
     'patrimonio-mundial': 'UNESCO',
   };
@@ -59,6 +60,8 @@ export default function MapPopup({
   onSave,
   className,
 }: MapPopupProps) {
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
   return (
     <div className={cn('w-[280px] overflow-hidden rounded-lg bg-card text-card-foreground shadow-lg', className)}>
       {/* Thumbnail */}
@@ -122,11 +125,11 @@ export default function MapPopup({
         <div className="flex flex-wrap items-center gap-2 pt-1">
           {slug && (
             <Link
-              href={`/lugar/${slug}`}
+              href={`/lugares/${slug}`}
               className="text-xs font-semibold underline"
               style={{ color: categoryColor }}
             >
-              Ver detalles
+              {isEn ? 'View details' : 'Ver detalles'}
             </Link>
           )}
           <Button
@@ -136,7 +139,7 @@ export default function MapPopup({
             onClick={() => onAddToRoute?.(id)}
           >
             <Plus className="h-3 w-3" />
-            Agregar a ruta
+            {isEn ? 'Add to route' : 'Agregar a ruta'}
           </Button>
           <Button
             size="sm"
@@ -146,7 +149,7 @@ export default function MapPopup({
             onClick={() => onSave?.(id)}
           >
             <Bookmark className="h-3 w-3" />
-            Guardar
+            {isEn ? 'Save' : 'Guardar'}
           </Button>
         </div>
       </div>

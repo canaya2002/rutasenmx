@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { MapPin } from "lucide-react";
 import { HeaderActions } from "./HeaderActions";
+import { Logo } from "./Logo";
 import { getTranslations } from "@/lib/i18n/server";
 
 export async function Header() {
@@ -17,15 +17,7 @@ export async function Header() {
     <header className="sticky top-0 z-40 w-full border-b border-slate-100 bg-white/80 backdrop-blur-lg supports-[backdrop-filter]:bg-white/60">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-display text-xl font-bold text-foreground transition-colors hover:text-terracotta"
-        >
-          <MapPin className="h-5 w-5 text-terracotta" />
-          <span>
-            Rutas <span className="text-terracotta">en MX</span>
-          </span>
-        </Link>
+        <Logo height={36} className="transition-opacity hover:opacity-85" />
 
         {/* Desktop navigation */}
         <nav className="hidden md:flex md:items-center md:gap-1" aria-label="Principal">

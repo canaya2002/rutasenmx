@@ -97,7 +97,33 @@
     "lastUpdated": "Last updated",
     "puebloMagico": "Pueblo Mágico",
     "archaeologicalZone": "Archaeological zone",
-    "museum": "Museum"
+    "museum": "Museum",
+    "openInWaze": "Open in Waze →",
+    "location": "Location",
+    "about": "About",
+    "recognitions": "Recognitions",
+    "quickNavigation": "Quick navigation",
+    "googleMapsDirections": "Get directions",
+    "wazeTraffic": "Navigate with live traffic",
+    "moreCategoryInState": "More {category} in {state}",
+    "practicalInfo": "Practical info",
+    "schedule": "Schedule",
+    "telephone": "Phone",
+    "address": "Address",
+    "website": "Website",
+    "visitSite": "Visit site →",
+    "coordinates": "Coordinates",
+    "category": "Category",
+    "state": "State",
+    "addToMyRoute": "Add to my route",
+    "exploreState": "Explore {state}",
+    "exploreStateDesc": "Discover more places, routes and activities in {state}.",
+    "viewStateLink": "View {state} →",
+    "exploreCategoryDesc": "Explore all {category} in Mexico.",
+    "viewAllCategory": "View all →",
+    "planYourTrip": "Plan your trip",
+    "planYourTripDesc": "Create an itinerary including {place} and discover more nearby.",
+    "startPlanning": "Start planning →"
   },
   "subscription": {
     "free": "Free",
@@ -220,7 +246,8 @@
       "editorialGuides": "Editorial travel guides",
       "difficultyEasy": "Easy",
       "difficultyModerate": "Moderate",
-      "difficultyAdvanced": "Advanced"
+      "difficultyAdvanced": "Advanced",
+      "totalRoutes": "routes available across Mexico"
     },
     "guias": {
       "title": "Travel guides for Mexico",
@@ -229,7 +256,16 @@
       "keepExploring": "Keep exploring",
       "bestRoadRoutes": "The best road trip routes",
       "traditionAndMagic": "Tradition and magic across Mexico",
-      "curatedCollections": "Curated destination collections"
+      "curatedCollections": "Curated destination collections",
+      "totalCount": "{count} guides available, organized by state and topic. Use search or filter to find the one you need.",
+      "search": "Search guides",
+      "searchPlaceholder": "Search by state, town, gastronomy, route…",
+      "filterByState": "Filter by state",
+      "allStates": "All states",
+      "noResults": "No guides match your search. Try with another keyword or state.",
+      "clearFilters": "Clear filters",
+      "generalGuides": "Featured editorial guides",
+      "viewState": "View state →"
     },
     "precios": {
       "title": "Plans and pricing",

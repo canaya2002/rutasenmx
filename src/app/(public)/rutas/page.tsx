@@ -2,18 +2,25 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 import { buildBreadcrumbs } from '@/lib/seo/breadcrumbs';
-import { buildBreadcrumbSchema, buildCollectionPageSchema, buildItemListSchema } from '@/lib/seo/schema';
-import { mockRoutes } from '@/lib/data/mock';
+import {
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+  buildItemListSchema,
+} from '@/lib/seo/schema';
+import { allRoutes } from '@/lib/data/routes';
+import { getPlaceBySlug } from '@/lib/data/mock';
 import { getTranslations } from '@/lib/i18n/server';
+import { RouteStaticMapPreview, type RouteStaticStop } from '@/components/map/RouteStaticMapPreview';
+import { MapPin, Navigation } from 'lucide-react';
 
 const PAGE_PATH = '/rutas';
-const PAGE_TITLE = 'Rutas por México: road trips, mapas y paradas';
+const PAGE_TITLE = 'Rutas por México: 100+ road trips con mapas, paradas y costos';
 const PAGE_DESCRIPTION =
-  'Descubre las mejores rutas por carretera en México. Road trips con mapas, paradas recomendadas, distancias, costos y consejos para cada ruta.';
+  'Más de 100 rutas por carretera en México con paradas recomendadas, distancias, tiempos de manejo, costos y consejos para cada tramo. Desde microescapadas desde CDMX hasta la Ruta Maya y Barrancas del Cobre.';
 
 export function generateMetadata(): Metadata {
   return buildPageMetadata({
-    title: 'Rutas por México: road trips, mapas y paradas | Rutas en MX',
+    title: `${PAGE_TITLE} | Rutas en MX`,
     description: PAGE_DESCRIPTION,
     path: PAGE_PATH,
     keywords: [
@@ -22,6 +29,13 @@ export function generateMetadata(): Metadata {
       'carreteras México',
       'viaje por carretera México',
       'mejores rutas México',
+      'ruta maya',
+      'ruta del mezcal',
+      'barrancas del cobre',
+      'pueblos mágicos ruta',
+      'itinerarios México',
+      'escapadas desde CDMX',
+      'road trips Baja California',
     ],
   });
 }
@@ -44,7 +58,7 @@ export default async function RutasPage() {
   const collectionSchema = buildCollectionPageSchema(
     PAGE_TITLE,
     PAGE_DESCRIPTION,
-    mockRoutes.map((r) => ({
+    allRoutes.map((r) => ({
       name: r.name,
       url: `https://rutasenmx.com/rutas/${r.slug}`,
       image: r.image,
@@ -53,7 +67,7 @@ export default async function RutasPage() {
   );
 
   const itemListSchema = buildItemListSchema(
-    mockRoutes.map((r) => ({
+    allRoutes.map((r) => ({
       name: r.name,
       url: `https://rutasenmx.com/rutas/${r.slug}`,
       image: r.image,
@@ -78,25 +92,7 @@ export default async function RutasPage() {
       />
 
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-zinc-500">
-          <ol className="flex items-center gap-2">
-            {breadcrumbs.map((item, idx) => (
-              <li key={item.href} className="flex items-center gap-2">
-                {idx > 0 && <span aria-hidden="true">/</span>}
-                {idx === breadcrumbs.length - 1 ? (
-                  <span className="text-zinc-900">{item.label}</span>
-                ) : (
-                  <Link href={item.href} className="hover:text-zinc-900">
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ol>
-        </nav>
 
-        {/* Hero */}
         <header className="mb-12">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl">
             {t.pages.rutas.title}
@@ -104,54 +100,78 @@ export default async function RutasPage() {
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
             {t.pages.rutas.description}
           </p>
+          <p className="mt-3 text-sm text-zinc-500">
+            {allRoutes.length}{' '}
+            {t.pages.rutas.totalRoutes ?? 'rutas disponibles en todo el territorio mexicano'}.
+          </p>
         </header>
 
-        {/* Grid */}
         <section aria-label={t.pages.rutas.listLabel}>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {mockRoutes.map((route) => (
-              <Link
-                key={route.slug}
-                href={`/rutas/${route.slug}`}
-                className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md"
-              >
-                <div className="aspect-[16/10] w-full bg-zinc-100">
-                  <div className="flex h-full items-center justify-center text-sm text-zinc-400">
-                    {route.name}
-                  </div>
-                </div>
-                <div className="p-4">
-                  <div className="mb-2 flex items-center gap-2">
+            {allRoutes.map((route) => {
+              const mapStops: RouteStaticStop[] = route.stops
+                .map((s) => {
+                  const place = getPlaceBySlug(s.placeSlug);
+                  // Prefer the place's real coords, then the stop's inline fallback.
+                  const lat = place?.lat ?? s.lat;
+                  const lng = place?.lng ?? s.lng;
+                  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+                  return { lat: lat as number, lng: lng as number };
+                })
+                .filter((s): s is RouteStaticStop => s !== null);
+              return (
+                <Link
+                  key={route.slug}
+                  href={`/rutas/${route.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-xl"
+                >
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-zinc-50">
+                    <RouteStaticMapPreview
+                      stops={mapStops}
+                      alt={`Mapa de la ruta ${route.name}`}
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-100" />
                     <span
-                      className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${difficultyColor[route.difficulty]}`}
+                      className={`absolute left-3 top-3 inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold shadow-sm backdrop-blur-sm ${difficultyColor[route.difficulty]}`}
                     >
                       {difficultyLabel[route.difficulty]}
                     </span>
-                    <span className="text-xs text-zinc-400">
-                      {route.durationDays} {t.pages.rutas.days}
+                    <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-0.5 text-[11px] font-semibold text-slate-700 shadow-sm backdrop-blur-sm">
+                      <Navigation className="h-3 w-3 text-[#06C167]" />
+                      {route.distanceKm} km
                     </span>
+                    {mapStops.length > 0 && (
+                      <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-0.5 text-[11px] font-semibold text-slate-700 shadow-sm backdrop-blur-sm">
+                        <MapPin className="h-3 w-3 text-[#06C167]" />
+                        {mapStops.length} {t.pages.rutas.stops}
+                      </span>
+                    )}
                   </div>
-                  <h3 className="text-lg font-semibold text-zinc-900 group-hover:text-blue-600">
-                    {route.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-zinc-400">
-                    {route.origin} &rarr; {route.destination}
-                  </p>
-                  <p className="mt-2 line-clamp-2 text-sm text-zinc-500">
-                    {route.description}
-                  </p>
-                  <div className="mt-3 flex items-center gap-3 text-xs text-zinc-400">
-                    <span>{route.distanceKm} km</span>
-                    <span>{route.stops.length} {t.pages.rutas.stops}</span>
-                    <span>~{route.drivingHours}h {t.pages.rutas.driving}</span>
+                  <div className="flex flex-1 flex-col p-4">
+                    <h3 className="text-lg font-semibold text-zinc-900 group-hover:text-[#06C167]">
+                      {route.name}
+                    </h3>
+                    <p className="mt-1 text-sm font-medium text-[#06C167]/70">
+                      {route.origin} &rarr; {route.destination}
+                    </p>
+                    <p className="mt-2 flex-1 line-clamp-2 text-sm text-zinc-500">
+                      {route.description}
+                    </p>
+                    <div className="mt-3 flex items-center gap-3 text-xs text-zinc-500">
+                      <span className="inline-flex items-center gap-1">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                        {route.durationDays} {t.pages.rutas.days}
+                      </span>
+                      <span className="h-1 w-1 rounded-full bg-zinc-300" />
+                      <span>~{route.drivingHours}h {t.pages.rutas.driving}</span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </section>
 
-        {/* Internal links */}
         <section className="mt-16">
           <h2 className="text-2xl font-bold text-zinc-900">
             {t.pages.rutas.keepExploring}

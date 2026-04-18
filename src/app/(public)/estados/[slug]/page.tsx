@@ -4,7 +4,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 import { estadoBreadcrumbs } from '@/lib/seo/breadcrumbs';
-import { buildBreadcrumbSchema, buildCollectionPageSchema } from '@/lib/seo/schema';
+import {
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+  buildStateRegionSchema,
+  buildWebPageSchema,
+  buildItemListSchema,
+  buildGraph,
+} from '@/lib/seo/schema';
+import { JsonLd } from '@/components/seo/JsonLd';
 import {
   mockStates,
   getStateBySlug,
@@ -76,35 +84,46 @@ export default async function EstadoPage({ params }: Props) {
 
   const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbs);
 
+  const stateSchema = buildStateRegionSchema({
+    name: state.name,
+    slug: state.slug,
+    description: state.description,
+    image: heroImage ?? undefined,
+    capital: state.capital,
+  });
+
+  const routesListSchema =
+    stateRoutes.length > 0
+      ? buildItemListSchema(
+          stateRoutes.map((r) => ({
+            name: r.name,
+            url: `https://rutasenmx.com/rutas/${r.slug}`,
+            description: r.description,
+            image: r.image,
+          })),
+        )
+      : null;
+
+  const graph = buildGraph(
+    [
+      buildWebPageSchema(
+        `${state.name}: rutas, Pueblos Mágicos, museos y qué hacer`,
+        state.description,
+        `/estados/${state.slug}`,
+        { primaryImage: heroImage ?? undefined },
+      ),
+      stateSchema,
+      collectionSchema,
+      breadcrumbSchema,
+      ...(routesListSchema ? [routesListSchema] : []),
+    ],
+  );
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <JsonLd data={graph} />
 
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumbs */}
-        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-zinc-500">
-          <ol className="flex items-center gap-2">
-            {breadcrumbs.map((item, idx) => (
-              <li key={item.href} className="flex items-center gap-2">
-                {idx > 0 && <span aria-hidden="true">/</span>}
-                {idx === breadcrumbs.length - 1 ? (
-                  <span className="text-zinc-900">{item.label}</span>
-                ) : (
-                  <Link href={item.href} className="hover:text-zinc-900">
-                    {item.label}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ol>
-        </nav>
 
         {/* Hero banner */}
         {heroImage ? (

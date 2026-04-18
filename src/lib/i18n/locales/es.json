@@ -97,7 +97,33 @@
     "lastUpdated": "Última actualización",
     "puebloMagico": "Pueblo Mágico",
     "archaeologicalZone": "Zona arqueológica",
-    "museum": "Museo"
+    "museum": "Museo",
+    "openInWaze": "Abrir en Waze →",
+    "location": "Ubicación",
+    "about": "Sobre",
+    "recognitions": "Reconocimientos",
+    "quickNavigation": "Navegación rápida",
+    "googleMapsDirections": "Obtener indicaciones",
+    "wazeTraffic": "Navegar con tráfico en tiempo real",
+    "moreCategoryInState": "Más {category} en {state}",
+    "practicalInfo": "Información práctica",
+    "schedule": "Horario",
+    "telephone": "Teléfono",
+    "address": "Dirección",
+    "website": "Sitio web",
+    "visitSite": "Visitar sitio →",
+    "coordinates": "Coordenadas",
+    "category": "Categoría",
+    "state": "Estado",
+    "addToMyRoute": "Agregar a mi ruta",
+    "exploreState": "Explora {state}",
+    "exploreStateDesc": "Descubre más lugares, rutas y actividades en {state}.",
+    "viewStateLink": "Ver {state} →",
+    "exploreCategoryDesc": "Explora todos los {category} de México.",
+    "viewAllCategory": "Ver todos →",
+    "planYourTrip": "Planea tu viaje",
+    "planYourTripDesc": "Crea un itinerario que incluya {place} y descubre qué más hay por la zona.",
+    "startPlanning": "Empezar a planear →"
   },
   "subscription": {
     "free": "Gratis",
@@ -220,7 +246,8 @@
       "editorialGuides": "Guías de viaje editoriales",
       "difficultyEasy": "Fácil",
       "difficultyModerate": "Moderada",
-      "difficultyAdvanced": "Avanzada"
+      "difficultyAdvanced": "Avanzada",
+      "totalRoutes": "rutas disponibles en todo el territorio mexicano"
     },
     "guias": {
       "title": "Guías de viaje por México",
@@ -229,7 +256,16 @@
       "keepExploring": "Sigue explorando",
       "bestRoadRoutes": "Las mejores rutas por carretera",
       "traditionAndMagic": "Tradición y magia en todo México",
-      "curatedCollections": "Colecciones curadas de destinos"
+      "curatedCollections": "Colecciones curadas de destinos",
+      "totalCount": "{count} guías disponibles, organizadas por estado y tema. Usa el buscador o el filtro para encontrar la que necesitas.",
+      "search": "Buscar guías",
+      "searchPlaceholder": "Busca por estado, pueblo, gastronomía, ruta…",
+      "filterByState": "Filtrar por estado",
+      "allStates": "Todos los estados",
+      "noResults": "No encontramos guías que coincidan. Prueba con otra palabra clave o estado.",
+      "clearFilters": "Limpiar filtros",
+      "generalGuides": "Guías editoriales destacadas",
+      "viewState": "Ver estado →"
     },
     "precios": {
       "title": "Planes y precios",

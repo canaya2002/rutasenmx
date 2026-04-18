@@ -18,6 +18,7 @@ import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { formatDistance, formatDuration, formatCurrency } from '@/lib/utils';
 import StopCard, { type TripStop } from './StopCard';
+import { useLocale } from '@/components/providers/LocaleProvider';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -56,16 +57,6 @@ export interface TripPlannerProps {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Vehicle options                                                    */
-/* ------------------------------------------------------------------ */
-const VEHICLES: { value: RouteOptions['vehicleType']; label: string; Icon: typeof Car }[] = [
-  { value: 'car', label: 'Auto', Icon: Car },
-  { value: 'motorcycle', label: 'Moto', Icon: Bike },
-  { value: 'campervan', label: 'Campervan', Icon: Truck },
-  { value: 'rv', label: 'RV / Motorhome', Icon: Truck },
-];
-
-/* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 export default function TripPlanner({
@@ -73,6 +64,34 @@ export default function TripPlanner({
   routeSummary,
   className,
 }: TripPlannerProps) {
+  const { locale } = useLocale();
+  const isEn = locale === 'en';
+  const L = {
+    origin: isEn ? 'Origin' : 'Origen',
+    originPh: isEn ? 'Departure city or place' : 'Ciudad o lugar de salida',
+    destination: isEn ? 'Destination' : 'Destino',
+    destinationPh: isEn ? 'Arrival city or place' : 'Ciudad o lugar de llegada',
+    intermediateStops: isEn ? 'Intermediate stops' : 'Paradas intermedias',
+    addStop: isEn ? 'Add stop' : 'Agregar parada',
+    routeOptions: isEn ? 'Route options' : 'Opciones de ruta',
+    avoidTolls: isEn ? 'Avoid tolls' : 'Evitar casetas',
+    avoidHighways: isEn ? 'Avoid highways' : 'Evitar autopistas',
+    avoidDirtRoads: isEn ? 'Avoid dirt roads' : 'Evitar terracería',
+    vehicle: isEn ? 'Vehicle' : 'Vehículo',
+    calculateRoute: isEn ? 'Calculate route' : 'Calcular ruta',
+    distance: isEn ? 'Distance' : 'Distancia',
+    time: isEn ? 'Time' : 'Tiempo',
+    tollsEst: isEn ? 'Tolls (est.)' : 'Casetas (est.)',
+    fuelEst: isEn ? 'Fuel (est.)' : 'Gasolina (est.)',
+    car: isEn ? 'Car' : 'Auto',
+    motorcycle: isEn ? 'Motorcycle' : 'Moto',
+  };
+  const VEHICLES: { value: RouteOptions['vehicleType']; label: string; Icon: typeof Car }[] = [
+    { value: 'car', label: L.car, Icon: Car },
+    { value: 'motorcycle', label: L.motorcycle, Icon: Bike },
+    { value: 'campervan', label: 'Campervan', Icon: Truck },
+    { value: 'rv', label: 'RV / Motorhome', Icon: Truck },
+  ];
   /* Origin / destination (simple text for now; geocoding autocomplete
      would be wired to the Mapbox Geocoding API in production) */
   const [originQuery, setOriginQuery] = useState('');
@@ -178,12 +197,12 @@ export default function TripPlanner({
       {/* ── Origin ────────────────────────────────────────────── */}
       <div className="space-y-1.5">
         <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Origen
+          {L.origin}
         </label>
         <div className="relative">
           <MapPin className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-emerald-500" />
           <Input
-            placeholder="Ciudad o lugar de salida"
+            placeholder={L.originPh}
             value={originQuery}
             onChange={(e) => setOriginQuery(e.target.value)}
             onBlur={handleOriginBlur}
@@ -196,7 +215,7 @@ export default function TripPlanner({
       {stops.length > 0 && (
         <div className="space-y-3">
           <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Paradas intermedias
+            {L.intermediateStops}
           </h4>
           {stops.map((stop, idx) => (
             <StopCard
@@ -215,18 +234,18 @@ export default function TripPlanner({
 
       <Button variant="outline" size="sm" onClick={addStop} className="w-full gap-1.5">
         <Plus className="h-4 w-4" />
-        Agregar parada
+        {L.addStop}
       </Button>
 
       {/* ── Destination ───────────────────────────────────────── */}
       <div className="space-y-1.5">
         <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Destino
+          {L.destination}
         </label>
         <div className="relative">
           <MapPin className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-terracotta" />
           <Input
-            placeholder="Ciudad o lugar de llegada"
+            placeholder={L.destinationPh}
             value={destQuery}
             onChange={(e) => setDestQuery(e.target.value)}
             onBlur={handleDestBlur}
@@ -238,15 +257,15 @@ export default function TripPlanner({
       {/* ── Route options ─────────────────────────────────────── */}
       <div className="space-y-3">
         <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Opciones de ruta
+          {L.routeOptions}
         </h4>
 
         <div className="flex flex-wrap gap-2">
           {(
             [
-              ['avoidTolls', 'Evitar casetas'],
-              ['avoidHighways', 'Evitar autopistas'],
-              ['avoidDirtRoads', 'Evitar terraceria'],
+              ['avoidTolls', L.avoidTolls],
+              ['avoidHighways', L.avoidHighways],
+              ['avoidDirtRoads', L.avoidDirtRoads],
             ] as const
           ).map(([key, label]) => (
             <button
@@ -267,7 +286,7 @@ export default function TripPlanner({
 
         {/* Vehicle selector */}
         <div>
-          <span className="mb-1.5 block text-xs text-muted-foreground">Vehiculo</span>
+          <span className="mb-1.5 block text-xs text-muted-foreground">{L.vehicle}</span>
           <div className="flex gap-2">
             {VEHICLES.map(({ value, label, Icon }) => (
               <button
@@ -292,7 +311,7 @@ export default function TripPlanner({
       {/* ── Calculate button ──────────────────────────────────── */}
       <Button className="w-full gap-2" size="lg" onClick={calculate}>
         <Navigation className="h-4 w-4" />
-        Calcular ruta
+        {L.calculateRoute}
       </Button>
 
       {/* ── Route summary ─────────────────────────────────────── */}
@@ -301,21 +320,21 @@ export default function TripPlanner({
           <div className="flex items-center gap-2">
             <Route className="h-4 w-4 text-muted-foreground" />
             <div>
-              <p className="text-xs text-muted-foreground">Distancia</p>
+              <p className="text-xs text-muted-foreground">{L.distance}</p>
               <p className="text-sm font-semibold">{formatDistance(routeSummary.distanceKm)}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4 text-muted-foreground" />
             <div>
-              <p className="text-xs text-muted-foreground">Tiempo</p>
+              <p className="text-xs text-muted-foreground">{L.time}</p>
               <p className="text-sm font-semibold">{formatDuration(routeSummary.durationMinutes)}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <DollarSign className="h-4 w-4 text-muted-foreground" />
             <div>
-              <p className="text-xs text-muted-foreground">Casetas (est.)</p>
+              <p className="text-xs text-muted-foreground">{L.tollsEst}</p>
               <p className="text-sm font-semibold">
                 {formatCurrency(routeSummary.tollEstimateCents)}
               </p>
@@ -324,7 +343,7 @@ export default function TripPlanner({
           <div className="flex items-center gap-2">
             <Fuel className="h-4 w-4 text-muted-foreground" />
             <div>
-              <p className="text-xs text-muted-foreground">Gasolina (est.)</p>
+              <p className="text-xs text-muted-foreground">{L.fuelEst}</p>
               <p className="text-sm font-semibold">
                 {formatCurrency(routeSummary.fuelEstimateCents)}
               </p>

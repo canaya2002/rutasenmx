@@ -1,41 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors */
-  --color-terracotta: #C4532B;
-  --color-terracotta-light: #E8734D;
-  --color-terracotta-dark: #9A3E1E;
-  --color-jade: #0F766E;
-  --color-jade-light: #14B8A6;
-  --color-jade-dark: #0D5C56;
-  --color-obsidiana: #1E293B;
-  --color-obsidiana-light: #334155;
-  --color-arena: #FAFAF5;
-  --color-arena-dark: #F5F3EE;
-  --color-cantera: #F5F0EB;
-  --color-oro: #D97706;
-  --color-oro-light: #F59E0B;
+  /* Brand colors — Uber-inspired: black, white, green accent */
+  --color-brand: #000000;
+  --color-brand-hover: #1a1a1a;
+  --color-accent: #06C167;
+  --color-accent-hover: #05a558;
+  --color-accent-light: #e6f9ef;
 
-  /* Semantic colors — clean white light mode */
+  /* Legacy aliases kept for components that reference them */
+  --color-terracotta: #000000;
+  --color-terracotta-light: #333333;
+  --color-terracotta-dark: #000000;
+  --color-jade: #06C167;
+  --color-jade-light: #34d399;
+  --color-jade-dark: #059669;
+  --color-obsidiana: #000000;
+  --color-obsidiana-light: #1a1a1a;
+  --color-arena: #fafafa;
+  --color-arena-dark: #f5f5f5;
+  --color-cantera: #f5f5f5;
+  --color-oro: #06C167;
+  --color-oro-light: #34d399;
+
+  /* Semantic colors — clean white */
   --color-background: #ffffff;
-  --color-foreground: #111827;
-  --color-muted: #f9fafb;
+  --color-foreground: #000000;
+  --color-muted: #f5f5f5;
   --color-muted-foreground: #6b7280;
   --color-popover: #ffffff;
-  --color-popover-foreground: #111827;
+  --color-popover-foreground: #000000;
   --color-border: #e5e7eb;
   --color-input: #e5e7eb;
   --color-card: #ffffff;
-  --color-card-foreground: #111827;
-  --color-primary: #C4532B;
+  --color-card-foreground: #000000;
+  --color-primary: #000000;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #0F766E;
+  --color-secondary: #06C167;
   --color-secondary-foreground: #ffffff;
-  --color-accent: #f9fafb;
-  --color-accent-foreground: #111827;
   --color-destructive: #dc2626;
   --color-destructive-foreground: #fafafa;
-  --color-ring: #C4532B;
+  --color-ring: #000000;
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -44,7 +49,6 @@
   /* Radius */
   --radius: 0.625rem;
 }
-
 
 /* Base styles */
 * {
@@ -80,13 +84,121 @@ body {
   border-radius: 9999px;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Explorer popup animation */
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+.animate-popup-fade-in {
+  animation: popupFadeIn 0.25s ease-out;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Landing / explore animations                                       */
+/* ------------------------------------------------------------------ */
+
+/* Entrance: fade + slide up */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translate3d(0, 24px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.animate-fade-up {
+  animation: fadeUp 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Entrance: blur to clear */
+@keyframes blurIn {
+  from { opacity: 0; filter: blur(16px) saturate(120%); transform: scale(1.04); }
+  to   { opacity: 1; filter: blur(0) saturate(100%); transform: scale(1); }
+}
+.animate-blur-in {
+  animation: blurIn 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Slow subtle zoom for hero backgrounds (Ken Burns) */
+@keyframes kenBurns {
+  0%   { transform: scale(1)    translate3d(0, 0, 0); }
+  50%  { transform: scale(1.08) translate3d(-1%, 1%, 0); }
+  100% { transform: scale(1.12) translate3d(0, 2%, 0); }
+}
+.animate-ken-burns {
+  animation: kenBurns 24s ease-in-out infinite alternate;
+}
+
+/* Floating badge glow */
+@keyframes floaty {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -6px, 0); }
+}
+.animate-floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+/* Horizontal marquee for trust logos / keyword strip */
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Section reveal: triggers when .reveal-on-scroll gets .is-visible */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+              filter 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  filter: blur(8px);
+  will-change: opacity, transform, filter;
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+/* Stagger helper — add .reveal-stagger-<n> to descendants */
+.reveal-stagger-1 { transition-delay: 80ms; }
+.reveal-stagger-2 { transition-delay: 160ms; }
+.reveal-stagger-3 { transition-delay: 240ms; }
+.reveal-stagger-4 { transition-delay: 320ms; }
+.reveal-stagger-5 { transition-delay: 400ms; }
+
+/* 3D tilt for hero card */
+.hero-3d {
+  perspective: 1200px;
+}
+.hero-3d-inner {
+  transform: rotateX(6deg);
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hero-3d:hover .hero-3d-inner {
+  transform: rotateX(0deg) scale(1.015);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-blur-in,
+  .animate-ken-burns,
+  .animate-floaty,
+  .animate-marquee,
+  .reveal-on-scroll { animation: none !important; transition: none !important; filter: none !important; opacity: 1 !important; transform: none !important; }
+}
+
+/* Hide scrollbar on overflow-x carousels */
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
 
 /* Selection color */
 ::selection {
-  background-color: rgba(196, 83, 43, 0.15);
+  background-color: rgba(6, 193, 103, 0.2);
   color: inherit;
 }
