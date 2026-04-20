@@ -91,7 +91,7 @@ class ClaudeProvider implements AIProvider {
       throw new Error('ANTHROPIC_API_KEY environment variable is not set');
     }
     this.apiKey = key;
-    this.model = process.env.AI_MODEL ?? 'claude-sonnet-4-20250514';
+    this.model = process.env.AI_MODEL ?? 'claude-haiku-4-5-20251001';
     this.baseUrl = process.env.ANTHROPIC_BASE_URL ?? 'https://api.anthropic.com';
   }
 
@@ -100,8 +100,14 @@ class ClaudeProvider implements AIProvider {
 
     const body = {
       model: this.model,
-      max_tokens: 4096,
-      system: SYSTEM_PROMPT_ITINERARY,
+      max_tokens: 3000,
+      system: [
+        {
+          type: 'text',
+          text: SYSTEM_PROMPT_ITINERARY,
+          cache_control: { type: 'ephemeral' },
+        },
+      ],
       messages: [{ role: 'user', content: userPrompt }],
     };
 
@@ -112,8 +118,14 @@ class ClaudeProvider implements AIProvider {
   async refineItinerary(refinement: ItineraryRefinement): Promise<GeneratedItinerary> {
     const body = {
       model: this.model,
-      max_tokens: 4096,
-      system: SYSTEM_PROMPT_ITINERARY,
+      max_tokens: 3000,
+      system: [
+        {
+          type: 'text',
+          text: SYSTEM_PROMPT_ITINERARY,
+          cache_control: { type: 'ephemeral' },
+        },
+      ],
       messages: [
         {
           role: 'user',
@@ -139,8 +151,14 @@ class ClaudeProvider implements AIProvider {
 
     const body = {
       model: this.model,
-      max_tokens: 1024,
-      system: SYSTEM_PROMPT_DESCRIPTION,
+      max_tokens: 400,
+      system: [
+        {
+          type: 'text',
+          text: SYSTEM_PROMPT_DESCRIPTION,
+          cache_control: { type: 'ephemeral' },
+        },
+      ],
       messages: [
         {
           role: 'user',

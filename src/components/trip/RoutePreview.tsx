@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
+import type maplibregl from 'maplibre-gl';
 import { useMap } from '@/components/map/MapProvider';
 
 /* ------------------------------------------------------------------ */
@@ -46,7 +47,7 @@ export default function RoutePreview({
   color = '#C4532B',
 }: RoutePreviewProps) {
   const { map, isReady } = useMap();
-  const markersRef = useRef<mapboxgl.Marker[]>([]);
+  const markersRef = useRef<maplibregl.Marker[]>([]);
 
   const cleanup = useCallback(() => {
     if (!map) return;
@@ -67,7 +68,7 @@ export default function RoutePreview({
   const draw = useCallback(async () => {
     if (!map || routeCoordinates.length < 2) return;
 
-    const mapboxgl = (await import('mapbox-gl')).default;
+    const maplibreglLib = (await import('maplibre-gl')).default;
 
     cleanup();
 
@@ -150,13 +151,13 @@ export default function RoutePreview({
           box-shadow:0 1px 4px rgba(0,0,0,.3);
         ">${label}</div>`;
 
-        const marker = new mapboxgl.Marker({ element: el })
+        const marker = new maplibreglLib.Marker({ element: el })
           .setLngLat([stop.lng, stop.lat])
           .addTo(map);
 
         if (stop.name) {
           marker.setPopup(
-            new mapboxgl.Popup({ offset: 20, closeButton: false }).setText(
+            new maplibreglLib.Popup({ offset: 20, closeButton: false }).setText(
               stop.name,
             ),
           );

@@ -29,16 +29,15 @@ export default function PlanearClient() {
   const handleCalculateRoute = useCallback(
     (data: Parameters<NonNullable<React.ComponentProps<typeof TripPlanner>['onCalculateRoute']>>[0]) => {
       if (data.origin && data.destination) {
-        setRouteCoords([
+        const waypoints: [number, number][] = [
           [data.origin.lng, data.origin.lat],
-          [data.destination.lng, data.destination.lat],
-        ]);
-        setRouteSummary({
-          distanceKm: 0,
-          durationMinutes: 0,
-          tollEstimateCents: 0,
-          fuelEstimateCents: 0,
-        });
+        ];
+        for (const s of data.stops) {
+          if (s.lng != null && s.lat != null) waypoints.push([s.lng, s.lat]);
+        }
+        waypoints.push([data.destination.lng, data.destination.lat]);
+        setRouteCoords(waypoints);
+        setRouteSummary(data.summary);
       }
     },
     [],

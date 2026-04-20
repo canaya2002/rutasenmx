@@ -152,10 +152,12 @@ export default async function GuiaPage({ params }: Props) {
   const graph = buildGraph([articleSchema, breadcrumbSchema]);
 
   // Batch-pick a unique hero + 3 gallery images for this guide so the hero
-  // never repeats inside the inline gallery.
+  // never repeats inside the inline gallery. Always prefer the files in
+  // public/guias/ (they exist) over `article.image` (which for auto-generated
+  // guides points to state images that were never committed to public/).
   const imageSet = pickGuiaSet(article.slug, 3);
-  const heroImage = article.image && article.image.length > 0 ? article.image : imageSet.hero;
-  const hasArticleOrHero = !!(article.image || imageSet.hero);
+  const heroImage = imageSet.hero ?? (article.image && article.image.length > 0 ? article.image : null);
+  const hasArticleOrHero = !!heroImage;
 
   const labels = {
     by: isEn ? 'By' : 'Por',

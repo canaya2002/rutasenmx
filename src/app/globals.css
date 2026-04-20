@@ -140,13 +140,13 @@ body {
   animation: floaty 6s ease-in-out infinite;
 }
 
-/* Horizontal marquee for trust logos / keyword strip */
+/* Horizontal marquee — auto-scrolling carousel */
 @keyframes marquee {
   from { transform: translate3d(0, 0, 0); }
   to   { transform: translate3d(-50%, 0, 0); }
 }
 .animate-marquee {
-  animation: marquee 40s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 /* Section reveal: triggers when .reveal-on-scroll gets .is-visible */

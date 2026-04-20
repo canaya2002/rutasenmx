@@ -30,7 +30,6 @@ export function Logo({
       height={height}
       priority
       className={`object-contain ${variant === 'dark' ? 'brightness-0 invert' : ''} ${className}`}
-      style={{ height, width: 'auto' }}
     />
   );
   if (!linked) return img;

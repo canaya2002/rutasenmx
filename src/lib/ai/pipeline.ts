@@ -250,7 +250,7 @@ async function llmRefine(
   const prompt = buildItineraryPrompt(candidates, input);
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  const model = process.env.AI_MODEL ?? 'claude-sonnet-4-20250514';
+  const model = process.env.AI_MODEL ?? 'claude-haiku-4-5-20251001';
   const baseUrl = process.env.ANTHROPIC_BASE_URL ?? 'https://api.anthropic.com';
 
   const response = await fetch(`${baseUrl}/v1/messages`, {
@@ -262,8 +262,14 @@ async function llmRefine(
     },
     body: JSON.stringify({
       model,
-      max_tokens: 8192,
-      system: ITINERARY_SYSTEM_PROMPT,
+      max_tokens: 4096,
+      system: [
+        {
+          type: 'text',
+          text: ITINERARY_SYSTEM_PROMPT,
+          cache_control: { type: 'ephemeral' },
+        },
+      ],
       messages: [{ role: 'user', content: prompt }],
     }),
   });

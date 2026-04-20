@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
 import { Logo } from "./Logo";
 import { getLocale, getTranslations } from "@/lib/i18n/server";
 
@@ -57,24 +56,24 @@ export async function Footer() {
   ];
 
   return (
-    <footer className="border-t border-slate-100 bg-slate-50">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="border-t border-white/10 bg-slate-950">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         {/* Top section: logo + columns */}
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-6">
           {/* Brand */}
           <div className="col-span-2">
-            <Logo height={48} />
-            <p className="mt-3 max-w-xs text-sm text-muted-foreground">
+            <Logo height={48} className="brightness-0 invert" />
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
               {brandDescription}
             </p>
 
-            {/* Social links placeholder */}
-            <div className="mt-4 flex items-center gap-3">
+            {/* Social links */}
+            <div className="mt-5 flex items-center gap-3">
               {["Twitter", "Instagram", "Facebook", "YouTube"].map((name) => (
                 <a
                   key={name}
                   href="#"
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors hover:bg-terracotta/10 hover:text-terracotta"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition-all hover:border-[#06C167]/40 hover:bg-[#06C167]/10 hover:text-[#06C167]"
                   aria-label={name}
                 >
                   <span className="text-xs font-bold">
@@ -87,34 +86,34 @@ export async function Footer() {
 
           {/* Link columns */}
           {footerSections.map((section) => (
-            <div key={section.title}>
-              <h3 className="text-sm font-semibold text-foreground">
+            <nav key={section.title} aria-label={section.title}>
+              <h3 className="text-sm font-semibold text-white">
                 {section.title}
               </h3>
-              <ul className="mt-3 space-y-2">
+              <ul className="mt-4 space-y-2.5">
                 {section.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-terracotta"
+                      className="text-sm text-slate-400 transition-colors hover:text-[#06C167]"
                     >
                       {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
           ))}
         </div>
 
-        <Separator className="my-8" />
+        <div className="my-10 h-px bg-white/10" />
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-slate-500">
             &copy; {currentYear} Rutas en MX. {t.footer.allRights}
           </p>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-slate-500">
             {t.footer.madeWith}
           </p>
         </div>

@@ -1,6 +1,22 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { generateItinerary } from '@/lib/ai/pipeline';
+import {
+  findCachedItinerary,
+  hashAutopilotInput,
+  saveCachedItinerary,
+  countRunsForUserThisMonth,
+} from '@/lib/ai/cache';
+import { getSession } from '@/lib/auth/session';
+import { canAccess } from '@/lib/subscription/plans';
 import type { AutopilotInput } from '@/lib/ai/types';
+import type { PlanSlug } from '@/lib/subscription/plans';
+
+const MONTHLY_LIMITS: Record<PlanSlug, number> = {
+  free: 0,
+  basic: 0,
+  pro: 0,
+  premium: 20,
+};
 
 /**
  * POST /api/ai/autopilot
@@ -21,9 +37,39 @@ import type { AutopilotInput } from '@/lib/ai/types';
  */
 export async function POST(request: NextRequest) {
   try {
+    const session = await getSession();
+    if (!session) {
+      return NextResponse.json(
+        { error: 'Debes iniciar sesión para usar Autopilot' },
+        { status: 401 },
+      );
+    }
+
+    if (!canAccess(session.plan, 'ai_autopilot')) {
+      return NextResponse.json(
+        {
+          error: 'Autopilot está disponible solo en el plan Premium',
+          upgradeRequired: 'premium',
+        },
+        { status: 403 },
+      );
+    }
+
+    const monthlyLimit = MONTHLY_LIMITS[session.plan];
+    const used = await countRunsForUserThisMonth(session.userId);
+    if (used >= monthlyLimit) {
+      return NextResponse.json(
+        {
+          error: `Alcanzaste el límite mensual de ${monthlyLimit} itinerarios de Autopilot`,
+          limit: monthlyLimit,
+          used,
+        },
+        { status: 429 },
+      );
+    }
+
     const body = await request.json();
 
-    // Basic validation
     if (!body.origin?.lat || !body.origin?.lng) {
       return NextResponse.json(
         { error: 'Se requiere un origen con coordenadas (lat, lng)' },
@@ -38,7 +84,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Build input with defaults
     const input: AutopilotInput = {
       origin: {
         name: body.origin.name ?? 'Origen',
@@ -71,13 +116,28 @@ export async function POST(request: NextRequest) {
       style: body.travelStyle ?? body.style ?? 'cultural',
     };
 
+    const inputHash = hashAutopilotInput(input);
+
+    const cached = await findCachedItinerary(inputHash);
+    if (cached) {
+      return NextResponse.json({ itinerary: cached, cached: true });
+    }
+
     const itinerary = await generateItinerary(input);
 
-    return NextResponse.json({ itinerary });
+    await saveCachedItinerary({
+      userId: session.userId,
+      inputParams: input,
+      inputHash,
+      result: itinerary,
+      modelUsed:
+        process.env.AI_MODEL ?? 'claude-haiku-4-5-20251001',
+    });
+
+    return NextResponse.json({ itinerary, cached: false });
   } catch (error) {
     console.error('Error en POST /api/ai/autopilot:', error);
 
-    // Return a more descriptive error if it's an AI provider issue
     const message =
       error instanceof Error && error.message.includes('API')
         ? 'Error al conectar con el servicio de IA. Intenta de nuevo.'

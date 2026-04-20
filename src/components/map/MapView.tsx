@@ -1,8 +1,10 @@
 'use client';
 
 import { useRef, useEffect, useCallback, useState } from 'react';
+import type maplibregl from 'maplibre-gl';
 import { useMap } from './MapProvider';
 import { MEXICO_CENTER, MEXICO_ZOOM } from '@/lib/constants';
+import { MAP_STYLE_URL } from '@/lib/map-config';
 import { useTranslation } from '@/components/providers/LocaleProvider';
 
 /* ------------------------------------------------------------------ */
@@ -46,7 +48,7 @@ export default function MapView({
   const t = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const { setMap } = useMap();
-  const mapInstanceRef = useRef<mapboxgl.Map | null>(null);
+  const mapInstanceRef = useRef<maplibregl.Map | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   /* Stable callback so we can pass to the effect without re-running */
@@ -59,38 +61,29 @@ export default function MapView({
   const initMap = useCallback(async () => {
     if (!containerRef.current || mapInstanceRef.current) return;
 
-    const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-    if (!token || token === 'your_mapbox_token') {
-      setError('missing-token');
-      return;
-    }
-
     try {
-      /* Dynamically import mapbox-gl so the CSS is only loaded client-side */
-      const mapboxgl = (await import('mapbox-gl')).default;
-      await import('mapbox-gl/dist/mapbox-gl.css');
+      /* Dynamically import maplibre-gl so the CSS is only loaded client-side */
+      const maplibregl = (await import('maplibre-gl')).default;
+      await import('maplibre-gl/dist/maplibre-gl.css');
 
-      mapboxgl.accessToken = token;
-
-      const map = new mapboxgl.Map({
+      const map = new maplibregl.Map({
         container: containerRef.current,
-        style: 'mapbox://styles/mapbox/light-v11',
+        style: MAP_STYLE_URL,
         center: [MEXICO_CENTER.lng, MEXICO_CENTER.lat],
         zoom: MEXICO_ZOOM,
-        attributionControl: true,
+        attributionControl: { compact: true },
       });
 
       /* Controls */
-      map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+      map.addControl(new maplibregl.NavigationControl(), 'top-right');
       map.addControl(
-        new mapboxgl.GeolocateControl({
+        new maplibregl.GeolocateControl({
           positionOptions: { enableHighAccuracy: true },
           trackUserLocation: true,
-          showUserHeading: true,
         }),
         'top-right',
       );
-      map.addControl(new mapboxgl.ScaleControl({ maxWidth: 200 }), 'bottom-left');
+      map.addControl(new maplibregl.ScaleControl({ maxWidth: 200 }), 'bottom-left');
 
       map.on('load', () => {
         mapInstanceRef.current = map;
@@ -111,8 +104,8 @@ export default function MapView({
         onMapLoadRef.current?.(map);
       });
 
-      map.on('error', (e) => {
-        console.warn('Mapbox error:', e.error?.message || e);
+      map.on('error', (e: { error?: { message?: string } }) => {
+        console.warn('Map error:', e.error?.message || e);
       });
     } catch (err) {
       console.error('Failed to initialize map:', err);
@@ -156,7 +149,7 @@ export default function MapView({
             {t.map.unavailable}
           </h3>
           <p className="text-sm text-slate-500">
-            {error === 'missing-token' ? t.map.configureToken : t.map.loadError}
+            {t.map.loadError}
           </p>
         </div>
       </div>

@@ -16,7 +16,9 @@ const DEFAULT_KEYWORDS = [
   "planear viaje México",
   "itinerarios México",
 ];
-const DEFAULT_OG_IMAGE = "/og-default.png";
+// Fallback to /icon.png until a dedicated 1200×630 OG image is produced.
+// Keep as const so both metadata.ts and sitemap.ts stay in sync.
+const DEFAULT_OG_IMAGE = "/icon.png";
 
 /**
  * Returns the base Metadata object shared across the entire application.
@@ -142,9 +144,13 @@ export function buildPageMetadata(options: PageMetadataOptions): Metadata {
     keywords: mergedKeywords,
     alternates: {
       canonical: canonicalUrl,
+      // Both locales are served at the same URL via content negotiation,
+      // so we list them with the same href plus an x-default fallback as
+      // recommended by Google when pages serve multiple languages from one URL.
       languages: {
         "es-MX": canonicalUrl,
         "en-US": canonicalUrl,
+        "x-default": canonicalUrl,
       },
     },
     openGraph: {

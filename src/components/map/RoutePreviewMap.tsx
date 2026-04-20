@@ -1,10 +1,12 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import type maplibregl from 'maplibre-gl';
 import Link from 'next/link';
 import { ExternalLink, Navigation, Copy, Check } from 'lucide-react';
 import { useTranslation, useLocale } from '@/components/providers/LocaleProvider';
 import { MEXICO_CENTER, MEXICO_ZOOM } from '@/lib/constants';
+import { MAP_STYLE_URL } from '@/lib/map-config';
 import { registerCategoryIcons } from '@/components/map/categoryIcons';
 import {
   googleMapsRouteUrl,
@@ -50,7 +52,7 @@ export function RoutePreviewMap({
   color = '#06C167',
 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<mapboxgl.Map | null>(null);
+  const mapRef = useRef<maplibregl.Map | null>(null);
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -63,34 +65,33 @@ export function RoutePreviewMap({
 
   const init = useCallback(async () => {
     if (!containerRef.current || mapRef.current) return;
-    const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-    if (!token || token === 'your_mapbox_token') {
-      setError('missing-token');
-      return;
-    }
     try {
-      const mapboxgl = (await import('mapbox-gl')).default;
-      await import('mapbox-gl/dist/mapbox-gl.css');
-      mapboxgl.accessToken = token;
+      const maplibreglLib = (await import('maplibre-gl')).default;
+      await import('maplibre-gl/dist/maplibre-gl.css');
 
-      const map = new mapboxgl.Map({
+      const map = new maplibreglLib.Map({
         container: containerRef.current,
-        style: 'mapbox://styles/mapbox/light-v11',
+        style: MAP_STYLE_URL,
         center: [MEXICO_CENTER.lng, MEXICO_CENTER.lat],
         zoom: MEXICO_ZOOM,
-        attributionControl: true,
+        attributionControl: { compact: true },
         interactive: true,
         cooperativeGestures: true,
       });
 
-      map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right');
+      map.addControl(
+        new maplibreglLib.NavigationControl({ showCompass: false }),
+        'top-right',
+      );
 
       map.on('load', async () => {
         mapRef.current = map;
-        await registerCategoryIcons(map as unknown as Parameters<typeof registerCategoryIcons>[0]).catch(() => {});
+        await registerCategoryIcons(
+          map as unknown as Parameters<typeof registerCategoryIcons>[0],
+        ).catch(() => {});
         setReady(true);
       });
-      map.on('error', (e) => console.warn('[RoutePreviewMap]', e.error?.message));
+      map.on('error', (e: { error?: { message?: string } }) => console.warn('[RoutePreviewMap]', e.error?.message));
     } catch (err) {
       console.error('RoutePreviewMap init failed', err);
       setError('init-failed');
@@ -225,7 +226,7 @@ export function RoutePreviewMap({
         'icon-allow-overlap': true,
         'icon-ignore-placement': true,
         'icon-anchor': 'bottom',
-      } as mapboxgl.SymbolLayout,
+      } as maplibregl.LayerSpecification['layout'],
     });
 
     // Number badge
@@ -235,12 +236,12 @@ export function RoutePreviewMap({
       source: pointSourceId,
       layout: {
         'text-field': ['to-string', ['get', 'order']],
-        'text-font': ['DIN Pro Bold', 'Arial Unicode MS Bold'],
+        'text-font': ['Noto Sans Bold'],
         'text-size': 15,
         'text-allow-overlap': true,
         'text-ignore-placement': true,
         'text-offset': [0, -3.2],
-      } as mapboxgl.SymbolLayout,
+      } as maplibregl.LayerSpecification['layout'],
       paint: {
         'text-color': '#ffffff',
         'text-halo-color': color,
@@ -316,7 +317,7 @@ export function RoutePreviewMap({
         {error ? (
           <div className={`${height} flex w-full items-center justify-center bg-slate-50 p-6 text-center`}>
             <p className="text-sm text-slate-500">
-              {error === 'missing-token' ? t.map.configureToken : t.map.loadError}
+              {t.map.loadError}
             </p>
           </div>
         ) : (

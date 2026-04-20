@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
       {
+        protocol: "https",
+        hostname: "tiles.openfreemap.org",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "api.maptiler.com",
+        pathname: "/**",
+      },
+      {
         protocol: "http",
         hostname: "localhost",
         port: "9000",

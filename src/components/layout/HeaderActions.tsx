@@ -14,12 +14,13 @@ export function HeaderActions() {
 
   return (
     <div className="flex items-center gap-2">
-      {/* Search placeholder button (desktop) */}
+      {/* Search button — scrolls to hero search */}
       <Button
         variant="ghost"
         size="icon"
-        className="hidden sm:inline-flex"
+        className="hidden rounded-full bg-black/50 text-white shadow-lg shadow-black/20 backdrop-blur-xl hover:bg-black/60 hover:text-white sm:inline-flex"
         aria-label={t.common.search}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
         <Search className="h-4 w-4" />
       </Button>
@@ -29,10 +30,10 @@ export function HeaderActions() {
 
       {/* Auth buttons (desktop) */}
       <div className="hidden md:flex md:items-center md:gap-2">
-        <Button variant="ghost" size="sm" asChild>
+        <Button variant="ghost" size="sm" className="rounded-full bg-black/50 text-white shadow-lg shadow-black/20 backdrop-blur-xl hover:bg-black/60 hover:text-white" asChild>
           <Link href="/iniciar-sesion">{t.common.login}</Link>
         </Button>
-        <Button size="sm" asChild>
+        <Button size="sm" className="rounded-full bg-[#06C167] text-white shadow-lg shadow-black/20 hover:bg-[#05a558]" asChild>
           <Link href="/registrarse">{t.common.register}</Link>
         </Button>
       </div>
@@ -41,7 +42,7 @@ export function HeaderActions() {
       <Button
         variant="ghost"
         size="icon"
-        className="md:hidden"
+        className="rounded-full bg-black/50 text-white shadow-lg shadow-black/20 backdrop-blur-xl hover:bg-black/60 hover:text-white md:hidden"
         aria-label={t.common.search}
         onClick={() => setMobileOpen(true)}
       >

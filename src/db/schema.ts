@@ -25,6 +25,12 @@ import {
   aiRunStatusEnum,
   placementTypeEnum,
   importRunStatusEnum,
+  socialIntentEnum,
+  socialSwipeActionEnum,
+  socialReportStatusEnum,
+  socialCommunityTypeEnum,
+  socialCommunityRoleEnum,
+  socialContentStatusEnum,
 } from "./enums";
 
 // Re-export enums so consumers can import everything from schema
@@ -756,6 +762,7 @@ export const aiTripRuns = pgTable(
       onDelete: "set null",
     }),
     inputParams: jsonb("input_params"),
+    inputHash: varchar("input_hash", { length: 64 }),
     status: aiRunStatusEnum("status").notNull().default("pending"),
     result: jsonb("result"),
     feedbackScore: integer("feedback_score"),
@@ -773,6 +780,7 @@ export const aiTripRuns = pgTable(
     index("ai_trip_runs_trip_id_idx").on(t.tripId),
     index("ai_trip_runs_status_idx").on(t.status),
     index("ai_trip_runs_created_at_idx").on(t.createdAt),
+    index("ai_trip_runs_input_hash_idx").on(t.inputHash),
   ],
 );
 
@@ -1448,3 +1456,473 @@ export const auditLogsRelations = relations(auditLogs, ({ one }) => ({
     references: [users.id],
   }),
 }));
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 35. SOCIAL — "Conectar" (premium-only)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * Perfil público ligero que el usuario llena en <1 min para participar en la
+ * sección social. Vive en su propia tabla para no ensuciar `users`/`profiles`
+ * con columnas solo relevantes al módulo social y facilitar ocultar un perfil
+ * social sin tocar la identidad base.
+ */
+export const socialProfiles = pgTable(
+  "social_profiles",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .unique()
+      .references(() => users.id, { onDelete: "cascade" }),
+    displayName: varchar("display_name", { length: 80 }).notNull(),
+    bio: varchar("bio", { length: 280 }),
+    photoUrl: text("photo_url"),
+    destinoEstadoSlug: varchar("destino_estado_slug", { length: 64 }),
+    interests: jsonb("interests").$type<string[]>().default([]).notNull(),
+    intent: socialIntentEnum("intent"),
+    age: integer("age"),
+    languages: jsonb("languages").$type<string[]>().default([]).notNull(),
+    travelFrom: date("travel_from"),
+    travelTo: date("travel_to"),
+    isVisible: boolean("is_visible").notNull().default(true),
+    ...timestamps,
+  },
+  (t) => [
+    index("social_profiles_user_id_idx").on(t.userId),
+    index("social_profiles_visible_idx").on(t.isVisible),
+    index("social_profiles_destino_idx").on(t.destinoEstadoSlug),
+  ],
+);
+
+export const socialSwipes = pgTable(
+  "social_swipes",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    fromUserId: uuid("from_user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    toUserId: uuid("to_user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    action: socialSwipeActionEnum("action").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    uniqueIndex("social_swipes_pair_uq").on(t.fromUserId, t.toUserId),
+    index("social_swipes_to_user_idx").on(t.toUserId),
+    index("social_swipes_action_idx").on(t.action),
+  ],
+);
+
+/**
+ * Un match se crea cuando dos usuarios dan `like` mutuamente. Almacenamos el
+ * par con `userAId < userBId` por convención para que un único par tenga
+ * exactamente una fila (independientemente de quién likó primero).
+ */
+export const socialMatches = pgTable(
+  "social_matches",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userAId: uuid("user_a_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    userBId: uuid("user_b_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    lastMessageAt: timestamp("last_message_at", { withTimezone: true }),
+    /** Usuario que cerró/rompió el match (bloqueo o unmatch). Null = activo. */
+    closedByUserId: uuid("closed_by_user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
+    closedAt: timestamp("closed_at", { withTimezone: true }),
+  },
+  (t) => [
+    uniqueIndex("social_matches_pair_uq").on(t.userAId, t.userBId),
+    index("social_matches_user_a_idx").on(t.userAId),
+    index("social_matches_user_b_idx").on(t.userBId),
+    index("social_matches_last_msg_idx").on(t.lastMessageAt),
+  ],
+);
+
+export const socialMessages = pgTable(
+  "social_messages",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    matchId: uuid("match_id")
+      .notNull()
+      .references(() => socialMatches.id, { onDelete: "cascade" }),
+    senderId: uuid("sender_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    body: varchar("body", { length: 2000 }).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    readAt: timestamp("read_at", { withTimezone: true }),
+  },
+  (t) => [
+    index("social_messages_match_idx").on(t.matchId),
+    index("social_messages_sender_idx").on(t.senderId),
+    index("social_messages_created_idx").on(t.createdAt),
+  ],
+);
+
+export const socialBlocks = pgTable(
+  "social_blocks",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    blockerId: uuid("blocker_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    blockedId: uuid("blocked_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    uniqueIndex("social_blocks_pair_uq").on(t.blockerId, t.blockedId),
+    index("social_blocks_blocked_idx").on(t.blockedId),
+  ],
+);
+
+export const socialReports = pgTable(
+  "social_reports",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    reporterId: uuid("reporter_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    reportedId: uuid("reported_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    reason: varchar("reason", { length: 80 }).notNull(),
+    note: varchar("note", { length: 1000 }),
+    status: socialReportStatusEnum("status").notNull().default("pending"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    reviewedAt: timestamp("reviewed_at", { withTimezone: true }),
+  },
+  (t) => [
+    index("social_reports_reported_idx").on(t.reportedId),
+    index("social_reports_status_idx").on(t.status),
+  ],
+);
+
+// ── Social relations ────────────────────────────────────────────────────────
+export const socialProfilesRelations = relations(socialProfiles, ({ one }) => ({
+  user: one(users, {
+    fields: [socialProfiles.userId],
+    references: [users.id],
+  }),
+}));
+
+export const socialSwipesRelations = relations(socialSwipes, ({ one }) => ({
+  from: one(users, {
+    fields: [socialSwipes.fromUserId],
+    references: [users.id],
+    relationName: "social_swipe_from",
+  }),
+  to: one(users, {
+    fields: [socialSwipes.toUserId],
+    references: [users.id],
+    relationName: "social_swipe_to",
+  }),
+}));
+
+export const socialMatchesRelations = relations(socialMatches, ({ one, many }) => ({
+  userA: one(users, {
+    fields: [socialMatches.userAId],
+    references: [users.id],
+    relationName: "social_match_a",
+  }),
+  userB: one(users, {
+    fields: [socialMatches.userBId],
+    references: [users.id],
+    relationName: "social_match_b",
+  }),
+  messages: many(socialMessages),
+}));
+
+export const socialMessagesRelations = relations(socialMessages, ({ one }) => ({
+  match: one(socialMatches, {
+    fields: [socialMessages.matchId],
+    references: [socialMatches.id],
+  }),
+  sender: one(users, {
+    fields: [socialMessages.senderId],
+    references: [users.id],
+  }),
+}));
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 36. SOCIAL COMMUNITIES — foros / grupos / canales (premium-only)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * Unified community container.
+ *
+ * `type = 'forum'`   → editorial, open membership, seeded by staff
+ * `type = 'group'`   → user-created, joinable (optionally requires approval)
+ * `type = 'channel'` → editorial broadcast; only moderators can post
+ */
+export const socialCommunities = pgTable(
+  "social_communities",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    type: socialCommunityTypeEnum("type").notNull(),
+    slug: varchar("slug", { length: 120 }).notNull().unique(),
+    name: varchar("name", { length: 160 }).notNull(),
+    description: varchar("description", { length: 600 }),
+    coverPhotoUrl: text("cover_photo_url"),
+    isPublic: boolean("is_public").notNull().default(true),
+    requiresApproval: boolean("requires_approval").notNull().default(false),
+    /** Null for editorial/seeded content. */
+    createdByUserId: uuid("created_by_user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
+    memberCount: integer("member_count").notNull().default(0),
+    postCount: integer("post_count").notNull().default(0),
+    ...timestamps,
+  },
+  (t) => [
+    index("social_communities_type_idx").on(t.type),
+    index("social_communities_slug_idx").on(t.slug),
+  ],
+);
+
+export const socialCommunityMembers = pgTable(
+  "social_community_members",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    communityId: uuid("community_id")
+      .notNull()
+      .references(() => socialCommunities.id, { onDelete: "cascade" }),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    role: socialCommunityRoleEnum("role").notNull().default("member"),
+    approvedAt: timestamp("approved_at", { withTimezone: true }),
+    joinedAt: timestamp("joined_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    uniqueIndex("social_community_members_pair_uq").on(t.communityId, t.userId),
+    index("social_community_members_user_idx").on(t.userId),
+    index("social_community_members_role_idx").on(t.role),
+  ],
+);
+
+export const socialCommunityPosts = pgTable(
+  "social_community_posts",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    communityId: uuid("community_id")
+      .notNull()
+      .references(() => socialCommunities.id, { onDelete: "cascade" }),
+    authorId: uuid("author_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    title: varchar("title", { length: 200 }).notNull(),
+    body: varchar("body", { length: 8000 }).notNull(),
+    /** JSON array of uploaded photo URLs (already validated). */
+    photoUrls: jsonb("photo_urls").$type<string[]>().default([]).notNull(),
+    /** SHA-256 hashes of photos, for quick abuse-hash lookups. */
+    photoHashes: jsonb("photo_hashes").$type<string[]>().default([]).notNull(),
+    status: socialContentStatusEnum("status").notNull().default("published"),
+    isPinned: boolean("is_pinned").notNull().default(false),
+    isLocked: boolean("is_locked").notNull().default(false),
+    upvoteCount: integer("upvote_count").notNull().default(0),
+    commentCount: integer("comment_count").notNull().default(0),
+    flagCount: integer("flag_count").notNull().default(0),
+    ...timestamps,
+  },
+  (t) => [
+    index("social_community_posts_community_idx").on(t.communityId),
+    index("social_community_posts_author_idx").on(t.authorId),
+    index("social_community_posts_status_idx").on(t.status),
+    index("social_community_posts_created_idx").on(t.createdAt),
+  ],
+);
+
+export const socialCommunityComments = pgTable(
+  "social_community_comments",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    postId: uuid("post_id")
+      .notNull()
+      .references(() => socialCommunityPosts.id, { onDelete: "cascade" }),
+    authorId: uuid("author_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    parentCommentId: uuid("parent_comment_id"),
+    body: varchar("body", { length: 4000 }).notNull(),
+    status: socialContentStatusEnum("status").notNull().default("published"),
+    upvoteCount: integer("upvote_count").notNull().default(0),
+    flagCount: integer("flag_count").notNull().default(0),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .notNull()
+      .defaultNow()
+      .$onUpdateFn(() => new Date()),
+  },
+  (t) => [
+    index("social_community_comments_post_idx").on(t.postId),
+    index("social_community_comments_author_idx").on(t.authorId),
+    index("social_community_comments_status_idx").on(t.status),
+  ],
+);
+
+export const socialCommunityVotes = pgTable(
+  "social_community_votes",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    /** One of these two will be set. Enforced at the app layer. */
+    postId: uuid("post_id").references(() => socialCommunityPosts.id, {
+      onDelete: "cascade",
+    }),
+    commentId: uuid("comment_id").references(() => socialCommunityComments.id, {
+      onDelete: "cascade",
+    }),
+    value: integer("value").notNull(), // +1 upvote; -1 reserved for future
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    uniqueIndex("social_community_votes_user_post_uq").on(t.userId, t.postId),
+    uniqueIndex("social_community_votes_user_comment_uq").on(
+      t.userId,
+      t.commentId,
+    ),
+  ],
+);
+
+/** Flags for content moderation (separate from user-to-user reports). */
+export const socialContentFlags = pgTable(
+  "social_content_flags",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    reporterId: uuid("reporter_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    /** Exactly one of these is set. */
+    postId: uuid("post_id").references(() => socialCommunityPosts.id, {
+      onDelete: "cascade",
+    }),
+    commentId: uuid("comment_id").references(() => socialCommunityComments.id, {
+      onDelete: "cascade",
+    }),
+    reason: varchar("reason", { length: 80 }).notNull(),
+    note: varchar("note", { length: 1000 }),
+    status: socialReportStatusEnum("status").notNull().default("pending"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    reviewedAt: timestamp("reviewed_at", { withTimezone: true }),
+  },
+  (t) => [
+    index("social_content_flags_post_idx").on(t.postId),
+    index("social_content_flags_comment_idx").on(t.commentId),
+    index("social_content_flags_status_idx").on(t.status),
+  ],
+);
+
+/** Audit log of every user-generated upload (for admin review + hash-block). */
+export const socialUploads = pgTable(
+  "social_uploads",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    url: text("url").notNull(),
+    mime: varchar("mime", { length: 60 }).notNull(),
+    width: integer("width"),
+    height: integer("height"),
+    size: integer("size"),
+    sha256: varchar("sha256", { length: 64 }).notNull(),
+    scope: varchar("scope", { length: 40 }).notNull(), // 'avatar' | 'post' | 'cover'
+    moderationStatus: socialContentStatusEnum("moderation_status")
+      .notNull()
+      .default("published"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    index("social_uploads_user_idx").on(t.userId),
+    index("social_uploads_sha_idx").on(t.sha256),
+    index("social_uploads_scope_idx").on(t.scope),
+  ],
+);
+
+// ── Community relations ─────────────────────────────────────────────────────
+export const socialCommunitiesRelations = relations(
+  socialCommunities,
+  ({ one, many }) => ({
+    creator: one(users, {
+      fields: [socialCommunities.createdByUserId],
+      references: [users.id],
+    }),
+    members: many(socialCommunityMembers),
+    posts: many(socialCommunityPosts),
+  }),
+);
+
+export const socialCommunityMembersRelations = relations(
+  socialCommunityMembers,
+  ({ one }) => ({
+    community: one(socialCommunities, {
+      fields: [socialCommunityMembers.communityId],
+      references: [socialCommunities.id],
+    }),
+    user: one(users, {
+      fields: [socialCommunityMembers.userId],
+      references: [users.id],
+    }),
+  }),
+);
+
+export const socialCommunityPostsRelations = relations(
+  socialCommunityPosts,
+  ({ one, many }) => ({
+    community: one(socialCommunities, {
+      fields: [socialCommunityPosts.communityId],
+      references: [socialCommunities.id],
+    }),
+    author: one(users, {
+      fields: [socialCommunityPosts.authorId],
+      references: [users.id],
+    }),
+    comments: many(socialCommunityComments),
+  }),
+);
+
+export const socialCommunityCommentsRelations = relations(
+  socialCommunityComments,
+  ({ one }) => ({
+    post: one(socialCommunityPosts, {
+      fields: [socialCommunityComments.postId],
+      references: [socialCommunityPosts.id],
+    }),
+    author: one(users, {
+      fields: [socialCommunityComments.authorId],
+      references: [users.id],
+    }),
+  }),
+);

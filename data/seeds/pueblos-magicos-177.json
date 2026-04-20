@@ -1,0 +1,2323 @@
+{
+  "meta": {
+    "seed_name": "super_seed_pueblos_magicos_mexico_177",
+    "version": "2026-04-19",
+    "alcance": "177 Pueblos Mágicos de México",
+    "descripcion": "Seed curado para Claude Code con resumen general, dato curioso y tres atracciones ancla por cada Pueblo Mágico.",
+    "notas_de_uso": [
+      "Cada atracción funciona como ancla narrativa o geográfica; puede ser un sitio puntual, un conjunto urbano o una experiencia-clave.",
+      "Úsalo como base para fichas, guías, motores de búsqueda, catálogos, prompts, mapas y contenido editorial.",
+      "Si el proyecto exige precisión operativa, vuelve a validar horarios, precios, accesibilidad, cierres temporales y cambios recientes.",
+      "La lista oficial y el conteo base siguen el universo vigente de 177 Pueblos Mágicos; los resúmenes y priorizaciones son una curaduría práctica."
+    ],
+    "fuentes_base": [
+      "Datatur / Secretaría de Turismo: 177 Pueblos Mágicos por Macro Región",
+      "Programa Pueblos Mágicos - Secretaría de Turismo",
+      "Visitamex: guía actual de los 177 Pueblos Mágicos y páginas de atractivos",
+      "México Desconocido: índice actualizado de los 177 Pueblos Mágicos"
+    ]
+  },
+  "pueblos_magicos": [
+    {
+      "id": "001-aguascalientes-calvillo",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Aguascalientes",
+      "pueblo_magico": "Calvillo",
+      "resumen_general": "Valle serrano famoso por guayabas, presas y escapadas de naturaleza.",
+      "dato_curioso": "Su identidad turística gira alrededor de la Feria Nacional de la Guayaba y la tradición del deshilado.",
+      "atracciones_principales": [
+        "Plaza principal y Parroquia del Señor del Salitre",
+        "Presa de Malpaso",
+        "Ruta de la Sierra Fría"
+      ]
+    },
+    {
+      "id": "002-aguascalientes-real-de-asientos",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Aguascalientes",
+      "pueblo_magico": "Real de Asientos",
+      "resumen_general": "Antiguo pueblo minero de aire novohispano con túneles, exconventos y calles de cantera.",
+      "dato_curioso": "Es uno de los asentamientos más antiguos de Aguascalientes y conserva vestigios de la Ruta de la Plata.",
+      "atracciones_principales": [
+        "Templo y ex convento del Señor del Tepozán",
+        "Túneles y panteón antiguo",
+        "Centro histórico minero"
+      ]
+    },
+    {
+      "id": "003-aguascalientes-san-jose-de-gracia",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Aguascalientes",
+      "pueblo_magico": "San José de Gracia",
+      "resumen_general": "Destino serrano y religioso rodeado de bosques y presas en el norte del estado.",
+      "dato_curioso": "Su emblema contemporáneo es el Cristo Roto, visible en una isla dentro de la presa.",
+      "atracciones_principales": [
+        "Santuario del Cristo Roto",
+        "Presa Plutarco Elías Calles",
+        "Parque de aventura Boca de Túnel"
+      ]
+    },
+    {
+      "id": "004-aguascalientes-pabellon-de-hidalgo",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Aguascalientes",
+      "pueblo_magico": "Pabellón de Hidalgo",
+      "resumen_general": "Pequeña localidad histórica ligada a la Independencia y al paisaje semidesértico hidrocálido.",
+      "dato_curioso": "Aquí se recuerda la degradación militar de Miguel Hidalgo tras la derrota de Puente de Calderón.",
+      "atracciones_principales": [
+        "Museo de la Insurgencia",
+        "Hacienda de San Blas",
+        "Plaza y templo del poblado"
+      ]
+    },
+    {
+      "id": "005-baja-california-tecate",
+      "macroregion": "Mar de Cortés",
+      "estado": "Baja California",
+      "pueblo_magico": "Tecate",
+      "resumen_general": "Puerta serrana del norte con clima templado, gastronomía y cultura ranchera.",
+      "dato_curioso": "Es célebre por su pan artesanal y por su tradición cervecera fronteriza.",
+      "atracciones_principales": [
+        "Centro histórico y parque Miguel Hidalgo",
+        "Ruta del Vino/Valle de Guadalupe cercano",
+        "La Rumorosa y miradores"
+      ]
+    },
+    {
+      "id": "006-baja-california-sur-loreto",
+      "macroregion": "Mar de Cortés",
+      "estado": "Baja California Sur",
+      "pueblo_magico": "Loreto",
+      "resumen_general": "Antigua capital de las Californias y base para explorar islas y mar de gran biodiversidad.",
+      "dato_curioso": "La Misión de Nuestra Señora de Loreto marcó el arranque del sistema misional peninsular.",
+      "atracciones_principales": [
+        "Misión de Nuestra Señora de Loreto",
+        "Parque Nacional Bahía de Loreto",
+        "Malecón y centro histórico"
+      ]
+    },
+    {
+      "id": "007-baja-california-sur-todos-santos",
+      "macroregion": "Mar de Cortés",
+      "estado": "Baja California Sur",
+      "pueblo_magico": "Todos Santos",
+      "resumen_general": "Pueblo costero de artistas, surf y galerías entre el Pacífico y la Sierra de la Laguna.",
+      "dato_curioso": "Su fama internacional mezcla arte, hoteles boutique y la leyenda pop del Hotel California.",
+      "atracciones_principales": [
+        "Centro histórico y galerías",
+        "Playa Los Cerritos",
+        "Misión y Teatro Manuel Márquez de León"
+      ]
+    },
+    {
+      "id": "008-baja-california-sur-santa-rosalia",
+      "macroregion": "Mar de Cortés",
+      "estado": "Baja California Sur",
+      "pueblo_magico": "Santa Rosalía",
+      "resumen_general": "Poblado minero con huella francesa y paisaje desértico frente al Golfo de California.",
+      "dato_curioso": "La iglesia de Santa Bárbara se vincula popularmente al círculo de Gustave Eiffel.",
+      "atracciones_principales": [
+        "Iglesia de Santa Bárbara",
+        "Museo e infraestructura minera de El Boleo",
+        "Malecón y panaderías francesas"
+      ]
+    },
+    {
+      "id": "009-campeche-isla-aguada",
+      "macroregion": "Península de Yucatán",
+      "estado": "Campeche",
+      "pueblo_magico": "Isla Aguada",
+      "resumen_general": "Villa pesquera y costera de humedales, manglares y vida marina.",
+      "dato_curioso": "Es uno de los puntos campechanos más citados para avistamiento de delfines nariz de botella.",
+      "atracciones_principales": [
+        "Malecón y playa de Isla Aguada",
+        "Avistamiento de delfines y laguna de Términos",
+        "Faro y zona ribereña"
+      ]
+    },
+    {
+      "id": "010-campeche-palizada",
+      "macroregion": "Península de Yucatán",
+      "estado": "Campeche",
+      "pueblo_magico": "Palizada",
+      "resumen_general": "Pueblo ribereño de casas con techos de teja francesa, río y paisaje tropical.",
+      "dato_curioso": "Su imagen urbana destaca por la madera y la teja llegada como lastre desde Europa.",
+      "atracciones_principales": [
+        "Malecón y río Palizada",
+        "Centro histórico de casas coloridas",
+        "Museo de la Ciudad"
+      ]
+    },
+    {
+      "id": "011-campeche-candelaria",
+      "macroregion": "Península de Yucatán",
+      "estado": "Campeche",
+      "pueblo_magico": "Candelaria",
+      "resumen_general": "Destino de selva, agua y cultura campechana en el sur del estado.",
+      "dato_curioso": "Su vocación turística reciente se apoya en el río Candelaria y los balnearios naturales de la región.",
+      "atracciones_principales": [
+        "Río Candelaria y paseos acuáticos",
+        "Balnearios y parajes naturales",
+        "Centro y parroquia local"
+      ]
+    },
+    {
+      "id": "012-chiapas-chiapa-de-corzo",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Chiapas",
+      "pueblo_magico": "Chiapa de Corzo",
+      "resumen_general": "Pueblo colonial a la orilla del Grijalva, célebre por fiestas, artesanía y cocina.",
+      "dato_curioso": "La Fiesta Grande con los Parachicos está inscrita por la UNESCO como patrimonio inmaterial.",
+      "atracciones_principales": [
+        "Fuente mudéjar de La Pila",
+        "Embarcadero al Cañón del Sumidero",
+        "Centro histórico y templo de Santo Domingo"
+      ]
+    },
+    {
+      "id": "013-chiapas-comitan-de-dominguez",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Chiapas",
+      "pueblo_magico": "Comitán de Domínguez",
+      "resumen_general": "Ciudad altiplánica de aire señorial, plazas arboladas y tradición literaria.",
+      "dato_curioso": "Está vinculada a Rosario Castellanos y a un corredor de lagos y sitios arqueológicos.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia de Santo Domingo",
+        "Zona arqueológica de Tenam Puente",
+        "Lagos de Montebello cercanos"
+      ]
+    },
+    {
+      "id": "014-chiapas-palenque",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Chiapas",
+      "pueblo_magico": "Palenque",
+      "resumen_general": "Puerta selvática hacia uno de los grandes centros mayas de Mesoamérica.",
+      "dato_curioso": "Su principal imán es la ciudad maya de Palenque, Patrimonio Mundial de la UNESCO.",
+      "atracciones_principales": [
+        "Zona arqueológica de Palenque",
+        "Museo de sitio Alberto Ruz L’huillier",
+        "Cascadas de Misol-Ha y Agua Azul"
+      ]
+    },
+    {
+      "id": "015-chiapas-san-cristobal-de-las-casas",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Chiapas",
+      "pueblo_magico": "San Cristóbal de las Casas",
+      "resumen_general": "Ciudad de montaña con fuerte raíz indígena, arquitectura virreinal y vida cultural intensa.",
+      "dato_curioso": "Es uno de los destinos más cosmopolitas del sureste y eje del mundo tsotsil-tseltal.",
+      "atracciones_principales": [
+        "Andadores y centro histórico",
+        "Iglesia de Santo Domingo y mercado de artesanías",
+        "Museos y barrios tradicionales"
+      ]
+    },
+    {
+      "id": "016-chiapas-copainala",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Chiapas",
+      "pueblo_magico": "Copainalá",
+      "resumen_general": "Poblado zoque de sierra baja conocido por música, tradiciones y entorno natural.",
+      "dato_curioso": "Sobresale por la permanencia de expresiones culturales zoques en sus fiestas y cocina.",
+      "atracciones_principales": [
+        "Centro histórico y templo principal",
+        "Miradores y entorno serrano",
+        "Fiestas y tradición zoque"
+      ]
+    },
+    {
+      "id": "017-chiapas-ocozocoautla-de-espinosa",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Chiapas",
+      "pueblo_magico": "Ocozocoautla de Espinosa",
+      "resumen_general": "Entrada chiapaneca a cuevas, selva seca y paisajes kársticos.",
+      "dato_curioso": "Su nombre suele abreviarse como Coita y se asocia a la Sima de las Cotorras.",
+      "atracciones_principales": [
+        "Sima de las Cotorras",
+        "Arco del Tiempo y ecoturismo",
+        "Centro histórico de Coita"
+      ]
+    },
+    {
+      "id": "018-chihuahua-batopilas",
+      "macroregion": "Norte-Centro",
+      "estado": "Chihuahua",
+      "pueblo_magico": "Batopilas",
+      "resumen_general": "Antiguo real minero escondido en una barranca profunda de la Sierra Tarahumara.",
+      "dato_curioso": "Su aislamiento histórico le dio una atmósfera legendaria entre minas, haciendas y misiones.",
+      "atracciones_principales": [
+        "Centro histórico minero",
+        "Hacienda San Miguel",
+        "Miradores de la barranca y ruta serrana"
+      ]
+    },
+    {
+      "id": "019-chihuahua-casas-grandes",
+      "macroregion": "Norte-Centro",
+      "estado": "Chihuahua",
+      "pueblo_magico": "Casas Grandes",
+      "resumen_general": "Territorio clave para entender la cultura Paquimé y el norte prehispánico.",
+      "dato_curioso": "La zona arqueológica de Paquimé también es Patrimonio Mundial por la UNESCO.",
+      "atracciones_principales": [
+        "Zona arqueológica de Paquimé",
+        "Museo de las Culturas del Norte",
+        "Colonia Juárez y corredor histórico"
+      ]
+    },
+    {
+      "id": "020-chihuahua-creel",
+      "macroregion": "Norte-Centro",
+      "estado": "Chihuahua",
+      "pueblo_magico": "Creel",
+      "resumen_general": "Corazón turístico de la Tarahumara y base para explorar las Barrancas del Cobre.",
+      "dato_curioso": "Su historia moderna está unida al ferrocarril Chihuahua al Pacífico y a la cultura rarámuri.",
+      "atracciones_principales": [
+        "Lago de Arareko y valle de los hongos",
+        "Barrancas del Cobre/Divisadero",
+        "Misión y centro de Creel"
+      ]
+    },
+    {
+      "id": "021-chihuahua-guachochi",
+      "macroregion": "Norte-Centro",
+      "estado": "Chihuahua",
+      "pueblo_magico": "Guachochi",
+      "resumen_general": "Pueblo de sierra, lagos y barrancas asociado al mundo rarámuri y al ultramaratón.",
+      "dato_curioso": "Es sede de la Ultra Maratón de los Cañones, emblema deportivo de la región.",
+      "atracciones_principales": [
+        "Barranca de la Sinforosa",
+        "Lago de las Garzas",
+        "Centro y miradores de Guachochi"
+      ]
+    },
+    {
+      "id": "022-chihuahua-hidalgo-del-parral",
+      "macroregion": "Norte-Centro",
+      "estado": "Chihuahua",
+      "pueblo_magico": "Hidalgo del Parral",
+      "resumen_general": "Ciudad minera del sur chihuahuense con resonancia revolucionaria.",
+      "dato_curioso": "Es recordada nacionalmente por ser el lugar donde fue asesinado Pancho Villa.",
+      "atracciones_principales": [
+        "Centro histórico y mina La Prieta",
+        "Palacio Alvarado",
+        "Tumba de Pancho Villa y museos"
+      ]
+    },
+    {
+      "id": "023-coahuila-arteaga",
+      "macroregion": "Noreste",
+      "estado": "Coahuila",
+      "pueblo_magico": "Arteaga",
+      "resumen_general": "Destino boscoso y de montaña famoso por sus manzanas y clima fresco.",
+      "dato_curioso": "Suele llamarse la Suiza de México por su relieve y paisajes de coníferas.",
+      "atracciones_principales": [
+        "Centro de Arteaga y parroquia",
+        "Bosques de la Sierra de Arteaga",
+        "Cabañas, huertas y rutas de nieve"
+      ]
+    },
+    {
+      "id": "024-coahuila-candela",
+      "macroregion": "Noreste",
+      "estado": "Coahuila",
+      "pueblo_magico": "Candela",
+      "resumen_general": "Pueblo semidesértico de aguas termales, tradición norteña y serranía.",
+      "dato_curioso": "Ha ganado fama por sus parajes termales y por la cercanía con cuevas y cañones.",
+      "atracciones_principales": [
+        "Balnearios y aguas termales",
+        "Centro histórico y parroquia",
+        "Parajes naturales de Candela"
+      ]
+    },
+    {
+      "id": "025-coahuila-cuatro-cienegas-de-carranza",
+      "macroregion": "Noreste",
+      "estado": "Coahuila",
+      "pueblo_magico": "Cuatro Ciénegas de Carranza",
+      "resumen_general": "Oasis desértico de biodiversidad única y memoria carrancista.",
+      "dato_curioso": "Sus pozas y yeseras son laboratorio natural de importancia mundial.",
+      "atracciones_principales": [
+        "Poza Azul y área protegida",
+        "Dunas de Yeso",
+        "Casa de Venustiano Carranza y centro"
+      ]
+    },
+    {
+      "id": "026-coahuila-guerrero",
+      "macroregion": "Noreste",
+      "estado": "Coahuila",
+      "pueblo_magico": "Guerrero",
+      "resumen_general": "Villa fronteriza histórica ligada al antiguo Camino Real y a misiones del noreste.",
+      "dato_curioso": "Su cercanía con la zona misional del río Bravo le da valor histórico singular.",
+      "atracciones_principales": [
+        "Misión de San Bernardo",
+        "Centro histórico",
+        "Río Bravo y entorno fronterizo"
+      ]
+    },
+    {
+      "id": "027-coahuila-melchor-muzquiz",
+      "macroregion": "Noreste",
+      "estado": "Coahuila",
+      "pueblo_magico": "Melchor Múzquiz",
+      "resumen_general": "Tierra de oasis, paleontología y cultura kikapú en la región carbonífera.",
+      "dato_curioso": "Es uno de los pocos lugares de México donde la presencia kikapú es parte visible del paisaje cultural.",
+      "atracciones_principales": [
+        "Centro y parroquia de Santa Rosa",
+        "Museo/riqueza paleontológica y desierto",
+        "Corredor kikapú y ecoturismo"
+      ]
+    },
+    {
+      "id": "028-coahuila-parras-de-la-fuente",
+      "macroregion": "Noreste",
+      "estado": "Coahuila",
+      "pueblo_magico": "Parras de la Fuente",
+      "resumen_general": "Pueblo de viñedos, nogales y arquitectura señorial.",
+      "dato_curioso": "Presume la tradición vinícola más antigua del continente americano en operación continua.",
+      "atracciones_principales": [
+        "Casa Madero y ruta del vino",
+        "Centro histórico y plazas",
+        "Estanque de la Luz y haciendas"
+      ]
+    },
+    {
+      "id": "029-coahuila-viesca",
+      "macroregion": "Noreste",
+      "estado": "Coahuila",
+      "pueblo_magico": "Viesca",
+      "resumen_general": "Poblado lagunero de silencio desértico, adobe y cielos abiertos.",
+      "dato_curioso": "Es base habitual para visitar las Dunas de Bilbao, uno de los paisajes más fotogénicos del norte.",
+      "atracciones_principales": [
+        "Centro histórico y templo de Santiago Apóstol",
+        "Dunas de Bilbao",
+        "Ex haciendas y paisaje semidesértico"
+      ]
+    },
+    {
+      "id": "030-coahuila-general-cepeda",
+      "macroregion": "Noreste",
+      "estado": "Coahuila",
+      "pueblo_magico": "General Cepeda",
+      "resumen_general": "Destino paleontológico y de tradición rural en el sureste coahuilense.",
+      "dato_curioso": "La zona es reconocida por hallazgos fósiles y paisajes donde aflora la historia geológica.",
+      "atracciones_principales": [
+        "Museo paleontológico local",
+        "Centro histórico y parroquia",
+        "Rutas fósiles y cañones cercanos"
+      ]
+    },
+    {
+      "id": "031-colima-comala",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Colima",
+      "pueblo_magico": "Comala",
+      "resumen_general": "Pueblo blanco de portales, volcanes y café al pie del Fuego.",
+      "dato_curioso": "Su atmósfera literaria suele conectarse con el universo de Juan Rulfo, aunque el autor nació en Jalisco.",
+      "atracciones_principales": [
+        "Jardín principal y portal de comala",
+        "Ex Hacienda de Nogueras",
+        "Laguna La María y miradores al volcán"
+      ]
+    },
+    {
+      "id": "032-durango-mapimi",
+      "macroregion": "Norte-Centro",
+      "estado": "Durango",
+      "pueblo_magico": "Mapimí",
+      "resumen_general": "Antiguo pueblo minero en el desierto chihuahuense, rodeado de historia y paisaje árido.",
+      "dato_curioso": "Su nombre se asocia al Puente de Ojuela y a relatos sobre la Zona del Silencio.",
+      "atracciones_principales": [
+        "Puente de Ojuela",
+        "Centro histórico y templo de Santiago",
+        "Mina de Santa Rita y desierto"
+      ]
+    },
+    {
+      "id": "033-durango-nombre-de-dios",
+      "macroregion": "Norte-Centro",
+      "estado": "Durango",
+      "pueblo_magico": "Nombre de Dios",
+      "resumen_general": "Localidad colonial de mezcal, nogales y balnearios naturales.",
+      "dato_curioso": "Es uno de los asentamientos más antiguos del norte novohispano y parte de la ruta del mezcal duranguense.",
+      "atracciones_principales": [
+        "Parroquia de San Pedro Apóstol",
+        "Balneario Los Berros",
+        "Ex haciendas y fábricas de mezcal"
+      ]
+    },
+    {
+      "id": "034-estado-de-mexico-san-juan-teotihuacan-y-san-martin-de-las-piramides",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "San Juan Teotihuacán y San Martín de las Pirámides",
+      "resumen_general": "Binomio ceremonial y artesanal que acompaña a la gran urbe sagrada de Teotihuacan.",
+      "dato_curioso": "La experiencia del destino gira tanto en torno a la arqueología como a los talleres de obsidiana y al vuelo en globo.",
+      "atracciones_principales": [
+        "Zona arqueológica de Teotihuacan",
+        "Talleres de obsidiana y artesanías",
+        "Globos aerostáticos y miradores"
+      ]
+    },
+    {
+      "id": "035-estado-de-mexico-aculco",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "Aculco",
+      "resumen_general": "Pueblo de cantera, cascadas y columnas basálticas en un entorno rural del norte mexiquense.",
+      "dato_curioso": "Es uno de los mejores destinos mexiquenses para combinar arquitectura virreinal con senderismo y rappel.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia de San Jerónimo",
+        "Cascada La Concepción y Tixhiñú",
+        "Haciendas y queserías"
+      ]
+    },
+    {
+      "id": "036-estado-de-mexico-el-oro",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "El Oro",
+      "resumen_general": "Antiguo auge minero transformado en villa elegante de montaña.",
+      "dato_curioso": "Su Teatro Juárez y la estación del tren recuerdan el esplendor porfiriano de la fiebre del oro.",
+      "atracciones_principales": [
+        "Teatro Juárez",
+        "Museo de Minería y socavones",
+        "Presa Brockman y centro histórico"
+      ]
+    },
+    {
+      "id": "037-estado-de-mexico-ixtapan-de-la-sal",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "Ixtapan de la Sal",
+      "resumen_general": "Destino termal, de descanso y clima amable al sur del estado.",
+      "dato_curioso": "Su nombre mismo remite a la sal y a una larga tradición de manantiales minerales.",
+      "atracciones_principales": [
+        "Balnearios y parque acuático",
+        "Centro histórico y parroquia",
+        "Grutas de la Estrella y Tonatico cercano"
+      ]
+    },
+    {
+      "id": "038-estado-de-mexico-malinalco",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "Malinalco",
+      "resumen_general": "Valle místico de convento agustino, arte y ceremonial mexica.",
+      "dato_curioso": "Su zona arqueológica alberga un templo monolítico tallado en la roca, raro en Mesoamérica.",
+      "atracciones_principales": [
+        "Zona arqueológica de Malinalco",
+        "Ex convento agustino",
+        "Museo Luis Mario Schneider y centro"
+      ]
+    },
+    {
+      "id": "039-estado-de-mexico-metepec",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "Metepec",
+      "resumen_general": "Pueblo urbano famoso por artesanía de barro y vida cultural.",
+      "dato_curioso": "La pieza emblemática local es el Árbol de la Vida, hoy un símbolo del arte popular mexicano.",
+      "atracciones_principales": [
+        "Talleres y galerías de barro",
+        "Centro histórico y parroquia de San Juan Bautista",
+        "Museo del Barro"
+      ]
+    },
+    {
+      "id": "040-estado-de-mexico-tepotzotlan",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "Tepotzotlán",
+      "resumen_general": "Joyita virreinal de arcos, plaza y extraordinario museo novohispano.",
+      "dato_curioso": "El Museo Nacional del Virreinato es uno de los recintos más relevantes del país para entender la Nueva España.",
+      "atracciones_principales": [
+        "Museo Nacional del Virreinato",
+        "Centro histórico y Arcos del Sitio",
+        "Plaza de la Cruz y convento"
+      ]
+    },
+    {
+      "id": "041-estado-de-mexico-tonatico",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "Tonatico",
+      "resumen_general": "Pueblo sureño de aguas termales, santuario y grutas.",
+      "dato_curioso": "Comparte con Ixtapan una vocación de descanso, pero con aire más tradicional y serrano.",
+      "atracciones_principales": [
+        "Grutas de la Estrella",
+        "Balnearios y aguas termales",
+        "Santuario de Nuestra Señora de Tonatico"
+      ]
+    },
+    {
+      "id": "042-estado-de-mexico-valle-de-bravo",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "Valle de Bravo",
+      "resumen_general": "Destino lacustre de aventura, bosque y segunda residencia a pocas horas de la capital.",
+      "dato_curioso": "Es uno de los grandes polos de parapente y deportes náuticos del centro del país.",
+      "atracciones_principales": [
+        "Lago de Valle de Bravo y malecón",
+        "Parroquia de San Francisco y centro",
+        "Cascada Velo de Novia y Monte Alto"
+      ]
+    },
+    {
+      "id": "043-estado-de-mexico-villa-del-carbon",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "Villa del Carbón",
+      "resumen_general": "Pueblo serrano de talabartería, presas y tradición ecuestre.",
+      "dato_curioso": "Su fama artesanal gira en torno al trabajo del cuero y los artículos charros.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Presa del Llano y presas cercanas",
+        "Talleres de talabartería"
+      ]
+    },
+    {
+      "id": "044-estado-de-mexico-jilotepec",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "Jilotepec",
+      "resumen_general": "Puerta norte mexiquense de haciendas, peñas y memoria otomí.",
+      "dato_curioso": "La zona es conocida por la Peña de Dexcani y por su patrimonio rural y religioso.",
+      "atracciones_principales": [
+        "Centro histórico y templo de San Pedro y San Pablo",
+        "Peña de Dexcani",
+        "Haciendas y paisajes de campo"
+      ]
+    },
+    {
+      "id": "045-estado-de-mexico-otumba",
+      "macroregion": "Centro",
+      "estado": "Estado de México",
+      "pueblo_magico": "Otumba",
+      "resumen_general": "Poblado histórico vinculado al México virreinal y a la charrería.",
+      "dato_curioso": "Es famoso por su Feria Nacional del Burro, una celebración singular y muy conocida.",
+      "atracciones_principales": [
+        "Convento y ex convento de Otumba",
+        "Acueducto del Padre Tembleque cercano",
+        "Plaza principal y museos locales"
+      ]
+    },
+    {
+      "id": "046-guanajuato-comonfort",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Guanajuato",
+      "pueblo_magico": "Comonfort",
+      "resumen_general": "Pueblo alfarero y gastronómico en la ruta entre San Miguel y la capital.",
+      "dato_curioso": "Hoy se promueve también por sus molcajetes, pan y tradición artesanal.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Talleres de molcajetes y artesanías",
+        "Zona arqueológica cercana de los Remedios"
+      ]
+    },
+    {
+      "id": "047-guanajuato-dolores-hidalgo-cuna-de-la-independencia-nacional",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Guanajuato",
+      "pueblo_magico": "Dolores Hidalgo Cuna de la Independencia Nacional",
+      "resumen_general": "Ciudad histórica donde inició la lucha insurgente en 1810.",
+      "dato_curioso": "Además del Grito, es famosa por sus nieves de sabores insólitos y la cerámica mayólica.",
+      "atracciones_principales": [
+        "Parroquia de Nuestra Señora de los Dolores",
+        "Museo Casa de Hidalgo y ruta de la Independencia",
+        "Mausoleo de José Alfredo Jiménez"
+      ]
+    },
+    {
+      "id": "048-guanajuato-jalpa-de-canovas",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Guanajuato",
+      "pueblo_magico": "Jalpa de Cánovas",
+      "resumen_general": "Pueblo verde de haciendas, nogales y memoria agrícola.",
+      "dato_curioso": "Se le conoce como el Granero de México por la productividad histórica del valle.",
+      "atracciones_principales": [
+        "Ex Hacienda de Cañada de Negros",
+        "Centro histórico y templo del Señor de la Misericordia",
+        "Parque ecoturístico del río y nogaleras"
+      ]
+    },
+    {
+      "id": "049-guanajuato-mineral-de-pozos",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Guanajuato",
+      "pueblo_magico": "Mineral de Pozos",
+      "resumen_general": "Fantasma minero convertido en refugio bohemio de ruinas y música.",
+      "dato_curioso": "Sus haciendas mineras abandonadas le dan una estética singular entre semidesierto y silencio.",
+      "atracciones_principales": [
+        "Haciendas y ruinas mineras",
+        "Centro histórico y galerías",
+        "Lavanderos y paisajes del semidesierto"
+      ]
+    },
+    {
+      "id": "050-guanajuato-salvatierra",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Guanajuato",
+      "pueblo_magico": "Salvatierra",
+      "resumen_general": "Ciudad de puentes, conventos y arquitectura virreinal en el Bajío.",
+      "dato_curioso": "Fue la primera ciudad del actual Guanajuato en recibir oficialmente ese título en época virreinal.",
+      "atracciones_principales": [
+        "Puente de Batanes",
+        "Templos y conventos del centro",
+        "Haciendas y corredor ribereño"
+      ]
+    },
+    {
+      "id": "051-guanajuato-yuriria",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Guanajuato",
+      "pueblo_magico": "Yuriria",
+      "resumen_general": "Pueblo conventual junto a una gran laguna artificial del siglo XVI.",
+      "dato_curioso": "La laguna de Yuriria fue una notable obra hidráulica novohispana para regar el Bajío.",
+      "atracciones_principales": [
+        "Ex convento agustino de San Pablo",
+        "Laguna de Yuriria",
+        "Centro histórico y muelles"
+      ]
+    },
+    {
+      "id": "052-guerrero-taxco-de-alarcon",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Guerrero",
+      "pueblo_magico": "Taxco de Alarcón",
+      "resumen_general": "Capital platera de montañas empinadas, casas blancas y gran barroco.",
+      "dato_curioso": "Su perfil urbano es uno de los más reconocibles de México y epicentro nacional de la platería.",
+      "atracciones_principales": [
+        "Santa Prisca y centro histórico",
+        "Teleférico y mirador del Cristo",
+        "Talleres de plata"
+      ]
+    },
+    {
+      "id": "053-guerrero-ixcateopan-de-cuauhtemoc",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Guerrero",
+      "pueblo_magico": "Ixcateopan de Cuauhtémoc",
+      "resumen_general": "Pueblo serrano ligado a la memoria del último tlatoani mexica.",
+      "dato_curioso": "Aquí se resguarda una de las tradiciones más fuertes en torno a la figura de Cuauhtémoc.",
+      "atracciones_principales": [
+        "Museo y templo de Santa María de la Asunción",
+        "Monumentos dedicados a Cuauhtémoc",
+        "Centro histórico"
+      ]
+    },
+    {
+      "id": "054-guerrero-zihuatanejo",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Guerrero",
+      "pueblo_magico": "Zihuatanejo",
+      "resumen_general": "Antiguo puerto pesquero con alma relajada, hoy entre playa y tradición costera.",
+      "dato_curioso": "Aunque se asocia al binomio Ixtapa-Zihuatanejo, su corazón sigue siendo el de un pueblo de mar.",
+      "atracciones_principales": [
+        "Paseo del Pescador y bahía",
+        "Playa La Ropa",
+        "Centro y mercado de artesanías"
+      ]
+    },
+    {
+      "id": "055-hidalgo-huasca-de-ocampo",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Hidalgo",
+      "pueblo_magico": "Huasca de Ocampo",
+      "resumen_general": "Primer Pueblo Mágico del país, de peñas, niebla y haciendas.",
+      "dato_curioso": "Los Prismas Basálticos lo volvieron una postal clásica del turismo hidalguense.",
+      "atracciones_principales": [
+        "Prismas Basálticos",
+        "Ex haciendas de beneficio",
+        "Centro histórico y bosque"
+      ]
+    },
+    {
+      "id": "056-hidalgo-huichapan",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Hidalgo",
+      "pueblo_magico": "Huichapan",
+      "resumen_general": "Villa de cantera con tradición otomí, parque y reloj colonial.",
+      "dato_curioso": "Su acueducto y sus balnearios forman parte del atractivo regional.",
+      "atracciones_principales": [
+        "El Chapitel y centro histórico",
+        "Parque arqueológico Los Saucillos/acueducto",
+        "Balnearios y entorno rural"
+      ]
+    },
+    {
+      "id": "057-hidalgo-mineral-del-chico",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Hidalgo",
+      "pueblo_magico": "Mineral del Chico",
+      "resumen_general": "Bosque de montaña, peñas y senderos en el corredor minero.",
+      "dato_curioso": "Es uno de los destinos clásicos para escalada, campismo y cabañas cerca de Pachuca.",
+      "atracciones_principales": [
+        "Parque Nacional El Chico",
+        "Peñas Las Monjas y miradores",
+        "Centro histórico y mina"
+      ]
+    },
+    {
+      "id": "058-hidalgo-real-del-monte",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Hidalgo",
+      "pueblo_magico": "Real del Monte",
+      "resumen_general": "Pueblo minero de callejones y herencia cornish.",
+      "dato_curioso": "Los pastes llegaron aquí con los mineros ingleses y hoy son emblema gastronómico regional.",
+      "atracciones_principales": [
+        "Panteón Inglés",
+        "Museo del Paste y centro",
+        "Mina de Acosta"
+      ]
+    },
+    {
+      "id": "059-hidalgo-tecozautla",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Hidalgo",
+      "pueblo_magico": "Tecozautla",
+      "resumen_general": "Destino de geiser, semidesierto y antiguo acueducto.",
+      "dato_curioso": "Su gran atractivo contemporáneo es el geiser natural de aguas termales.",
+      "atracciones_principales": [
+        "El Geiser",
+        "Zona arqueológica El Pañhú",
+        "Acueducto Los Arcos y centro"
+      ]
+    },
+    {
+      "id": "060-hidalgo-zempoala",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Hidalgo",
+      "pueblo_magico": "Zempoala",
+      "resumen_general": "Pueblo pulquero y de acueductos en los llanos centrales.",
+      "dato_curioso": "Muy cerca se encuentra el Acueducto del Padre Tembleque, Patrimonio Mundial de la UNESCO.",
+      "atracciones_principales": [
+        "Acueducto del Padre Tembleque",
+        "Ex haciendas pulqueras",
+        "Centro histórico y convento"
+      ]
+    },
+    {
+      "id": "061-hidalgo-zimapan",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Hidalgo",
+      "pueblo_magico": "Zimapán",
+      "resumen_general": "Destino serrano de presa, cañones y tradición minera.",
+      "dato_curioso": "Se ha vuelto muy atractivo para aventura y paisaje gracias a la presa Fernando Hiriart.",
+      "atracciones_principales": [
+        "Cañones y miradores de Zimapán",
+        "Presa Fernando Hiriart",
+        "Centro histórico y parroquia"
+      ]
+    },
+    {
+      "id": "062-hidalgo-acaxochitlan",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Hidalgo",
+      "pueblo_magico": "Acaxochitlán",
+      "resumen_general": "Pueblo serrano de neblina, barro y raíz nahua-otomí.",
+      "dato_curioso": "Su identidad mezcla bosques húmedos, artesanía de barro y fiestas comunitarias.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Cascadas y bosque de niebla",
+        "Talleres de alfarería"
+      ]
+    },
+    {
+      "id": "063-hidalgo-metztitlan",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Hidalgo",
+      "pueblo_magico": "Metztitlán",
+      "resumen_general": "Valle semidesértico con convento monumental y paisajes de barranca.",
+      "dato_curioso": "Está asociado a la Barranca de Metztitlán, una de las reservas de biosfera más singulares del centro.",
+      "atracciones_principales": [
+        "Convento de los Santos Reyes",
+        "Barranca de Metztitlán",
+        "Centro histórico y miradores"
+      ]
+    },
+    {
+      "id": "064-jalisco-ajijic",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "Ajijic",
+      "resumen_general": "Pueblo ribereño de arte, expatriados y atardeceres sobre Chapala.",
+      "dato_curioso": "Su nombre suele explicarse desde el náhuatl como un lugar vinculado al agua que brota.",
+      "atracciones_principales": [
+        "Malecón de Ajijic",
+        "Parroquia de San Andrés Apóstol",
+        "Mirador del Cerro del Tepalo"
+      ]
+    },
+    {
+      "id": "065-jalisco-lagos-de-moreno",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "Lagos de Moreno",
+      "resumen_general": "Ciudad alteña de cantera, templos y casonas barrocas.",
+      "dato_curioso": "Su centro forma parte del itinerario cultural del Camino Real de Tierra Adentro.",
+      "atracciones_principales": [
+        "Puente y centro histórico",
+        "Parroquia de La Asunción y templos",
+        "Hacienda Sepúlveda y entorno alteño"
+      ]
+    },
+    {
+      "id": "066-jalisco-mascota",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "Mascota",
+      "resumen_general": "Pueblo serrano de laguna, templos y vegetación alta.",
+      "dato_curioso": "Combina la atmósfera de montaña con un centro histórico muy caminable y sereno.",
+      "atracciones_principales": [
+        "Templo de la Preciosa Sangre",
+        "Presa Corrinchis",
+        "Centro histórico y museo"
+      ]
+    },
+    {
+      "id": "067-jalisco-mazamitla",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "Mazamitla",
+      "resumen_general": "Clásico destino boscoso de cabañas y clima fresco.",
+      "dato_curioso": "Es uno de los refugios de montaña más populares del occidente mexicano.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia de San Cristóbal",
+        "Cascada El Salto",
+        "Bosques y cabañas de la sierra"
+      ]
+    },
+    {
+      "id": "068-jalisco-san-pedro-tlaquepaque",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "San Pedro Tlaquepaque",
+      "resumen_general": "Centro artesanal y gastronómico integrado al área metropolitana de Guadalajara.",
+      "dato_curioso": "Es uno de los nombres más potentes del arte popular jalisciense, entre cerámica y vidrio soplado.",
+      "atracciones_principales": [
+        "El Parián",
+        "Andador Independencia y galerías",
+        "Museo Regional y talleres artesanales"
+      ]
+    },
+    {
+      "id": "069-jalisco-san-sebastian-del-oeste",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "San Sebastián del Oeste",
+      "resumen_general": "Pueblo minero serrano de neblina, café y silencio.",
+      "dato_curioso": "Su aislamiento ayudó a conservar un paisaje urbano muy auténtico.",
+      "atracciones_principales": [
+        "Centro histórico y templos",
+        "Hacienda Jalisco y pasado minero",
+        "Miradores y finca cafetalera"
+      ]
+    },
+    {
+      "id": "070-jalisco-talpa-de-allende",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "Talpa de Allende",
+      "resumen_general": "Villa de fuerte peregrinación mariana en la sierra.",
+      "dato_curioso": "La Romería a la Virgen del Rosario es una de las más importantes del occidente.",
+      "atracciones_principales": [
+        "Basílica de Nuestra Señora del Rosario",
+        "Bosques y senderos serranos",
+        "Centro histórico y talleres de dulces"
+      ]
+    },
+    {
+      "id": "071-jalisco-tapalpa",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "Tapalpa",
+      "resumen_general": "Pueblo de montaña y aventura entre bosques y grandes rocas.",
+      "dato_curioso": "Las Piedrotas son uno de los paisajes más icónicos de Jalisco.",
+      "atracciones_principales": [
+        "Centro histórico y templo de San Antonio",
+        "Las Piedrotas/Valle de los Enigmas",
+        "Salto del Nogal"
+      ]
+    },
+    {
+      "id": "072-jalisco-tequila",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "Tequila",
+      "resumen_general": "Cuna del destilado más emblemático de México, entre agaves azules.",
+      "dato_curioso": "El Paisaje Agavero y las antiguas instalaciones tequileras son Patrimonio Mundial de la UNESCO.",
+      "atracciones_principales": [
+        "Destilerías y fábricas tequileras",
+        "Centro histórico y parroquia",
+        "Paisaje agavero y rutas del tren"
+      ]
+    },
+    {
+      "id": "073-jalisco-cocula",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "Cocula",
+      "resumen_general": "Pueblo mariachi del sur del valle jalisciense.",
+      "dato_curioso": "Suele reivindicarse como cuna simbólica del mariachi tradicional.",
+      "atracciones_principales": [
+        "Museo del Mariachi y centro",
+        "Parroquia principal",
+        "Haciendas y paisajes agaveros"
+      ]
+    },
+    {
+      "id": "074-jalisco-sayula",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "Sayula",
+      "resumen_general": "Villa sureña de cuchillos, cajeta y tradición literaria.",
+      "dato_curioso": "Se asocia a la obra de Juan Rulfo y a una larga tradición alfarera y cuchillera.",
+      "atracciones_principales": [
+        "Centro histórico y portales",
+        "Museo y casas antiguas",
+        "Laguna de Sayula y gastronomía local"
+      ]
+    },
+    {
+      "id": "075-jalisco-temacapulin",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Jalisco",
+      "pueblo_magico": "Temacapulín",
+      "resumen_general": "Pequeña comunidad alteña de aguas termales y fuerte identidad social.",
+      "dato_curioso": "Se volvió conocida nacionalmente por la defensa comunitaria de su territorio y su patrimonio.",
+      "atracciones_principales": [
+        "Basílica y centro histórico",
+        "Aguas termales",
+        "Paseos ribereños y paisaje del cañón"
+      ]
+    },
+    {
+      "id": "076-michoacan-cuitzeo-del-porvenir",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Michoacán",
+      "pueblo_magico": "Cuitzeo del Porvenir",
+      "resumen_general": "Pueblo lacustre dominado por un gran convento a la orilla del lago.",
+      "dato_curioso": "Su ex convento agustino es una joya plateresca del siglo XVI.",
+      "atracciones_principales": [
+        "Ex convento de Santa María Magdalena",
+        "Lago de Cuitzeo",
+        "Centro histórico de portales"
+      ]
+    },
+    {
+      "id": "077-michoacan-jiquilpan-de-juarez",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Michoacán",
+      "pueblo_magico": "Jiquilpan de Juárez",
+      "resumen_general": "Ciudad arbolada y cultural del occidente michoacano.",
+      "dato_curioso": "Es recordada como tierra natal de Lázaro Cárdenas y por su legado educativo.",
+      "atracciones_principales": [
+        "Bosque Cuauhtémoc y murales",
+        "Centro histórico y parroquia",
+        "Museos cardenistas"
+      ]
+    },
+    {
+      "id": "078-michoacan-mineral-de-angangueo",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Michoacán",
+      "pueblo_magico": "Mineral de Angangueo",
+      "resumen_general": "Pueblo minero montañoso célebre por la mariposa monarca.",
+      "dato_curioso": "Cada invierno se convierte en puerta de acceso a santuarios de hibernación.",
+      "atracciones_principales": [
+        "Centro histórico minero",
+        "Santuario Sierra Chincua",
+        "Santuario El Rosario"
+      ]
+    },
+    {
+      "id": "079-michoacan-paracho-de-verduzco",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Michoacán",
+      "pueblo_magico": "Paracho de Verduzco",
+      "resumen_general": "Capital guitarrera de México en la Meseta Purépecha.",
+      "dato_curioso": "Su Festival Internacional de la Guitarra refuerza una tradición artesanal única.",
+      "atracciones_principales": [
+        "Talleres de guitarras",
+        "Centro histórico y parroquia",
+        "Casa de la Cultura/Museo de la guitarra"
+      ]
+    },
+    {
+      "id": "080-michoacan-patzcuaro",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Michoacán",
+      "pueblo_magico": "Pátzcuaro",
+      "resumen_general": "Ciudad purépecha de plazas, conventos y vida lacustre.",
+      "dato_curioso": "Es uno de los grandes escenarios del Día de Muertos en México.",
+      "atracciones_principales": [
+        "Plaza Vasco de Quiroga y centro",
+        "Basílica y templos históricos",
+        "Lago de Pátzcuaro e islas"
+      ]
+    },
+    {
+      "id": "081-michoacan-santa-clara-del-cobre",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Michoacán",
+      "pueblo_magico": "Santa Clara del Cobre",
+      "resumen_general": "Villa artesanal dedicada al cobre martillado.",
+      "dato_curioso": "Aquí el metal se trabaja a mano en una tradición que ha dado fama mundial al pueblo.",
+      "atracciones_principales": [
+        "Talleres de cobre",
+        "Museo Nacional del Cobre",
+        "Centro histórico y kiosco"
+      ]
+    },
+    {
+      "id": "082-michoacan-tacambaro",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Michoacán",
+      "pueblo_magico": "Tacámbaro",
+      "resumen_general": "Pueblo de montaña suave, huertas y lagunas.",
+      "dato_curioso": "Se conoce como el balcón de Tierra Caliente por su posición entre sierra y zonas cálidas.",
+      "atracciones_principales": [
+        "Centro histórico y santuario",
+        "Laguna de la Magdalena",
+        "Miradores y cascadas cercanas"
+      ]
+    },
+    {
+      "id": "083-michoacan-tlalpujahua-de-rayon",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Michoacán",
+      "pueblo_magico": "Tlalpujahua de Rayón",
+      "resumen_general": "Pueblo minero de cuestas empedradas y esferas navideñas.",
+      "dato_curioso": "Hoy gran parte de su fama turística se debe a la producción de ornamentos de vidrio soplado.",
+      "atracciones_principales": [
+        "Santuario de Nuestra Señora del Carmen",
+        "Museo de la mina Dos Estrellas",
+        "Talleres de esferas navideñas"
+      ]
+    },
+    {
+      "id": "084-michoacan-tzintzuntzan",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Michoacán",
+      "pueblo_magico": "Tzintzuntzan",
+      "resumen_general": "Antigua capital purépecha frente al lago.",
+      "dato_curioso": "Sus yácatas recuerdan la grandeza del señorío tarasco antes de la Conquista.",
+      "atracciones_principales": [
+        "Zona arqueológica de las Yácatas",
+        "Ex convento franciscano de Santa Ana",
+        "Lago y muelle"
+      ]
+    },
+    {
+      "id": "085-michoacan-cotija-de-la-paz",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Michoacán",
+      "pueblo_magico": "Cotija de la Paz",
+      "resumen_general": "Poblado serrano de fuerte tradición ganadera y quesera.",
+      "dato_curioso": "Su nombre se asocia de inmediato al célebre queso Cotija, uno de los grandes productos regionales.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Rutas queseras y ranchos",
+        "Miradores serranos y cascadas"
+      ]
+    },
+    {
+      "id": "086-morelos-tepoztlan",
+      "macroregion": "Centro",
+      "estado": "Morelos",
+      "pueblo_magico": "Tepoztlán",
+      "resumen_general": "Pueblo místico al pie de montañas abruptas y fuerte vida espiritual.",
+      "dato_curioso": "El Tepozteco y la fama alternativa del lugar lo volvieron un icono del centro de México.",
+      "atracciones_principales": [
+        "Zona arqueológica del Tepozteco",
+        "Ex convento de la Natividad",
+        "Mercado, centro y cerros"
+      ]
+    },
+    {
+      "id": "087-morelos-tlayacapan",
+      "macroregion": "Centro",
+      "estado": "Morelos",
+      "pueblo_magico": "Tlayacapan",
+      "resumen_general": "Villa morelense de convento, barro y carnaval.",
+      "dato_curioso": "Su ex convento también forma parte de la ruta patrimonial de monasterios del siglo XVI.",
+      "atracciones_principales": [
+        "Ex convento de San Juan Bautista",
+        "Capillas de barrio y centro",
+        "Talleres de barro y chinelos"
+      ]
+    },
+    {
+      "id": "088-morelos-tlaltizapan-de-zapata",
+      "macroregion": "Centro",
+      "estado": "Morelos",
+      "pueblo_magico": "Tlaltizapán de Zapata",
+      "resumen_general": "Destino histórico ligado a Emiliano Zapata y al paisaje cañero del sur.",
+      "dato_curioso": "Fue un punto clave del cuartel general zapatista durante la Revolución.",
+      "atracciones_principales": [
+        "Museo Cuartel de Zapata",
+        "Centro histórico y zócalo",
+        "Balnearios y ríos cercanos"
+      ]
+    },
+    {
+      "id": "089-morelos-xochitepec",
+      "macroregion": "Centro",
+      "estado": "Morelos",
+      "pueblo_magico": "Xochitepec",
+      "resumen_general": "Poblado de clima cálido con convento, haciendas y jardines.",
+      "dato_curioso": "Su nombre en náhuatl remite a los cerros floridos y hoy combina historia con turismo de descanso.",
+      "atracciones_principales": [
+        "Ex convento de San Juan Evangelista",
+        "Centro histórico",
+        "Jardines y balnearios de la región"
+      ]
+    },
+    {
+      "id": "090-nayarit-compostela",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Nayarit",
+      "pueblo_magico": "Compostela",
+      "resumen_general": "Ciudad histórica del occidente novohispano y acceso a costa y sierra.",
+      "dato_curioso": "Fue una de las antiguas villas españolas más relevantes del noroeste.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia de Santiago",
+        "Miradores y calles porticadas",
+        "Ruta hacia playas de Compostela"
+      ]
+    },
+    {
+      "id": "091-nayarit-jala",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Nayarit",
+      "pueblo_magico": "Jala",
+      "resumen_general": "Pueblo de maíz, volcán y basílica colonial.",
+      "dato_curioso": "Es muy conocido por producir algunas de las mazorcas más grandes del país.",
+      "atracciones_principales": [
+        "Basílica Lateranense de Nuestra Señora de la Asunción",
+        "Volcán Ceboruco",
+        "Centro histórico"
+      ]
+    },
+    {
+      "id": "092-nayarit-mexcaltitan-de-uribe",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Nayarit",
+      "pueblo_magico": "Mexcaltitán de Uribe",
+      "resumen_general": "Islote lacustre asociado al origen mítico de Aztlán.",
+      "dato_curioso": "Sus calles se vuelven canales en temporada de lluvias, lo que le da una imagen única.",
+      "atracciones_principales": [
+        "Isla y plaza principal",
+        "Museo del origen de Aztlán",
+        "Paseos en lancha por esteros"
+      ]
+    },
+    {
+      "id": "093-nayarit-sayulita",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Nayarit",
+      "pueblo_magico": "Sayulita",
+      "resumen_general": "Pueblo surfero y bohemio de la Riviera Nayarit.",
+      "dato_curioso": "Combina ola amigable, escena gastronómica y ambiente internacional.",
+      "atracciones_principales": [
+        "Playa Sayulita",
+        "Cerro del Mono y miradores",
+        "Centro y galerías/mercados"
+      ]
+    },
+    {
+      "id": "094-nayarit-ahuacatlan",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Nayarit",
+      "pueblo_magico": "Ahuacatlán",
+      "resumen_general": "Pueblo agrícola y tradicional al pie de la sierra nayarita.",
+      "dato_curioso": "Su vocación actual mezcla fiestas patronales, paisaje rural y cocina regional.",
+      "atracciones_principales": [
+        "Centro histórico y templo",
+        "Rutas rurales y miradores",
+        "Balnearios y manantiales cercanos"
+      ]
+    },
+    {
+      "id": "095-nayarit-amatlan-de-canas",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Nayarit",
+      "pueblo_magico": "Amatlán de Cañas",
+      "resumen_general": "Pueblo serrano de ríos, aguas termales y clima apacible.",
+      "dato_curioso": "Su atractivo principal descansa en balnearios naturales y haciendas discretas.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Balnearios y aguas termales",
+        "Paisajes serranos y río"
+      ]
+    },
+    {
+      "id": "096-nayarit-ixtlan-del-rio",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Nayarit",
+      "pueblo_magico": "Ixtlán del Río",
+      "resumen_general": "Pueblo de paso histórico con cercano legado arqueológico.",
+      "dato_curioso": "Muy cerca se encuentra Los Toriles, uno de los sitios prehispánicos más interesantes del occidente.",
+      "atracciones_principales": [
+        "Zona arqueológica Los Toriles",
+        "Centro histórico y templo",
+        "Balnearios y rutas regionales"
+      ]
+    },
+    {
+      "id": "097-nayarit-san-blas",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Nayarit",
+      "pueblo_magico": "San Blas",
+      "resumen_general": "Puerto histórico de manglares, aves y memoria virreinal.",
+      "dato_curioso": "Fue un punto naval clave del Pacífico novohispano y hoy es paraíso de observadores de aves.",
+      "atracciones_principales": [
+        "Muelle y bahía de San Blas",
+        "Fuerte de la Contaduría y cerro",
+        "La Tovara y manglares"
+      ]
+    },
+    {
+      "id": "098-nayarit-puerto-balleto-islas-marias",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Nayarit",
+      "pueblo_magico": "Puerto Balleto (Islas Marías)",
+      "resumen_general": "Asentamiento insular del antiguo complejo penitenciario hoy abierto al turismo controlado.",
+      "dato_curioso": "El archipiélago cambió de símbolo carcelario a destino ecoturístico e histórico.",
+      "atracciones_principales": [
+        "Antiguo complejo penitenciario y museo",
+        "Playas y senderos de la isla",
+        "Observación de naturaleza marina"
+      ]
+    },
+    {
+      "id": "099-nuevo-leon-bustamante",
+      "macroregion": "Noreste",
+      "estado": "Nuevo León",
+      "pueblo_magico": "Bustamante",
+      "resumen_general": "Pueblo de cuevas, pan y palmas en el noreste montañoso.",
+      "dato_curioso": "Las Grutas de Bustamante son el principal ancla turística del sitio.",
+      "atracciones_principales": [
+        "Grutas de Bustamante",
+        "Centro histórico y parroquia",
+        "Pan de Bustamante y parajes"
+      ]
+    },
+    {
+      "id": "100-nuevo-leon-linares",
+      "macroregion": "Noreste",
+      "estado": "Nuevo León",
+      "pueblo_magico": "Linares",
+      "resumen_general": "Ciudad norestense elegante de dulces y arquitectura porfiriana.",
+      "dato_curioso": "Es célebre por las glorias de leche quemada, uno de los dulces icónicos de México.",
+      "atracciones_principales": [
+        "Centro histórico y catedral",
+        "Museo de Linares y casonas",
+        "Fábricas de glorias"
+      ]
+    },
+    {
+      "id": "101-nuevo-leon-santiago",
+      "macroregion": "Noreste",
+      "estado": "Nuevo León",
+      "pueblo_magico": "Santiago",
+      "resumen_general": "Pueblo de montaña y presa junto a la Sierra Madre Oriental.",
+      "dato_curioso": "La cercanía con la Cola de Caballo lo vuelve una escapada clásica desde Monterrey.",
+      "atracciones_principales": [
+        "Cascada Cola de Caballo",
+        "Presa La Boca",
+        "Parroquia de Santiago Apóstol y centro"
+      ]
+    },
+    {
+      "id": "102-nuevo-leon-general-teran",
+      "macroregion": "Noreste",
+      "estado": "Nuevo León",
+      "pueblo_magico": "General Terán",
+      "resumen_general": "Localidad agrícola del llano nuevoleonés con identidad citrícola.",
+      "dato_curioso": "Su fama regional se apoya en el cultivo de cítricos y en el ambiente de plaza tradicional.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Huertas citrícolas y rutas rurales",
+        "Presas y balnearios cercanos"
+      ]
+    },
+    {
+      "id": "103-nuevo-leon-general-zaragoza",
+      "macroregion": "Noreste",
+      "estado": "Nuevo León",
+      "pueblo_magico": "General Zaragoza",
+      "resumen_general": "Pueblo serrano del sur estatal con bosques, clima fresco y paisajes altos.",
+      "dato_curioso": "Es una de las localidades más elevadas de Nuevo León y un buen refugio de montaña.",
+      "atracciones_principales": [
+        "Centro histórico y templo",
+        "Miradores y sierra",
+        "Parajes boscosos y cabañas"
+      ]
+    },
+    {
+      "id": "104-oaxaca-capulalpam-de-mendez",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Oaxaca",
+      "pueblo_magico": "Capulálpam de Méndez",
+      "resumen_general": "Pueblo serrano zapoteco de bosque, medicina tradicional y turismo comunitario.",
+      "dato_curioso": "Es referencia nacional de ecoturismo comunitario y manejo forestal en la Sierra Norte.",
+      "atracciones_principales": [
+        "Centro histórico y templo de San Mateo",
+        "Miradores y bosque comunitario",
+        "Centro de medicina tradicional"
+      ]
+    },
+    {
+      "id": "105-oaxaca-huautla-de-jimenez",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Oaxaca",
+      "pueblo_magico": "Huautla de Jiménez",
+      "resumen_general": "Ciudad serrana de niebla, cuevas y espiritualidad mazateca.",
+      "dato_curioso": "Está estrechamente ligada a la figura de María Sabina y a los hongos sagrados.",
+      "atracciones_principales": [
+        "Casa/Museo de María Sabina",
+        "Grutas y paisajes de la Sierra Mazateca",
+        "Centro histórico y mercado"
+      ]
+    },
+    {
+      "id": "106-oaxaca-mazunte",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Oaxaca",
+      "pueblo_magico": "Mazunte",
+      "resumen_general": "Pueblo costero alternativo de mar, conservación y atardeceres.",
+      "dato_curioso": "Pasó de la caza de tortuga a convertirse en símbolo de conservación y turismo consciente.",
+      "atracciones_principales": [
+        "Punta Cometa",
+        "Centro Mexicano de la Tortuga",
+        "Playa Mazunte y playa Mermejita"
+      ]
+    },
+    {
+      "id": "107-oaxaca-san-pablo-villa-de-mitla",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Oaxaca",
+      "pueblo_magico": "San Pablo Villa de Mitla",
+      "resumen_general": "Poblado zapoteco de grecas, textiles y mezcal en los Valles Centrales.",
+      "dato_curioso": "Las grecas de Mitla son uno de los lenguajes ornamentales más célebres de Mesoamérica.",
+      "atracciones_principales": [
+        "Zona arqueológica de Mitla",
+        "Templo y ex convento de San Pablo",
+        "Mercado de textiles y mezcal"
+      ]
+    },
+    {
+      "id": "108-oaxaca-san-pedro-y-san-pablo-teposcolula",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Oaxaca",
+      "pueblo_magico": "San Pedro y San Pablo Teposcolula",
+      "resumen_general": "Villa mixteca de enorme legado dominico.",
+      "dato_curioso": "Su capilla abierta monumental es una de las más impresionantes del siglo XVI en México.",
+      "atracciones_principales": [
+        "Ex convento dominico y capilla abierta",
+        "Casa de la Cacica",
+        "Centro histórico mixteco"
+      ]
+    },
+    {
+      "id": "109-oaxaca-santa-catarina-juquila",
+      "macroregion": "Pacífico-Sur",
+      "estado": "Oaxaca",
+      "pueblo_magico": "Santa Catarina Juquila",
+      "resumen_general": "Centro serrano de fe y peregrinación mariana.",
+      "dato_curioso": "La devoción a la Virgen de Juquila atrae peregrinos de todo el país.",
+      "atracciones_principales": [
+        "Santuario de la Inmaculada Virgen de Juquila",
+        "Centro histórico y mercado religioso",
+        "Paisajes serranos y ruta de peregrinación"
+      ]
+    },
+    {
+      "id": "110-puebla-atlixco",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Atlixco",
+      "resumen_general": "Ciudad florida de clima templado al pie del Popocatépetl.",
+      "dato_curioso": "Su fama reciente se amplifica con la Villa Iluminada y los viveros ornamentales.",
+      "atracciones_principales": [
+        "Centro histórico y murales",
+        "Cerro de San Miguel y miradores",
+        "Viveros y campo florícola"
+      ]
+    },
+    {
+      "id": "111-puebla-chignahuapan",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Chignahuapan",
+      "resumen_general": "Pueblo lacustre y boscoso famoso por esferas navideñas.",
+      "dato_curioso": "Es uno de los mayores productores de adornos navideños del país.",
+      "atracciones_principales": [
+        "Basílica de la Inmaculada Concepción",
+        "Laguna de Chignahuapan",
+        "Talleres de esferas"
+      ]
+    },
+    {
+      "id": "112-puebla-cholula",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Cholula",
+      "resumen_general": "Santuario mestizo sobre una gran pirámide y vida universitaria.",
+      "dato_curioso": "La Gran Pirámide con la iglesia en la cima es una de las postales más reconocibles de México.",
+      "atracciones_principales": [
+        "Zona arqueológica y Gran Pirámide",
+        "Santuario de los Remedios",
+        "Barrio y centro gastronómico"
+      ]
+    },
+    {
+      "id": "113-puebla-cuetzalan-del-progreso",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Cuetzalan del Progreso",
+      "resumen_general": "Pueblo serrano de neblina, café y fuerte raíz nahua.",
+      "dato_curioso": "Su tradición dancística y ritual, incluida la de los voladores, lo hace único.",
+      "atracciones_principales": [
+        "Parroquia de San Francisco y centro",
+        "Grutas, cascadas y cuevas",
+        "Mercado de artesanías y café"
+      ]
+    },
+    {
+      "id": "114-puebla-huauchinango",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Huauchinango",
+      "resumen_general": "Ciudad serrana de ríos, neblina y flores.",
+      "dato_curioso": "Es conocida por su feria de las flores y por el entorno de presas y cascadas.",
+      "atracciones_principales": [
+        "Presa de Necaxa y entorno",
+        "Centro histórico y santuario",
+        "Cascadas y senderos serranos"
+      ]
+    },
+    {
+      "id": "115-puebla-pahuatlan",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Pahuatlán",
+      "resumen_general": "Pueblo de papel amate, puentes y herencia otomí-nahua.",
+      "dato_curioso": "Muy cerca se elabora el amate en San Pablito, una de las artesanías más emblemáticas de México.",
+      "atracciones_principales": [
+        "Centro histórico",
+        "Puente colgante Miguel Hidalgo",
+        "Talleres de papel amate en San Pablito"
+      ]
+    },
+    {
+      "id": "116-puebla-tetela-de-ocampo",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Tetela de Ocampo",
+      "resumen_general": "Villa serrana de panoramas altos y memoria liberal.",
+      "dato_curioso": "Es un buen punto para explorar la Sierra Norte desde un entorno tranquilo y fresco.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Mirador La Cumbre",
+        "Cascadas y paisajes de Tetela"
+      ]
+    },
+    {
+      "id": "117-puebla-tlatlauquitepec",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Tlatlauquitepec",
+      "resumen_general": "Pueblo de montaña con cerros tutelares, presas y neblina.",
+      "dato_curioso": "El Cerro Cabezón domina el imaginario del destino.",
+      "atracciones_principales": [
+        "Cerro Cabezón",
+        "Ex convento de Santa María de la Asunción",
+        "Presa de la Soledad y puentes"
+      ]
+    },
+    {
+      "id": "118-puebla-xicotepec-de-juarez",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Xicotepec de Juárez",
+      "resumen_general": "Poblado cafetalero y serrano de fuerte identidad religiosa.",
+      "dato_curioso": "Su monumental Virgen de Guadalupe en el cerro es un ícono visible a distancia.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia de San Juan Bautista",
+        "Monumental Virgen de Guadalupe",
+        "Cafetal y rutas de niebla"
+      ]
+    },
+    {
+      "id": "119-puebla-zacatlan-de-las-manzanas",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Zacatlán de las Manzanas",
+      "resumen_general": "Clásico pueblo de sierra, relojes monumentales y sidra.",
+      "dato_curioso": "Su apellido turístico celebra las manzanas, pero también la niebla y la cantera.",
+      "atracciones_principales": [
+        "Reloj floral y centro histórico",
+        "Mirador de Cristal y barranca",
+        "Museo del reloj y sidreras"
+      ]
+    },
+    {
+      "id": "120-puebla-huejotzingo",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Huejotzingo",
+      "resumen_general": "Antigua cabecera de convento y gran carnaval poblano.",
+      "dato_curioso": "El carnaval huejotzinga mezcla historia, pólvora ceremonial y comparsas.",
+      "atracciones_principales": [
+        "Ex convento de San Miguel Arcángel",
+        "Centro histórico",
+        "Campos de sidra y carnaval"
+      ]
+    },
+    {
+      "id": "121-puebla-teziutlan",
+      "macroregion": "Centro",
+      "estado": "Puebla",
+      "pueblo_magico": "Teziutlán",
+      "resumen_general": "Ciudad serrana de neblina, comercio y arquitectura porfiriana.",
+      "dato_curioso": "Se le conoce como la Perla de la Sierra por su posición estratégica y clima.",
+      "atracciones_principales": [
+        "Catedral y centro histórico",
+        "Mercado y calles antiguas",
+        "Miradores y cascadas regionales"
+      ]
+    },
+    {
+      "id": "122-queretaro-amealco-de-bonfil",
+      "macroregion": "Centro",
+      "estado": "Querétaro",
+      "pueblo_magico": "Amealco de Bonfil",
+      "resumen_general": "Pueblo otomí famoso por la muñeca artesanal y el paisaje de bosque.",
+      "dato_curioso": "La muñeca de Amealco se volvió icono nacional del arte popular contemporáneo.",
+      "atracciones_principales": [
+        "Museo de la Muñeca",
+        "Centro histórico y parroquia",
+        "Bosques y talleres artesanales"
+      ]
+    },
+    {
+      "id": "123-queretaro-bernal",
+      "macroregion": "Centro",
+      "estado": "Querétaro",
+      "pueblo_magico": "Bernal",
+      "resumen_general": "Villa semidesértica a la sombra de un monolito gigantesco.",
+      "dato_curioso": "La Peña de Bernal es uno de los monolitos más famosos del mundo.",
+      "atracciones_principales": [
+        "Peña de Bernal",
+        "Centro histórico y capilla de las ánimas",
+        "Mercado y talleres de lana"
+      ]
+    },
+    {
+      "id": "124-queretaro-cadereyta-de-montes",
+      "macroregion": "Centro",
+      "estado": "Querétaro",
+      "pueblo_magico": "Cadereyta de Montes",
+      "resumen_general": "Pueblo semidesértico de jardines, biznagas y cercanía con la Sierra Gorda.",
+      "dato_curioso": "El Jardín Botánico Regional y las rutas de queso y vino son grandes ganchos del destino.",
+      "atracciones_principales": [
+        "Jardín botánico regional y quintas",
+        "Centro histórico y parroquia",
+        "Isla Tzibanzá y presas cercanas"
+      ]
+    },
+    {
+      "id": "125-queretaro-jalpan-de-serra",
+      "macroregion": "Centro",
+      "estado": "Querétaro",
+      "pueblo_magico": "Jalpan de Serra",
+      "resumen_general": "Puerta principal a la Reserva de la Biosfera Sierra Gorda.",
+      "dato_curioso": "La misión franciscana de Jalpan integra el conjunto patrimonial de las Misiones de la Sierra Gorda.",
+      "atracciones_principales": [
+        "Misión de Santiago de Jalpan",
+        "Reserva de la Biosfera Sierra Gorda",
+        "Río Jalpan y ecoturismo"
+      ]
+    },
+    {
+      "id": "126-queretaro-san-joaquin",
+      "macroregion": "Centro",
+      "estado": "Querétaro",
+      "pueblo_magico": "San Joaquín",
+      "resumen_general": "Pueblo serrano asociado a grutas, huapango y neblina.",
+      "dato_curioso": "Cada año es referencia por su concurso nacional de huapango huasteco.",
+      "atracciones_principales": [
+        "Grutas Los Herrera",
+        "Centro histórico",
+        "Bosques y cuevas de la sierra"
+      ]
+    },
+    {
+      "id": "127-queretaro-tequisquiapan",
+      "macroregion": "Centro",
+      "estado": "Querétaro",
+      "pueblo_magico": "Tequisquiapan",
+      "resumen_general": "Villa de plazas, vinos, quesos y aguas termales.",
+      "dato_curioso": "Es una de las bases más conocidas para recorrer la ruta del queso y el vino.",
+      "atracciones_principales": [
+        "Plaza Miguel Hidalgo y centro",
+        "Viñedos y queserías",
+        "Spa termal y mercados"
+      ]
+    },
+    {
+      "id": "128-queretaro-pinal-de-amoles",
+      "macroregion": "Centro",
+      "estado": "Querétaro",
+      "pueblo_magico": "Pinal de Amoles",
+      "resumen_general": "Pueblo serrano de frío, cañones y entrada a grandes miradores.",
+      "dato_curioso": "Muy cerca se encuentra la Puerta del Cielo, uno de los puntos carreteros más espectaculares de la Sierra Gorda.",
+      "atracciones_principales": [
+        "Puerta del Cielo y miradores",
+        "Cascada El Chuveje",
+        "Centro y rutas de bosque"
+      ]
+    },
+    {
+      "id": "129-quintana-roo-bacalar",
+      "macroregion": "Península de Yucatán",
+      "estado": "Quintana Roo",
+      "pueblo_magico": "Bacalar",
+      "resumen_general": "Pueblo caribeño de laguna multicolor, fuerte y cenotes.",
+      "dato_curioso": "La Laguna de los Siete Colores lo convirtió en uno de los destinos más deseados del sureste.",
+      "atracciones_principales": [
+        "Laguna de Bacalar",
+        "Fuerte de San Felipe",
+        "Cenote Azul y balnearios"
+      ]
+    },
+    {
+      "id": "130-quintana-roo-isla-mujeres",
+      "macroregion": "Península de Yucatán",
+      "estado": "Quintana Roo",
+      "pueblo_magico": "Isla Mujeres",
+      "resumen_general": "Destino isleño de mar turquesa, ambiente relajado y tradición náutica.",
+      "dato_curioso": "Punta Sur se asocia a los primeros rayos del sol en territorio mexicano insular.",
+      "atracciones_principales": [
+        "Playa Norte",
+        "Punta Sur",
+        "Parque Garrafón y arrecifes"
+      ]
+    },
+    {
+      "id": "131-quintana-roo-tulum",
+      "macroregion": "Península de Yucatán",
+      "estado": "Quintana Roo",
+      "pueblo_magico": "Tulum",
+      "resumen_general": "Pueblo caribeño entre ruinas mayas, cenotes y selva costera.",
+      "dato_curioso": "Su zona arqueológica frente al mar es una de las imágenes más icónicas de México.",
+      "atracciones_principales": [
+        "Zona arqueológica de Tulum",
+        "Gran Cenote/Cenote Calavera",
+        "Playas y parque nacional"
+      ]
+    },
+    {
+      "id": "132-quintana-roo-cozumel",
+      "macroregion": "Península de Yucatán",
+      "estado": "Quintana Roo",
+      "pueblo_magico": "Cozumel",
+      "resumen_general": "Isla del Caribe mexicano con fama mundial de buceo y arrecifes.",
+      "dato_curioso": "El Arrecife Palancar es uno de los grandes nombres del buceo regional.",
+      "atracciones_principales": [
+        "Arrecife Palancar",
+        "Chankanaab",
+        "Centro de San Miguel y costanera"
+      ]
+    },
+    {
+      "id": "133-san-luis-potosi-aquismon",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "San Luis Potosí",
+      "pueblo_magico": "Aquismón",
+      "resumen_general": "Puerta huasteca a sótanos, cascadas y ríos de agua verde.",
+      "dato_curioso": "Es base para visitar el Sótano de las Golondrinas, emblema del turismo de aventura en México.",
+      "atracciones_principales": [
+        "Sótano de las Golondrinas",
+        "Tamul y Cueva del Agua",
+        "Centro y río Tampaón"
+      ]
+    },
+    {
+      "id": "134-san-luis-potosi-real-de-catorce",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "San Luis Potosí",
+      "pueblo_magico": "Real de Catorce",
+      "resumen_general": "Pueblo minero místico en el altiplano, entre desierto y peregrinación.",
+      "dato_curioso": "Se accede por el célebre túnel Ogarrio y conserva una fuerte aura wirrárika.",
+      "atracciones_principales": [
+        "Túnel Ogarrio",
+        "Pueblo minero y parroquia de la Purísima",
+        "Estación Catorce y Cerro del Quemado"
+      ]
+    },
+    {
+      "id": "135-san-luis-potosi-santa-maria-del-rio",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "San Luis Potosí",
+      "pueblo_magico": "Santa María del Río",
+      "resumen_general": "Pueblo artesanal conocido por el rebozo.",
+      "dato_curioso": "Es una de las capitales mexicanas del rebozo fino y el jaspeado.",
+      "atracciones_principales": [
+        "Museo/talleres del rebozo",
+        "Centro histórico y parroquia",
+        "Balnearios y parajes cercanos"
+      ]
+    },
+    {
+      "id": "136-san-luis-potosi-xilitla",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "San Luis Potosí",
+      "pueblo_magico": "Xilitla",
+      "resumen_general": "Refugio surrealista de neblina y cafetales en la Huasteca.",
+      "dato_curioso": "El jardín de Edward James lo hizo un destino universal del arte fantástico.",
+      "atracciones_principales": [
+        "Jardín Surrealista de Edward James",
+        "Ex convento y centro histórico",
+        "Cuevas y cafetales de la sierra"
+      ]
+    },
+    {
+      "id": "137-san-luis-potosi-ciudad-del-maiz",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "San Luis Potosí",
+      "pueblo_magico": "Ciudad del Maíz",
+      "resumen_general": "Población potosina de tradición agrícola y paisaje rural.",
+      "dato_curioso": "Su nombre resume la importancia histórica del maíz y del campo en la región media.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Haciendas y rutas rurales",
+        "Balnearios y manantiales cercanos"
+      ]
+    },
+    {
+      "id": "138-san-luis-potosi-tierra-nueva",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "San Luis Potosí",
+      "pueblo_magico": "Tierra Nueva",
+      "resumen_general": "Pueblo tranquilo con vocación artesanal y campestre.",
+      "dato_curioso": "Se promueve por su tranquilidad, talabartería y cercanía con parajes del centro potosino.",
+      "atracciones_principales": [
+        "Centro histórico y templo",
+        "Talleres artesanales y talabartería",
+        "Parajes y ranchos cercanos"
+      ]
+    },
+    {
+      "id": "139-sinaloa-cosala",
+      "macroregion": "Mar de Cortés",
+      "estado": "Sinaloa",
+      "pueblo_magico": "Cosalá",
+      "resumen_general": "Pueblo minero tropical de portales y cercanía con una reserva ecológica.",
+      "dato_curioso": "Su mezcla de sierra, río y arquitectura le da una personalidad muy distinta dentro de Sinaloa.",
+      "atracciones_principales": [
+        "Centro histórico y templo de Santa Úrsula",
+        "Reserva ecológica/Nuestra Señora",
+        "Museo de minería y parajes"
+      ]
+    },
+    {
+      "id": "140-sinaloa-el-rosario",
+      "macroregion": "Mar de Cortés",
+      "estado": "Sinaloa",
+      "pueblo_magico": "El Rosario",
+      "resumen_general": "Localidad histórica del sur sinaloense vinculada a minería y fe.",
+      "dato_curioso": "Es muy conocida por ser tierra natal de Lola Beltrán.",
+      "atracciones_principales": [
+        "Parroquia de Nuestra Señora del Rosario",
+        "Museo Lola Beltrán",
+        "Laguna del Iguanero y centro"
+      ]
+    },
+    {
+      "id": "141-sinaloa-el-fuerte",
+      "macroregion": "Mar de Cortés",
+      "estado": "Sinaloa",
+      "pueblo_magico": "El Fuerte",
+      "resumen_general": "Villa colonial y ribereña, punto clásico para iniciar la ruta del Chepe.",
+      "dato_curioso": "Su fortaleza histórica y el río le dieron nombre y carácter al pueblo.",
+      "atracciones_principales": [
+        "Palacio/centro histórico y plaza",
+        "Fuerte/Museo El Mirador",
+        "Río El Fuerte y paseos"
+      ]
+    },
+    {
+      "id": "142-sinaloa-mocorito",
+      "macroregion": "Mar de Cortés",
+      "estado": "Sinaloa",
+      "pueblo_magico": "Mocorito",
+      "resumen_general": "Pueblo cultural de faroles, letras y gastronomía regional.",
+      "dato_curioso": "Se le conoce como la Atenas de Sinaloa por su tradición intelectual.",
+      "atracciones_principales": [
+        "Plazuela y centro histórico",
+        "Museo de los Tigres del Norte/regional",
+        "Presa y rutas de campo"
+      ]
+    },
+    {
+      "id": "143-sinaloa-san-ignacio",
+      "macroregion": "Mar de Cortés",
+      "estado": "Sinaloa",
+      "pueblo_magico": "San Ignacio",
+      "resumen_general": "Pueblo sereno entre costa, sierra y tradición misional.",
+      "dato_curioso": "Su entorno combina centro histórico, esteros y acceso a playas del sur de Sinaloa.",
+      "atracciones_principales": [
+        "Plaza principal y parroquia",
+        "Río/laguna y manglares",
+        "Pinturas rupestres o parajes serranos"
+      ]
+    },
+    {
+      "id": "144-sonora-alamos",
+      "macroregion": "Mar de Cortés",
+      "estado": "Sonora",
+      "pueblo_magico": "Álamos",
+      "resumen_general": "Ciudad colonial blanca de callejones, música y herencia minera.",
+      "dato_curioso": "Su festival internacional de cine y música reforzó su proyección cultural.",
+      "atracciones_principales": [
+        "Centro histórico y Plaza de Armas",
+        "Museo Costumbrista y casonas",
+        "Reserva del Río Cuchujaqui"
+      ]
+    },
+    {
+      "id": "145-sonora-magdalena-de-kino",
+      "macroregion": "Mar de Cortés",
+      "estado": "Sonora",
+      "pueblo_magico": "Magdalena de Kino",
+      "resumen_general": "Pueblo misional del norte profundamente ligado al padre Kino.",
+      "dato_curioso": "Cada octubre recibe numerosas peregrinaciones en torno a San Francisco Javier.",
+      "atracciones_principales": [
+        "Mausoleo del Padre Kino",
+        "Templo de Santa María Magdalena",
+        "Plaza Juárez y centro"
+      ]
+    },
+    {
+      "id": "146-sonora-san-carlos",
+      "macroregion": "Mar de Cortés",
+      "estado": "Sonora",
+      "pueblo_magico": "San Carlos",
+      "resumen_general": "Destino costero de mar, cerros y aventuras náuticas en el Golfo de California.",
+      "dato_curioso": "La combinación del cerro Tetakawi con playas y fauna marina le da gran fotogenia.",
+      "atracciones_principales": [
+        "Mirador escénico y cerro Tetakawi",
+        "Playas de San Carlos",
+        "Marina y paseos por bahía"
+      ]
+    },
+    {
+      "id": "147-sonora-ures",
+      "macroregion": "Mar de Cortés",
+      "estado": "Sonora",
+      "pueblo_magico": "Ures",
+      "resumen_general": "Antigua población sonorense de plazas, haciendas y tradición gastronómica.",
+      "dato_curioso": "Es muy conocido en la región por las coyotas y por su historia como capital provincial.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Haciendas y corredor ribereño",
+        "Gastronomía de coyotas y pueblo"
+      ]
+    },
+    {
+      "id": "148-tabasco-tapijulapa",
+      "macroregion": "Golfo",
+      "estado": "Tabasco",
+      "pueblo_magico": "Tapijulapa",
+      "resumen_general": "Pueblo de río, sierra y casas blancas con techos rojos.",
+      "dato_curioso": "Es una de las postales más distintivas de Tabasco gracias a su traza armónica.",
+      "atracciones_principales": [
+        "Centro histórico y río Oxolotán",
+        "Kolem Jaa y ecoturismo",
+        "Cueva de las Sardinas Ciegas"
+      ]
+    },
+    {
+      "id": "149-tabasco-frontera",
+      "macroregion": "Golfo",
+      "estado": "Tabasco",
+      "pueblo_magico": "Frontera",
+      "resumen_general": "Puerto tabasqueño donde el Grijalva encuentra el Golfo de México.",
+      "dato_curioso": "Su carácter marítimo y fluvial lo distingue del resto de los Pueblos Mágicos del sureste.",
+      "atracciones_principales": [
+        "Malecón y desembocadura del Grijalva",
+        "Centro histórico y templo",
+        "Playas y gastronomía ribereña"
+      ]
+    },
+    {
+      "id": "150-tabasco-teapa",
+      "macroregion": "Golfo",
+      "estado": "Tabasco",
+      "pueblo_magico": "Teapa",
+      "resumen_general": "Pueblo de sierra húmeda, cacao y cascadas.",
+      "dato_curioso": "Su clima y vegetación le han dado fama como jardín natural de Tabasco.",
+      "atracciones_principales": [
+        "Centro histórico y parque principal",
+        "Grutas del Coconá",
+        "Hacienda cacaotera y cascadas"
+      ]
+    },
+    {
+      "id": "151-tamaulipas-mier",
+      "macroregion": "Noreste",
+      "estado": "Tamaulipas",
+      "pueblo_magico": "Mier",
+      "resumen_general": "Villa fronteriza de historia, adobe y memoria bélica.",
+      "dato_curioso": "Su nombre completo Ciudad Mier remite a un pasado clave en la frontera noreste.",
+      "atracciones_principales": [
+        "Centro histórico y plaza",
+        "Templo de la Inmaculada",
+        "Museos y sitios históricos de la frontera"
+      ]
+    },
+    {
+      "id": "152-tamaulipas-tula",
+      "macroregion": "Noreste",
+      "estado": "Tamaulipas",
+      "pueblo_magico": "Tula",
+      "resumen_general": "Pueblo serrano y semidesértico con fama de mezcales y cecina.",
+      "dato_curioso": "Es uno de los asentamientos más antiguos del noreste mexicano.",
+      "atracciones_principales": [
+        "Centro histórico y capilla del Rosario",
+        "Cerro de la Cruz y miradores",
+        "Ex haciendas y gastronomía local"
+      ]
+    },
+    {
+      "id": "153-tlaxcala-huamantla",
+      "macroregion": "Centro",
+      "estado": "Tlaxcala",
+      "pueblo_magico": "Huamantla",
+      "resumen_general": "Ciudad de tapetes efímeros, toros y gran basílica.",
+      "dato_curioso": "La Noche que Nadie Duerme es una de las celebraciones religiosas más espectaculares del país.",
+      "atracciones_principales": [
+        "Basílica de la Caridad",
+        "Museo Nacional del Títere y centro",
+        "Haciendas pulqueras/corridas y feria"
+      ]
+    },
+    {
+      "id": "154-tlaxcala-tlaxco",
+      "macroregion": "Centro",
+      "estado": "Tlaxcala",
+      "pueblo_magico": "Tlaxco",
+      "resumen_general": "Pueblo de bosques, queso, apicultura y haciendas.",
+      "dato_curioso": "Ha crecido como destino de glamping y turismo de naturaleza cerca de haciendas pulqueras.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Haciendas y ranchos",
+        "Bosques y miradores"
+      ]
+    },
+    {
+      "id": "155-tlaxcala-ixtenco",
+      "macroregion": "Centro",
+      "estado": "Tlaxcala",
+      "pueblo_magico": "Ixtenco",
+      "resumen_general": "Comunidad otomí de maíz, bordados y memoria indígena viva.",
+      "dato_curioso": "Es uno de los lugares donde la identidad otomí es más visible en el altiplano tlaxcalteca.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Museo/cultura otomí y bordados",
+        "Campos de maíz y entorno del volcán"
+      ]
+    },
+    {
+      "id": "156-veracruz-coatepec",
+      "macroregion": "Golfo",
+      "estado": "Veracruz",
+      "pueblo_magico": "Coatepec",
+      "resumen_general": "Pueblo cafetalero de niebla, casonas y orquídeas.",
+      "dato_curioso": "Es uno de los nombres imprescindibles del café mexicano de altura.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Museo del Café y fincas cafetaleras",
+        "Orquideario/jardines"
+      ]
+    },
+    {
+      "id": "157-veracruz-coscomatepec",
+      "macroregion": "Golfo",
+      "estado": "Veracruz",
+      "pueblo_magico": "Coscomatepec",
+      "resumen_general": "Villa serrana con vista al Citlaltépetl y cultura de montaña.",
+      "dato_curioso": "Su ambiente mezcla mercado indígena, pan tradicional y grandes panorámicas.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Miradores al Pico de Orizaba",
+        "Mercado y queserías/pan"
+      ]
+    },
+    {
+      "id": "158-veracruz-orizaba",
+      "macroregion": "Golfo",
+      "estado": "Veracruz",
+      "pueblo_magico": "Orizaba",
+      "resumen_general": "Ciudad veracruzana de gran patrimonio, teleférico y río urbano recuperado.",
+      "dato_curioso": "El pico de Orizaba da contexto simbólico a una ciudad hoy muy cuidada turísticamente.",
+      "atracciones_principales": [
+        "Palacio de Hierro y centro histórico",
+        "Teleférico y Cerro del Borrego",
+        "Paseo del río y museos"
+      ]
+    },
+    {
+      "id": "159-veracruz-papantla",
+      "macroregion": "Golfo",
+      "estado": "Veracruz",
+      "pueblo_magico": "Papantla",
+      "resumen_general": "Ciudad totonaca de vainilla, voladores y cercanía con El Tajín.",
+      "dato_curioso": "La ceremonia ritual de los voladores es Patrimonio Inmaterial de la UNESCO.",
+      "atracciones_principales": [
+        "Centro histórico y mural escultórico",
+        "Zona arqueológica de El Tajín",
+        "Parque temático Takilhsukut/vanilla"
+      ]
+    },
+    {
+      "id": "160-veracruz-xico",
+      "macroregion": "Golfo",
+      "estado": "Veracruz",
+      "pueblo_magico": "Xico",
+      "resumen_general": "Pueblo de montaña famoso por mole, café y cascadas.",
+      "dato_curioso": "Su fiesta de María Magdalena y el mole xiqueño son dos de sus grandes cartas de identidad.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia de Santa María Magdalena",
+        "Cascada de Texolo",
+        "Moleras, café y miradores"
+      ]
+    },
+    {
+      "id": "161-veracruz-zozocolco-de-hidalgo",
+      "macroregion": "Golfo",
+      "estado": "Veracruz",
+      "pueblo_magico": "Zozocolco de Hidalgo",
+      "resumen_general": "Poblado totonaco de faroles, callejones y tradición de globos de papel.",
+      "dato_curioso": "Su festival de globos de papel de china es una celebración muy visual y conocida.",
+      "atracciones_principales": [
+        "Centro histórico y templo",
+        "Poza y cascadas cercanas",
+        "Miradores y tradición de globos"
+      ]
+    },
+    {
+      "id": "162-veracruz-cordoba",
+      "macroregion": "Golfo",
+      "estado": "Veracruz",
+      "pueblo_magico": "Córdoba",
+      "resumen_general": "Ciudad histórica de portales, café y memoria independentista.",
+      "dato_curioso": "Los Tratados de Córdoba le dan un peso especial dentro de la historia nacional.",
+      "atracciones_principales": [
+        "Centro histórico y portal de Zevallos",
+        "Museos del café y haciendas",
+        "Barrio y jardines"
+      ]
+    },
+    {
+      "id": "163-veracruz-naolinco-de-victoria",
+      "macroregion": "Golfo",
+      "estado": "Veracruz",
+      "pueblo_magico": "Naolinco de Victoria",
+      "resumen_general": "Pueblo serrano famoso por marroquinería, pan y Día de Muertos.",
+      "dato_curioso": "Los talleres de cuero son un sello distintivo de su economía y estética.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Talleres de piel y calzado",
+        "Miradores y fiesta de muertos"
+      ]
+    },
+    {
+      "id": "164-yucatan-izamal",
+      "macroregion": "Península de Yucatán",
+      "estado": "Yucatán",
+      "pueblo_magico": "Izamal",
+      "resumen_general": "Ciudad amarilla de convento franciscano y pirámides dispersas.",
+      "dato_curioso": "Juan Pablo II visitó el convento de San Antonio de Padua en 1993.",
+      "atracciones_principales": [
+        "Convento de San Antonio de Padua",
+        "Zona arqueológica Kinich Kakmó",
+        "Calles amarillas, calesas y centro"
+      ]
+    },
+    {
+      "id": "165-yucatan-mani",
+      "macroregion": "Península de Yucatán",
+      "estado": "Yucatán",
+      "pueblo_magico": "Maní",
+      "resumen_general": "Pueblo de cocina y memoria maya-colonial en el sur yucateco.",
+      "dato_curioso": "Es un referente culinario del poc chuc y de la cocina tradicional yucateca.",
+      "atracciones_principales": [
+        "Convento de San Miguel Arcángel",
+        "Centro histórico y mercado gastronómico",
+        "Cenotes y rutas hacia Uxmal"
+      ]
+    },
+    {
+      "id": "166-yucatan-sisal",
+      "macroregion": "Península de Yucatán",
+      "estado": "Yucatán",
+      "pueblo_magico": "Sisal",
+      "resumen_general": "Puerto yucateco de playa, manglar y flamingos.",
+      "dato_curioso": "Su historia está ligada a la exportación del henequén y al antiguo cabotaje.",
+      "atracciones_principales": [
+        "Malecón y playa",
+        "Manglares y avistamiento de aves",
+        "Fuerte y faro de Sisal"
+      ]
+    },
+    {
+      "id": "167-yucatan-valladolid",
+      "macroregion": "Península de Yucatán",
+      "estado": "Yucatán",
+      "pueblo_magico": "Valladolid",
+      "resumen_general": "Ciudad señorial del oriente yucateco, base para cenotes y ruinas mayas.",
+      "dato_curioso": "Su traza colonial la volvió una de las bases preferidas para explorar Chichén Itzá.",
+      "atracciones_principales": [
+        "Cenote Zací",
+        "Convento de San Bernardino de Siena",
+        "Casa de los Venados y centro"
+      ]
+    },
+    {
+      "id": "168-yucatan-espita",
+      "macroregion": "Península de Yucatán",
+      "estado": "Yucatán",
+      "pueblo_magico": "Espita",
+      "resumen_general": "Pueblo de casonas, tranquilidad y gastronomía del oriente.",
+      "dato_curioso": "Su encanto reside en la atmósfera pausada y en la arquitectura doméstica del auge henequenero.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Casonas y portales",
+        "Ex haciendas y rutas rurales"
+      ]
+    },
+    {
+      "id": "169-yucatan-motul-de-carrillo-puerto",
+      "macroregion": "Península de Yucatán",
+      "estado": "Yucatán",
+      "pueblo_magico": "Motul de Carrillo Puerto",
+      "resumen_general": "Ciudad yucateca ligada a la historia política y a la cocina tradicional.",
+      "dato_curioso": "El nombre de los famosos huevos motuleños ha hecho del lugar una referencia culinaria obligada.",
+      "atracciones_principales": [
+        "Centro histórico y ex estación",
+        "Casa museo de Felipe Carrillo Puerto",
+        "Mercados y gastronomía local"
+      ]
+    },
+    {
+      "id": "170-yucatan-tekax-de-alvaro-obregon",
+      "macroregion": "Península de Yucatán",
+      "estado": "Yucatán",
+      "pueblo_magico": "Tekax de Álvaro Obregón",
+      "resumen_general": "Pueblo del sur peninsular con grutas, miradores y selva baja.",
+      "dato_curioso": "Se promueve como puerta de la aventura del sur yucateco.",
+      "atracciones_principales": [
+        "Mirador de Tekax",
+        "Grutas Chocantes",
+        "Parque ecoturístico Kaalmankal"
+      ]
+    },
+    {
+      "id": "171-zacatecas-guadalupe",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Zacatecas",
+      "pueblo_magico": "Guadalupe",
+      "resumen_general": "Ciudad conventual y barroca contigua a la capital zacatecana.",
+      "dato_curioso": "Su pasado virreinal y su pinacoteca la vuelven uno de los grandes tesoros culturales del estado.",
+      "atracciones_principales": [
+        "Convento y Museo de Guadalupe",
+        "Centro histórico y jardines",
+        "Capillas y patrimonio barroco"
+      ]
+    },
+    {
+      "id": "172-zacatecas-jerez-de-garcia-salinas",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Zacatecas",
+      "pueblo_magico": "Jerez de García Salinas",
+      "resumen_general": "Pueblo festivo de portales, tambora y tradición ecuestre.",
+      "dato_curioso": "Su Feria de Primavera es una de las celebraciones más queridas del estado.",
+      "atracciones_principales": [
+        "Teatro Hinojosa y centro histórico",
+        "Santuario de la Soledad",
+        "Jardín principal y museos"
+      ]
+    },
+    {
+      "id": "173-zacatecas-nochistlan-de-mejia",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Zacatecas",
+      "pueblo_magico": "Nochistlán de Mejía",
+      "resumen_general": "Pueblo musical y de fuerte vida comunitaria en el sur zacatecano.",
+      "dato_curioso": "Su fama incluye la rebelde historia indígena y una vigorosa tradición de mariachi y tamborazo.",
+      "atracciones_principales": [
+        "Centro histórico y portal Morelos",
+        "Parroquia de San Francisco de Asís",
+        "Fiestas y música tradicional"
+      ]
+    },
+    {
+      "id": "174-zacatecas-pinos",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Zacatecas",
+      "pueblo_magico": "Pinos",
+      "resumen_general": "Villa minera y mezcalera del altiplano.",
+      "dato_curioso": "Conserva templos, ex haciendas y una atmósfera de antiguo camino real.",
+      "atracciones_principales": [
+        "Centro histórico y templos",
+        "Ex haciendas y vinatas/mezcaleras",
+        "Túneles o paisaje minero"
+      ]
+    },
+    {
+      "id": "175-zacatecas-sombrerete",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Zacatecas",
+      "pueblo_magico": "Sombrerete",
+      "resumen_general": "Pueblo minero monumental con conventos y desierto.",
+      "dato_curioso": "El parque nacional Sierra de Órganos le aporta un telón natural muy cinematográfico.",
+      "atracciones_principales": [
+        "Centro histórico y convento de San Mateo",
+        "Sierra de Órganos",
+        "Capilla de la Santa Veracruz y minas"
+      ]
+    },
+    {
+      "id": "176-zacatecas-teul-de-gonzalez-ortega",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Zacatecas",
+      "pueblo_magico": "Teúl de González Ortega",
+      "resumen_general": "Villa serrana de mezcal, cantera rosada y guayabos.",
+      "dato_curioso": "La producción de mezcal y la tranquilidad del entorno son parte de su hechizo.",
+      "atracciones_principales": [
+        "Centro histórico y parroquia",
+        "Fábricas de mezcal",
+        "Presa La Ticuata y cerros"
+      ]
+    },
+    {
+      "id": "177-zacatecas-villanueva",
+      "macroregion": "Centro-Norte y Occidente",
+      "estado": "Zacatecas",
+      "pueblo_magico": "Villanueva",
+      "resumen_general": "Pueblo histórico del sur zacatecano y acceso a un gran sitio arqueológico.",
+      "dato_curioso": "La cercanía con La Quemada le da un valor especial para viajeros de historia antigua.",
+      "atracciones_principales": [
+        "Zona arqueológica La Quemada",
+        "Centro histórico y templos",
+        "Haciendas y paisaje semidesértico"
+      ]
+    }
+  ]
+}

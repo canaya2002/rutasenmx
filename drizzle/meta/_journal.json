@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1776640390559,
+      "tag": "0000_ai_trip_runs_input_hash",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1776664575270,
+      "tag": "0001_social_connect",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1776666044087,
+      "tag": "0002_social_communities",
+      "breakpoints": true
+    }
+  ]
+}

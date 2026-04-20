@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
+import type maplibregl from 'maplibre-gl';
 import { useMap } from './MapProvider';
 import { PLACE_CATEGORIES } from '@/lib/constants';
 
@@ -74,8 +75,8 @@ export default function MapMarker({
   onSave,
 }: MapMarkerProps) {
   const { map, isReady } = useMap();
-  const markerRef = useRef<mapboxgl.Marker | null>(null);
-  const popupRef = useRef<mapboxgl.Popup | null>(null);
+  const markerRef = useRef<maplibregl.Marker | null>(null);
+  const popupRef = useRef<maplibregl.Popup | null>(null);
 
   const onClickRef = useRef(onClick);
   onClickRef.current = onClick;
@@ -86,7 +87,7 @@ export default function MapMarker({
 
   const buildMarker = useCallback(async () => {
     if (!map) return;
-    const mapboxgl = (await import('mapbox-gl')).default;
+    const maplibreglLib = (await import('maplibre-gl')).default;
 
     /* Remove existing marker */
     markerRef.current?.remove();
@@ -151,7 +152,7 @@ export default function MapMarker({
       badges,
     });
 
-    const popup = new mapboxgl.Popup({
+    const popup = new maplibreglLib.Popup({
       offset: 25,
       closeButton: true,
       maxWidth: '280px',
@@ -170,7 +171,7 @@ export default function MapMarker({
 
     popupRef.current = popup;
 
-    const marker = new mapboxgl.Marker({ element: el })
+    const marker = new maplibreglLib.Marker({ element: el })
       .setLngLat([lng, lat])
       .setPopup(popup)
       .addTo(map);

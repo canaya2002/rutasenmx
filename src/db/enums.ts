@@ -77,3 +77,41 @@ export const importRunStatusEnum = pgEnum("import_run_status", [
   "completed",
   "failed",
 ]);
+
+// ── Social (Conectar) ───────────────────────────────────────────────────────
+export const socialIntentEnum = pgEnum("social_intent", [
+  "convivir",
+  "salir",
+  "explorar",
+  "conocer",
+]);
+
+export const socialSwipeActionEnum = pgEnum("social_swipe_action", [
+  "like",
+  "pass",
+]);
+
+export const socialReportStatusEnum = pgEnum("social_report_status", [
+  "pending",
+  "reviewed",
+  "dismissed",
+  "actioned",
+]);
+
+export const socialCommunityTypeEnum = pgEnum("social_community_type", [
+  "forum",
+  "group",
+  "channel",
+]);
+
+export const socialCommunityRoleEnum = pgEnum("social_community_role", [
+  "member",
+  "moderator",
+  "owner",
+]);
+
+export const socialContentStatusEnum = pgEnum("social_content_status", [
+  "published",
+  "hidden",
+  "removed",
+]);

@@ -28,6 +28,14 @@ export default function robots(): MetadataRoute.Robots {
     '/checkout/',
     '/preview/',
     '/compartido/',
+    // Social (Conectar) subpages are auth-gated; /conectar (landing) stays public.
+    '/conectar/perfil',
+    '/conectar/descubrir',
+    '/conectar/matches',
+    '/conectar/chat/',
+    // Community spaces are premium-only; only /comunidad listing is public for SEO hints.
+    '/comunidad/grupos/nuevo',
+    '/comunidad/post/',
     '/*?token=',
     '/*?preview=',
   ];

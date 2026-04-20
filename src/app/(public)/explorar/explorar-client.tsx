@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
+import type maplibregl from 'maplibre-gl';
 import Link from 'next/link';
 import { MapProvider, useMap } from '@/components/map/MapProvider';
 import MapView from '@/components/map/MapView';
@@ -110,8 +111,19 @@ function MapMarkers({
       clusterRadius: 50,
     });
 
-    // Register SVG icons before the symbol layer can resolve them.
-    registerCategoryIcons(map as unknown as Parameters<typeof registerCategoryIcons>[0]).catch(() => {});
+    // Kick off SVG icon registration. We do NOT await — layers referencing the
+    // icons rely on the `styleimagemissing` handler (wired inside
+    // registerCategoryIcons) to lazy-load on demand. But to avoid the initial
+    // flash we also prime the browser cache for every category SVG synchronously.
+    for (const c of PLACE_CATEGORIES) {
+      const svg = (c as { iconSvg?: string }).iconSvg;
+      if (!svg) continue;
+      const img = new window.Image();
+      img.src = svg;
+    }
+    registerCategoryIcons(
+      map as unknown as Parameters<typeof registerCategoryIcons>[0],
+    ).catch(() => {});
 
     /* ---- Cluster circles ---- */
     map.addLayer({
@@ -143,7 +155,7 @@ function MapMarkers({
       filter: ['has', 'point_count'],
       layout: {
         'text-field': ['get', 'point_count_abbreviated'],
-        'text-font': ['DIN Pro Medium', 'Arial Unicode MS Bold'],
+        'text-font': ['Noto Sans Regular'],
         'text-size': 15,
         'text-allow-overlap': true,
       },
@@ -172,7 +184,7 @@ function MapMarkers({
         'icon-ignore-placement': true,
         'icon-anchor': 'bottom',
       },
-    } as mapboxgl.AnyLayer);
+    } as maplibregl.LayerSpecification);
 
     /* ---- Emoji fallback for categories without an SVG icon ---- */
     map.addLayer({
@@ -199,7 +211,7 @@ function MapMarkers({
         'text-allow-overlap': true,
         'icon-allow-overlap': true,
       },
-    } as mapboxgl.AnyLayer);
+    } as maplibregl.LayerSpecification);
 
     /* ---- Selected point highlight ring ---- */
     map.addLayer({
@@ -217,26 +229,28 @@ function MapMarkers({
     });
 
     /* ---- Click cluster to zoom ---- */
-    const onClusterClick = (e: mapboxgl.MapMouseEvent) => {
+    const onClusterClick = (e: maplibregl.MapMouseEvent) => {
       const features = map.queryRenderedFeatures(e.point, { layers: [clusterLayerId] });
       if (!features.length) return;
-      const clusterId = features[0].properties?.cluster_id;
-      const src = map.getSource(sourceId) as mapboxgl.GeoJSONSource;
-      const cb = ((err: unknown, zoom: number) => {
-        if (err) return;
-        const coords = (features[0].geometry as GeoJSON.Point).coordinates;
-        map.flyTo({
-          center: [coords[0], coords[1]],
-          zoom: Math.min(zoom, 15),
-          duration: 800,
-          essential: true,
-        });
-      }) as Parameters<typeof src.getClusterExpansionZoom>[1];
-      src.getClusterExpansionZoom(clusterId, cb);
+      const clusterId = features[0].properties?.cluster_id as number | undefined;
+      if (clusterId == null) return;
+      const src = map.getSource(sourceId) as maplibregl.GeoJSONSource;
+      src
+        .getClusterExpansionZoom(clusterId)
+        .then((zoom: number) => {
+          const coords = (features[0].geometry as GeoJSON.Point).coordinates;
+          map.flyTo({
+            center: [coords[0], coords[1]],
+            zoom: Math.min(zoom, 15),
+            duration: 800,
+            essential: true,
+          });
+        })
+        .catch(() => {});
     };
 
     /* ---- Click marker to select ---- */
-    const onPointClick = (e: mapboxgl.MapMouseEvent) => {
+    const onPointClick = (e: maplibregl.MapMouseEvent) => {
       const features = map.queryRenderedFeatures(e.point, {
         layers: [symbolLayerId, emojiFallbackLayerId],
       });
@@ -262,7 +276,7 @@ function MapMarkers({
     map.on('mouseleave', clusterLayerId, ptrLeave);
 
     return () => {
-      // Guard: after map.remove() fires (e.g. on navigation) mapbox-gl zeros out
+      // Guard: after map.remove() fires (e.g. on navigation) maplibre-gl zeros out
       // `map.style`, so any subsequent getLayer/getSource would throw
       // `Cannot read properties of undefined (reading 'getOwnLayer')`.
       const isAlive = (() => {

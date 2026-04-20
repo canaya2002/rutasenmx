@@ -2,8 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export interface CategoryCard {
   label: string;
@@ -20,60 +18,15 @@ export function CategoryCarousel({
   items: readonly CategoryCard[];
   ariaLabel: string;
 }) {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const [canLeft, setCanLeft] = useState(false);
-  const [canRight, setCanRight] = useState(false);
-
-  const refresh = useCallback(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    setCanLeft(el.scrollLeft > 8);
-    setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 8);
-  }, []);
-
-  useEffect(() => {
-    refresh();
-    const el = scrollerRef.current;
-    if (!el) return;
-    el.addEventListener('scroll', refresh, { passive: true });
-    window.addEventListener('resize', refresh);
-    return () => {
-      el.removeEventListener('scroll', refresh);
-      window.removeEventListener('resize', refresh);
-    };
-  }, [refresh]);
-
-  const nudge = (dir: 1 | -1) => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir * Math.min(el.clientWidth * 0.85, 900), behavior: 'smooth' });
-  };
-
   return (
-    <div className="relative" role="region" aria-label={ariaLabel}>
-      {/* Left fade + button */}
-      <div
-        aria-hidden
-        className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent transition-opacity ${canLeft ? 'opacity-100' : 'opacity-0'}`}
-      />
-      <button
-        type="button"
-        onClick={() => nudge(-1)}
-        aria-label="Scroll left"
-        className={`absolute left-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white p-2.5 shadow-lg ring-1 ring-black/5 transition ${canLeft ? 'opacity-100 hover:scale-105' : 'pointer-events-none opacity-0'}`}
-      >
-        <ChevronLeft className="h-5 w-5 text-slate-800" />
-      </button>
-
-      <div
-        ref={scrollerRef}
-        className="scrollbar-none flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-1 py-2"
-      >
-        {items.map((c) => (
+    <div className="overflow-hidden" role="region" aria-label={ariaLabel}>
+      {/* Auto-scrolling track — duplicated items for seamless loop */}
+      <div className="animate-marquee flex w-max gap-5 py-2">
+        {[...items, ...items].map((c, i) => (
           <Link
-            key={c.href + c.label}
+            key={`${c.href}-${i}`}
             href={c.href}
-            className="group relative flex h-[260px] w-[220px] shrink-0 snap-start overflow-hidden rounded-3xl shadow-md ring-1 ring-black/5 transition-transform hover:-translate-y-1 hover:shadow-2xl sm:h-[300px] sm:w-[260px]"
+            className="group relative flex h-[260px] w-[220px] shrink-0 overflow-hidden rounded-3xl shadow-md ring-1 ring-black/5 transition-transform hover:-translate-y-1 hover:shadow-2xl sm:h-[300px] sm:w-[260px]"
           >
             <Image
               src={c.image}
@@ -106,19 +59,6 @@ export function CategoryCarousel({
           </Link>
         ))}
       </div>
-
-      <button
-        type="button"
-        onClick={() => nudge(1)}
-        aria-label="Scroll right"
-        className={`absolute right-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white p-2.5 shadow-lg ring-1 ring-black/5 transition ${canRight ? 'opacity-100 hover:scale-105' : 'pointer-events-none opacity-0'}`}
-      >
-        <ChevronRight className="h-5 w-5 text-slate-800" />
-      </button>
-      <div
-        aria-hidden
-        className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent transition-opacity ${canRight ? 'opacity-100' : 'opacity-0'}`}
-      />
     </div>
   );
 }

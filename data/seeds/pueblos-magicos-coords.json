@@ -1,0 +1,710 @@
+{
+  "001-aguascalientes-calvillo": {
+    "lat": 21.9108321,
+    "lng": -102.713602
+  },
+  "002-aguascalientes-real-de-asientos": {
+    "lat": 22.0808493,
+    "lng": -102.2671641
+  },
+  "003-aguascalientes-san-jose-de-gracia": {
+    "lat": 22.1426267,
+    "lng": -102.5301357
+  },
+  "004-aguascalientes-pabellon-de-hidalgo": {
+    "lat": 22.177104,
+    "lng": -102.3397417
+  },
+  "005-baja-california-tecate": {
+    "lat": 32.5653831,
+    "lng": -116.6298787
+  },
+  "006-baja-california-sur-loreto": {
+    "lat": 26.0097913,
+    "lng": -111.3452523
+  },
+  "007-baja-california-sur-todos-santos": {
+    "lat": 23.4997168,
+    "lng": -110.2020287
+  },
+  "008-baja-california-sur-santa-rosalia": {
+    "lat": 27.3529139,
+    "lng": -112.2751353
+  },
+  "009-campeche-isla-aguada": {
+    "lat": 18.7864797,
+    "lng": -91.4914495
+  },
+  "010-campeche-palizada": {
+    "lat": 18.2622565,
+    "lng": -92.0026442
+  },
+  "011-campeche-candelaria": {
+    "lat": 18.1602905,
+    "lng": -90.744475
+  },
+  "012-chiapas-chiapa-de-corzo": {
+    "lat": 16.6013224,
+    "lng": -92.9968156
+  },
+  "013-chiapas-comitan-de-dominguez": {
+    "lat": 16.2911698,
+    "lng": -92.1753212
+  },
+  "014-chiapas-palenque": {
+    "lat": 17.453161,
+    "lng": -91.8121241
+  },
+  "015-chiapas-san-cristobal-de-las-casas": {
+    "lat": 16.6835469,
+    "lng": -92.6155184
+  },
+  "016-chiapas-copainala": {
+    "lat": 17.0930214,
+    "lng": -93.2102105
+  },
+  "017-chiapas-ocozocoautla-de-espinosa": {
+    "lat": 16.7931431,
+    "lng": -93.4569636
+  },
+  "018-chihuahua-batopilas": {
+    "lat": 26.9245057,
+    "lng": -107.6673316
+  },
+  "019-chihuahua-casas-grandes": {
+    "lat": 30.2077618,
+    "lng": -108.2277535
+  },
+  "020-chihuahua-creel": {
+    "lat": 27.7246041,
+    "lng": -107.6501819
+  },
+  "021-chihuahua-guachochi": {
+    "lat": 27.1446687,
+    "lng": -107.2053008
+  },
+  "022-chihuahua-hidalgo-del-parral": {
+    "lat": 27.1153848,
+    "lng": -105.764288
+  },
+  "023-coahuila-arteaga": {
+    "lat": 25.3453685,
+    "lng": -100.6831723
+  },
+  "024-coahuila-candela": {
+    "lat": 26.8283217,
+    "lng": -100.749968
+  },
+  "025-coahuila-cuatro-cienegas-de-carranza": {
+    "lat": 26.9864512,
+    "lng": -102.0632635
+  },
+  "026-coahuila-guerrero": {
+    "lat": 28.1504013,
+    "lng": -100.3723814
+  },
+  "027-coahuila-melchor-muzquiz": {
+    "lat": 25.4255404,
+    "lng": -100.9972051
+  },
+  "028-coahuila-parras-de-la-fuente": {
+    "lat": 25.4436602,
+    "lng": -102.1782179
+  },
+  "029-coahuila-viesca": {
+    "lat": 25.1900179,
+    "lng": -102.8608673
+  },
+  "030-coahuila-general-cepeda": {
+    "lat": 25.5438609,
+    "lng": -101.5242934
+  },
+  "031-colima-comala": {
+    "lat": 19.3954224,
+    "lng": -103.7839632
+  },
+  "032-durango-mapimi": {
+    "lat": 26.1581255,
+    "lng": -104.1410157
+  },
+  "033-durango-nombre-de-dios": {
+    "lat": 23.8412204,
+    "lng": -104.2203812
+  },
+  "034-estado-de-mexico-san-juan-teotihuacan-y-san-martin-de-las-piramides": {
+    "lat": 19.6550758,
+    "lng": -98.8795717
+  },
+  "035-estado-de-mexico-aculco": {
+    "lat": 20.1358065,
+    "lng": -99.8274673
+  },
+  "036-estado-de-mexico-el-oro": {
+    "lat": 19.7959711,
+    "lng": -100.066302
+  },
+  "037-estado-de-mexico-ixtapan-de-la-sal": {
+    "lat": 18.8409773,
+    "lng": -99.6929243
+  },
+  "038-estado-de-mexico-malinalco": {
+    "lat": 18.9537133,
+    "lng": -99.4940758
+  },
+  "039-estado-de-mexico-metepec": {
+    "lat": 19.2511338,
+    "lng": -99.5937281
+  },
+  "040-estado-de-mexico-tepotzotlan": {
+    "lat": 19.7173392,
+    "lng": -99.2230683
+  },
+  "041-estado-de-mexico-tonatico": {
+    "lat": 18.7769335,
+    "lng": -99.6277864
+  },
+  "042-estado-de-mexico-valle-de-bravo": {
+    "lat": 19.1849101,
+    "lng": -100.1512633
+  },
+  "043-estado-de-mexico-villa-del-carbon": {
+    "lat": 19.7444636,
+    "lng": -99.4520653
+  },
+  "044-estado-de-mexico-jilotepec": {
+    "lat": 20.0169568,
+    "lng": -99.6281796
+  },
+  "045-estado-de-mexico-otumba": {
+    "lat": 19.657094,
+    "lng": -98.7401549
+  },
+  "046-guanajuato-comonfort": {
+    "lat": 20.737089,
+    "lng": -100.7973201
+  },
+  "047-guanajuato-dolores-hidalgo-cuna-de-la-independencia-nacional": {
+    "lat": 21.1581996,
+    "lng": -100.9167077
+  },
+  "048-guanajuato-jalpa-de-canovas": {
+    "lat": 20.877824,
+    "lng": -102.0127596
+  },
+  "049-guanajuato-mineral-de-pozos": {
+    "lat": 21.2203897,
+    "lng": -100.4937165
+  },
+  "050-guanajuato-salvatierra": {
+    "lat": 20.1926546,
+    "lng": -100.8659931
+  },
+  "051-guanajuato-yuriria": {
+    "lat": 20.1664924,
+    "lng": -101.3171341
+  },
+  "052-guerrero-taxco-de-alarcon": {
+    "lat": 18.5218084,
+    "lng": -99.6065075
+  },
+  "053-guerrero-ixcateopan-de-cuauhtemoc": {
+    "lat": 18.4633651,
+    "lng": -99.7659831
+  },
+  "054-guerrero-zihuatanejo": {
+    "lat": 17.8079,
+    "lng": -101.4969524
+  },
+  "055-hidalgo-huasca-de-ocampo": {
+    "lat": 20.2231549,
+    "lng": -98.5552467
+  },
+  "056-hidalgo-huichapan": {
+    "lat": 20.3905629,
+    "lng": -99.6821642
+  },
+  "057-hidalgo-mineral-del-chico": {
+    "lat": 20.2205975,
+    "lng": -98.745353
+  },
+  "058-hidalgo-real-del-monte": {
+    "lat": 20.1366,
+    "lng": -98.7289607
+  },
+  "059-hidalgo-tecozautla": {
+    "lat": 20.5396985,
+    "lng": -99.6526085
+  },
+  "060-hidalgo-zempoala": {
+    "lat": 19.925944,
+    "lng": -98.6433499
+  },
+  "061-hidalgo-zimapan": {
+    "lat": 20.7622177,
+    "lng": -99.3831401
+  },
+  "062-hidalgo-acaxochitlan": {
+    "lat": 20.1648992,
+    "lng": -98.2017624
+  },
+  "063-hidalgo-metztitlan": {
+    "lat": 20.5646523,
+    "lng": -98.8291032
+  },
+  "064-jalisco-ajijic": {
+    "lat": 20.3001977,
+    "lng": -103.261934
+  },
+  "065-jalisco-lagos-de-moreno": {
+    "lat": 21.5330301,
+    "lng": -101.8199571
+  },
+  "066-jalisco-mascota": {
+    "lat": 20.5533013,
+    "lng": -104.7633816
+  },
+  "067-jalisco-mazamitla": {
+    "lat": 19.8905842,
+    "lng": -103.0810204
+  },
+  "068-jalisco-san-pedro-tlaquepaque": {
+    "lat": 20.5925775,
+    "lng": -103.3388803
+  },
+  "069-jalisco-san-sebastian-del-oeste": {
+    "lat": 20.855251,
+    "lng": -104.8165356
+  },
+  "070-jalisco-talpa-de-allende": {
+    "lat": 20.2986583,
+    "lng": -104.9524361
+  },
+  "071-jalisco-tapalpa": {
+    "lat": 19.9466635,
+    "lng": -103.7761059
+  },
+  "072-jalisco-tequila": {
+    "lat": 21.1158202,
+    "lng": -103.8101371
+  },
+  "073-jalisco-cocula": {
+    "lat": 20.4035811,
+    "lng": -103.817421
+  },
+  "074-jalisco-sayula": {
+    "lat": 19.8571638,
+    "lng": -103.6088957
+  },
+  "075-jalisco-temacapulin": {
+    "lat": 21.188333,
+    "lng": -102.706667
+  },
+  "076-michoacan-cuitzeo-del-porvenir": {
+    "lat": 19.9693141,
+    "lng": -101.1412203
+  },
+  "077-michoacan-jiquilpan-de-juarez": {
+    "lat": 19.9901664,
+    "lng": -102.7191956
+  },
+  "078-michoacan-mineral-de-angangueo": {
+    "lat": 19.7214402,
+    "lng": -101.1986506
+  },
+  "079-michoacan-paracho-de-verduzco": {
+    "lat": 19.6465929,
+    "lng": -102.0480857
+  },
+  "080-michoacan-patzcuaro": {
+    "lat": 19.501844,
+    "lng": -101.6602118
+  },
+  "081-michoacan-santa-clara-del-cobre": {
+    "lat": 19.4052733,
+    "lng": -101.6389966
+  },
+  "082-michoacan-tacambaro": {
+    "lat": 19.2499715,
+    "lng": -101.4519835
+  },
+  "083-michoacan-tlalpujahua-de-rayon": {
+    "lat": 19.8055298,
+    "lng": -100.1737104
+  },
+  "084-michoacan-tzintzuntzan": {
+    "lat": 19.6111148,
+    "lng": -101.5407361
+  },
+  "085-michoacan-cotija-de-la-paz": {
+    "lat": 19.8084734,
+    "lng": -102.7041756
+  },
+  "086-morelos-tepoztlan": {
+    "lat": 18.9914959,
+    "lng": -99.1025453
+  },
+  "087-morelos-tlayacapan": {
+    "lat": 18.9435437,
+    "lng": -98.9712598
+  },
+  "088-morelos-tlaltizapan-de-zapata": {
+    "lat": 18.7045227,
+    "lng": -99.1419173
+  },
+  "089-morelos-xochitepec": {
+    "lat": 18.7653308,
+    "lng": -99.2338981
+  },
+  "090-nayarit-compostela": {
+    "lat": 21.2375206,
+    "lng": -104.8993726
+  },
+  "091-nayarit-jala": {
+    "lat": 21.2025645,
+    "lng": -104.4450318
+  },
+  "092-nayarit-mexcaltitan-de-uribe": {
+    "lat": 21.9057656,
+    "lng": -105.4751394
+  },
+  "093-nayarit-sayulita": {
+    "lat": 20.8689257,
+    "lng": -105.4407022
+  },
+  "094-nayarit-ahuacatlan": {
+    "lat": 21.0512498,
+    "lng": -104.5614685
+  },
+  "095-nayarit-amatlan-de-canas": {
+    "lat": 20.7992546,
+    "lng": -104.3972115
+  },
+  "096-nayarit-ixtlan-del-rio": {
+    "lat": 21.0290566,
+    "lng": -104.327737
+  },
+  "097-nayarit-san-blas": {
+    "lat": 21.5381431,
+    "lng": -105.1838784
+  },
+  "098-nayarit-puerto-balleto-islas-marias": {
+    "lat": 21.6344098,
+    "lng": -106.5364019
+  },
+  "099-nuevo-leon-bustamante": {
+    "lat": 26.5713326,
+    "lng": -100.5700509
+  },
+  "100-nuevo-leon-linares": {
+    "lat": 24.8530057,
+    "lng": -99.4103419
+  },
+  "101-nuevo-leon-santiago": {
+    "lat": 25.374378,
+    "lng": -100.2609439
+  },
+  "102-nuevo-leon-general-teran": {
+    "lat": 25.2706582,
+    "lng": -99.4089871
+  },
+  "103-nuevo-leon-general-zaragoza": {
+    "lat": 23.8802692,
+    "lng": -99.7402544
+  },
+  "104-oaxaca-capulalpam-de-mendez": {
+    "lat": 17.306111,
+    "lng": -96.446111
+  },
+  "105-oaxaca-huautla-de-jimenez": {
+    "lat": 18.1474052,
+    "lng": -96.8009327
+  },
+  "106-oaxaca-mazunte": {
+    "lat": 15.6675884,
+    "lng": -96.5536552
+  },
+  "107-oaxaca-san-pablo-villa-de-mitla": {
+    "lat": 16.9675629,
+    "lng": -96.3182467
+  },
+  "108-oaxaca-san-pedro-y-san-pablo-teposcolula": {
+    "lat": 17.4936148,
+    "lng": -97.4712169
+  },
+  "109-oaxaca-santa-catarina-juquila": {
+    "lat": 16.1799827,
+    "lng": -97.3303513
+  },
+  "110-puebla-atlixco": {
+    "lat": 18.908889,
+    "lng": -98.437778
+  },
+  "111-puebla-chignahuapan": {
+    "lat": 19.8213915,
+    "lng": -98.1177571
+  },
+  "112-puebla-cholula": {
+    "lat": 19.0678244,
+    "lng": -98.3106315
+  },
+  "113-puebla-cuetzalan-del-progreso": {
+    "lat": 20.0272192,
+    "lng": -97.4938535
+  },
+  "114-puebla-huauchinango": {
+    "lat": 20.1782494,
+    "lng": -98.0490728
+  },
+  "115-puebla-pahuatlan": {
+    "lat": 20.2876315,
+    "lng": -98.1450864
+  },
+  "116-puebla-tetela-de-ocampo": {
+    "lat": 19.8114617,
+    "lng": -97.7872631
+  },
+  "117-puebla-tlatlauquitepec": {
+    "lat": 19.8386406,
+    "lng": -97.5057373
+  },
+  "118-puebla-xicotepec-de-juarez": {
+    "lat": 20.2767053,
+    "lng": -97.9606968
+  },
+  "119-puebla-zacatlan-de-las-manzanas": {
+    "lat": 19.9617577,
+    "lng": -97.9685623
+  },
+  "120-puebla-huejotzingo": {
+    "lat": 19.1642771,
+    "lng": -98.4392754
+  },
+  "121-puebla-teziutlan": {
+    "lat": 19.8739926,
+    "lng": -97.3715629
+  },
+  "122-queretaro-amealco-de-bonfil": {
+    "lat": 20.1874446,
+    "lng": -100.0691552
+  },
+  "123-queretaro-bernal": {
+    "lat": 20.7496017,
+    "lng": -99.9458978
+  },
+  "124-queretaro-cadereyta-de-montes": {
+    "lat": 20.7912161,
+    "lng": -99.6660444
+  },
+  "125-queretaro-jalpan-de-serra": {
+    "lat": 21.3841409,
+    "lng": -99.3264604
+  },
+  "126-queretaro-san-joaquin": {
+    "lat": 20.9990848,
+    "lng": -99.4913185
+  },
+  "127-queretaro-tequisquiapan": {
+    "lat": 20.5422158,
+    "lng": -99.9478987
+  },
+  "128-queretaro-pinal-de-amoles": {
+    "lat": 21.1665053,
+    "lng": -99.6233214
+  },
+  "129-quintana-roo-bacalar": {
+    "lat": 18.9407916,
+    "lng": -88.6164282
+  },
+  "130-quintana-roo-isla-mujeres": {
+    "lat": 21.2371906,
+    "lng": -86.7350001
+  },
+  "131-quintana-roo-tulum": {
+    "lat": 20.168177,
+    "lng": -87.6576145
+  },
+  "132-quintana-roo-cozumel": {
+    "lat": 20.4320599,
+    "lng": -86.9206906
+  },
+  "133-san-luis-potosi-aquismon": {
+    "lat": 21.7481115,
+    "lng": -99.0635804
+  },
+  "134-san-luis-potosi-real-de-catorce": {
+    "lat": 22.1660559,
+    "lng": -101.0166176
+  },
+  "135-san-luis-potosi-santa-maria-del-rio": {
+    "lat": 21.7352338,
+    "lng": -100.738271
+  },
+  "136-san-luis-potosi-xilitla": {
+    "lat": 21.3935269,
+    "lng": -99.0130347
+  },
+  "137-san-luis-potosi-ciudad-del-maiz": {
+    "lat": 22.4309306,
+    "lng": -99.7047331
+  },
+  "138-san-luis-potosi-tierra-nueva": {
+    "lat": 21.6451516,
+    "lng": -100.5284238
+  },
+  "139-sinaloa-cosala": {
+    "lat": 24.5161646,
+    "lng": -106.7966333
+  },
+  "140-sinaloa-el-rosario": {
+    "lat": 22.9920525,
+    "lng": -105.8572752
+  },
+  "141-sinaloa-el-fuerte": {
+    "lat": 26.4155546,
+    "lng": -108.6172584
+  },
+  "142-sinaloa-mocorito": {
+    "lat": 25.3639466,
+    "lng": -107.8189378
+  },
+  "143-sinaloa-san-ignacio": {
+    "lat": 23.9249352,
+    "lng": -106.2753073
+  },
+  "144-sonora-alamos": {
+    "lat": 27.0226935,
+    "lng": -108.9346037
+  },
+  "145-sonora-magdalena-de-kino": {
+    "lat": 30.6268798,
+    "lng": -110.9614533
+  },
+  "146-sonora-san-carlos": {
+    "lat": 30.5911667,
+    "lng": -110.923
+  },
+  "147-sonora-ures": {
+    "lat": 29.3582073,
+    "lng": -110.3229574
+  },
+  "148-tabasco-tapijulapa": {
+    "lat": 17.460307,
+    "lng": -92.778801
+  },
+  "149-tabasco-frontera": {
+    "lat": 18.5321825,
+    "lng": -92.6461428
+  },
+  "150-tabasco-teapa": {
+    "lat": 17.6197305,
+    "lng": -92.9729413
+  },
+  "151-tamaulipas-mier": {
+    "lat": 26.4299628,
+    "lng": -99.1520182
+  },
+  "152-tamaulipas-tula": {
+    "lat": 22.9478817,
+    "lng": -99.8055882
+  },
+  "153-tlaxcala-huamantla": {
+    "lat": 19.3233319,
+    "lng": -97.9145665
+  },
+  "154-tlaxcala-tlaxco": {
+    "lat": 19.6205864,
+    "lng": -98.1707601
+  },
+  "155-tlaxcala-ixtenco": {
+    "lat": 19.2596268,
+    "lng": -97.9038476
+  },
+  "156-veracruz-coatepec": {
+    "lat": 19.4543134,
+    "lng": -96.9596375
+  },
+  "157-veracruz-coscomatepec": {
+    "lat": 19.0591501,
+    "lng": -97.0995339
+  },
+  "158-veracruz-orizaba": {
+    "lat": 18.8592328,
+    "lng": -97.1106537
+  },
+  "159-veracruz-papantla": {
+    "lat": 20.4173494,
+    "lng": -97.321741
+  },
+  "160-veracruz-xico": {
+    "lat": 19.4457798,
+    "lng": -97.0707569
+  },
+  "161-veracruz-zozocolco-de-hidalgo": {
+    "lat": 20.1306888,
+    "lng": -97.5542035
+  },
+  "162-veracruz-cordoba": {
+    "lat": 18.8944704,
+    "lng": -96.9352891
+  },
+  "163-veracruz-naolinco-de-victoria": {
+    "lat": 19.6546437,
+    "lng": -96.8731884
+  },
+  "164-yucatan-izamal": {
+    "lat": 20.9333726,
+    "lng": -89.018267
+  },
+  "165-yucatan-mani": {
+    "lat": 20.3901397,
+    "lng": -89.3752578
+  },
+  "166-yucatan-sisal": {
+    "lat": 21.1651801,
+    "lng": -90.0311303
+  },
+  "167-yucatan-valladolid": {
+    "lat": 20.6902505,
+    "lng": -88.2016999
+  },
+  "168-yucatan-espita": {
+    "lat": 21.0098186,
+    "lng": -88.3619034
+  },
+  "169-yucatan-motul-de-carrillo-puerto": {
+    "lat": 21.1090044,
+    "lng": -89.2864132
+  },
+  "170-yucatan-tekax-de-alvaro-obregon": {
+    "lat": 19.9791111,
+    "lng": -89.4886352
+  },
+  "171-zacatecas-guadalupe": {
+    "lat": 22.7823843,
+    "lng": -102.4505058
+  },
+  "172-zacatecas-jerez-de-garcia-salinas": {
+    "lat": 22.667179,
+    "lng": -102.9776078
+  },
+  "173-zacatecas-nochistlan-de-mejia": {
+    "lat": 21.436113,
+    "lng": -102.8272662
+  },
+  "174-zacatecas-pinos": {
+    "lat": 22.2729743,
+    "lng": -101.6040748
+  },
+  "175-zacatecas-sombrerete": {
+    "lat": 23.6354312,
+    "lng": -103.6410119
+  },
+  "176-zacatecas-teul-de-gonzalez-ortega": {
+    "lat": 21.3503371,
+    "lng": -103.405026
+  },
+  "177-zacatecas-villanueva": {
+    "lat": 22.3353013,
+    "lng": -102.8433526
+  }
+}

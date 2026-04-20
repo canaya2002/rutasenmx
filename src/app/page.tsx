@@ -268,32 +268,28 @@ export default async function HomePage() {
       {/* ============================================================ */}
       {/* HERO — cinematic 4K video with 3D search                     */}
       {/* ============================================================ */}
-      <section className="relative isolate overflow-hidden bg-black">
-        {/* Background video (poster paints instantly, video fades in).
-            Overscans the section by 2 px on every side so subpixel rounding
-            can never reveal the white section below. */}
-        <div className="absolute -inset-[2px] -z-20">
+      <section className="relative isolate -mt-16 min-h-screen overflow-hidden bg-black">
+        {/* Background video — overscans by 4px to prevent subpixel white line */}
+        <div className="absolute -inset-1 -z-20">
           <HeroVideo
             src="/videos/VideoLandingMexico.mp4"
             poster="/Yucatan/Piramide.jpg"
           />
         </div>
-        {/* Subtle gradient — darker only at the top/bottom edges for text legibility,
-            but keeps the middle of the video clear. No white fade-out. */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/20 to-black/45" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/25 to-black/55" />
         {/* Glow blobs */}
         <div aria-hidden className="pointer-events-none absolute -left-20 top-1/4 -z-[5] h-72 w-72 rounded-full bg-emerald-400/15 blur-3xl" />
         <div aria-hidden className="pointer-events-none absolute right-0 top-0 -z-[5] h-96 w-96 rounded-full bg-amber-400/10 blur-3xl" />
 
-        <div className="mx-auto flex max-w-5xl flex-col items-center px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+        <div className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-4 pb-32 pt-24 text-center sm:px-6 lg:px-8">
           <span className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#06C167]" />
             {isEn ? 'Made in Mexico · 32 states · 2,000+ places' : 'Hecho en México · 32 estados · +2,000 lugares'}
           </span>
-          <h1 className="animate-fade-up mt-5 max-w-4xl text-balance text-4xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="animate-fade-up mt-6 max-w-4xl text-balance text-4xl font-extrabold tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl xl:text-7xl">
             {t.hero.title}
           </h1>
-          <p className="animate-fade-up mx-auto mt-5 max-w-2xl text-balance text-lg leading-relaxed text-white/90 sm:text-xl">
+          <p className="animate-fade-up mx-auto mt-6 max-w-2xl text-balance text-lg leading-relaxed text-white/90 sm:text-xl">
             {t.hero.subtitle}
           </p>
 
@@ -301,7 +297,7 @@ export default async function HomePage() {
 
           <Link
             href="/explorar"
-            className="animate-fade-up mt-6 inline-flex items-center gap-2 text-sm font-medium text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white/80"
+            className="animate-fade-up mt-8 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-medium text-white/90 backdrop-blur-sm transition hover:bg-white/20 hover:text-white"
           >
             {t.hero.exploreMap} <span aria-hidden="true">→</span>
           </Link>
@@ -331,16 +327,11 @@ export default async function HomePage() {
       {/* ============================================================ */}
       <ScrollReveal as="section" className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-                {t.sections.featuredRoutes}
-              </h2>
-              <p className="mt-2 text-slate-500">{t.sections.featuredRoutesDesc}</p>
-            </div>
-            <Link href="/rutas" className="hidden text-sm font-semibold text-[#06C167] hover:text-emerald-700 sm:inline-flex">
-              {t.common.viewAll} →
-            </Link>
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              {t.sections.featuredRoutes}
+            </h2>
+            <p className="mt-2 text-slate-500">{t.sections.featuredRoutesDesc}</p>
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -358,22 +349,39 @@ export default async function HomePage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover transition duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  <span className="absolute bottom-3 left-3 inline-flex items-center rounded-full bg-white/90 px-2.5 py-0.5 text-xs font-semibold text-slate-800 backdrop-blur-sm">
-                    {route.distance}
-                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
+                  {/* Distance + duration overlay — glassmorphic badges */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-bold text-white backdrop-blur-md">
+                      <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                      {route.distance}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-bold text-white backdrop-blur-md">
+                      <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><circle cx="12" cy="12" r="10" /><path strokeLinecap="round" d="M12 6v6l4 2" /></svg>
+                      {route.duration}
+                    </span>
+                  </div>
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <h3 className="text-lg font-semibold text-slate-900 group-hover:text-[#06C167]">{route.title}</h3>
                   <p className="mt-1.5 flex-1 text-sm leading-relaxed text-slate-500">{route.description}</p>
                   <div className="mt-4 flex items-center gap-3 text-xs font-medium text-slate-400">
-                    <span>{route.duration}</span>
-                    <span className="h-1 w-1 rounded-full bg-slate-200" />
                     <span>{route.stops} {stopsLabel}</span>
                   </div>
                 </div>
               </Link>
             ))}
+          </div>
+
+          {/* Glassmorphic "View all" button */}
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/rutas"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-slate-50/70 px-8 py-3.5 text-sm font-semibold text-slate-700 backdrop-blur-sm transition-all hover:border-emerald-300 hover:bg-white hover:text-[#06C167] hover:shadow-lg"
+            >
+              {t.common.viewAll}
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </Link>
           </div>
         </div>
       </ScrollReveal>
@@ -383,16 +391,11 @@ export default async function HomePage() {
       {/* ============================================================ */}
       <ScrollReveal as="section" className="bg-slate-50 py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-                {t.sections.pueblosMagicos}
-              </h2>
-              <p className="mt-2 text-slate-500">{t.sections.pueblosMagicosDesc}</p>
-            </div>
-            <Link href="/pueblos-magicos" className="hidden text-sm font-semibold text-[#06C167] hover:text-emerald-700 sm:inline-flex">
-              {t.common.viewAll} →
-            </Link>
+          <div className="text-center">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              {t.sections.pueblosMagicos}
+            </h2>
+            <p className="mt-2 text-slate-500">{t.sections.pueblosMagicosDesc}</p>
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -429,33 +432,81 @@ export default async function HomePage() {
               </Link>
             ))}
           </div>
+
+          {/* Glassmorphic "View all" button */}
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/pueblos-magicos"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/70 px-8 py-3.5 text-sm font-semibold text-slate-700 backdrop-blur-sm transition-all hover:border-emerald-300 hover:bg-white hover:text-[#06C167] hover:shadow-lg"
+            >
+              {isEn ? 'See all 177 Pueblos Mágicos' : 'Ver los 177 Pueblos Mágicos'}
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </Link>
+          </div>
         </div>
       </ScrollReveal>
 
       {/* ============================================================ */}
       {/* HOW IT WORKS                                                 */}
       {/* ============================================================ */}
-      <ScrollReveal as="section" className="bg-white py-16 sm:py-24">
+      <ScrollReveal as="section" className="bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               {t.sections.howItWorks}
             </h2>
-            <p className="mt-2 text-slate-500">{t.sections.howItWorksDesc}</p>
+            <p className="mt-3 text-lg text-slate-500">{t.sections.howItWorksDesc}</p>
           </div>
-          <div className="mt-14 grid gap-10 sm:grid-cols-3">
-            {HOW_IT_WORKS.map(({ step, title, description, icon }, i) => (
-              <div key={step} className={`reveal-stagger-${i + 1} text-center`}>
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-50 text-3xl shadow-sm ring-1 ring-emerald-100">
-                  {icon}
+
+          <div className="mt-16 grid gap-8 lg:grid-cols-3">
+            {HOW_IT_WORKS.map(({ step, title, description, icon }, i) => {
+              const bullets = [
+                [
+                  isEn ? 'Search by state, category or place name' : 'Busca por estado, categoría o nombre de lugar',
+                  isEn ? '177 Pueblos Mágicos, 200+ archaeological zones' : '177 Pueblos Mágicos, 200+ zonas arqueológicas',
+                ],
+                [
+                  isEn ? 'Every stop geo-located on the interactive map' : 'Cada parada geolocalizada en el mapa interactivo',
+                  isEn ? 'Photos, ratings and editorial guides' : 'Fotos, calificaciones y guías editoriales',
+                ],
+                [
+                  isEn ? 'Automatic tolls, fuel & time estimates' : 'Casetas, gasolina y tiempos automáticos',
+                  isEn ? 'Share or export as PDF / GPX' : 'Comparte o exporta en PDF / GPX',
+                ],
+              ];
+              return (
+                <div key={step} className={`reveal-stagger-${i + 1} group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition hover:shadow-lg`}>
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-2xl shadow-md">
+                      {icon}
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-widest text-[#06C167]">{stepLabel} {step}</p>
+                      <h3 className="text-lg font-bold text-slate-900">{title}</h3>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-500">{description}</p>
+                  <ul className="mt-5 space-y-2.5">
+                    {bullets[i].map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-sm text-slate-600">
+                        <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#06C167]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-[#06C167]">
-                  {stepLabel} {step}
-                </p>
-                <h3 className="mt-2 text-lg font-semibold text-slate-900">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{description}</p>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/explorar"
+              className="group inline-flex items-center gap-2 rounded-full bg-slate-900 px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-all hover:bg-slate-800 hover:shadow-xl"
+            >
+              {isEn ? 'Start planning your route' : 'Empieza a planear tu ruta'}
+              <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </Link>
           </div>
         </div>
       </ScrollReveal>
@@ -516,77 +567,82 @@ export default async function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* ROAD TRIPS — SEO text + interactive collage                  */}
+      {/* ROAD TRIPS — SEO text + auto-scrolling photo carousel        */}
       {/* ============================================================ */}
-      <ScrollReveal as="section" className="bg-white py-16 sm:py-24">
+      <ScrollReveal as="section" className="overflow-hidden bg-slate-50 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-start gap-12 lg:grid-cols-12">
-            {/* Text column */}
-            <article className="prose prose-slate max-w-none lg:col-span-7 prose-headings:font-bold prose-a:text-[#06C167] prose-a:no-underline hover:prose-a:underline">
-              <span className="mb-2 inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#06C167] ring-1 ring-emerald-100">
-                {isEn ? 'Why drive Mexico' : 'Por qué recorrer México'}
-              </span>
-              <h2 className="mt-2">{roadTripHeadline}</h2>
-              <p>{roadTripIntro}</p>
-
-              <ul className="not-prose mt-6 grid gap-3 sm:grid-cols-2">
-                {roadTripDetails.map((item, i) => (
-                  <li key={item.title} className={`reveal-stagger-${(i % 4) + 1}`}>
-                    <Link
-                      href={item.href}
-                      className="block rounded-2xl border border-slate-200 bg-white p-4 transition hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-md"
-                    >
-                      <span className="block text-sm font-semibold text-slate-900">{item.title}</span>
-                      <span className="mt-1 block text-sm text-slate-500">{item.desc}</span>
-                      <span className="mt-2 block text-xs font-semibold text-[#06C167]">
-                        {isEn ? 'Learn more →' : 'Saber más →'}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-6">
-                {isEn
-                  ? 'Whether you want a weekend escape from Mexico City, Monterrey or Guadalajara, or a two-week road trip through the southeast — every stop on our site is geo-located and clickable, so you can jump straight into your favourite maps app.'
-                  : 'Ya sea una escapada de fin de semana desde la Ciudad de México, Monterrey o Guadalajara, o un road trip de dos semanas por el sureste — cada parada del sitio está geolocalizada y se abre en tu aplicación de mapas favorita.'}
-              </p>
-            </article>
-
-            {/* Interactive collage — explicit row heights so tiles never render as thin strips */}
-            <div className="lg:col-span-5">
-              <div className="grid grid-cols-6 gap-3 auto-rows-[140px] sm:auto-rows-[170px] lg:auto-rows-[150px] xl:auto-rows-[180px]">
-                {ROAD_TRIP_COLLAGE.slice(0, 6).map((img, i) => {
-                  const placements = [
-                    'col-span-6 row-span-2', // hero (full width, 2 rows tall)
-                    'col-span-3 row-span-2',
-                    'col-span-3 row-span-2',
-                    'col-span-2 row-span-2',
-                    'col-span-2 row-span-2',
-                    'col-span-2 row-span-2',
-                  ];
-                  return (
-                    <div
-                      key={img.src}
-                      className={`group relative overflow-hidden rounded-2xl shadow-md ring-1 ring-black/5 ${placements[i]} reveal-stagger-${(i % 5) + 1}`}
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 40vw"
-                        className="object-cover transition duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
-                      <span className="absolute bottom-3 left-3 text-sm font-semibold text-white drop-shadow-md">
-                        {img.caption}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              {roadTripHeadline}
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">
+              {roadTripIntro}
+            </p>
           </div>
+        </div>
+
+        {/* Auto-scrolling photo carousel — infinite loop, no arrows */}
+        <div className="mt-12 overflow-hidden">
+          <div className="animate-marquee flex w-max gap-4">
+            {[...ROAD_TRIP_COLLAGE, ...ROAD_TRIP_COLLAGE].map((img, i) => (
+              <div
+                key={`${img.src}-${i}`}
+                className="group relative h-52 w-72 shrink-0 overflow-hidden rounded-2xl shadow-md sm:h-64 sm:w-80"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="320px"
+                  className="object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+                <span className="absolute bottom-3 left-3 text-sm font-semibold text-white drop-shadow-md">
+                  {img.caption}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Feature cards */}
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {roadTripDetails.map((item, i) => {
+              const iconPaths = [
+                'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
+                'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+                'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+                'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+              ];
+              return (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className={`reveal-stagger-${(i % 4) + 1} group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-[#06C167]/30 hover:shadow-lg`}
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d={iconPaths[i]} /></svg>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-900">{item.title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-500">{item.desc}</p>
+                    <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#06C167]">
+                      {isEn ? 'Learn more' : 'Saber más'}
+                      <svg className="h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Closing */}
+          <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-slate-500">
+            {isEn
+              ? 'Whether you want a weekend escape from Mexico City, Monterrey or Guadalajara, or a two-week road trip through the southeast — every stop on our site is geo-located and opens in your favorite maps app.'
+              : 'Ya sea una escapada de fin de semana desde la Ciudad de México, Monterrey o Guadalajara, o un road trip de dos semanas por el sureste — cada parada del sitio está geolocalizada y se abre en tu aplicación de mapas favorita.'}
+          </p>
         </div>
       </ScrollReveal>
     </>

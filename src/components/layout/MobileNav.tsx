@@ -29,6 +29,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
     { href: "/rutas", label: t.common.routes },
     { href: "/pueblos-magicos", label: t.common.pueblosMagicos },
     { href: "/guias", label: t.common.guides },
+    { href: "/conectar", label: t.common.conectar, highlight: true },
   ];
 
   // Close drawer on navigation
@@ -47,7 +48,8 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
               width={180}
               height={60}
               priority
-              className="h-10 w-auto object-contain"
+              className="object-contain"
+              style={{ height: 'auto', width: 'auto', maxHeight: '2.5rem' }}
             />
           </SheetTitle>
         </SheetHeader>
@@ -59,11 +61,15 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
               href={link.href}
               className={cn(
                 "rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                pathname === link.href || pathname?.startsWith(link.href + "/")
-                  ? "bg-terracotta/10 text-terracotta"
-                  : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                link.highlight &&
+                  !(pathname === link.href || pathname?.startsWith(link.href + "/"))
+                  ? "bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
+                  : pathname === link.href || pathname?.startsWith(link.href + "/")
+                    ? "bg-terracotta/10 text-terracotta"
+                    : "text-muted-foreground hover:bg-accent hover:text-foreground",
               )}
             >
+              {link.highlight && <span className="mr-1" aria-hidden>♥</span>}
               {link.label}
             </Link>
           ))}

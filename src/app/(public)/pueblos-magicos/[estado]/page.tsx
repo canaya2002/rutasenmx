@@ -1,60 +1,67 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { MapPin } from 'lucide-react';
+
 import { buildPageMetadata } from '@/lib/seo/metadata';
 import { buildBreadcrumbs } from '@/lib/seo/breadcrumbs';
-import { buildBreadcrumbSchema, buildCollectionPageSchema } from '@/lib/seo/schema';
 import {
-  getStateBySlug,
-  getPlacesByStateAndCategory,
-  getStatesWithCategory,
-} from '@/lib/data/mock';
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+} from '@/lib/seo/schema';
+import {
+  getEstadosWithPueblos,
+  getPueblosByEstadoSlug,
+  EXPERIENCE_LABELS,
+  EXPERIENCE_EMOJIS,
+} from '@/lib/pueblos-magicos';
 
 interface Props {
   params: Promise<{ estado: string }>;
 }
 
 export async function generateStaticParams() {
-  const states = getStatesWithCategory('pueblos-magicos');
-  return states.map((s) => ({ estado: s.slug }));
+  return getEstadosWithPueblos().map((s) => ({ estado: s.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { estado } = await params;
-  const state = getStateBySlug(estado);
-  if (!state) return {};
+  const match = getEstadosWithPueblos().find((s) => s.slug === estado);
+  if (!match) return {};
 
   return buildPageMetadata({
-    title: `Pueblos Mágicos en ${state.name}`,
-    description: `Descubre los Pueblos Mágicos de ${state.name}: guía completa con qué hacer, cómo llegar y mapa interactivo.`,
-    path: `/pueblos-magicos/${state.slug}`,
+    title: `Pueblos Mágicos en ${match.name}: los ${match.count} del estado`,
+    description: `Guía de los ${match.count} Pueblos Mágicos de ${match.name}: resumen, dato curioso, atracciones ancla y mapa.`,
+    path: `/pueblos-magicos/${match.slug}`,
     keywords: [
-      `pueblos mágicos ${state.name}`,
-      `pueblos mágicos en ${state.name}`,
-      `turismo ${state.name}`,
+      `pueblos mágicos ${match.name}`,
+      `pueblos mágicos en ${match.name}`,
+      `turismo ${match.name}`,
     ],
   });
 }
 
 export default async function PueblosMagicosByEstadoPage({ params }: Props) {
   const { estado } = await params;
-  const state = getStateBySlug(estado);
-  if (!state) notFound();
+  const stateInfo = getEstadosWithPueblos().find((s) => s.slug === estado);
+  if (!stateInfo) notFound();
 
-  const pueblos = getPlacesByStateAndCategory(estado, 'pueblos-magicos');
+  const pueblos = getPueblosByEstadoSlug(estado);
   const breadcrumbs = buildBreadcrumbs([
     { label: 'Pueblos Mágicos', href: '/pueblos-magicos' },
-    { label: state.name, href: `/pueblos-magicos/${state.slug}` },
+    {
+      label: stateInfo.name,
+      href: `/pueblos-magicos/${stateInfo.slug}`,
+    },
   ]);
 
   const collectionSchema = buildCollectionPageSchema(
-    `Pueblos Mágicos en ${state.name}`,
-    `Descubre los Pueblos Mágicos de ${state.name}.`,
+    `Pueblos Mágicos en ${stateInfo.name}`,
+    `Los ${pueblos.length} Pueblos Mágicos de ${stateInfo.name}.`,
     pueblos.map((p) => ({
       name: p.name,
-      url: `https://rutasenmx.com/lugares/${p.slug}`,
-      image: p.image,
-      description: p.description,
+      url: `https://rutasenmx.com/pueblos-magicos/${p.estadoSlug}/${p.slug}`,
+      description: p.resumen,
     })),
   );
 
@@ -71,47 +78,89 @@ export default async function PueblosMagicosByEstadoPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        <nav className="mb-6 text-xs text-slate-500">
+          <Link href="/" className="hover:text-[#06C167]">
+            Inicio
+          </Link>{' '}
+          <span className="mx-1">/</span>
+          <Link href="/pueblos-magicos" className="hover:text-[#06C167]">
+            Pueblos Mágicos
+          </Link>{' '}
+          <span className="mx-1">/</span>
+          <span className="text-slate-700">{stateInfo.name}</span>
+        </nav>
 
-        {/* Header */}
-        <header className="mb-12">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl">
-            Pueblos Mágicos en {state.name}
+        <header className="mb-10">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#06C167]/10 px-3 py-1 text-xs font-semibold text-[#06C167]">
+            ✨ {stateInfo.macroregion}
+          </div>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl">
+            Pueblos Mágicos en {stateInfo.name}
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
             {pueblos.length > 0
-              ? `Explora los ${pueblos.length} Pueblo${pueblos.length === 1 ? '' : 's'} Mágico${pueblos.length === 1 ? '' : 's'} de ${state.name}. Cada uno ofrece experiencias únicas de cultura, naturaleza y tradición.`
-              : `Actualmente no tenemos Pueblos Mágicos registrados en ${state.name}. Pronto agregaremos más destinos.`}
+              ? `Los ${pueblos.length} Pueblos Mágicos de ${stateInfo.name}, con resumen, dato curioso y tres atracciones ancla por pueblo.`
+              : `Actualmente no tenemos Pueblos Mágicos registrados en ${stateInfo.name}.`}
           </p>
         </header>
 
-        {/* Grid */}
-        {pueblos.length > 0 ? (
-          <section aria-label={`Pueblos Mágicos en ${state.name}`}>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {pueblos.map((pueblo) => (
+        {pueblos.length > 0 && (
+          <section aria-label={`Pueblos Mágicos en ${stateInfo.name}`}>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {pueblos.map((p) => (
                 <Link
-                  key={pueblo.slug}
-                  href={`/lugares/${pueblo.slug}`}
-                  className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+                  key={p.id}
+                  href={`/pueblos-magicos/${p.estadoSlug}/${p.slug}`}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
                 >
-                  <div className="aspect-[16/10] w-full bg-zinc-100">
-                    <div className="flex h-full items-center justify-center text-sm text-zinc-400">
-                      {pueblo.name}
+                  <div className="flex items-start justify-between gap-3 border-b border-slate-100 bg-gradient-to-br from-emerald-50 via-white to-white p-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-[#06C167]">
+                        ✨ Pueblo Mágico
+                      </div>
+                      <h2 className="mt-1 text-lg font-bold text-slate-900 group-hover:text-[#06C167]">
+                        {p.name}
+                      </h2>
                     </div>
+                    <span
+                      className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${
+                        p.coordPrecision === 'exact'
+                          ? 'bg-[#06C167]/10 text-[#06C167]'
+                          : 'bg-slate-100 text-slate-400'
+                      }`}
+                      title={
+                        p.coordPrecision === 'exact'
+                          ? 'Ubicación exacta'
+                          : 'Ubicación aproximada'
+                      }
+                    >
+                      <MapPin className="h-4 w-4" />
+                    </span>
                   </div>
-                  <div className="p-4">
-                    <h2 className="text-lg font-semibold text-zinc-900 group-hover:text-blue-600">
-                      {pueblo.name}
-                    </h2>
-                    <p className="mt-2 line-clamp-2 text-sm text-zinc-500">{pueblo.description}</p>
+                  <div className="flex flex-1 flex-col p-4">
+                    <p className="line-clamp-3 text-sm text-slate-600">
+                      {p.resumen}
+                    </p>
+                    <p className="mt-3 line-clamp-2 text-xs italic text-slate-500">
+                      💡 {p.datoCurioso}
+                    </p>
+                    <ul className="mt-3 space-y-1 text-xs text-slate-600">
+                      {p.atracciones.slice(0, 3).map((atr, i) => (
+                        <li key={i} className="flex gap-1.5">
+                          <span className="text-[#06C167]">•</span>
+                          <span className="line-clamp-1">{atr}</span>
+                        </li>
+                      ))}
+                    </ul>
                     <div className="mt-3 flex flex-wrap gap-1">
-                      {pueblo.badges.slice(0, 3).map((badge) => (
+                      {p.experiences.slice(0, 4).map((tag) => (
                         <span
-                          key={badge}
-                          className="inline-block rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600"
+                          key={tag}
+                          className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-medium text-slate-700"
                         >
-                          {badge}
+                          <span>{EXPERIENCE_EMOJIS[tag]}</span>
+                          {EXPERIENCE_LABELS[tag]}
                         </span>
                       ))}
                     </div>
@@ -120,21 +169,20 @@ export default async function PueblosMagicosByEstadoPage({ params }: Props) {
               ))}
             </div>
           </section>
-        ) : null}
+        )}
 
-        {/* Back links */}
         <section className="mt-12 flex flex-wrap gap-4">
           <Link
             href="/pueblos-magicos"
-            className="text-sm font-medium text-blue-600 hover:text-blue-800"
+            className="text-sm font-medium text-[#06C167] hover:underline"
           >
             &larr; Todos los Pueblos Mágicos
           </Link>
           <Link
-            href={`/estados/${state.slug}`}
-            className="text-sm font-medium text-blue-600 hover:text-blue-800"
+            href={`/estados/${stateInfo.slug}`}
+            className="text-sm font-medium text-[#06C167] hover:underline"
           >
-            Ver todo en {state.name}
+            Ver todo en {stateInfo.name} &rarr;
           </Link>
         </section>
       </main>

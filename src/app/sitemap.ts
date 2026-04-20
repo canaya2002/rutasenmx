@@ -19,33 +19,40 @@ const SITE = 'https://rutasenmx.com';
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+  // Static build-time stamp avoids every sitemap crawl reporting "modified today"
+  // which dilutes Google's trust in lastModified hints. Update with deploys.
+  const buildStamp = new Date(
+    process.env.BUILD_TIMESTAMP ?? '2026-04-20T00:00:00Z',
+  );
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: SITE, lastModified: now, changeFrequency: 'daily', priority: 1.0, images: [`${SITE}/og-default.png`] },
-    { url: `${SITE}/explorar`, lastModified: now, changeFrequency: 'daily', priority: 0.95 },
-    { url: `${SITE}/estados`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/pueblos-magicos`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/museos`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/zonas-arqueologicas`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/rutas`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${SITE}/colecciones`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${SITE}/guias`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
-    { url: `${SITE}/precios`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE}/autopilot`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE}/planear`, lastModified: now, changeFrequency: 'monthly', priority: 0.75 },
-    { url: `${SITE}/acerca-de`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${SITE}/metodologia`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${SITE}/fuentes-de-datos`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
-    { url: `${SITE}/politica-editorial`, lastModified: now, changeFrequency: 'monthly', priority: 0.4 },
-    { url: `${SITE}/correcciones`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
-    { url: `${SITE}/contacto`, lastModified: now, changeFrequency: 'monthly', priority: 0.4 },
-    { url: `${SITE}/privacidad`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
-    { url: `${SITE}/terminos`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
+    { url: SITE, lastModified: buildStamp, changeFrequency: 'daily', priority: 1.0, images: [`${SITE}/icon.png`] },
+    { url: `${SITE}/explorar`, lastModified: buildStamp, changeFrequency: 'daily', priority: 0.95 },
+    { url: `${SITE}/estados`, lastModified: buildStamp, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE}/pueblos-magicos`, lastModified: buildStamp, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE}/museos`, lastModified: buildStamp, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE}/zonas-arqueologicas`, lastModified: buildStamp, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE}/rutas`, lastModified: buildStamp, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE}/colecciones`, lastModified: buildStamp, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${SITE}/guias`, lastModified: buildStamp, changeFrequency: 'daily', priority: 0.9 },
+    { url: `${SITE}/conectar`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${SITE}/comunidad`, lastModified: now, changeFrequency: 'hourly', priority: 0.8 },
+    { url: `${SITE}/precios`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE}/autopilot`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE}/planear`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${SITE}/acerca-de`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${SITE}/metodologia`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${SITE}/fuentes-de-datos`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${SITE}/politica-editorial`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.4 },
+    { url: `${SITE}/correcciones`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${SITE}/contacto`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.4 },
+    { url: `${SITE}/privacidad`, lastModified: buildStamp, changeFrequency: 'yearly', priority: 0.2 },
+    { url: `${SITE}/terminos`, lastModified: buildStamp, changeFrequency: 'yearly', priority: 0.2 },
   ];
 
   const stateRoutes: MetadataRoute.Sitemap = mockStates.map((s) => ({
     url: `${SITE}/estados/${s.slug}`,
-    lastModified: now,
+    lastModified: buildStamp,
     changeFrequency: 'weekly',
     priority: 0.85,
     images: [`${SITE}${s.image}`],
@@ -61,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((p) => p.description && p.description.length > 30)
     .map((p) => ({
       url: `${SITE}/lugares/${p.slug}`,
-      lastModified: now,
+      lastModified: buildStamp,
       changeFrequency: 'monthly',
       priority: 0.75,
       images: p.image ? [p.image.startsWith('http') ? p.image : `${SITE}${p.image}`] : undefined,
@@ -75,7 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routeUrls: MetadataRoute.Sitemap = allRoutes.map((r) => ({
     url: `${SITE}/rutas/${r.slug}`,
-    lastModified: now,
+    lastModified: buildStamp,
     changeFrequency: 'monthly',
     priority: 0.8,
     images: r.image ? [r.image.startsWith('http') ? r.image : `${SITE}${r.image}`] : undefined,
@@ -103,7 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const collectionUrls: MetadataRoute.Sitemap = mockCollections.map((c) => ({
     url: `${SITE}/colecciones/${c.slug}`,
-    lastModified: now,
+    lastModified: buildStamp,
     changeFrequency: 'monthly',
     priority: 0.7,
     images: c.image ? [c.image.startsWith('http') ? c.image : `${SITE}${c.image}`] : undefined,

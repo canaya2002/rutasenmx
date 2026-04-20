@@ -14,7 +14,7 @@ export function LanguageSwitcher() {
     <button
       type="button"
       onClick={() => setLocale(locale === 'es' ? 'en' : 'es')}
-      className="flex items-center gap-1 rounded-full border border-slate-200 px-2.5 py-1 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+      className="flex items-center gap-1 rounded-full border border-white/15 bg-black/50 px-2.5 py-1 text-xs font-medium text-white shadow-lg shadow-black/20 backdrop-blur-xl transition hover:bg-black/60"
       aria-label={locale === 'es' ? 'Switch to English' : 'Cambiar a español'}
     >
       <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
