@@ -14,7 +14,7 @@ import { allGuides, getStateForGuide } from '@/lib/data/guides';
 import { getTranslations } from '@/lib/i18n/server';
 import { JsonLd } from '@/components/seo/JsonLd';
 import GuiasClient from './guias-client';
-import { pickGuiaImage } from '@/lib/data/guia-images';
+import { assignUniqueGuiaImages } from '@/lib/data/guia-images';
 
 const PAGE_PATH = '/guias';
 const PAGE_TITLE = 'Guías de viaje por México: 200+ artículos por estado y tema';
@@ -47,13 +47,14 @@ export default async function GuiasPage() {
   const t = await getTranslations();
   const breadcrumbs = buildBreadcrumbs([{ label: t.common.guides, href: PAGE_PATH }]);
 
+  const coverBySlug = assignUniqueGuiaImages(allGuides.map((g) => g.slug));
   const guidesWithState = allGuides.map((article) => {
     const state = getStateForGuide(article.slug);
     return {
       ...article,
       stateSlug: state?.slug ?? null,
       stateName: state?.name ?? null,
-      cover: pickGuiaImage(article.slug),
+      cover: coverBySlug.get(article.slug) ?? null,
     };
   });
 

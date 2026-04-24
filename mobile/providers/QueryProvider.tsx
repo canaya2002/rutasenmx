@@ -11,6 +11,7 @@ import { useEffect, useState, type ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   QueryClient,
+  QueryClientProvider,
   focusManager,
   onlineManager,
 } from '@tanstack/react-query';
@@ -75,10 +76,12 @@ export function QueryProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  // Web: no persistent cache (expo web uses in-memory query client).
+  // Web: use the in-memory QueryClientProvider (no AsyncStorage persistence
+  // on web because IndexedDB/localStorage aren't worth the bundle overhead
+  // for this app). MUST be imported statically (same module instance as
+  // `useQueryClient` consumers) — the old `require()` approach created a
+  // second module instance and broke context lookup inside IAPProvider.
   if (Platform.OS === 'web') {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { QueryClientProvider } = require('@tanstack/react-query');
     return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
   }
 

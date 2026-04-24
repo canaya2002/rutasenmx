@@ -10,18 +10,25 @@ import path from 'node:path';
 
 let cached: string[] | null = null;
 
+// On-disk folder is `public/Guias` (capital G — matches other asset dirs like
+// public/Chiapas, public/Oaxaca). Windows is case-insensitive so lowercase
+// worked locally, but Vercel runs on Linux which is case-sensitive → lowercase
+// returned an empty pool in production. Match the actual casing exactly.
+const DIR_NAME = 'Guias';
+const URL_PREFIX = `/${DIR_NAME}`;
+
 function listGuiaImages(): string[] {
   if (cached) return cached;
-  const dir = path.join(process.cwd(), 'public', 'guias');
+  const dir = path.join(process.cwd(), 'public', DIR_NAME);
   try {
     const entries = fs.readdirSync(dir);
     cached = entries
       .filter((name) => /\.(jpe?g|png|webp|avif)$/i.test(name))
       // Next's image loader and the browser both handle the encoded form; this
       // covers filenames that contain spaces or `()` (e.g. Getty duplicates).
-      .map((name) => `/guias/${encodeURI(name)}`);
+      .map((name) => `${URL_PREFIX}/${encodeURI(name)}`);
   } catch (err) {
-    console.warn('[guia-images] could not read public/guias/:', err);
+    console.warn(`[guia-images] could not read public/${DIR_NAME}/:`, err);
     cached = [];
   }
   return cached;
@@ -82,4 +89,42 @@ export function pickGuiaSet(slug: string, galleryCount: number): { hero: string 
 
 export function guiaImagePoolSize(): number {
   return listGuiaImages().length;
+}
+
+/**
+ * Assigns a UNIQUE image to each slug in `slugs` (no repeats across the whole
+ * list), as long as the pool is large enough. The global co-prime step is
+ * seeded from the full slug list so the assignment is stable: re-deploying
+ * without changing the guide catalog yields the same map.
+ *
+ * Falls back to cyclic reuse once the pool is exhausted — which should only
+ * happen if someone deletes images from `public/Guias/`.
+ */
+export function assignUniqueGuiaImages(slugs: string[]): Map<string, string> {
+  const out = new Map<string, string>();
+  const pool = listGuiaImages();
+  if (pool.length === 0) return out;
+
+  const n = pool.length;
+  // Sort so ordering is independent of the caller's input order — keeps the
+  // assignment stable when the guide list is reshuffled client-side.
+  const sorted = [...slugs].sort();
+  const start = hashString(sorted.join('|')) % n;
+  const step = n > 1 ? (41 % n === 0 ? 1 : 41 % n) : 1;
+
+  const used = new Set<number>();
+  let cursor = start;
+  for (const slug of sorted) {
+    if (used.size >= n) {
+      // Pool exhausted — reuse deterministically based on the slug itself.
+      out.set(slug, pool[hashString(slug) % n]);
+      continue;
+    }
+    let idx = cursor;
+    while (used.has(idx)) idx = (idx + 1) % n;
+    used.add(idx);
+    out.set(slug, pool[idx]);
+    cursor = (cursor + step) % n;
+  }
+  return out;
 }

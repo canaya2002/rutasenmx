@@ -6,6 +6,7 @@
  * Usage: npx tsx scripts/seed.ts [--dry-run]
  */
 
+import './_env'; // MUST be first — loads .env.local before @/db touches process.env
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
@@ -61,13 +62,74 @@ async function main() {
   console.log(`Mode: ${DRY_RUN ? 'DRY RUN' : 'LIVE'}`);
   console.log('');
 
-  // Load seed data
+  // Load seed data.
+  //
+  // Pueblos Mágicos: there are two complementary files:
+  //   - pueblos-magicos-177.json → editorial content (name, resumen, dato curioso,
+  //     atracciones) for all 177 oficialmente designados por SECTUR.
+  //   - pueblos-magicos-coords.json → lat/lng lookup keyed on the 177 file's id.
+  //
+  // Merge both so every row lands with editorial copy AND coordinates. The
+  // legacy pueblos-magicos.json (64 rows with lat/lng inline) is kept as
+  // fallback — if any id is missing in the coords file, we fall back to
+  // name-based coord lookup against the legacy 64 set.
   const estados = loadJson<SeedState[]>('data/seeds/estados.json');
-  const pueblosMagicos = loadJson<SeedPuebloMagico[]>('data/seeds/pueblos-magicos.json');
-  const zonasArqueologicas = loadJson<SeedZonaArqueologica[]>('data/seeds/zonas-arqueologicas.json');
+  const pm177 = loadJson<{
+    pueblos_magicos: Array<{
+      id: string;
+      estado: string;
+      pueblo_magico: string;
+      macroregion: string;
+      resumen_general: string;
+      dato_curioso: string;
+      atracciones_principales: string[];
+    }>;
+  }>('data/seeds/pueblos-magicos-177.json');
+  const pmCoords = loadJson<Record<string, { lat: number; lng: number }>>(
+    'data/seeds/pueblos-magicos-coords.json',
+  );
+  const legacyPm = loadJson<SeedPuebloMagico[]>(
+    'data/seeds/pueblos-magicos.json',
+  );
+  const legacyByName = new Map(
+    legacyPm.map((p) => [
+      p.name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''),
+      p,
+    ]),
+  );
+
+  const pueblosMagicos: SeedPuebloMagico[] = pm177.pueblos_magicos.map((p) => {
+    const coords = pmCoords[p.id];
+    const legacy = legacyByName.get(
+      p.pueblo_magico
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, ''),
+    );
+    return {
+      name: p.pueblo_magico,
+      state: p.estado,
+      municipality: legacy?.municipality,
+      latitude: coords?.lat ?? legacy?.latitude ?? 0,
+      longitude: coords?.lng ?? legacy?.longitude ?? 0,
+      description: p.resumen_general,
+      yearDesignated: legacy?.yearDesignated,
+    };
+  });
+
+  const zonasArqueologicas = loadJson<SeedZonaArqueologica[]>(
+    'data/seeds/zonas-arqueologicas.json',
+  );
+
+  // Sanity check: log how many merged entries have real coordinates.
+  const withCoords = pueblosMagicos.filter(
+    (p) => p.latitude !== 0 && p.longitude !== 0,
+  ).length;
 
   console.log(`Estados: ${estados.length}`);
-  console.log(`Pueblos Magicos: ${pueblosMagicos.length}`);
+  console.log(
+    `Pueblos Magicos: ${pueblosMagicos.length} (con coordenadas: ${withCoords})`,
+  );
   console.log(`Zonas Arqueologicas: ${zonasArqueologicas.length}`);
   console.log('');
 

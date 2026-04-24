@@ -6,10 +6,13 @@ import Constants from 'expo-constants';
  *   2. app.json → extra.apiBaseUrl
  *   3. production default
  */
+// Canonical URL is `www.rutasenmx.com` — Vercel redirects the apex to it.
+// Using `www` directly avoids the 308 redirect that breaks POST bodies on
+// some HTTP clients and breaks CORS preflight entirely on web.
 export const API_BASE_URL =
   process.env.EXPO_PUBLIC_API_BASE_URL ??
   (Constants.expoConfig?.extra?.apiBaseUrl as string | undefined) ??
-  'https://rutasenmx.com';
+  'https://www.rutasenmx.com';
 
 export const APP_ENV = process.env.EXPO_PUBLIC_ENV ?? 'development';
 

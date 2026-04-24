@@ -2,6 +2,10 @@
 module.exports = {
   // NOTE: Update this to include the paths to all of your component files.
   content: ['./app/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
+  // `class` instead of the default `media` so NativeWind on web can toggle
+  // dark mode via the html's class attribute (matching our dark-only theme).
+  // Silences the "Cannot manually set color scheme" runtime error.
+  darkMode: 'class',
   presets: [require('nativewind/preset')],
   theme: {
     extend: {

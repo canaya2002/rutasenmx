@@ -74,6 +74,33 @@ export const users = pgTable(
 );
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// 1b. PASSWORD RESET TOKENS
+// ═══════════════════════════════════════════════════════════════════════════════
+// Stored as SHA-256 hex of the raw token; the raw value only ever leaves the
+// server inside the reset email. Expires one hour after creation. `usedAt`
+// locks the row after a successful reset so the same link cannot be replayed.
+export const passwordResetTokens = pgTable(
+  "password_reset_tokens",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    tokenHash: varchar("token_hash", { length: 128 }).notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    usedAt: timestamp("used_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    uniqueIndex("password_reset_tokens_hash_idx").on(t.tokenHash),
+    index("password_reset_tokens_user_id_idx").on(t.userId),
+    index("password_reset_tokens_expires_at_idx").on(t.expiresAt),
+  ],
+);
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // 2. PROFILES
 // ═══════════════════════════════════════════════════════════════════════════════
 export const profiles = pgTable(

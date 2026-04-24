@@ -26,192 +26,77 @@
 
 ## GRUPO 1 — Antes del primer deploy (bloqueadores duros)
 
-### 1.1 — Crear Postgres productivo
+### 1.1 — Crear Postgres productivo ✅ HECHO
+- Proyecto Neon creado (`ep-odd-credit-anuy681l.c-6.us-east-1.aws.neon.tech`)
+- Extensiones instaladas: `postgis 3.5.0`, `postgis_topology 3.5.0`, `pgcrypto 1.3` (verificado)
+- `DATABASE_URL` guardado en `.env.local` y empujado a Vercel production
 
-**Recomendación: Neon.** Free tier sirve para <1000 usuarios, PostGIS preinstalado, SSL por default.
+### 1.2 — Generar AUTH_SECRET ✅ HECHO
+- Valor generado y guardado en `.env.local` + Vercel production
 
-1. Ir a https://neon.tech/signup
-2. Crear proyecto: nombre **"rutasenmx-prod"**, región **AWS US East (Ohio)** (más cerca de Vercel US-East — latencia <50ms)
-3. Dashboard → **Connection Details** → copiar "Connection string" (termina en `?sslmode=require`)
-4. Abrir la **SQL console** de Neon y correr:
-   ```sql
-   CREATE EXTENSION IF NOT EXISTS postgis;
-   CREATE EXTENSION IF NOT EXISTS postgis_topology;
-   CREATE EXTENSION IF NOT EXISTS pgcrypto;
-   ```
-5. Guardar el connection string — lo pegarás en Vercel como `DATABASE_URL` (ver §1.6).
+### 1.3 — Crear CRON_SECRET ✅ HECHO
+- Valor generado y guardado en `.env.local` + Vercel production
 
-**Alternativa:** Supabase, Railway, AWS RDS. Todas funcionan. El código es agnóstico.
+### 1.4 — Registrar dominio ✅ HECHO
+- `rutasenmx.com` comprado directamente en Vercel (DNS auto-configurado)
 
-### 1.2 — Generar AUTH_SECRET
+### 1.5 — Crear proyecto Vercel ✅ HECHO
+- Proyecto `rutasenmx` creado bajo team `carlos-projects-5604bcfb`
+- Repo linked vía `vercel link`
 
-Una sola vez, en tu terminal:
-```bash
-openssl rand -base64 48
-```
-Copia el output. Lo pegas en `AUTH_SECRET` (§1.6). **No reuses** el del `.env.local` de dev.
+### 1.6 — Env vars en Vercel ✅ HECHO (todas las del grupo 1)
+- `DATABASE_URL`, `AUTH_SECRET`, `NEXT_PUBLIC_APP_URL`, `CRON_SECRET`, `VALIDATE_ENV_ON_BOOT` empujadas a **Production**
+- `AUTH_COOKIE_NAME`, `NEXT_PUBLIC_APP_NAME`, `ANTHROPIC_API_KEY` ya estaban
+- Verificación: `vercel env ls`
 
-### 1.3 — Crear CRON_SECRET
+### 1.7 — Conectar dominio a Vercel ✅ HECHO
+- Comprado dentro de Vercel → DNS automático
 
-Mismo patrón — diferente valor:
-```bash
-openssl rand -hex 32
-```
-Lo usarás en §1.6 (`CRON_SECRET`) y también en **Vercel → Settings → Environment Variables**. Vercel Cron lo manda automáticamente como `Authorization: Bearer <secret>` a `/api/cron/hard-delete-users`.
+### 1.8 — Migrar schema a la DB productiva ✅ HECHO
+- 48 tablas + 17 enums + 130 índices creados en Neon
+- `drizzle.config.ts` tiene `extensionsFilters: ['postgis']` para que no intente borrar PostGIS
 
-### 1.4 — Registrar dominio `rutasenmx.com`
+### 1.9 — Seed catálogo + planes + comunidades ✅ HECHO
+- 177 Pueblos Mágicos (con coordenadas) — merge de `pueblos-magicos-177.json` + `pueblos-magicos-coords.json`
+- 32 zonas arqueológicas
+- 3 subscription_plans (free / pro / premium) con price IDs live de Stripe
+- 9 comunidades (8 foros + 1 canal)
 
-1. Namecheap / Cloudflare Registrar / Google Domains — cualquiera sirve (~$12/año)
-2. Comprar `rutasenmx.com`
-3. Esperar 5-30 min a que aparezca en tu panel
-4. **No configures DNS todavía** — Vercel te va a dar los records exactos en §1.7
+### 1.10 — User admin ✅ HECHO
+- `canaya917@gmail.com` promoted a `role='admin'`
 
-### 1.5 — Crear proyecto Vercel
+### 1.11 — Health check ✅ HECHO
+- `GET /api/health` → `{"ok":true,"db":"up","dbLatencyMs":<120ms}`
 
-1. https://vercel.com/signup (usa GitHub login — más fácil)
-2. **New Project** → Import el repo `roadtomexico`
-3. Framework preset: **Next.js** (auto-detectado)
-4. Build command: `npm run build` (default)
-5. Output: `.next` (default)
-6. Environment variables: **no las pegues todavía** — lo hacemos en §1.6
-7. Click **Deploy** — el primer deploy va a fallar porque no hay DB; no pasa nada, ya tenemos el proyecto creado
-
-### 1.6 — Pegar env vars en Vercel (obligatorias de este grupo)
-
-Vercel Dashboard → tu proyecto → **Settings → Environment Variables** → Production.
-
-| Variable | Valor |
-|---|---|
-| `DATABASE_URL` | (connection string de Neon del §1.1) |
-| `AUTH_SECRET` | (lo que generó openssl en §1.2) |
-| `AUTH_COOKIE_NAME` | `rutasmx_session` |
-| `NEXT_PUBLIC_APP_URL` | `https://rutasenmx.com` |
-| `NEXT_PUBLIC_APP_NAME` | `Rutas en MX` |
-| `CRON_SECRET` | (lo que generó openssl en §1.3) |
-| `VALIDATE_ENV_ON_BOOT` | `1` |
-| `ANTHROPIC_API_KEY` | `sk-ant-...` (ya la tienes en `.env.local`) |
-
-**Redeploy** (botón en el dashboard). Ahora el build debería pasar con errores solo de env opcionales.
-
-### 1.7 — Conectar dominio a Vercel
-
-1. Vercel → tu proyecto → **Settings → Domains** → **Add**
-2. Pegar `rutasenmx.com` → Add
-3. Vercel te muestra 1-2 DNS records (A y/o CNAME). Cópialos.
-4. Ir al panel DNS de tu registrador (Namecheap, Cloudflare, etc.)
-5. Crear los records:
-
-| Tipo | Host | Valor | TTL |
-|---|---|---|---|
-| A | `@` | `76.76.21.21` (Vercel te da el exacto) | Auto |
-| CNAME | `www` | `cname.vercel-dns.com` | Auto |
-
-6. Esperar 5 min - 48 h a que propague. En Vercel eventualmente aparece ✅
-7. Forzar HTTPS (default en Vercel)
-
-### 1.8 — Migrar schema a la DB productiva
-
-En tu máquina local, con el `DATABASE_URL` productivo temporalmente en tu shell:
-```bash
-# REEMPLAZA con tu URL real de Neon
-export DATABASE_URL="postgresql://user:pass@prod-host.neon.tech/db?sslmode=require"
-
-npm run db:push
-# Crea las 39 tablas. Si pide confirmar, escribe "y"
-```
-
-### 1.9 — Seed de catálogo + planes + comunidades
-
-```bash
-# Mismo shell con DATABASE_URL productivo
-npm run seed              # pueblos mágicos + zonas arqueológicas
-npm run seed:plans        # free / pro / premium
-npm run seed:communities  # 8 foros + 1 canal
-```
-
-Son idempotentes — correrlos dos veces no duplica.
-
-### 1.10 — Crear tu user admin
-
-Una vez que el sitio productivo esté arriba, entra al navegador:
-1. Ir a `https://rutasenmx.com/registrarse`
-2. Crear tu cuenta con tu email real + un password fuerte
-3. En la consola SQL de Neon corre:
-   ```sql
-   UPDATE users SET role = 'admin' WHERE email = 'TU_EMAIL@tudominio.com';
-   ```
-4. Cierra sesión y vuelve a entrar. Ahora puedes acceder a `/admin/*`.
-
-### 1.11 — Validar que el stack base funciona
-
-```bash
-# Uptime probe
-curl https://rutasenmx.com/api/health
-# Esperado: { "ok": true, "db": "up", "dbLatencyMs": <200 }
-
-# Env health (requiere admin)
-# Primero loguéate en el navegador como admin, copia el cookie rutasmx_session
-curl -H "Cookie: rutasmx_session=TU_JWT" https://rutasenmx.com/api/admin/env | jq
-# Esperado: todas las required con state="ok"
-```
+### 1.12 — NODE_ENV + Redeploy ✅ HECHO
+- NODE_ENV cambiado a `production` en Vercel
+- 2 redeploys productivos completados con todos los env vars al día
 
 ---
 
 ## GRUPO 2 — Pagos (Stripe) + email
 
-### 2.1 — Stripe producción
+### 2.1 — Stripe producción ✅ HECHO
+- KYC aprobado (user completó)
+- Productos + precios creados en Stripe live mode vía `setup:stripe`:
+  - `prod_UOd6o2RrSmefrk` Pro — `price_1TPpqN8SmIFFERiF5RCs7HLd` (mensual $99) + `price_1TPpqO8SmIFFERiFFcxbz3mK` (anual $799)
+  - `prod_UOd6cgu0O0aT5O` Premium — `price_1TPpqO8SmIFFERiFppztiZG7` (mensual $299) + `price_1TPpqP8SmIFFERiFdwsAxQoU` (anual $2399)
 
-1. Ir a https://dashboard.stripe.com → toggle superior **Test mode OFF** (passa a live)
-2. Completar **Verify your business** (KYC):
-   - RFC empresa o persona física con actividad empresarial
-   - Comprobante de domicilio
-   - Identificación oficial
-   - CLABE bancaria mexicana
-   - Aprobación: **1-3 días hábiles**
-3. Mientras esperas el KYC, puedes configurar productos:
-   ```bash
-   # En tu shell con STRIPE_SECRET_KEY (live) y DATABASE_URL productivo
-   export STRIPE_SECRET_KEY="sk_live_..."   # lo copias del dashboard Stripe
-   export NEXT_PUBLIC_APP_URL="https://rutasenmx.com"
-   npm run setup:stripe
-   # Imprime 4 price IDs — guárdalos
-   ```
+### 2.2 — Credenciales Stripe en Vercel ✅ HECHO
+- `STRIPE_SECRET_KEY` = sk_live_...
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` = pk_live_...
+- 4× `STRIPE_PRICE_*` apuntando a productos live
+- Todo en Vercel production + sincronizado a `subscription_plans` DB via `seed:plans`
 
-### 2.2 — Pegar credenciales Stripe en Vercel
+### 2.3 — Webhook productivo ✅ HECHO
+- Endpoint: `https://rutasenmx.com/api/stripe/webhook`
+- 5 eventos suscritos (checkout.session.completed, customer.subscription.{updated,deleted}, invoice.payment_{succeeded,failed})
+- `STRIPE_WEBHOOK_SECRET` = `whsec_sAMY3spOYyTVgVaz5I1xs3lVrSUhOOKW` en Vercel
 
-| Variable | Valor |
-|---|---|
-| `STRIPE_SECRET_KEY` | `sk_live_...` |
-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | `pk_live_...` |
-| `STRIPE_PRICE_PRO_MONTHLY` | `price_...` (del §2.1) |
-| `STRIPE_PRICE_PRO_ANNUAL` | `price_...` |
-| `STRIPE_PRICE_PREMIUM_MONTHLY` | `price_...` |
-| `STRIPE_PRICE_PREMIUM_ANNUAL` | `price_...` |
+### 2.4 — Payment Methods México ✅ HECHO
+- Cards + OXXO + SPEI activados
 
-### 2.3 — Webhook productivo de Stripe
-
-1. Stripe Dashboard → **Developers → Webhooks → Add endpoint**
-2. Endpoint URL: `https://rutasenmx.com/api/stripe/webhook`
-3. Events (selecciona exactamente estos 5):
-   - `checkout.session.completed`
-   - `customer.subscription.updated`
-   - `customer.subscription.deleted`
-   - `invoice.payment_succeeded`
-   - `invoice.payment_failed`
-4. Click Add
-5. Copia el **Signing secret** (empieza con `whsec_`)
-6. Pégalo en Vercel como `STRIPE_WEBHOOK_SECRET`
-7. **Redeploy Vercel**
-
-### 2.4 — Activar Payment Methods México
-
-Stripe Dashboard → **Settings → Payment methods**:
-- ✅ Cards (auto)
-- ✅ OXXO
-- ✅ SPEI (transferencia)
-- Opcional: Apple Pay, Google Pay
-
-### 2.5 — Activar Customer Portal
+### 2.5 — Customer Portal ✅ HECHO
 
 Stripe Dashboard → **Settings → Billing → Customer portal** → Activate with defaults:
 - ✅ Allow customers to cancel subscriptions
@@ -245,48 +130,20 @@ Stripe Dashboard → **Settings → Billing → Customer portal** → Activate w
 
 ## GRUPO 3 — Mapas + almacenamiento
 
-### 3.1 — Mapbox (mapas + geocoding)
+### 3.1 — Mapbox ✅ HECHO
+- Public + secret tokens en Vercel production
+- Mapas + geocoding funcionando
 
-1. https://mapbox.com/signup (free tier generoso)
-2. Account → **Access tokens**:
-   - Copia el **default public token** (empieza con `pk.`)
-   - Create new token con scope `geocoding:read`, nómbralo "rutasmx-server" (empieza con `sk.`)
-3. Pegar en Vercel:
+### 3.2 — Cloudflare R2 ✅ HECHO
+- Bucket `rutasmx-assets` creado en Cloudflare
+- Credenciales S3 generadas con scope Object Read & Write limitado al bucket
+- Endpoint: `https://05e46d1340e1381b51b853ae97e1cf28.r2.cloudflarestorage.com`
+- Credenciales en Vercel production (`S3_ENDPOINT`, `S3_BUCKET`, `S3_ACCESS_KEY`, `S3_SECRET_KEY`, `S3_REGION=auto`)
+- `src/lib/providers/storage.ts` acepta ambas convenciones de nombres (AWS-SDK long + short)
+- **Validado end-to-end** con PUT/GET/DELETE reales contra el bucket ✓
 
-| Variable | Valor |
-|---|---|
-| `NEXT_PUBLIC_MAPBOX_TOKEN` | `pk.eyJ...` |
-| `MAPBOX_SECRET_TOKEN` | `sk.eyJ...` |
-
-### 3.2 — S3-compatible storage (Cloudflare R2)
-
-Recomendación: **Cloudflare R2** — gratis hasta 10 GB + 1M requests/mes, compatible con S3 API.
-
-1. https://dash.cloudflare.com/sign-up
-2. R2 → **Create bucket** → nombre `rutasmx-assets`
-3. R2 → **Manage R2 API Tokens → Create API token**:
-   - Permisos: Object Read & Write
-   - Specify bucket: `rutasmx-assets`
-4. Copia Access Key ID + Secret Access Key
-5. R2 → bucket → **Settings → Public access → Custom domain** → `assets.rutasenmx.com`
-6. Pegar en Vercel:
-
-| Variable | Valor |
-|---|---|
-| `S3_ENDPOINT` | `https://<account-id>.r2.cloudflarestorage.com` |
-| `S3_BUCKET` | `rutasmx-assets` |
-| `S3_ACCESS_KEY` | (del §3.2.4) |
-| `S3_SECRET_KEY` | (del §3.2.4) |
-| `S3_REGION` | `auto` |
-
-### 3.3 — INEGI (opcional — distancias/peajes reales)
-
-1. https://gaia.inegi.org.mx/sakbe_v3.1/genera_token.jsp
-2. Llenar el formulario con datos de empresa/persona
-3. Te mandan el token por email en 1-2 días
-4. Pegar como `INEGI_TOKEN` en Vercel
-
-Sin esto, distancias se calculan por haversine (aprox, funciona).
+### 3.3 — INEGI ✅ HECHO
+- Token en Vercel production
 
 ---
 

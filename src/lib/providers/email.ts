@@ -168,10 +168,21 @@ export function createEmailProvider(): EmailProvider {
   if (provider === 'ses') return new SESProvider();
   if (provider === 'smtp') return new SMTPProvider();
 
-  if (process.env.NODE_ENV === 'development' && !process.env.EMAIL_API_URL) {
-    return new ConsoleProvider();
+  // REST provider (Resend/Postmark/Mailgun HTTP) is picked by the presence of
+  // API credentials, not an explicit EMAIL_PROVIDER flag.
+  if (process.env.EMAIL_API_URL && process.env.EMAIL_API_KEY) {
+    return new SMTPProvider();
   }
-  return new SMTPProvider();
+
+  // Nothing configured — fall back to ConsoleProvider so callers still succeed
+  // and the email body (incl. the password-reset link) shows up in Vercel logs
+  // instead of silently failing. Production should set EMAIL_API_URL +
+  // EMAIL_API_KEY (Resend is easiest) to actually deliver mail.
+  console.warn(
+    '[email] No EMAIL_PROVIDER/EMAIL_API_URL configured — using ConsoleProvider. ' +
+      'Emails will appear in the server logs but will NOT be delivered.',
+  );
+  return new ConsoleProvider();
 }
 
 let _email: EmailProvider | null = null;

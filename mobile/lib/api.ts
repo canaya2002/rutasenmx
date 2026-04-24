@@ -82,10 +82,15 @@ function notifyUnauthorized(): void {
 }
 
 // ── Platform header value ──────────────────────────────────────────────────
-function platformTag(): 'ios' | 'android' | 'web' | 'mobile' {
+// This file only runs inside the mobile app (native + Expo web preview). The
+// backend uses X-Client-Platform to decide whether to return a bearer token
+// alongside the session cookie, and ANY caller here is a bearer-token consumer
+// — even on web, because the Expo web bundle cannot rely on cross-origin
+// cookies against www.rutasenmx.com. So always tag as mobile/ios/android; the
+// literal 'web' would short-circuit the token path and break auth.
+function platformTag(): 'ios' | 'android' | 'mobile' {
   if (Platform.OS === 'ios') return 'ios';
   if (Platform.OS === 'android') return 'android';
-  if (Platform.OS === 'web') return 'web';
   return 'mobile';
 }
 

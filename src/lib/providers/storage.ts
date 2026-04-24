@@ -39,20 +39,35 @@ interface S3Config {
 
 function getS3Config(): S3Config {
   const bucket = process.env.S3_BUCKET;
-  const accessKeyId = process.env.S3_ACCESS_KEY_ID ?? process.env.AWS_ACCESS_KEY_ID;
-  const secretAccessKey = process.env.S3_SECRET_ACCESS_KEY ?? process.env.AWS_SECRET_ACCESS_KEY;
+  // Accept both AWS-SDK-style long names and the shorter names used in
+  // `.env.example` + Vercel (S3_ACCESS_KEY / S3_SECRET_KEY). Priority:
+  // explicit long names → short names → AWS default env vars.
+  const accessKeyId =
+    process.env.S3_ACCESS_KEY_ID ??
+    process.env.S3_ACCESS_KEY ??
+    process.env.AWS_ACCESS_KEY_ID;
+  const secretAccessKey =
+    process.env.S3_SECRET_ACCESS_KEY ??
+    process.env.S3_SECRET_KEY ??
+    process.env.AWS_SECRET_ACCESS_KEY;
 
   if (!bucket || !accessKeyId || !secretAccessKey) {
     throw new Error(
-      'S3_BUCKET, S3_ACCESS_KEY_ID (or AWS_ACCESS_KEY_ID), and S3_SECRET_ACCESS_KEY (or AWS_SECRET_ACCESS_KEY) must be set',
+      'S3_BUCKET, S3_ACCESS_KEY (or S3_ACCESS_KEY_ID / AWS_ACCESS_KEY_ID), and S3_SECRET_KEY (or S3_SECRET_ACCESS_KEY / AWS_SECRET_ACCESS_KEY) must be set',
     );
   }
 
   const region = process.env.S3_REGION ?? process.env.AWS_REGION ?? 'us-east-1';
   const endpoint =
     process.env.S3_ENDPOINT ?? `https://s3.${region}.amazonaws.com`;
+  // For Cloudflare R2 the public URL is usually the custom domain
+  // (set via `S3_PUBLIC_URL`) or the account-scoped r2.dev subdomain.
+  // For AWS S3, fall back to the virtual-hosted style.
   const publicUrl =
-    process.env.S3_PUBLIC_URL ?? `https://${bucket}.s3.${region}.amazonaws.com`;
+    process.env.S3_PUBLIC_URL ??
+    (endpoint.includes('.r2.cloudflarestorage.com')
+      ? `${endpoint.replace(/\/$/, '')}/${bucket}`
+      : `https://${bucket}.s3.${region}.amazonaws.com`);
 
   return { bucket, region, endpoint, accessKeyId, secretAccessKey, publicUrl };
 }

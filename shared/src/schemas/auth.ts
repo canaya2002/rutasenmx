@@ -61,3 +61,24 @@ export const WEAK_PASSWORDS = new Set([
 export function isWeakPassword(pw: string): boolean {
   return WEAK_PASSWORDS.has(pw.toLowerCase());
 }
+
+export const recoverSchema = z.object({
+  email: z
+    .string()
+    .trim()
+    .max(EMAIL_MAX, `El correo supera ${EMAIL_MAX} caracteres`)
+    .email('Correo electrónico inválido'),
+});
+export type RecoverInput = z.infer<typeof recoverSchema>;
+
+export const resetPasswordSchema = z.object({
+  token: z
+    .string()
+    .min(32, 'Token inválido')
+    .max(256, 'Token inválido'),
+  password: z
+    .string()
+    .min(PASSWORD_MIN, `La contraseña debe tener al menos ${PASSWORD_MIN} caracteres`)
+    .max(PASSWORD_MAX, 'Contraseña demasiado larga'),
+});
+export type ResetPasswordInput = z.infer<typeof resetPasswordSchema>;

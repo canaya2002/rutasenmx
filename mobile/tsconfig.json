@@ -4,8 +4,12 @@
     "strict": true,
     "noEmit": true,
     "paths": {
-      "@/*": ["./*"],
-      "@shared/*": ["../shared/src/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@shared/*": [
+        "../shared/src/*"
+      ]
     },
     "jsx": "react-jsx",
     "moduleResolution": "Bundler",
@@ -20,7 +24,10 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "../shared/src/**/*.ts"
+    "../shared/src/**/*.ts",
+    "nativewind-env.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

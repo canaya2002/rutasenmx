@@ -10,6 +10,8 @@ export const API = {
   authRegister: '/api/auth/register',
   authLogout: '/api/auth/logout',
   authMe: '/api/auth/me',
+  authRecover: '/api/auth/recover',
+  authResetPassword: '/api/auth/reset-password',
 
   // Plans + billing
   plans: '/api/plans',

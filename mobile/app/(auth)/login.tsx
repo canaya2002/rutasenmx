@@ -154,6 +154,17 @@ export default function LoginScreen() {
               </Text>
             ) : null}
 
+            <Text
+              className="mb-4 text-right text-xs font-medium text-emerald"
+              onPress={() =>
+                void Linking.openURL(`${APP_URL}/recuperar-contrasena`)
+              }
+              accessibilityRole="link"
+              accessibilityLabel="Recuperar contraseña"
+            >
+              ¿Olvidaste tu contraseña?
+            </Text>
+
             <MotionPressable
               onPress={onSubmit}
               disabled={!canSubmit}

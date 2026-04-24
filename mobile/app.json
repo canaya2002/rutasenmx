@@ -79,7 +79,7 @@
       "typedRoutes": true
     },
     "extra": {
-      "apiBaseUrl": "https://rutasenmx.com",
+      "apiBaseUrl": "https://www.rutasenmx.com",
       "eas": {
         "projectId": "TO_BE_CREATED_BY_EAS_INIT"
       }

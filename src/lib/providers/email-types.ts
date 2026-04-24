@@ -13,7 +13,8 @@ export interface EmailMessage {
 export interface EmailTemplate {
   template: string;
   to: string | string[];
-  subject: string;
+  /** Optional override. Falls back to the template's own subject. */
+  subject?: string;
   data: Record<string, unknown>;
   from?: string;
 }

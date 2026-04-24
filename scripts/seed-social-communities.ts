@@ -6,6 +6,7 @@
  *
  * Idempotent: runs INSERT ... ON CONFLICT DO NOTHING on `slug`.
  */
+import './_env'; // MUST be first — loads .env.local before @/db touches process.env
 import { sql } from 'drizzle-orm';
 
 import { db } from '../src/db';
