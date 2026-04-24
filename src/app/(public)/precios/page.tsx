@@ -44,32 +44,34 @@ export function generateMetadata(): Metadata {
   });
 }
 
-const FEATURE_ROWS_ES: Array<{ label: string; free: string | boolean; basic: string | boolean; pro: string | boolean; premium: string | boolean; group: string }> = [
-  { group: 'Viaje', label: 'Viajes guardados', free: '1', basic: '3', pro: '5', premium: 'Ilimitados' },
-  { group: 'Viaje', label: 'Paradas por viaje', free: '7', basic: '20', pro: '50', premium: '150' },
-  { group: 'Viaje', label: 'Mapa interactivo', free: true, basic: true, pro: true, premium: true },
-  { group: 'Viaje', label: 'Exploración de lugares', free: true, basic: true, pro: true, premium: true },
-  { group: 'Experiencia', label: 'Sin anuncios', free: false, basic: false, pro: true, premium: true },
-  { group: 'Experiencia', label: 'Colaboración multi-persona', free: false, basic: false, pro: true, premium: true },
-  { group: 'Experiencia', label: 'IA Autopilot', free: false, basic: false, pro: false, premium: true },
-  { group: 'Experiencia', label: 'Modo offline', free: false, basic: false, pro: false, premium: true },
-  { group: 'Exportar', label: 'PDF / GPX', free: false, basic: true, pro: true, premium: true },
-  { group: 'Exportar', label: 'Compartir link', free: true, basic: true, pro: true, premium: true },
-  { group: 'Exportar', label: 'Soporte', free: 'Comunidad', basic: 'Email', pro: 'Prioritario', premium: 'Prioritario 24/7' },
+const FEATURE_ROWS_ES: Array<{ label: string; free: string | boolean; pro: string | boolean; premium: string | boolean; group: string }> = [
+  { group: 'Viaje', label: 'Viajes guardados', free: '1', pro: '10', premium: 'Ilimitados' },
+  { group: 'Viaje', label: 'Paradas por viaje', free: '7', pro: '50', premium: '150' },
+  { group: 'Viaje', label: 'Mapa interactivo', free: true, pro: true, premium: true },
+  { group: 'Viaje', label: 'Exploración de lugares', free: true, pro: true, premium: true },
+  { group: 'Experiencia', label: 'Sin anuncios', free: false, pro: true, premium: true },
+  { group: 'Experiencia', label: 'Colaboración multi-persona', free: false, pro: true, premium: true },
+  { group: 'Experiencia', label: 'IA Autopilot', free: false, pro: '3 / mes', premium: '15 / mes' },
+  { group: 'Experiencia', label: 'Conectar con viajeros (match)', free: false, pro: true, premium: true },
+  { group: 'Experiencia', label: 'Modo offline', free: false, pro: false, premium: true },
+  { group: 'Exportar', label: 'PDF / GPX', free: 'Con marca', pro: 'Sin marca', premium: 'Sin marca' },
+  { group: 'Exportar', label: 'Compartir link', free: true, pro: true, premium: true },
+  { group: 'Exportar', label: 'Soporte', free: 'Comunidad', pro: 'Prioritario', premium: 'Prioritario 24/7' },
 ];
 
 const FEATURE_ROWS_EN: typeof FEATURE_ROWS_ES = [
-  { group: 'Trip', label: 'Saved trips', free: '1', basic: '3', pro: '5', premium: 'Unlimited' },
-  { group: 'Trip', label: 'Stops per trip', free: '7', basic: '20', pro: '50', premium: '150' },
-  { group: 'Trip', label: 'Interactive map', free: true, basic: true, pro: true, premium: true },
-  { group: 'Trip', label: 'Place exploration', free: true, basic: true, pro: true, premium: true },
-  { group: 'Experience', label: 'Ad-free', free: false, basic: false, pro: true, premium: true },
-  { group: 'Experience', label: 'Multi-user collaboration', free: false, basic: false, pro: true, premium: true },
-  { group: 'Experience', label: 'AI Autopilot', free: false, basic: false, pro: false, premium: true },
-  { group: 'Experience', label: 'Offline mode', free: false, basic: false, pro: false, premium: true },
-  { group: 'Export', label: 'PDF / GPX', free: false, basic: true, pro: true, premium: true },
-  { group: 'Export', label: 'Shareable links', free: true, basic: true, pro: true, premium: true },
-  { group: 'Export', label: 'Support', free: 'Community', basic: 'Email', pro: 'Priority', premium: 'Priority 24/7' },
+  { group: 'Trip', label: 'Saved trips', free: '1', pro: '10', premium: 'Unlimited' },
+  { group: 'Trip', label: 'Stops per trip', free: '7', pro: '50', premium: '150' },
+  { group: 'Trip', label: 'Interactive map', free: true, pro: true, premium: true },
+  { group: 'Trip', label: 'Place exploration', free: true, pro: true, premium: true },
+  { group: 'Experience', label: 'Ad-free', free: false, pro: true, premium: true },
+  { group: 'Experience', label: 'Multi-user collaboration', free: false, pro: true, premium: true },
+  { group: 'Experience', label: 'AI Autopilot', free: false, pro: '3 / mo', premium: '15 / mo' },
+  { group: 'Experience', label: 'Connect with travelers', free: false, pro: true, premium: true },
+  { group: 'Experience', label: 'Offline mode', free: false, pro: false, premium: true },
+  { group: 'Export', label: 'PDF / GPX', free: 'Watermarked', pro: 'Clean', premium: 'Clean' },
+  { group: 'Export', label: 'Shareable links', free: true, pro: true, premium: true },
+  { group: 'Export', label: 'Support', free: 'Community', pro: 'Priority', premium: 'Priority 24/7' },
 ];
 
 export default async function PreciosPage() {
@@ -232,7 +234,7 @@ export default async function PreciosPage() {
                       {rows.map((row, i) => (
                         <tr key={`${group}-${i}`} className="hover:bg-slate-50/50">
                           <td className="px-5 py-3 text-sm font-medium text-slate-800">{row.label}</td>
-                          {(['free', 'basic', 'pro', 'premium'] as const).map((k) => {
+                          {(['free', 'pro', 'premium'] as const).map((k) => {
                             const v = row[k];
                             const recommended = k === 'pro';
                             return (

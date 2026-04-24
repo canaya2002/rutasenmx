@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getSession } from '@/lib/auth/session';
 import { redirect } from 'next/navigation';
 import { db, trips } from '@/db';
-import { eq, isNull, desc } from 'drizzle-orm';
+import { eq, desc } from 'drizzle-orm';
 import { PLAN_LIMITS } from '@/lib/constants';
 import { getTranslations, getLocale } from '@/lib/i18n/server';
 

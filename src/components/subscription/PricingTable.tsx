@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { getLocalizedPlans, formatPlanPrice, type BillingInterval } from '@/lib/subscription/plans';
+import { getLocalizedPlans, formatPlanPrice, type BillingInterval, type PlanSlug } from '@/lib/subscription/plans';
 import { useLocale, useTranslation } from '@/components/providers/LocaleProvider';
 
 interface PricingTableProps {
@@ -21,6 +21,33 @@ export function PricingTable({ currentPlan }: PricingTableProps) {
   const subscribeLabel = t.subscription.subscribe;
   const PLANS = getLocalizedPlans(locale);
   const [interval, setInterval] = useState<BillingInterval>('monthly');
+  const [loadingPlan, setLoadingPlan] = useState<PlanSlug | null>(null);
+
+  async function handleSubscribe(plan: PlanSlug) {
+    setLoadingPlan(plan);
+    try {
+      const res = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan, interval }),
+      });
+      if (res.status === 401) {
+        window.location.href = `/iniciar-sesion?next=/precios`;
+        return;
+      }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? `Error ${res.status}`);
+      }
+      const data = (await res.json()) as { url: string };
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch (err) {
+      console.error('Checkout error:', err);
+      setLoadingPlan(null);
+    }
+  }
 
   return (
     <div>
@@ -148,16 +175,22 @@ export function PricingTable({ currentPlan }: PricingTableProps) {
                     {startFreeLabel}
                   </Link>
                 ) : (
-                  <Link
-                    href={`/api/stripe/checkout?plan=${plan.slug}&interval=${interval}`}
-                    className={`block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold shadow-sm transition ${
+                  <button
+                    type="button"
+                    onClick={() => handleSubscribe(plan.slug)}
+                    disabled={loadingPlan !== null}
+                    className={`block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold shadow-sm transition disabled:opacity-50 ${
                       isRecommended
                         ? 'bg-black text-white hover:bg-gray-800'
                         : 'border border-black text-emerald-600 hover:bg-emerald-50'
                     }`}
                   >
-                    {currentPlan ? changePlanLabel : subscribeLabel}
-                  </Link>
+                    {loadingPlan === plan.slug
+                      ? '…'
+                      : currentPlan
+                      ? changePlanLabel
+                      : subscribeLabel}
+                  </button>
                 )}
               </div>
             </div>

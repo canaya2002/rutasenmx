@@ -3,6 +3,7 @@ import { z } from 'zod';
 
 import { REPORT_REASONS, reportUser, type ReportReason } from '@/lib/social/moderation';
 import { requireSocialAccess, isGuardError } from '@/lib/social/guards';
+import { emit, EVENTS } from '@/lib/analytics';
 
 const schema = z.object({
   reportedId: z.string().uuid(),
@@ -28,6 +29,13 @@ export async function POST(request: NextRequest) {
       reportedId: parsed.data.reportedId,
       reason: parsed.data.reason,
       note: parsed.data.note ?? null,
+    });
+    emit(EVENTS.user_reported, {
+      userId: sessionOrError.userId,
+      properties: {
+        reportedId: parsed.data.reportedId,
+        reason: parsed.data.reason,
+      },
     });
     return NextResponse.json({ ok: true });
   } catch (err) {

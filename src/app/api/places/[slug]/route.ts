@@ -1,14 +1,15 @@
 import { NextResponse } from 'next/server';
 import { mockPlaces } from '@/lib/data/mock';
 
-// TODO: Switch to DB query once Drizzle connection is ready
-// import { db, places } from '@/db';
-// import { eq } from 'drizzle-orm';
-
 /**
  * GET /api/places/[slug]
  *
- * Returns full place data for a given slug.
+ * Returns full place data for a given slug. Backed by the static editorial
+ * catalog in `src/lib/data/mock.ts` (merged with `real-places.ts`). This is
+ * intentional — catalog content is editorial + stable, so static is faster
+ * (edge-cacheable) and cheaper (no DB hit) than Postgres. If you ever
+ * migrate to DB, swap the `mockPlaces.find(...)` call for a Drizzle query
+ * with `eq(places.slug, slug)`.
  */
 export async function GET(
   _request: Request,
@@ -17,7 +18,6 @@ export async function GET(
   try {
     const { slug } = await params;
 
-    // TODO: Replace with DB lookup – db.select().from(places).where(eq(places.slug, slug))
     const place = mockPlaces.find((p) => p.slug === slug);
 
     if (!place) {

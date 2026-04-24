@@ -1,7 +1,7 @@
 import { PLAN_LIMITS } from '@/lib/constants';
 
 // ── Plan types ─────────────────────────────────────────────────────────────
-export type PlanSlug = 'free' | 'basic' | 'pro' | 'premium';
+export type PlanSlug = 'free' | 'pro' | 'premium';
 export type BillingInterval = 'monthly' | 'annual';
 
 export interface PlanFeature {
@@ -38,30 +38,8 @@ export const PLANS: Plan[] = [
       { key: 'map', label: 'Mapa básico', included: true },
       { key: 'explore', label: 'Exploración de lugares', included: true },
       { key: 'seo_pages', label: 'Páginas SEO públicas', included: true },
-      { key: 'pdf_export', label: 'Exportación PDF/GPX', included: false },
-      { key: 'no_ads', label: 'Sin anuncios', included: false },
-      { key: 'collaboration', label: 'Colaboración', included: false },
-      { key: 'ai_autopilot', label: 'IA Autopilot', included: false },
-      { key: 'social_connect', label: 'Conectar con viajeros', included: false },
-      { key: 'offline', label: 'Modo offline', included: false },
-    ],
-    isRecommended: false,
-  },
-  {
-    slug: 'basic',
-    name: 'Básico',
-    description: 'Para viajeros frecuentes',
-    priceMonthly: 9900, // $99 MXN
-    priceAnnual: 79900, // $799 MXN
-    maxSavedTrips: PLAN_LIMITS.basic.maxSavedTrips,
-    maxStopsPerTrip: PLAN_LIMITS.basic.maxStopsPerTrip,
-    features: [
-      { key: 'trips', label: '3 viajes guardados', included: true },
-      { key: 'stops', label: 'Hasta 20 paradas por viaje', included: true },
-      { key: 'map', label: 'Mapa básico', included: true },
-      { key: 'explore', label: 'Exploración de lugares', included: true },
-      { key: 'seo_pages', label: 'Páginas SEO públicas', included: true },
-      { key: 'pdf_export', label: 'Exportación PDF/GPX', included: true },
+      { key: 'pdf_export', label: 'Exportación PDF/GPX (con marca de agua)', included: true },
+      { key: 'clean_export', label: 'Exportación sin marca de agua', included: false },
       { key: 'no_ads', label: 'Sin anuncios', included: false },
       { key: 'collaboration', label: 'Colaboración', included: false },
       { key: 'ai_autopilot', label: 'IA Autopilot', included: false },
@@ -74,21 +52,22 @@ export const PLANS: Plan[] = [
     slug: 'pro',
     name: 'Pro',
     description: 'Para viajeros apasionados',
-    priceMonthly: 19900, // $199 MXN
-    priceAnnual: 159900, // $1,599 MXN
+    priceMonthly: 9900, // $99 MXN
+    priceAnnual: 79900, // $799 MXN (~33% off vs monthly x12)
     maxSavedTrips: PLAN_LIMITS.pro.maxSavedTrips,
     maxStopsPerTrip: PLAN_LIMITS.pro.maxStopsPerTrip,
     features: [
-      { key: 'trips', label: '5 viajes guardados', included: true },
+      { key: 'trips', label: '10 viajes guardados', included: true },
       { key: 'stops', label: 'Hasta 50 paradas por viaje', included: true },
       { key: 'map', label: 'Mapa básico', included: true },
       { key: 'explore', label: 'Exploración de lugares', included: true },
       { key: 'seo_pages', label: 'Páginas SEO públicas', included: true },
       { key: 'pdf_export', label: 'Exportación PDF/GPX', included: true },
+      { key: 'clean_export', label: 'Exportación sin marca de agua', included: true },
       { key: 'no_ads', label: 'Sin anuncios', included: true },
-      { key: 'collaboration', label: 'Colaboración', included: true },
-      { key: 'ai_autopilot', label: 'IA Autopilot', included: false },
-      { key: 'social_connect', label: 'Conectar con viajeros', included: false },
+      { key: 'collaboration', label: 'Colaboración en viajes', included: true },
+      { key: 'ai_autopilot', label: `IA Autopilot (${PLAN_LIMITS.pro.aiAutopilotMonthly}/mes)`, included: true },
+      { key: 'social_connect', label: 'Conectar con viajeros', included: true },
       { key: 'offline', label: 'Modo offline', included: false },
     ],
     isRecommended: true,
@@ -96,9 +75,9 @@ export const PLANS: Plan[] = [
   {
     slug: 'premium',
     name: 'Premium',
-    description: 'La experiencia completa',
-    priceMonthly: 34900, // $349 MXN
-    priceAnnual: 279900, // $2,799 MXN
+    description: 'La experiencia completa, sin límites',
+    priceMonthly: 29900, // $299 MXN
+    priceAnnual: 239900, // $2,399 MXN (~33% off vs monthly x12)
     maxSavedTrips: Infinity,
     maxStopsPerTrip: PLAN_LIMITS.premium.maxStopsPerTrip,
     features: [
@@ -108,9 +87,10 @@ export const PLANS: Plan[] = [
       { key: 'explore', label: 'Exploración de lugares', included: true },
       { key: 'seo_pages', label: 'Páginas SEO públicas', included: true },
       { key: 'pdf_export', label: 'Exportación PDF/GPX', included: true },
+      { key: 'clean_export', label: 'Exportación sin marca de agua', included: true },
       { key: 'no_ads', label: 'Sin anuncios', included: true },
-      { key: 'collaboration', label: 'Colaboración', included: true },
-      { key: 'ai_autopilot', label: 'IA Autopilot', included: true },
+      { key: 'collaboration', label: 'Colaboración en viajes', included: true },
+      { key: 'ai_autopilot', label: `IA Autopilot (${PLAN_LIMITS.premium.aiAutopilotMonthly}/mes)`, included: true },
       { key: 'social_connect', label: 'Conectar con viajeros', included: true },
       { key: 'offline', label: 'Modo offline', included: true },
     ],
@@ -137,9 +117,8 @@ export function getPlanPrice(slug: PlanSlug, interval: BillingInterval): number 
 export function meetsMinimumPlan(userPlan: PlanSlug, requiredPlan: PlanSlug): boolean {
   const hierarchy: Record<PlanSlug, number> = {
     free: 0,
-    basic: 1,
-    pro: 2,
-    premium: 3,
+    pro: 1,
+    premium: 2,
   };
   return hierarchy[userPlan] >= hierarchy[requiredPlan];
 }
@@ -177,38 +156,40 @@ export function formatPlanPrice(cents: number, locale: 'es' | 'en' = 'es'): stri
 // ── i18n for plan labels ────────────────────────────────────────────────────
 const PLAN_NAME_EN: Record<PlanSlug, string> = {
   free: 'Free',
-  basic: 'Basic',
   pro: 'Pro',
   premium: 'Premium',
 };
 
 const PLAN_DESC_EN: Record<PlanSlug, string> = {
   free: 'To explore and try the platform',
-  basic: 'For frequent travelers',
   pro: 'For passionate travelers',
-  premium: 'The complete experience',
+  premium: 'The complete experience, no limits',
 };
 
 const FEATURE_LABELS_EN: Record<string, (slug: PlanSlug) => string> = {
   trips: (slug) => {
     if (slug === 'free') return '1 saved trip';
-    if (slug === 'basic') return '3 saved trips';
-    if (slug === 'pro') return '5 saved trips';
+    if (slug === 'pro') return '10 saved trips';
     return 'Unlimited trips';
   },
   stops: (slug) => {
     if (slug === 'free') return 'Up to 7 stops per trip';
-    if (slug === 'basic') return 'Up to 20 stops per trip';
     if (slug === 'pro') return 'Up to 50 stops per trip';
     return 'Up to 150 stops per trip';
   },
   map: () => 'Basic map',
   explore: () => 'Place exploration',
   seo_pages: () => 'Public SEO pages',
-  pdf_export: () => 'PDF/GPX export',
+  pdf_export: (slug) =>
+    slug === 'free' ? 'PDF/GPX export (watermarked)' : 'PDF/GPX export',
+  clean_export: () => 'Export without watermark',
   no_ads: () => 'Ad-free',
-  collaboration: () => 'Collaboration',
-  ai_autopilot: () => 'AI Autopilot',
+  collaboration: () => 'Trip collaboration',
+  ai_autopilot: (slug) => {
+    if (slug === 'pro') return `AI Autopilot (${PLAN_LIMITS.pro.aiAutopilotMonthly}/mo)`;
+    if (slug === 'premium') return `AI Autopilot (${PLAN_LIMITS.premium.aiAutopilotMonthly}/mo)`;
+    return 'AI Autopilot';
+  },
   social_connect: () => 'Connect with travelers',
   offline: () => 'Offline mode',
 };

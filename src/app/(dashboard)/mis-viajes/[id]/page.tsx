@@ -5,6 +5,7 @@ import { db, trips, tripStops } from '@/db';
 import { eq, and, asc } from 'drizzle-orm';
 import Link from 'next/link';
 import { getLocale, getTranslations } from '@/lib/i18n/server';
+import { ShareTripButton } from '@/components/trip/ShareTripButton';
 
 export const metadata: Metadata = {
   title: 'Editar viaje / Edit trip',
@@ -62,16 +63,17 @@ export default async function TripEditorPage({
           )}
         </div>
         <div className="flex items-center gap-2">
-          {/* Share button */}
-          <button
-            type="button"
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50"
-          >
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-            </svg>
-            {T('Compartir', 'Share')}
-          </button>
+          <ShareTripButton
+            tripId={trip.id}
+            initialToken={trip.shareToken}
+            initialPublic={trip.isPublic}
+            label={T('Compartir', 'Share')}
+            closeLabel={T('Cerrar', 'Close')}
+            rotateLabel={T('Rotar enlace', 'Rotate link')}
+            revokeLabel={T('Desactivar', 'Disable')}
+            copyLabel={T('Copiar', 'Copy')}
+            copiedLabel={T('¡Copiado!', 'Copied!')}
+          />
           {/* Export menu */}
           <button
             type="button"

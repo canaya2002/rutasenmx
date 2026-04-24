@@ -1,0 +1,56 @@
+{
+  "cli": {
+    "version": ">= 13.0.0",
+    "appVersionSource": "local"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "channel": "development",
+      "env": {
+        "EXPO_PUBLIC_API_BASE_URL": "http://localhost:3000",
+        "EXPO_PUBLIC_ENV": "development"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "channel": "preview",
+      "ios": {
+        "resourceClass": "m-medium",
+        "simulator": false
+      },
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_BASE_URL": "https://staging.rutasenmx.com",
+        "EXPO_PUBLIC_ENV": "preview"
+      }
+    },
+    "production": {
+      "channel": "production",
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_API_BASE_URL": "https://rutasenmx.com",
+        "EXPO_PUBLIC_ENV": "production",
+        "EXPO_PUBLIC_REVENUECAT_IOS_KEY": "$EXPO_PUBLIC_REVENUECAT_IOS_KEY",
+        "EXPO_PUBLIC_REVENUECAT_ANDROID_KEY": "$EXPO_PUBLIC_REVENUECAT_ANDROID_KEY",
+        "EXPO_PUBLIC_SENTRY_DSN": "$EXPO_PUBLIC_SENTRY_DSN"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "TO_BE_SET",
+        "ascAppId": "TO_BE_SET",
+        "appleTeamId": "TO_BE_SET"
+      },
+      "android": {
+        "serviceAccountKeyPath": "./google-service-account.json",
+        "track": "internal"
+      }
+    }
+  }
+}

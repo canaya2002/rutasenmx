@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { createComment, listComments } from '@/lib/social/communities';
 import { requireSocialAccess, isGuardError } from '@/lib/social/guards';
 import { RateLimitError } from '@/lib/social/rate-limit';
+import { emit, EVENTS } from '@/lib/analytics';
 
 interface Ctx {
   params: Promise<{ postId: string }>;
@@ -41,6 +42,10 @@ export async function POST(request: NextRequest, ctx: Ctx) {
       postId,
       body: parsed.data.body,
       parentCommentId: parsed.data.parentCommentId ?? null,
+    });
+    emit(EVENTS.comment_created, {
+      userId: sessionOrError.userId,
+      properties: { postId, commentId: id, isReply: !!parsed.data.parentCommentId },
     });
     return NextResponse.json({ id });
   } catch (err) {

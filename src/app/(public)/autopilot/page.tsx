@@ -6,7 +6,6 @@ import { pickDecorations } from '@/lib/data/general-images';
 import { DecorBlob } from '@/components/decor/DecorImage';
 import Image from 'next/image';
 import {
-  Sparkles,
   Zap,
   Clock,
   Shield,

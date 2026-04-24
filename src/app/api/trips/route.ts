@@ -1,56 +1,63 @@
 import { type NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
+import slugify from 'slugify';
+import { and, desc, eq, isNull, sql } from 'drizzle-orm';
+import { randomBytes } from 'node:crypto';
+
+import { db, trips } from '@/db';
 import { getSession } from '@/lib/auth/session';
+import { PLAN_LIMITS } from '@/lib/constants';
+import { emit, EVENTS } from '@/lib/analytics';
 
-// TODO: Switch to DB queries once Drizzle connection is ready
-// import { db, trips } from '@/db';
-// import { eq, desc } from 'drizzle-orm';
-
-/** Plan-based trip limits */
-const PLAN_TRIP_LIMITS: Record<string, number> = {
-  free: 3,
-  basic: 10,
-  pro: 50,
-  premium: Infinity,
-};
+const createSchema = z.object({
+  title: z.string().min(1).max(400),
+  description: z.string().max(2000).optional(),
+  origin: z
+    .object({
+      name: z.string().optional(),
+      lat: z.number().optional(),
+      lng: z.number().optional(),
+    })
+    .optional(),
+  destination: z
+    .object({
+      name: z.string().optional(),
+      lat: z.number().optional(),
+      lng: z.number().optional(),
+    })
+    .optional(),
+  vehicleType: z.string().optional(),
+  avoidTolls: z.boolean().optional(),
+  avoidHighways: z.boolean().optional(),
+  avoidFerries: z.boolean().optional(),
+  avoidDirtRoads: z.boolean().optional(),
+});
 
 /**
  * GET /api/trips
  *
- * Returns the authenticated user's trips list.
+ * Returns the authenticated user's trips list (newest first, excluding soft-deleted).
  */
 export async function GET(_request: NextRequest) {
   try {
     const session = await getSession();
 
     if (!session) {
-      return NextResponse.json(
-        { error: 'No autenticado' },
-        { status: 401 },
-      );
+      return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
     }
 
-    // TODO: Replace with DB query
-    // const userTrips = await db
-    //   .select()
-    //   .from(trips)
-    //   .where(eq(trips.userId, session.userId))
-    //   .orderBy(desc(trips.createdAt));
+    const userTrips = await db
+      .select()
+      .from(trips)
+      .where(and(eq(trips.userId, session.userId), isNull(trips.deletedAt)))
+      .orderBy(desc(trips.updatedAt));
 
-    const mockTrips = [
-      {
-        id: 'trip-mock-1',
-        name: 'CDMX a Oaxaca',
-        origin: 'Ciudad de Mexico',
-        destination: 'Oaxaca de Juarez',
-        days: 5,
-        status: 'draft' as const,
-        createdAt: '2026-04-10T12:00:00Z',
-      },
-    ];
+    const limits = PLAN_LIMITS[session.plan];
 
     return NextResponse.json({
-      trips: mockTrips,
-      total: mockTrips.length,
+      trips: userTrips,
+      total: userTrips.length,
+      limit: limits.maxSavedTrips === Infinity ? null : limits.maxSavedTrips,
     });
   } catch (error) {
     console.error('Error en GET /api/trips:', error);
@@ -64,72 +71,83 @@ export async function GET(_request: NextRequest) {
 /**
  * POST /api/trips
  *
- * Creates a new trip for the authenticated user.
- *
- * Body:
- *   name         – trip display name
- *   origin       – origin location name
- *   destination  – destination location name
- *   startDate?   – ISO date string
- *   endDate?     – ISO date string
+ * Creates a new trip for the authenticated user. Enforces the user's plan limit.
  */
 export async function POST(request: NextRequest) {
   try {
     const session = await getSession();
 
     if (!session) {
-      return NextResponse.json(
-        { error: 'No autenticado' },
-        { status: 401 },
-      );
-    }
-
-    // Plan limit check
-    const maxTrips = PLAN_TRIP_LIMITS[session.plan] ?? PLAN_TRIP_LIMITS.free;
-
-    // TODO: Replace with actual count from DB
-    // const [{ count }] = await db
-    //   .select({ count: sql<number>`count(*)` })
-    //   .from(trips)
-    //   .where(eq(trips.userId, session.userId));
-    const currentTripCount = 1; // mock
-
-    if (currentTripCount >= maxTrips) {
-      return NextResponse.json(
-        {
-          error: 'Has alcanzado el limite de viajes de tu plan',
-          limit: maxTrips,
-          plan: session.plan,
-        },
-        { status: 403 },
-      );
+      return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
     }
 
     const body = await request.json();
+    const parsed = createSchema.safeParse(body);
 
-    if (!body.name || !body.origin || !body.destination) {
+    if (!parsed.success) {
       return NextResponse.json(
-        { error: 'Faltan campos requeridos: name, origin, destination' },
+        { error: 'Datos invalidos', details: parsed.error.flatten() },
         { status: 400 },
       );
     }
 
-    // TODO: Insert into DB
-    // const [newTrip] = await db.insert(trips).values({ ... }).returning();
+    // Plan limit check (live count from DB)
+    const limits = PLAN_LIMITS[session.plan];
+    if (limits.maxSavedTrips !== Infinity) {
+      const [{ count }] = await db
+        .select({ count: sql<number>`count(*)::int` })
+        .from(trips)
+        .where(and(eq(trips.userId, session.userId), isNull(trips.deletedAt)));
 
-    const newTrip = {
-      id: `trip-${Date.now()}`,
+      if (count >= limits.maxSavedTrips) {
+        return NextResponse.json(
+          {
+            error: 'Has alcanzado el limite de viajes de tu plan',
+            limit: limits.maxSavedTrips,
+            plan: session.plan,
+            upgradeRequired: session.plan === 'free' ? 'pro' : 'premium',
+          },
+          { status: 403 },
+        );
+      }
+    }
+
+    const data = parsed.data;
+    const baseSlug = slugify(data.title, { lower: true, strict: true }).slice(0, 380);
+    const slug = `${baseSlug}-${randomBytes(3).toString('hex')}`;
+
+    const [createdTrip] = await db
+      .insert(trips)
+      .values({
+        userId: session.userId,
+        title: data.title,
+        slug,
+        description: data.description ?? null,
+        originName: data.origin?.name ?? null,
+        originLat: data.origin?.lat ?? null,
+        originLng: data.origin?.lng ?? null,
+        destinationName: data.destination?.name ?? null,
+        destinationLat: data.destination?.lat ?? null,
+        destinationLng: data.destination?.lng ?? null,
+        vehicleType: data.vehicleType ?? null,
+        avoidTolls: data.avoidTolls ?? false,
+        avoidHighways: data.avoidHighways ?? false,
+        avoidFerries: data.avoidFerries ?? false,
+        avoidDirtRoads: data.avoidDirtRoads ?? false,
+      })
+      .returning();
+
+    emit(EVENTS.trip_created, {
       userId: session.userId,
-      name: body.name,
-      origin: body.origin,
-      destination: body.destination,
-      startDate: body.startDate ?? null,
-      endDate: body.endDate ?? null,
-      status: 'draft',
-      createdAt: new Date().toISOString(),
-    };
+      properties: {
+        tripId: createdTrip.id,
+        plan: session.plan,
+        hasOrigin: !!data.origin?.name,
+        hasDestination: !!data.destination?.name,
+      },
+    });
 
-    return NextResponse.json({ trip: newTrip }, { status: 201 });
+    return NextResponse.json({ trip: createdTrip }, { status: 201 });
   } catch (error) {
     console.error('Error en POST /api/trips:', error);
     return NextResponse.json(

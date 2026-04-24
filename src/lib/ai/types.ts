@@ -34,6 +34,12 @@ export interface AutopilotOutput {
   alternatives: AutopilotAlternative[];
   confidence: number; // 0-100
   warnings: string[];
+  /**
+   * Where the narrative (titles, descriptions, reasons) actually came from.
+   * - 'llm': real IA output from Anthropic/OpenAI
+   * - 'heuristic': fallback — no IA ran, we used the rule-based pipeline only
+   */
+  source: 'llm' | 'heuristic';
 }
 
 export interface AutopilotDay {

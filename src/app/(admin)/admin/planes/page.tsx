@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { db, subscriptionPlans, entitlements } from '@/db';
-import { asc, eq } from 'drizzle-orm';
+import { db, subscriptionPlans } from '@/db';
+import { asc } from 'drizzle-orm';
 
 export const metadata: Metadata = {
   title: 'Planes | Admin',

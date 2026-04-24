@@ -1,9 +1,13 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { mockPlaces, mockStates, mockRoutes } from '@/lib/data/mock';
 
-// TODO: Switch to DB-level full-text search once Drizzle connection is ready
-// import { db, places } from '@/db';
-// import { ilike, or } from 'drizzle-orm';
+/*
+ * This endpoint filters the full merged catalog in-memory — same dataset
+ * that `/api/search/suggestions` autocomplete uses. Catalog is editorial
+ * static content so there's no DB round-trip. If/when the dataset outgrows
+ * in-memory (current: ~30k places, ~fits a fast Node process), swap to
+ * Postgres full-text search with `ilike` + GIN index on `places.name`.
+ */
 
 /**
  * GET /api/search?q=...

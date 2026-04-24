@@ -14,6 +14,7 @@ import {
 } from '@/lib/seo/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { PlaceMiniMap } from '@/components/map/PlaceMiniMap';
+import { FavoriteHeartButton } from '@/components/favorites/FavoriteHeartButton';
 import { PLACE_CATEGORIES } from '@/lib/constants';
 import {
   mockPlaces,
@@ -159,9 +160,12 @@ export default async function LugarPage({ params }: Props) {
               📍 {place.stateName}
             </Link>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            {place.name}
-          </h1>
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+              {place.name}
+            </h1>
+            <FavoriteHeartButton slug={place.slug} placeName={place.name} />
+          </div>
           <p className="mt-3 max-w-3xl text-lg leading-relaxed text-slate-600">
             {place.description}
           </p>

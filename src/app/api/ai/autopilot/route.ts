@@ -8,15 +8,9 @@ import {
 } from '@/lib/ai/cache';
 import { getSession } from '@/lib/auth/session';
 import { canAccess } from '@/lib/subscription/plans';
+import { PLAN_LIMITS } from '@/lib/constants';
+import { emit, EVENTS } from '@/lib/analytics';
 import type { AutopilotInput } from '@/lib/ai/types';
-import type { PlanSlug } from '@/lib/subscription/plans';
-
-const MONTHLY_LIMITS: Record<PlanSlug, number> = {
-  free: 0,
-  basic: 0,
-  pro: 0,
-  premium: 20,
-};
 
 /**
  * POST /api/ai/autopilot
@@ -48,14 +42,14 @@ export async function POST(request: NextRequest) {
     if (!canAccess(session.plan, 'ai_autopilot')) {
       return NextResponse.json(
         {
-          error: 'Autopilot está disponible solo en el plan Premium',
-          upgradeRequired: 'premium',
+          error: 'Autopilot está disponible a partir del plan Pro',
+          upgradeRequired: 'pro',
         },
         { status: 403 },
       );
     }
 
-    const monthlyLimit = MONTHLY_LIMITS[session.plan];
+    const monthlyLimit = PLAN_LIMITS[session.plan].aiAutopilotMonthly;
     const used = await countRunsForUserThisMonth(session.userId);
     if (used >= monthlyLimit) {
       return NextResponse.json(
@@ -120,6 +114,10 @@ export async function POST(request: NextRequest) {
 
     const cached = await findCachedItinerary(inputHash);
     if (cached) {
+      emit(EVENTS.autopilot_cached_hit, {
+        userId: session.userId,
+        properties: { plan: session.plan, source: cached.source },
+      });
       return NextResponse.json({ itinerary: cached, cached: true });
     }
 
@@ -132,6 +130,18 @@ export async function POST(request: NextRequest) {
       result: itinerary,
       modelUsed:
         process.env.AI_MODEL ?? 'claude-haiku-4-5-20251001',
+    });
+
+    emit(EVENTS.autopilot_run, {
+      userId: session.userId,
+      properties: {
+        plan: session.plan,
+        source: itinerary.source,
+        dayCount: itinerary.days.length,
+        style: input.style,
+        budget: input.budget,
+        totalDistanceKm: itinerary.totalDistance,
+      },
     });
 
     return NextResponse.json({ itinerary, cached: false });

@@ -80,7 +80,7 @@ for (const f of files) {
 
 // Also check data layer routes (lugares/[slug]/etc.)
 const knownRoutes = new Set(routes);
-const pretty = [...knownRoutes].sort();
+const _pretty = [...knownRoutes].sort();
 console.log(`Enumerated ${routes.length} route patterns under src/app.`);
 
 if (brokenLinks.length === 0) {

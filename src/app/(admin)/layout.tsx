@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 
 const ADMIN_LINKS = [
   { href: '/admin', label: 'Dashboard' },
+  { href: '/admin/analytics', label: 'Analytics' },
   { href: '/admin/lugares', label: 'Lugares' },
   { href: '/admin/categorias', label: 'Categorias' },
   { href: '/admin/importaciones', label: 'Importaciones' },

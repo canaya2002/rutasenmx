@@ -279,7 +279,7 @@ function describeExperiences(exps: ExperienceType[]): string {
   return `${picked.slice(0, -1).join(', ')} y ${picked[picked.length - 1]}`;
 }
 
-function anchorDescription(atraccion: string, p: PuebloMagico): string {
+function anchorDescription(atraccion: string, _p: PuebloMagico): string {
   const a = atraccion.toLowerCase();
   if (/parroqu|templo|bas[íi]lica|catedral/.test(a))
     return `El templo suele ser el punto de referencia del pueblo; visítalo al caer la tarde, cuando la luz favorece la cantera y el interior está menos concurrido.`;

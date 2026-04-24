@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { mockStates, mockPlaces, mockCollections } from '@/lib/data/mock';
 import { allRoutes } from '@/lib/data/routes';
 import { allGuides } from '@/lib/data/guides';
+import { isSocialEnabled } from '@/lib/feature-flags';
 
 const SITE = 'https://rutasenmx.com';
 
@@ -35,8 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/rutas`, lastModified: buildStamp, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE}/colecciones`, lastModified: buildStamp, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE}/guias`, lastModified: buildStamp, changeFrequency: 'daily', priority: 0.9 },
-    { url: `${SITE}/conectar`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${SITE}/comunidad`, lastModified: now, changeFrequency: 'hourly', priority: 0.8 },
+    ...(isSocialEnabled()
+      ? ([
+          { url: `${SITE}/conectar`, lastModified: buildStamp, changeFrequency: 'monthly' as const, priority: 0.85 },
+          { url: `${SITE}/comunidad`, lastModified: now, changeFrequency: 'hourly' as const, priority: 0.8 },
+        ] satisfies MetadataRoute.Sitemap)
+      : []),
     { url: `${SITE}/precios`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE}/autopilot`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE}/planear`, lastModified: buildStamp, changeFrequency: 'monthly', priority: 0.75 },

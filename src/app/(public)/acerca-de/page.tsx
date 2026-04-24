@@ -12,7 +12,7 @@ import { buildBreadcrumbs } from '@/lib/seo/breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getLocale, getTranslations } from '@/lib/i18n/server';
 import { PageShell } from '@/components/layout/PageShell';
-import { pickDecoration, pickDecorations } from '@/lib/data/general-images';
+import { pickDecorations } from '@/lib/data/general-images';
 import { Target, Compass, Map, Users, Shield, Heart, Leaf, Award } from 'lucide-react';
 
 const PAGE_PATH = '/acerca-de';

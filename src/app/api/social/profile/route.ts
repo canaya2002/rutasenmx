@@ -7,6 +7,7 @@ import {
   upsertSocialProfile,
 } from '@/lib/social/profile';
 import { requireSocialAccess, isGuardError } from '@/lib/social/guards';
+import { emit, EVENTS } from '@/lib/analytics';
 
 export async function GET() {
   const sessionOrError = await requireSocialAccess();
@@ -30,6 +31,15 @@ export async function POST(request: NextRequest) {
   try {
     const input = socialProfileInputSchema.parse(body);
     const profile = await upsertSocialProfile(sessionOrError.userId, input);
+    emit(EVENTS.social_profile_saved, {
+      userId: sessionOrError.userId,
+      properties: {
+        hasPhoto: !!profile.photoUrl,
+        interestCount: profile.interests.length,
+        intent: profile.intent,
+        destino: profile.destinoEstadoSlug,
+      },
+    });
     return NextResponse.json({ profile });
   } catch (err) {
     if (err instanceof ZodError) {

@@ -2,9 +2,14 @@
 
 ## Estado actual del proyecto
 
+> **Nota:** este documento era un inventario optimista. Tras la auditoría de
+> abril 2026 se añadieron los avisos "(auditado)" y una sección
+> **Verdad operativa** al final de cada apartado. Si hay contradicción entre
+> este doc y el código, gana el código.
+
 ### Build y tests
 - Build de produccion: PASA (0 errores TypeScript)
-- Tests unitarios: 248/248 PASAN
+- Tests unitarios: 248/248 PASAN (actualizados para el nuevo packaging: IA en Pro, PDF con marca de agua en Free)
 - Rutas generadas: 73+ rutas (incluyendo SSG con parametros dinamicos)
 - Tests E2E: configurados pero sin tests escritos aun
 
@@ -96,25 +101,26 @@
 - [x] manifest.ts (PWA)
 
 #### API Routes
-- [x] /api/auth/* (login, register, logout, me)
+- [x] /api/auth/* (login, register, logout, me) — login ahora lee plan real del DB (antes hardcodeaba 'free')
 - [x] /api/places (listado con filtros)
 - [x] /api/places/[slug] (detalle)
 - [x] /api/search (busqueda)
 - [x] /api/favorites (guardar/listar)
-- [x] /api/trips (CRUD)
-- [x] /api/trips/[id] (detalle/editar/borrar)
-- [x] /api/ai/autopilot (generacion IA)
-- [x] /api/stripe/* (checkout, portal, webhook)
+- [x] /api/trips (CRUD) — **reescrito a DB real** (antes eran mocks), aplica PLAN_LIMITS vivo
+- [x] /api/trips/[id] (detalle/editar/borrar) — **reescrito a DB real con soft-delete**
+- [x] /api/ai/autopilot (generacion IA) — path correcto (el wizard antes llamaba /api/autopilot/generate, 404). Ahora etiqueta `source: 'llm' | 'heuristic'`.
+- [x] /api/stripe/* (checkout, portal, webhook) — webhook resuelve planId por slug (antes insertaba planId='')
 - [x] /api/og (OpenGraph image generation)
+- [x] /api/social/* — bloqueado por `proxy.ts` cuando `FEATURE_SOCIAL=false`
 
 #### Providers/Adapters
-- [x] Mapbox (mapa, geocoding)
-- [x] Stripe (pagos, suscripciones)
+- [x] MapLibre GL (mapa — tiles). **No hay Mapbox instalado**; el folder `lib/providers/mapbox.ts` apunta a un integrador opcional.
+- [x] Stripe (pagos, suscripciones) — requiere rellenar STRIPE_PRICE_* en env
 - [x] INEGI (ruteo)
-- [x] Booking.com (hospedaje)
+- [x] Booking.com (hospedaje) — adapter existe, depende de BOOKING_API_KEY real
 - [x] Email (SMTP)
 - [x] Storage (S3/MinIO)
-- [x] AI (Anthropic/OpenAI)
+- [x] AI (Anthropic/OpenAI) — **vía `fetch` directo a /v1/messages, sin SDK**. Sin key → fallback heurístico con etiqueta explícita.
 
 #### Datos seed
 - [x] 32 estados de Mexico

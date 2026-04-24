@@ -4,6 +4,8 @@ import { z } from 'zod';
 import { recordSwipe } from '@/lib/social/discovery';
 import { getProfilesByUserIds } from '@/lib/social/discovery';
 import { requireSocialAccess, isGuardError } from '@/lib/social/guards';
+import { emit, EVENTS } from '@/lib/analytics';
+import { sendPushToUser } from '@/lib/push/send';
 
 const schema = z.object({
   toUserId: z.string().uuid(),
@@ -36,9 +38,30 @@ export async function POST(request: NextRequest) {
       parsed.data.action,
     );
 
+    emit(EVENTS.swipe, {
+      userId: sessionOrError.userId,
+      properties: { action: parsed.data.action, matched: result.matched },
+    });
+
     // When a match happens, return the other profile for the "it's a match!" modal.
     if (result.matched) {
+      emit(EVENTS.match_created, {
+        userId: sessionOrError.userId,
+        properties: { matchId: result.matchId ?? null, otherUserId: parsed.data.toUserId },
+      });
       const profiles = await getProfilesByUserIds([parsed.data.toUserId]);
+      const myProfile = await getProfilesByUserIds([sessionOrError.userId]);
+      const myName = myProfile.get(sessionOrError.userId)?.displayName ?? 'Alguien';
+      // Notify the OTHER user that they got a match — fire-and-forget.
+      void sendPushToUser(parsed.data.toUserId, {
+        title: '¡Es un match!',
+        body: `${myName} también te dio like. Manda el primer mensaje.`,
+        data: {
+          type: 'match',
+          matchId: result.matchId ?? null,
+          path: result.matchId ? `/conectar/chat/${result.matchId}` : '/conectar/matches',
+        },
+      });
       return NextResponse.json({
         ...result,
         otherProfile: profiles.get(parsed.data.toUserId) ?? null,

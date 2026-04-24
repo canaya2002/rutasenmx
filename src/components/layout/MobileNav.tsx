@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "@/components/providers/LocaleProvider";
+import { isSocialEnabled } from "@/lib/feature-flags";
 
 interface MobileNavProps {
   open: boolean;
@@ -29,7 +30,9 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
     { href: "/rutas", label: t.common.routes },
     { href: "/pueblos-magicos", label: t.common.pueblosMagicos },
     { href: "/guias", label: t.common.guides },
-    { href: "/conectar", label: t.common.conectar, highlight: true },
+    ...(isSocialEnabled()
+      ? [{ href: "/conectar", label: t.common.conectar, highlight: true }]
+      : []),
   ];
 
   // Close drawer on navigation

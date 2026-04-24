@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { headers } from 'next/headers';
 import { getSession } from '@/lib/auth/session';
 import { redirect } from 'next/navigation';
 import { getTranslations } from '@/lib/i18n/server';
@@ -46,7 +47,24 @@ export default async function DashboardLayout({
 }) {
   const session = await getSession();
   if (!session) {
-    redirect('/iniciar-sesion');
+    // Preserve the path + query so the mobile deep link `/perfil?delete=1`
+    // survives the round-trip through `/iniciar-sesion`. Read the current
+    // URL from the `next-url` internal header that Next's proxy sets on
+    // every request.
+    const h = await headers();
+    const currentPath =
+      h.get('next-url') ??
+      h.get('x-invoke-path') ??
+      h.get('x-pathname') ??
+      '';
+    const safePath =
+      currentPath.startsWith('/') && !currentPath.startsWith('//')
+        ? currentPath
+        : '';
+    const redirectTo = safePath
+      ? `/iniciar-sesion?next=${encodeURIComponent(safePath)}`
+      : '/iniciar-sesion';
+    redirect(redirectTo);
   }
 
   const t = await getTranslations();

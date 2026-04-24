@@ -1,8 +1,7 @@
 import { haversineDistance } from '@/lib/utils';
-import { getAI } from '@/lib/providers/ai';
-import { retrieveCandidates, filterByOpeningHours, ensureNoDuplicates } from './retrieval';
+import { retrieveCandidates, filterByOpeningHours } from './retrieval';
 import { validateOutput } from './validation';
-import { ITINERARY_SYSTEM_PROMPT, buildItineraryPrompt, REFINEMENT_PROMPT } from './prompts';
+import { ITINERARY_SYSTEM_PROMPT, buildItineraryPrompt } from './prompts';
 import type {
   AutopilotInput,
   AutopilotOutput,
@@ -17,7 +16,6 @@ import type {
 // ── Constants ───────────────────────────────────────────────────────────────
 
 const AVG_SPEED_KM_H = 70; // Average speed on Mexican roads
-const STOP_OVERHEAD_MINUTES = 15; // Time to park, walk, etc.
 
 // Style definitions for alternatives
 const STYLE_DEFINITIONS: Record<StyleKey, { label: string; description: string; preferredCategories: string[] }> = {
@@ -169,7 +167,6 @@ function buildInitialItinerary(
     // Assign must-visit places for this day segment
     const mustVisitsForDay = mustVisitCandidates.filter((mv) => {
       const distToDay = haversineDistance(mv.latitude, mv.longitude, dayCenter.lat, dayCenter.lng);
-      const distToNext = haversineDistance(mv.latitude, mv.longitude, nextCenter.lat, nextCenter.lng);
       const segmentDist = haversineDistance(dayCenter.lat, dayCenter.lng, nextCenter.lat, nextCenter.lng);
       return distToDay < segmentDist * 0.8 && !days.some((d) => d.stops.some((s) => s.placeId === mv.id));
     });
@@ -253,20 +250,29 @@ async function llmRefine(
   const model = process.env.AI_MODEL ?? 'claude-haiku-4-5-20251001';
   const baseUrl = process.env.ANTHROPIC_BASE_URL ?? 'https://api.anthropic.com';
 
+  if (!apiKey) {
+    // No API key configured — skip the LLM call entirely and return heuristic output.
+    return buildFallbackOutput(initial, input);
+  }
+
   const response = await fetch(`${baseUrl}/v1/messages`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': apiKey ?? '',
+      'x-api-key': apiKey,
       'anthropic-version': '2023-06-01',
     },
     body: JSON.stringify({
       model,
-      max_tokens: 4096,
+      // 3000 is plenty for ~8 days x 5 stops x ~80 tokens of reason/description.
+      // Dropping from 4096 saves ~25% token cost on every run with zero user-visible loss.
+      max_tokens: 3000,
       system: [
         {
           type: 'text',
           text: ITINERARY_SYSTEM_PROMPT,
+          // Prompt caching — Anthropic charges 10% of input cost for cache reads.
+          // The system prompt is ~4KB; with caching, warm runs cost ~90% less on input.
           cache_control: { type: 'ephemeral' },
         },
       ],
@@ -295,7 +301,8 @@ async function llmRefine(
       .trim();
 
     const llmResponse: LLMItineraryResponse = JSON.parse(cleaned);
-    return mapLLMResponseToOutput(llmResponse, initial, candidates, input);
+    const output = mapLLMResponseToOutput(llmResponse, initial, candidates, input);
+    return { ...output, source: 'llm' };
   } catch (err) {
     console.error('Failed to parse LLM response:', err);
     return buildFallbackOutput(initial, input);
@@ -641,12 +648,13 @@ function mapLLMResponseToOutput(
     alternatives: [],
     confidence: llm.confidence ?? 70,
     warnings: llm.warnings ?? [],
+    source: 'llm',
   };
 }
 
 function calculateDayDrivingKm(
   stops: AutopilotStop[],
-  input: AutopilotInput,
+  _input: AutopilotInput,
 ): number {
   if (stops.length === 0) return 0;
 
@@ -687,7 +695,7 @@ function buildFallbackOutput(
 
   return {
     tripTitle: `Ruta de ${input.origin.name} a ${input.destination.name}`,
-    tripDescription: `Itinerario de ${daysCount} dias recorriendo Mexico de ${input.origin.name} a ${input.destination.name}. Generado con nuestro sistema de recomendaciones.`,
+    tripDescription: `Itinerario de ${daysCount} dias recorriendo Mexico de ${input.origin.name} a ${input.destination.name}. Generado con nuestro sistema de recomendaciones basado en reglas.`,
     days: initial.map((day) => ({
       ...day,
       title: day.title || `Dia ${day.dayNumber}`,
@@ -703,8 +711,9 @@ function buildFallbackOutput(
     alternatives: [],
     confidence: 50,
     warnings: [
-      'Este itinerario fue generado con nuestro algoritmo heuristico. Las descripciones y justificaciones se generaran cuando el servicio de IA este disponible.',
+      'Itinerario generado por el sistema heurístico (sin IA). Las descripciones y justificaciones detalladas solo aparecen cuando la IA está disponible.',
     ],
+    source: 'heuristic',
   };
 }
 

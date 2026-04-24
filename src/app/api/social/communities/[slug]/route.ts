@@ -6,6 +6,7 @@ import {
   leaveCommunity,
 } from '@/lib/social/communities';
 import { requireSocialAccess, isGuardError } from '@/lib/social/guards';
+import { emit, EVENTS } from '@/lib/analytics';
 
 interface Ctx {
   params: Promise<{ slug: string }>;
@@ -34,6 +35,12 @@ export async function POST(_: Request, ctx: Ctx) {
   const { slug } = await ctx.params;
   try {
     const result = await joinCommunity(sessionOrError.userId, slug);
+    if (result.joined || result.pending) {
+      emit(EVENTS.community_joined, {
+        userId: sessionOrError.userId,
+        properties: { slug, pending: result.pending },
+      });
+    }
     return NextResponse.json(result);
   } catch (err) {
     return NextResponse.json(

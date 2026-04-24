@@ -5,7 +5,12 @@ import { db } from '@/db';
 import { aiTripRuns } from '@/db/schema';
 import type { AutopilotInput, AutopilotOutput } from './types';
 
-const CACHE_TTL_DAYS = Number(process.env.AI_CACHE_TTL_DAYS ?? '30');
+// 90 days: same input hash → same output. Itineraries for "CDMX→Oaxaca,
+// cultural, moderado budget, 5 days" don't change often enough to justify
+// re-generating every 30 days. This cuts Anthropic spend roughly 3x on
+// popular prompts with zero user-visible staleness (cache key is
+// deterministic, so dates/mustVisit changes bypass the cache anyway).
+const CACHE_TTL_DAYS = Number(process.env.AI_CACHE_TTL_DAYS ?? '90');
 const CACHE_VERSION = 'v1';
 
 function roundCoord(n: number): number {
@@ -71,7 +76,10 @@ export async function findCachedItinerary(
 
     if (rows.length === 0 || !rows[0].result) return null;
 
-    return rows[0].result as AutopilotOutput;
+    const cached = rows[0].result as AutopilotOutput;
+    // Back-compat: older cached entries predate the `source` field.
+    if (!cached.source) cached.source = 'heuristic';
+    return cached;
   } catch (err) {
     console.warn('AI cache lookup failed:', err);
     return null;

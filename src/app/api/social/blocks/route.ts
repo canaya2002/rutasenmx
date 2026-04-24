@@ -3,6 +3,7 @@ import { z } from 'zod';
 
 import { blockUser, unblockUser, listBlockedUsers } from '@/lib/social/moderation';
 import { requireSocialAccess, isGuardError } from '@/lib/social/guards';
+import { emit, EVENTS } from '@/lib/analytics';
 
 export async function GET() {
   const sessionOrError = await requireSocialAccess();
@@ -25,6 +26,10 @@ export async function POST(request: NextRequest) {
 
   try {
     await blockUser(sessionOrError.userId, parsed.data.userId);
+    emit(EVENTS.user_blocked, {
+      userId: sessionOrError.userId,
+      properties: { blockedId: parsed.data.userId },
+    });
     return NextResponse.json({ ok: true });
   } catch (err) {
     return NextResponse.json(

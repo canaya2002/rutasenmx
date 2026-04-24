@@ -8,6 +8,7 @@ import {
 } from '@/lib/social/communities';
 import { requireSocialAccess, isGuardError } from '@/lib/social/guards';
 import { RateLimitError } from '@/lib/social/rate-limit';
+import { emit, EVENTS } from '@/lib/analytics';
 
 interface Ctx {
   params: Promise<{ slug: string }>;
@@ -72,6 +73,14 @@ export async function POST(request: NextRequest, ctx: Ctx) {
       body: parsed.data.body,
       photoUrls: parsed.data.photoUrls,
       photoHashes: parsed.data.photoHashes,
+    });
+    emit(EVENTS.post_created, {
+      userId: sessionOrError.userId,
+      properties: {
+        communityId: community.id,
+        communitySlug: community.slug,
+        hasPhotos: (parsed.data.photoUrls?.length ?? 0) > 0,
+      },
     });
     return NextResponse.json({ id });
   } catch (err) {

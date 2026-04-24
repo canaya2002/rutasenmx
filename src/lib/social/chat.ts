@@ -212,7 +212,7 @@ export async function sendMessage(
   matchId: string,
   senderId: string,
   rawBody: string,
-): Promise<SocialMessageView> {
+): Promise<{ message: SocialMessageView; recipientId: string }> {
   enforceRateLimit('sendMessage', senderId);
 
   const { cleaned, ok, violations } = validateText(rawBody, { maxUrls: 2 });
@@ -226,7 +226,7 @@ export async function sendMessage(
     throw new Error(`El mensaje supera ${SOCIAL_MESSAGE_MAX} caracteres`);
   }
 
-  const { match } = await getMatchForUser(matchId, senderId);
+  const { match, otherId } = await getMatchForUser(matchId, senderId);
   if (match.closedAt) {
     throw new Error('La conversación está cerrada');
   }
@@ -242,12 +242,15 @@ export async function sendMessage(
     .where(eq(socialMatches.id, match.id));
 
   return {
-    id: msg.id,
-    matchId: msg.matchId,
-    senderId: msg.senderId,
-    body: msg.body,
-    createdAt: msg.createdAt.toISOString(),
-    readAt: msg.readAt ? msg.readAt.toISOString() : null,
+    message: {
+      id: msg.id,
+      matchId: msg.matchId,
+      senderId: msg.senderId,
+      body: msg.body,
+      createdAt: msg.createdAt.toISOString(),
+      readAt: msg.readAt ? msg.readAt.toISOString() : null,
+    },
+    recipientId: otherId,
   };
 }
 

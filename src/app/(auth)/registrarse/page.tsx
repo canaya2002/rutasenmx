@@ -2,9 +2,17 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { z } from 'zod';
 import { useLocale } from '@/components/providers/LocaleProvider';
+
+/** Same-origin path guard shared with `/iniciar-sesion`. */
+function safeNext(raw: string | null): string {
+  if (!raw) return '/mis-viajes';
+  if (!raw.startsWith('/')) return '/mis-viajes';
+  if (raw.startsWith('//')) return '/mis-viajes';
+  return raw;
+}
 
 type RegisterFormData = {
   name: string;
@@ -16,6 +24,8 @@ type RegisterFormData = {
 
 export default function RegisterPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const nextParam = safeNext(searchParams.get('next'));
   const { locale } = useLocale();
   const isEn = locale === 'en';
 
@@ -126,7 +136,7 @@ export default function RegisterPage() {
         return;
       }
 
-      router.push('/mis-viajes');
+      router.push(nextParam);
       router.refresh();
     } catch {
       setServerError(L.connectionError);

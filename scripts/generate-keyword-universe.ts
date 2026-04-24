@@ -72,8 +72,6 @@ const CATEGORIES = [
   { slug: 'cascadas', name: 'cascadas' },
 ];
 
-const INTENTS = ['informational', 'navigational', 'transactional'] as const;
-
 const MODIFIERS = [
   'mejores', 'top', 'que visitar', 'como llegar', 'horarios y precios',
   'cerca de', 'baratos', 'gratis', 'con ninos', 'en pareja',

@@ -4,11 +4,8 @@ import {
   Clock,
   CalendarDays,
   DollarSign,
-  Share2,
-  Download,
 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { formatDistance, formatDuration, formatCurrency } from '@/lib/utils';
 
 /* ------------------------------------------------------------------ */

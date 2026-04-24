@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ArrowUp, Flag, MessageSquare, Send } from 'lucide-react';
 
 import type { CommentView, PostView } from '@/lib/social/communities';
+import { FlagPostDialog } from './FlagPostDialog';
 
 interface Props {
   post: PostView;
@@ -30,6 +31,7 @@ export function PostClient({ post: initialPost }: Props) {
   const [newComment, setNewComment] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [flagging, setFlagging] = useState(false);
 
   const loadComments = useCallback(async () => {
     setLoadingComments(true);
@@ -89,23 +91,8 @@ export function PostClient({ post: initialPost }: Props) {
     }
   };
 
-  const flagPost = async () => {
-    const reason = prompt(
-      'Motivo del reporte (harassment, spam, inappropriate_content, fake_profile, other):',
-    );
-    if (!reason) return;
-    try {
-      const res = await fetch(`/api/social/posts/${post.id}/flag`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ reason }),
-      });
-      if (res.ok) alert('Gracias por el reporte. Vamos a revisarlo.');
-      else alert('No se pudo enviar el reporte');
-    } catch {
-      alert('Error');
-    }
-  };
+  // Flag is handled by FlagPostDialog — see the `flagging` state and the
+  // dialog rendered at the bottom of the JSX.
 
   const sendComment = async () => {
     const body = newComment.trim();
@@ -156,7 +143,7 @@ export function PostClient({ post: initialPost }: Props) {
             </p>
           </div>
           <button
-            onClick={flagPost}
+            onClick={() => setFlagging(true)}
             aria-label="Reportar"
             className="rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-red-600"
           >
@@ -304,6 +291,10 @@ export function PostClient({ post: initialPost }: Props) {
           ))
         )}
       </div>
+
+      {flagging && (
+        <FlagPostDialog postId={post.id} onClose={() => setFlagging(false)} />
+      )}
     </div>
   );
 }

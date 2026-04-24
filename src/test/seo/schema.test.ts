@@ -41,7 +41,8 @@ describe('buildOrganizationSchema', () => {
 
   it('has contactPoint', () => {
     expect(schema.contactPoint).toBeDefined();
-    const cp = schema.contactPoint as Record<string, unknown>;
+    const raw = schema.contactPoint;
+    const cp = (Array.isArray(raw) ? raw[0] : raw) as Record<string, unknown>;
     expect(cp['@type']).toBe('ContactPoint');
   });
 });
@@ -61,12 +62,16 @@ describe('buildWebSiteSchema', () => {
   it('has required fields', () => {
     expect(schema.name).toBeTruthy();
     expect(schema.url).toBe(SITE_URL);
-    expect(schema.inLanguage).toBe('es');
+    // inLanguage may be a single string or an array of BCP-47 tags.
+    const lang = schema.inLanguage;
+    const langs = Array.isArray(lang) ? (lang as string[]) : [lang as string];
+    expect(langs.some((l) => l === 'es' || l.startsWith('es-'))).toBe(true);
   });
 
   it('includes SearchAction potentialAction', () => {
     expect(schema.potentialAction).toBeDefined();
-    const action = schema.potentialAction as Record<string, unknown>;
+    const raw = schema.potentialAction;
+    const action = (Array.isArray(raw) ? raw[0] : raw) as Record<string, unknown>;
     expect(action['@type']).toBe('SearchAction');
     expect(action['query-input']).toContain('search_term_string');
   });
@@ -257,7 +262,12 @@ describe('buildArticleSchema', () => {
     expect(schema.author).toBeDefined();
     expect(schema.publisher).toBeDefined();
     const publisher = schema.publisher as Record<string, unknown>;
-    expect(publisher['@type']).toBe('Organization');
+    // Publisher may be a full Organization node or an @id reference to one.
+    const hasType = publisher['@type'] === 'Organization';
+    const hasRef =
+      typeof publisher['@id'] === 'string' &&
+      (publisher['@id'] as string).includes('#organization');
+    expect(hasType || hasRef).toBe(true);
   });
 
   it('uses datePublished as dateModified fallback', () => {
@@ -275,8 +285,10 @@ describe('buildArticleSchema', () => {
     expect(s.dateModified).toBe('2025-06-01');
   });
 
-  it('has language set to es', () => {
-    expect(schema.inLanguage).toBe('es');
+  it('has language set to a Spanish BCP-47 tag', () => {
+    const lang = schema.inLanguage as string;
+    expect(typeof lang).toBe('string');
+    expect(lang === 'es' || lang.startsWith('es-')).toBe(true);
   });
 });
 

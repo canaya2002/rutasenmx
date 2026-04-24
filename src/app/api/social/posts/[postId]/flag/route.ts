@@ -3,6 +3,7 @@ import { z } from 'zod';
 
 import { flagContent } from '@/lib/social/communities';
 import { requireSocialAccess, isGuardError } from '@/lib/social/guards';
+import { emit, EVENTS } from '@/lib/analytics';
 
 interface Ctx {
   params: Promise<{ postId: string }>;
@@ -28,6 +29,10 @@ export async function POST(request: NextRequest, ctx: Ctx) {
       postId,
       reason: parsed.data.reason,
       note: parsed.data.note,
+    });
+    emit(EVENTS.post_flagged, {
+      userId: sessionOrError.userId,
+      properties: { postId, reason: parsed.data.reason },
     });
     return NextResponse.json({ ok: true });
   } catch (err) {

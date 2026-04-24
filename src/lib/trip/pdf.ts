@@ -28,6 +28,12 @@ export interface PDFTripInput {
   currency?: string;
   days?: number;
   waypoints: PDFWaypoint[];
+  /**
+   * Optional diagonal watermark stamped on every page.
+   * Used by the Free plan so exported PDFs stay clearly branded until the
+   * user upgrades. Passing null/undefined produces a clean export.
+   */
+  watermark?: string | null;
 }
 
 /* ------------------------------------------------------------------ */
@@ -260,6 +266,28 @@ export function generateTripPDF(input: PDFTripInput): jsPDF {
       doc.internal.pageSize.getHeight() - 8,
       { align: 'center' },
     );
+  }
+
+  /* ── Watermark (Free plan) ──────────────────────────────── */
+  if (input.watermark) {
+    const pageHeight = doc.internal.pageSize.getHeight();
+    for (let i = 1; i <= pageCount; i++) {
+      doc.setPage(i);
+      doc.saveGraphicsState();
+      // Render large, rotated, very light diagonal text behind content.
+      // jsPDF's `GState` isn't universally supported, so we just use a light colour.
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(48);
+      doc.setTextColor(220);
+      doc.text(
+        input.watermark,
+        pageWidth / 2,
+        pageHeight / 2,
+        { align: 'center', angle: -30 },
+      );
+      doc.restoreGraphicsState();
+      doc.setTextColor(0);
+    }
   }
 
   return doc;

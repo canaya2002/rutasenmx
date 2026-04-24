@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 import { getLocale } from '@/lib/i18n/server';
 import { PageShell } from '@/components/layout/PageShell';
-import { pickDecoration } from '@/lib/data/general-images';
 import { Database, RefreshCw, CheckCircle2, AlertTriangle, ExternalLink } from 'lucide-react';
 
 const PAGE_PATH = '/fuentes-de-datos';

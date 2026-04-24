@@ -1,0 +1,11 @@
+node_modules/
+.expo/
+dist/
+*.tsbuildinfo
+expo-env.d.ts
+.env.local
+.env.*.local
+ios/
+android/
+web-build/
+google-service-account.json

@@ -23,7 +23,6 @@ import {
   vehicleTypeEnum,
   collectionTypeEnum,
   aiRunStatusEnum,
-  placementTypeEnum,
   importRunStatusEnum,
   socialIntentEnum,
   socialSwipeActionEnum,
@@ -596,9 +595,14 @@ export const savedPlaces = pgTable(
     userId: uuid("user_id")
       .notNull()
       .references(() => users.id, { onDelete: "cascade" }),
-    placeId: uuid("place_id")
-      .notNull()
-      .references(() => places.id, { onDelete: "cascade" }),
+    // placeId is nullable — legacy rows that were created when the catalog
+    // was planned to live in Postgres still carry it. New code writes to
+    // `placeSlug` because the catalog (pueblos mágicos, museos, etc.) is
+    // editorial static content shipped with the app, not DB data.
+    placeId: uuid("place_id").references(() => places.id, {
+      onDelete: "cascade",
+    }),
+    placeSlug: varchar("place_slug", { length: 300 }),
     collectionId: uuid("collection_id").references(() => collections.id, {
       onDelete: "set null",
     }),
@@ -611,7 +615,8 @@ export const savedPlaces = pgTable(
     index("saved_places_user_id_idx").on(t.userId),
     index("saved_places_place_id_idx").on(t.placeId),
     index("saved_places_collection_id_idx").on(t.collectionId),
-    uniqueIndex("saved_places_user_place_idx").on(t.userId, t.placeId),
+    // Only one row per (user, slug). Catalog is slug-stable so this is safe.
+    uniqueIndex("saved_places_user_slug_idx").on(t.userId, t.placeSlug),
   ],
 );
 
@@ -961,97 +966,10 @@ export const importErrors = pgTable(
   ],
 );
 
-// ═══════════════════════════════════════════════════════════════════════════════
-// 31. AFFILIATE CLICKS
-// ═══════════════════════════════════════════════════════════════════════════════
-export const affiliateClicks = pgTable(
-  "affiliate_clicks",
-  {
-    id: uuid("id").primaryKey().defaultRandom(),
-    userId: uuid("user_id").references(() => users.id, {
-      onDelete: "set null",
-    }),
-    placeId: uuid("place_id").references(() => places.id, {
-      onDelete: "set null",
-    }),
-    partner: varchar("partner", { length: 200 }).notNull(),
-    destinationUrl: text("destination_url").notNull(),
-    utmParams: jsonb("utm_params"),
-    referrer: text("referrer"),
-    ipHash: varchar("ip_hash", { length: 64 }),
-    createdAt: timestamp("created_at", { withTimezone: true })
-      .notNull()
-      .defaultNow(),
-  },
-  (t) => [
-    index("affiliate_clicks_user_id_idx").on(t.userId),
-    index("affiliate_clicks_place_id_idx").on(t.placeId),
-    index("affiliate_clicks_partner_idx").on(t.partner),
-    index("affiliate_clicks_created_at_idx").on(t.createdAt),
-  ],
-);
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// 32. SPONSORED PLACEMENTS
-// ═══════════════════════════════════════════════════════════════════════════════
-export const sponsoredPlacements = pgTable(
-  "sponsored_placements",
-  {
-    id: uuid("id").primaryKey().defaultRandom(),
-    placeId: uuid("place_id")
-      .notNull()
-      .references(() => places.id, { onDelete: "cascade" }),
-    campaignName: varchar("campaign_name", { length: 300 }).notNull(),
-    placementType: placementTypeEnum("placement_type").notNull(),
-    startDate: timestamp("start_date", { withTimezone: true }).notNull(),
-    endDate: timestamp("end_date", { withTimezone: true }).notNull(),
-    budgetCents: integer("budget_cents"),
-    spentCents: integer("spent_cents").notNull().default(0),
-    impressions: integer("impressions").notNull().default(0),
-    clicks: integer("clicks").notNull().default(0),
-    isActive: boolean("is_active").notNull().default(true),
-    ...timestamps,
-  },
-  (t) => [
-    index("sponsored_placements_place_id_idx").on(t.placeId),
-    index("sponsored_placements_is_active_idx").on(t.isActive),
-    index("sponsored_placements_placement_type_idx").on(t.placementType),
-    index("sponsored_placements_start_end_idx").on(t.startDate, t.endDate),
-  ],
-);
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// 33. MEMBER DEALS
-// ═══════════════════════════════════════════════════════════════════════════════
-export const memberDeals = pgTable(
-  "member_deals",
-  {
-    id: uuid("id").primaryKey().defaultRandom(),
-    title: varchar("title", { length: 400 }).notNull(),
-    description: text("description"),
-    partnerName: varchar("partner_name", { length: 300 }).notNull(),
-    dealCode: varchar("deal_code", { length: 100 }),
-    redirectUrl: text("redirect_url"),
-    discountPercent: integer("discount_percent"),
-    discountAmountCents: integer("discount_amount_cents"),
-    minPlanRequired: varchar("min_plan_required", { length: 100 }),
-    placeId: uuid("place_id").references(() => places.id, {
-      onDelete: "set null",
-    }),
-    category: varchar("category", { length: 100 }),
-    coverImageUrl: text("cover_image_url"),
-    startsAt: timestamp("starts_at", { withTimezone: true }),
-    expiresAt: timestamp("expires_at", { withTimezone: true }),
-    isActive: boolean("is_active").notNull().default(true),
-    ...timestamps,
-  },
-  (t) => [
-    index("member_deals_place_id_idx").on(t.placeId),
-    index("member_deals_is_active_idx").on(t.isActive),
-    index("member_deals_category_idx").on(t.category),
-    index("member_deals_expires_at_idx").on(t.expiresAt),
-  ],
-);
+// NOTE: affiliate_clicks, sponsored_placements and member_deals were removed.
+// They had no endpoints, no UI, no business logic — pure scaffold from the
+// original schema. If/when those monetization streams ship, re-introduce
+// them as a dedicated migration rather than dead tables in the schema.
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // 34. FEATURE FLAGS
@@ -1095,6 +1013,92 @@ export const auditLogs = pgTable(
     index("audit_logs_entity_id_idx").on(t.entityId),
     index("audit_logs_action_idx").on(t.action),
     index("audit_logs_created_at_idx").on(t.createdAt),
+  ],
+);
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 36. ANALYTICS EVENTS (product funnel instrumentation)
+// ═══════════════════════════════════════════════════════════════════════════════
+export const analyticsEvents = pgTable(
+  "analytics_events",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
+    sessionId: varchar("session_id", { length: 120 }),
+    name: varchar("name", { length: 120 }).notNull(),
+    properties: jsonb("properties").$type<Record<string, unknown>>(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    index("analytics_events_name_idx").on(t.name),
+    index("analytics_events_user_id_idx").on(t.userId),
+    index("analytics_events_created_at_idx").on(t.createdAt),
+  ],
+);
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 37. MOBILE SUBSCRIPTIONS (Apple IAP / Google IAP via RevenueCat)
+// ═══════════════════════════════════════════════════════════════════════════════
+// Parallel to `subscriptions` (which tracks Stripe-web subs). Together they
+// feed the `/api/entitlements` endpoint that prevents a user from paying twice
+// across platforms.
+export const mobileSubscriptions = pgTable(
+  "mobile_subscriptions",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    source: varchar("source", { length: 20 }).notNull(),
+    revenueCatUserId: varchar("revenuecat_user_id", { length: 255 }).notNull(),
+    productId: varchar("product_id", { length: 255 }).notNull(),
+    planSlug: varchar("plan_slug", { length: 50 }).notNull(),
+    status: varchar("status", { length: 50 }).notNull(),
+    currentPeriodStart: timestamp("current_period_start", {
+      withTimezone: true,
+    }),
+    currentPeriodEnd: timestamp("current_period_end", { withTimezone: true }),
+    originalTransactionId: varchar("original_transaction_id", { length: 255 }),
+    environment: varchar("environment", { length: 20 }).notNull(),
+    ...timestamps,
+  },
+  (t) => [
+    index("mobile_subscriptions_user_id_idx").on(t.userId),
+    index("mobile_subscriptions_status_idx").on(t.status),
+    index("mobile_subscriptions_source_idx").on(t.source),
+    uniqueIndex("mobile_subscriptions_orig_tx_idx").on(t.originalTransactionId),
+  ],
+);
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// 38. PUSH TOKENS (Expo push notifications)
+// ═══════════════════════════════════════════════════════════════════════════════
+// One row per device. We key on (userId, token) so re-registration from the
+// same device is idempotent. A user may have multiple rows — one per device.
+// Tokens are removed when Expo's push API returns DeviceNotRegistered.
+export const pushTokens = pgTable(
+  "push_tokens",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    token: varchar("token", { length: 255 }).notNull(),
+    platform: varchar("platform", { length: 20 }).notNull(), // 'ios' | 'android'
+    locale: varchar("locale", { length: 20 }),
+    appVersion: varchar("app_version", { length: 20 }),
+    lastSeenAt: timestamp("last_seen_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    ...timestamps,
+  },
+  (t) => [
+    index("push_tokens_user_idx").on(t.userId),
+    uniqueIndex("push_tokens_token_idx").on(t.token),
   ],
 );
 
@@ -1190,9 +1194,6 @@ export const placesRelations = relations(places, ({ one, many }) => ({
   savedPlaces: many(savedPlaces),
   collectionPlaces: many(collectionPlaces),
   contentRoutePlaces: many(contentRoutePlaces),
-  affiliateClicks: many(affiliateClicks),
-  sponsoredPlacements: many(sponsoredPlacements),
-  memberDeals: many(memberDeals),
 }));
 
 export const placeSourcesRelations = relations(placeSources, ({ one }) => ({
@@ -1412,37 +1413,6 @@ export const importErrorsRelations = relations(importErrors, ({ one }) => ({
   importRun: one(importRuns, {
     fields: [importErrors.importRunId],
     references: [importRuns.id],
-  }),
-}));
-
-export const affiliateClicksRelations = relations(
-  affiliateClicks,
-  ({ one }) => ({
-    user: one(users, {
-      fields: [affiliateClicks.userId],
-      references: [users.id],
-    }),
-    place: one(places, {
-      fields: [affiliateClicks.placeId],
-      references: [places.id],
-    }),
-  }),
-);
-
-export const sponsoredPlacementsRelations = relations(
-  sponsoredPlacements,
-  ({ one }) => ({
-    place: one(places, {
-      fields: [sponsoredPlacements.placeId],
-      references: [places.id],
-    }),
-  }),
-);
-
-export const memberDealsRelations = relations(memberDeals, ({ one }) => ({
-  place: one(places, {
-    fields: [memberDeals.placeId],
-    references: [places.id],
   }),
 }));
 

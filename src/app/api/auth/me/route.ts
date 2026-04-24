@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { getSession } from '@/lib/auth/session';
 import { db, users } from '@/db';
 import { eq } from 'drizzle-orm';
+import { getCurrentPlanSlug } from '@/lib/subscription/current-plan';
 
 export async function GET() {
   try {
@@ -35,10 +36,14 @@ export async function GET() {
       );
     }
 
+    // Read plan fresh from DB so a paid subscriber who just upgraded doesn't
+    // see stale "free" until their next login.
+    const plan = await getCurrentPlanSlug(session.userId);
+
     return NextResponse.json({
       user: {
         ...user,
-        plan: session.plan,
+        plan,
       },
     });
   } catch (error) {

@@ -1,8 +1,7 @@
 import { db } from '@/db';
 import { places, placeCategories } from '@/db/schema';
-import { eq, and, gte, lte, isNotNull, sql } from 'drizzle-orm';
+import { eq, and, gte, lte, isNotNull } from 'drizzle-orm';
 import { haversineDistance } from '@/lib/utils';
-import { PLACE_CATEGORIES } from '@/lib/constants';
 import type { AutopilotInput, CandidatePlace } from './types';
 
 // ── Constants ───────────────────────────────────────────────────────────────

@@ -23,14 +23,12 @@ import {
   GripVertical,
   CalendarDays,
   Printer,
-  Save,
   Clock,
-  Route,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { formatDistance, formatDuration } from '@/lib/utils';
+import { formatDuration } from '@/lib/utils';
 import type { TripStop } from './StopCard';
 import { useLocale } from '@/components/providers/LocaleProvider';
 

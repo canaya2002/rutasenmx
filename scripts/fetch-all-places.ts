@@ -5,7 +5,7 @@
  * Usage: npx tsx scripts/fetch-all-places.ts
  */
 
-import { writeFileSync, readFileSync, mkdirSync } from 'fs';
+import { writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
 
 const OUT_DIR = join(process.cwd(), 'data', 'fetched');

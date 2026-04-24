@@ -43,7 +43,7 @@ export default function RoutePreview({
   routeCoordinates,
   stops,
   alternateCoordinates,
-  showDistanceLabels = false,
+  showDistanceLabels: _showDistanceLabels = false,
   color = '#C4532B',
 }: RoutePreviewProps) {
   const { map, isReady } = useMap();

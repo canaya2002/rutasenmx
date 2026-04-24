@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { db } from '@/db';
 
 export const metadata: Metadata = {
   title: 'Deals | Admin',

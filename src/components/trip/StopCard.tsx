@@ -41,7 +41,7 @@ export interface StopCardProps {
 export default function StopCard({
   stop,
   index,
-  total,
+  total: _total,
   onChange,
   onRemove,
   onMoveUp,

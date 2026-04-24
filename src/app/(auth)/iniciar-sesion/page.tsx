@@ -2,14 +2,27 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { z } from 'zod';
 import { useLocale } from '@/components/providers/LocaleProvider';
 
 type LoginForm = { email: string; password: string };
 
+/**
+ * Only accept `next=` values that are safe same-origin paths. Defends against
+ * open-redirects (`?next=https://evil.com`).
+ */
+function safeNext(raw: string | null): string {
+  if (!raw) return '/mis-viajes';
+  if (!raw.startsWith('/')) return '/mis-viajes';
+  if (raw.startsWith('//')) return '/mis-viajes';
+  return raw;
+}
+
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const nextParam = safeNext(searchParams.get('next'));
   const { locale } = useLocale();
   const isEn = locale === 'en';
 
@@ -88,7 +101,7 @@ export default function LoginPage() {
         return;
       }
 
-      router.push('/mis-viajes');
+      router.push(nextParam);
       router.refresh();
     } catch {
       setServerError(L.connectionError);

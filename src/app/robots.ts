@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { isSocialEnabled } from '@/lib/feature-flags';
 
 const SITE_URL = 'https://rutasenmx.com';
 
@@ -14,6 +15,23 @@ const SITE_URL = 'https://rutasenmx.com';
  *   These don't add search traffic and can hammer the origin.
  */
 export default function robots(): MetadataRoute.Robots {
+  const socialDisallow = isSocialEnabled()
+    ? [
+        // Social (Conectar) subpages are auth-gated; /conectar (landing) stays public.
+        '/conectar/perfil',
+        '/conectar/descubrir',
+        '/conectar/matches',
+        '/conectar/chat/',
+        // Community spaces are premium-only; only /comunidad listing is public for SEO hints.
+        '/comunidad/grupos/nuevo',
+        '/comunidad/post/',
+      ]
+    : [
+        // Social surface is disabled — hide the entire tree from crawlers.
+        '/conectar',
+        '/comunidad',
+      ];
+
   const privatePaths = [
     '/admin/',
     '/dashboard/',
@@ -28,14 +46,7 @@ export default function robots(): MetadataRoute.Robots {
     '/checkout/',
     '/preview/',
     '/compartido/',
-    // Social (Conectar) subpages are auth-gated; /conectar (landing) stays public.
-    '/conectar/perfil',
-    '/conectar/descubrir',
-    '/conectar/matches',
-    '/conectar/chat/',
-    // Community spaces are premium-only; only /comunidad listing is public for SEO hints.
-    '/comunidad/grupos/nuevo',
-    '/comunidad/post/',
+    ...socialDisallow,
     '/*?token=',
     '/*?preview=',
   ];

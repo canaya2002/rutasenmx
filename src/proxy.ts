@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { defaultLocale, locales, type Locale } from '@/lib/i18n/config';
+import { isSocialEnabled, isSocialPath } from '@/lib/feature-flags';
 
 const LOCALE_COOKIE = 'rutasmx_locale';
 
@@ -22,6 +23,12 @@ function getPreferredLocale(request: NextRequest): Locale {
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Feature-flag kill switch for social/communities surface.
+  // 404 at the edge keeps the surface out of production until FEATURE_SOCIAL=true.
+  if (!isSocialEnabled() && isSocialPath(pathname)) {
+    return new NextResponse('Not found', { status: 404 });
+  }
 
   if (
     pathname.startsWith('/api/') ||

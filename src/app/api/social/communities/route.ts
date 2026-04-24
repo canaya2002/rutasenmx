@@ -7,6 +7,7 @@ import {
 } from '@/lib/social/communities';
 import { requireSocialAccess, isGuardError } from '@/lib/social/guards';
 import { RateLimitError } from '@/lib/social/rate-limit';
+import { emit, EVENTS } from '@/lib/analytics';
 
 export async function GET(request: NextRequest) {
   const sessionOrError = await requireSocialAccess();
@@ -47,6 +48,10 @@ export async function POST(request: NextRequest) {
     const community = await createCommunity(sessionOrError.userId, {
       type: 'group',
       ...parsed.data,
+    });
+    emit(EVENTS.community_created, {
+      userId: sessionOrError.userId,
+      properties: { communityId: community.id, slug: community.slug },
     });
     return NextResponse.json({ community });
   } catch (err) {

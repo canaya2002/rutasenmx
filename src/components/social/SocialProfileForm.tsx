@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Camera, Save } from 'lucide-react';
+import { Save } from 'lucide-react';
 
 import { ESTADOS_MEXICO } from '@/lib/constants';
 import {
@@ -14,6 +14,7 @@ import {
   SOCIAL_LANGUAGE_OPTIONS,
 } from '@/lib/social/constants';
 import type { SocialProfileView, SocialIntent } from '@/lib/social/types';
+import { PhotoUploader, type UploadedPhoto } from './PhotoUploader';
 
 const INTENTS: SocialIntent[] = ['convivir', 'salir', 'explorar', 'conocer'];
 
@@ -37,7 +38,17 @@ export function SocialProfileForm({
     initial?.displayName ?? userName ?? '',
   );
   const [bio, setBio] = useState(initial?.bio ?? '');
-  const [photoUrl, setPhotoUrl] = useState(initial?.photoUrl ?? userAvatar ?? '');
+  const initialPhoto = initial?.photoUrl ?? userAvatar ?? '';
+  // We represent photo as an UploadedPhoto[] with at most one entry so the
+  // same PhotoUploader used for posts drives avatar selection too. If the
+  // user already has a photoUrl (from a prior save), we seed it as a
+  // lightweight entry — sha256 is unknown so we use a placeholder.
+  const [photos, setPhotos] = useState<UploadedPhoto[]>(
+    initialPhoto
+      ? [{ url: initialPhoto, sha256: 'existing', width: 0, height: 0 }]
+      : [],
+  );
+  const photoUrl = photos[0]?.url ?? '';
   const [destino, setDestino] = useState(initial?.destinoEstadoSlug ?? '');
   const [interests, setInterests] = useState<string[]>(initial?.interests ?? []);
   const [intent, setIntent] = useState<SocialIntent | null>(
@@ -99,34 +110,21 @@ export function SocialProfileForm({
   return (
     <div className="space-y-6">
       {/* Foto */}
-      <section className="flex items-center gap-4">
-        <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-emerald-100 to-emerald-200 ring-2 ring-emerald-300">
-          {photoUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={photoUrl}
-              alt={displayName}
-              className="h-full w-full object-cover"
-              onError={() => setPhotoUrl('')}
-            />
-          ) : (
-            <Camera className="h-8 w-8 text-emerald-700/70" />
-          )}
-        </div>
-        <div className="flex-1">
-          <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500">
-            URL de tu foto
-          </label>
-          <input
-            type="url"
-            value={photoUrl}
-            onChange={(e) => setPhotoUrl(e.target.value)}
-            placeholder="https://..."
-            className="mt-1 w-full rounded-lg border border-slate-200 p-2 text-sm focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+      <section>
+        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+          Tu foto de perfil
+        </p>
+        <p className="mt-1 text-xs text-slate-500">
+          JPEG, PNG o WebP · máx 10 MB · se revisa y re-encodea automáticamente
+          (se quita EXIF) antes de guardarse.
+        </p>
+        <div className="mt-3">
+          <PhotoUploader
+            scope="avatar"
+            max={1}
+            value={photos}
+            onChange={setPhotos}
           />
-          <p className="mt-1 text-xs text-slate-500">
-            Usa el link de una imagen pública. Próximamente: subida directa.
-          </p>
         </div>
       </section>
 

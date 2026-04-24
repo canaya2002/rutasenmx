@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { db, places, placeCategories, placeSources } from '@/db';
-import { desc, isNull, eq, ilike, count } from 'drizzle-orm';
+import { db, places, placeCategories } from '@/db';
+import { desc, isNull, eq, count } from 'drizzle-orm';
 
 export const metadata: Metadata = {
   title: 'Lugares | Admin',

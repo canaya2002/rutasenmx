@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Chip } from '@/components/ui/chip';
 import { Spinner } from '@/components/ui/spinner';
 import { cn } from '@/lib/utils';
-import { PLACE_CATEGORIES, BUDGET_LEVELS } from '@/lib/constants';
+import { PLACE_CATEGORIES } from '@/lib/constants';
 import type { AutopilotInput, AutopilotOutput } from '@/lib/ai/types';
 import { useLocale } from '@/components/providers/LocaleProvider';
 
@@ -201,10 +201,13 @@ interface AutopilotWizardProps {
 
 // ── Component ───────────────────────────────────────────────────────────────
 
-export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWizardProps) {
+export function AutopilotWizard({ onComplete, isPremium: _isPremium = false }: AutopilotWizardProps) {
   const { locale } = useLocale();
   const isEn = locale === 'en';
-  const T = (es: string, en: string) => (isEn ? en : es);
+  const T = React.useCallback(
+    (es: string, en: string) => (isEn ? en : es),
+    [isEn],
+  );
 
   const PACE_OPTIONS = React.useMemo(() => buildPaceOptions(isEn), [isEn]);
   const TRAVELER_TYPES = React.useMemo(() => buildTravelerTypes(isEn), [isEn]);
@@ -216,6 +219,9 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
   const [isGenerating, setIsGenerating] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
   const [funFactIndex, setFunFactIndex] = React.useState(0);
+  const [result, setResult] = React.useState<AutopilotOutput | null>(null);
+  const [isSaving, setIsSaving] = React.useState(false);
+  const [saveError, setSaveError] = React.useState<string | null>(null);
 
   const [state, setState] = React.useState<WizardState>({
     origin: null,
@@ -246,11 +252,12 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
   // Rotate fun facts during generation
   React.useEffect(() => {
     if (!isGenerating) return;
+    const factsLength = MEXICO_FUN_FACTS.length;
     const interval = setInterval(() => {
-      setFunFactIndex((prev) => (prev + 1) % MEXICO_FUN_FACTS.length);
+      setFunFactIndex((prev) => (prev + 1) % factsLength);
     }, 4000);
     return () => clearInterval(interval);
-  }, [isGenerating]);
+  }, [isGenerating, MEXICO_FUN_FACTS.length]);
 
   const update = React.useCallback(
     <K extends keyof WizardState>(key: K, value: WizardState[K]) => {
@@ -308,7 +315,7 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
     };
 
     try {
-      const response = await fetch('/api/autopilot/generate', {
+      const response = await fetch('/api/ai/autopilot', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(input),
@@ -317,12 +324,16 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(
-          errorData.message ?? `Error ${response.status}: ${T('No se pudo generar el itinerario.', 'Could not generate the itinerary.')}`,
+          errorData.error ?? errorData.message ?? `Error ${response.status}: ${T('No se pudo generar el itinerario.', 'Could not generate the itinerary.')}`,
         );
       }
 
-      const result: AutopilotOutput = await response.json();
-      onComplete?.(result);
+      const data = (await response.json()) as { itinerary: AutopilotOutput; cached?: boolean };
+      if (onComplete) {
+        onComplete(data.itinerary);
+      } else {
+        setResult(data.itinerary);
+      }
     } catch (err) {
       setError(
         err instanceof Error
@@ -334,63 +345,42 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
     }
   }, [state, onComplete, T]);
 
-  // Geocode helper (simplified - uses coordinates from search text)
+  /**
+   * Geocode via the server-side /api/geocode proxy. If the proxy returns no
+   * results (offline / provider down) we still honor whatever the user typed
+   * but mark the coordinates as null so the backend can reject instead of
+   * planning a trip to random noise — previous versions silently jittered
+   * around CDMX which is worse than failing cleanly.
+   */
   const handleSetLocation = React.useCallback(
-    (
-      field: 'origin' | 'destination',
-      name: string,
-    ) => {
-      // In production this would call Mapbox geocoding API
-      // For now, use placeholder coordinates based on well-known cities
-      const knownCities: Record<string, { lat: number; lng: number }> = {
-        'ciudad de mexico': { lat: 19.4326, lng: -99.1332 },
-        'cdmx': { lat: 19.4326, lng: -99.1332 },
-        'guadalajara': { lat: 20.6597, lng: -103.3496 },
-        'monterrey': { lat: 25.6866, lng: -100.3161 },
-        'cancun': { lat: 21.1619, lng: -86.8515 },
-        'oaxaca': { lat: 17.0732, lng: -96.7266 },
-        'merida': { lat: 20.9674, lng: -89.5926 },
-        'puebla': { lat: 19.0414, lng: -98.2063 },
-        'san miguel de allende': { lat: 20.9144, lng: -100.7452 },
-        'guanajuato': { lat: 21.0190, lng: -101.2574 },
-        'queretaro': { lat: 20.5888, lng: -100.3899 },
-        'san cristobal de las casas': { lat: 16.7370, lng: -92.6376 },
-        'playa del carmen': { lat: 20.6296, lng: -87.0739 },
-        'tulum': { lat: 20.2114, lng: -87.4654 },
-        'puerto vallarta': { lat: 20.6534, lng: -105.2253 },
-        'los cabos': { lat: 22.8905, lng: -109.9167 },
-        'leon': { lat: 21.1221, lng: -101.6821 },
-        'morelia': { lat: 19.7060, lng: -101.1950 },
-        'zacatecas': { lat: 22.7709, lng: -102.5832 },
-        'aguascalientes': { lat: 21.8818, lng: -102.2916 },
-        'veracruz': { lat: 19.1738, lng: -96.1342 },
-        'tijuana': { lat: 32.5149, lng: -117.0382 },
-        'chihuahua': { lat: 28.6353, lng: -106.0889 },
-        'durango': { lat: 24.0277, lng: -104.6532 },
-        'mazatlan': { lat: 23.2494, lng: -106.4111 },
-        'taxco': { lat: 18.5564, lng: -99.6050 },
-        'cuernavaca': { lat: 18.9242, lng: -99.2216 },
-        'toluca': { lat: 19.2826, lng: -99.6557 },
-        'pachuca': { lat: 20.1011, lng: -98.7591 },
-        'villahermosa': { lat: 17.9869, lng: -92.9303 },
-        'campeche': { lat: 19.8301, lng: -90.5349 },
-        'tuxtla gutierrez': { lat: 16.7528, lng: -93.1152 },
-        'acapulco': { lat: 16.8531, lng: -99.8237 },
-        'ixtapa': { lat: 17.6567, lng: -101.6511 },
-        'huatulco': { lat: 15.7741, lng: -96.1349 },
-      };
-
-      const normalized = name.toLowerCase().trim();
-      const found = knownCities[normalized];
-
-      if (found) {
-        update(field, { name, lat: found.lat, lng: found.lng });
-      } else {
-        // Default to Mexico center - in production use geocoding API
-        update(field, { name, lat: 19.4326 + (Math.random() - 0.5) * 10, lng: -99.1332 + (Math.random() - 0.5) * 10 });
+    async (field: 'origin' | 'destination', name: string): Promise<void> => {
+      const q = name.trim();
+      if (!q) return;
+      try {
+        const res = await fetch(
+          `/api/geocode?q=${encodeURIComponent(q)}&limit=1`,
+        );
+        if (!res.ok) throw new Error(`geocode ${res.status}`);
+        const data = (await res.json()) as {
+          results?: Array<{ name: string; fullName: string; lat: number; lng: number }>;
+        };
+        const top = data.results?.[0];
+        if (top) {
+          update(field, { name: top.fullName, lat: top.lat, lng: top.lng });
+          return;
+        }
+      } catch (err) {
+        console.warn('[wizard] geocoding failed', err);
       }
+      // No result — tell the user so they can refine. We DON'T guess.
+      setError(
+        T(
+          `No encontramos "${q}". Prueba con un nombre más completo (ciudad + estado).`,
+          `We couldn't find "${q}". Try a fuller name (city + state).`,
+        ),
+      );
     },
-    [update],
+    [update, T],
   );
 
   const toggleInterest = React.useCallback(
@@ -406,30 +396,223 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
   );
 
   const addMustVisit = React.useCallback(
-    (name: string) => {
-      if (!name.trim()) return;
-      const knownCities: Record<string, { lat: number; lng: number }> = {
-        'chichen itza': { lat: 20.6843, lng: -88.5678 },
-        'teotihuacan': { lat: 19.6925, lng: -98.8438 },
-        'monte alban': { lat: 17.0437, lng: -96.7676 },
-        'palenque': { lat: 17.4838, lng: -92.0460 },
-        'tulum ruinas': { lat: 20.2145, lng: -87.4290 },
-        'guanajuato': { lat: 21.0190, lng: -101.2574 },
-        'san miguel de allende': { lat: 20.9144, lng: -100.7452 },
-      };
-
-      const normalized = name.toLowerCase().trim();
-      const found = knownCities[normalized];
-      const coords = found ?? { lat: 19.4326 + (Math.random() - 0.5) * 10, lng: -99.1332 + (Math.random() - 0.5) * 10 };
-
-      setState((prev) => ({
-        ...prev,
-        mustVisit: [...prev.mustVisit, { name: name.trim(), ...coords }],
-      }));
-      setMustVisitSearch('');
+    async (name: string): Promise<void> => {
+      const q = name.trim();
+      if (!q) return;
+      try {
+        const res = await fetch(
+          `/api/geocode?q=${encodeURIComponent(q)}&limit=1`,
+        );
+        if (!res.ok) throw new Error(`geocode ${res.status}`);
+        const data = (await res.json()) as {
+          results?: Array<{ name: string; fullName: string; lat: number; lng: number }>;
+        };
+        const top = data.results?.[0];
+        if (top) {
+          setState((prev) => ({
+            ...prev,
+            mustVisit: [
+              ...prev.mustVisit,
+              { name: top.name, lat: top.lat, lng: top.lng },
+            ],
+          }));
+          setMustVisitSearch('');
+          return;
+        }
+      } catch (err) {
+        console.warn('[wizard] must-visit geocoding failed', err);
+      }
+      setError(
+        T(
+          `No encontramos "${q}" como parada. Prueba otro nombre.`,
+          `We couldn't find "${q}" as a stop. Try another name.`,
+        ),
+      );
     },
-    [],
+    [T],
   );
+
+  // ── Result screen ────────────────────────────────────────────────────────
+
+  if (result) {
+    const isHeuristic = result.source === 'heuristic';
+    const totalHours = Math.floor(result.totalDuration / 60);
+    const totalMin = result.totalDuration % 60;
+    return (
+      <Card className="w-full max-w-3xl mx-auto">
+        <CardHeader>
+          {/* Source transparency badge */}
+          <div className="mb-3">
+            {isHeuristic ? (
+              <Badge variant="outline" className="border-amber-300 bg-amber-50 text-amber-800">
+                {T(
+                  '⚠ Generado sin IA (sistema heurístico) — el servicio de IA no estuvo disponible',
+                  '⚠ Generated without AI (heuristic system) — AI service was unavailable',
+                )}
+              </Badge>
+            ) : (
+              <Badge variant="success">
+                {T('✓ Generado con IA', '✓ Generated with AI')}
+              </Badge>
+            )}
+          </div>
+          <CardTitle className="text-2xl">{result.tripTitle}</CardTitle>
+          <CardDescription className="text-base">{result.tripDescription}</CardDescription>
+          <div className="mt-3 flex flex-wrap gap-3 text-sm text-muted-foreground">
+            <span>
+              <strong className="text-foreground">{result.days.length}</strong>{' '}
+              {T('días', 'days')}
+            </span>
+            <span>·</span>
+            <span>
+              <strong className="text-foreground">{Math.round(result.totalDistance)}</strong>{' '}
+              {T('km totales', 'total km')}
+            </span>
+            <span>·</span>
+            <span>
+              <strong className="text-foreground">
+                {totalHours}h{totalMin > 0 ? ` ${totalMin}m` : ''}
+              </strong>{' '}
+              {T('de manejo', 'driving')}
+            </span>
+            {result.estimatedCost.max > 0 && (
+              <>
+                <span>·</span>
+                <span>
+                  <strong className="text-foreground">
+                    ${result.estimatedCost.min.toLocaleString()} – ${result.estimatedCost.max.toLocaleString()}{' '}
+                    {result.estimatedCost.currency}
+                  </strong>
+                </span>
+              </>
+            )}
+          </div>
+        </CardHeader>
+
+        <CardContent className="space-y-6">
+          {result.warnings.length > 0 && (
+            <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+              <p className="font-semibold mb-1">{T('Avisos', 'Notices')}</p>
+              <ul className="list-disc pl-5 space-y-0.5">
+                {result.warnings.map((w, i) => (
+                  <li key={i}>{w}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="space-y-5">
+            {result.days.map((day) => (
+              <div key={day.dayNumber} className="rounded-lg border border-border p-4">
+                <div className="flex items-baseline justify-between">
+                  <h3 className="font-display text-lg font-semibold">
+                    {T(`Día ${day.dayNumber}`, `Day ${day.dayNumber}`)}
+                    {day.title ? ` · ${day.title}` : ''}
+                  </h3>
+                  <span className="text-xs text-muted-foreground">
+                    {Math.round(day.drivingKm)} km · {Math.round(day.drivingMinutes / 60)}h
+                  </span>
+                </div>
+                {day.description && (
+                  <p className="mt-1 text-sm text-muted-foreground">{day.description}</p>
+                )}
+                <ul className="mt-3 space-y-2">
+                  {day.stops.map((stop) => (
+                    <li key={stop.placeId} className="flex items-start gap-3 text-sm">
+                      <span className="mt-1 inline-block h-2 w-2 shrink-0 rounded-full bg-terracotta" />
+                      <div className="flex-1">
+                        <p className="font-medium text-foreground">{stop.placeName}</p>
+                        {stop.reason && (
+                          <p className="text-xs text-muted-foreground">{stop.reason}</p>
+                        )}
+                        <p className="mt-0.5 text-xs text-muted-foreground">
+                          {stop.suggestedDuration} min · {stop.category}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {saveError && (
+            <div className="rounded-lg border border-destructive/50 bg-destructive/5 p-4 text-sm text-destructive">
+              {saveError}
+            </div>
+          )}
+
+          <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
+            <Button
+              onClick={async () => {
+                setIsSaving(true);
+                setSaveError(null);
+                try {
+                  const res = await fetch('/api/trips/from-autopilot', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(result),
+                  });
+                  if (res.status === 401) {
+                    window.location.href = `/iniciar-sesion?next=${encodeURIComponent('/autopilot')}`;
+                    return;
+                  }
+                  if (res.status === 403) {
+                    const data = await res.json().catch(() => ({}));
+                    setSaveError(
+                      data.error ??
+                        T(
+                          'Alcanzaste el límite de viajes de tu plan. Actualiza para guardar más.',
+                          'You reached your plan\'s saved-trip limit. Upgrade to save more.',
+                        ),
+                    );
+                    return;
+                  }
+                  if (!res.ok) {
+                    const data = await res.json().catch(() => ({}));
+                    throw new Error(
+                      data.error ??
+                        T(
+                          'No se pudo guardar el viaje. Intenta de nuevo.',
+                          'Could not save the trip. Please try again.',
+                        ),
+                    );
+                  }
+                  const data = (await res.json()) as { redirect?: string };
+                  if (data.redirect) {
+                    window.location.href = data.redirect;
+                  }
+                } catch (err) {
+                  setSaveError(
+                    err instanceof Error
+                      ? err.message
+                      : T('Error inesperado al guardar.', 'Unexpected error saving.'),
+                  );
+                } finally {
+                  setIsSaving(false);
+                }
+              }}
+              disabled={isSaving}
+            >
+              {isSaving
+                ? T('Guardando…', 'Saving…')
+                : T('Guardar viaje', 'Save trip')}
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setResult(null);
+                setSaveError(null);
+                setStep(1);
+              }}
+            >
+              {T('Empezar de nuevo', 'Start over')}
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   // ── Loading screen ──────────────────────────────────────────────────────
 
@@ -479,14 +662,15 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                   onChange={(e) => setOriginSearch(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' && originSearch.trim()) {
-                      handleSetLocation('origin', originSearch.trim());
+                      void handleSetLocation('origin', originSearch.trim());
                     }
                   }}
                 />
                 <Button
                   variant="outline"
                   onClick={() => {
-                    if (originSearch.trim()) handleSetLocation('origin', originSearch.trim());
+                    if (originSearch.trim())
+                      void handleSetLocation('origin', originSearch.trim());
                   }}
                 >
                   {T('Fijar', 'Set')}
@@ -509,14 +693,15 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                   onChange={(e) => setDestSearch(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' && destSearch.trim()) {
-                      handleSetLocation('destination', destSearch.trim());
+                      void handleSetLocation('destination', destSearch.trim());
                     }
                   }}
                 />
                 <Button
                   variant="outline"
                   onClick={() => {
-                    if (destSearch.trim()) handleSetLocation('destination', destSearch.trim());
+                    if (destSearch.trim())
+                      void handleSetLocation('destination', destSearch.trim());
                   }}
                 >
                   {T('Fijar', 'Set')}
@@ -800,12 +985,12 @@ export function AutopilotWizard({ onComplete, isPremium = false }: AutopilotWiza
                 value={mustVisitSearch}
                 onChange={(e) => setMustVisitSearch(e.target.value)}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter') addMustVisit(mustVisitSearch);
+                  if (e.key === 'Enter') void addMustVisit(mustVisitSearch);
                 }}
               />
               <Button
                 variant="outline"
-                onClick={() => addMustVisit(mustVisitSearch)}
+                onClick={() => void addMustVisit(mustVisitSearch)}
                 disabled={!mustVisitSearch.trim()}
               >
                 {T('Agregar', 'Add')}

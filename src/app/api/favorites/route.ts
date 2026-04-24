@@ -1,137 +1,167 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import { getSession } from '@/lib/auth/session';
-import { mockPlaces } from '@/lib/data/mock';
+import { and, desc, eq, isNotNull } from 'drizzle-orm';
+import { z } from 'zod';
 
-// TODO: Switch to DB queries once Drizzle connection is ready
-// import { db, favorites, places } from '@/db';
-// import { eq, and } from 'drizzle-orm';
+import { db, savedPlaces } from '@/db';
+import { getSession } from '@/lib/auth/session';
+import { getPlaceBySlug } from '@/lib/data/mock';
 
 /**
  * GET /api/favorites
+ * POST /api/favorites   — body: { placeSlug: string, notes?: string }
+ * DELETE /api/favorites — query: ?slug=xxx
  *
- * Returns the authenticated user's favorite places.
+ * Favorites are keyed by `(userId, placeSlug)` because the place catalog is
+ * editorial static content (pueblos mágicos, museos, zonas arqueológicas,
+ * etc. — see `src/lib/data/mock.ts`) rather than a DB table. We store the
+ * stable slug and look up the rest of the metadata at read time.
+ *
+ * The legacy `placeId` column (FK to `places`) is kept nullable so rows
+ * created before this refactor still work.
  */
+
+const postSchema = z.object({
+  placeSlug: z.string().min(1).max(300),
+  notes: z.string().max(2000).optional(),
+});
+
 export async function GET(_request: NextRequest) {
-  try {
-    const session = await getSession();
-
-    if (!session) {
-      return NextResponse.json(
-        { error: 'No autenticado' },
-        { status: 401 },
-      );
-    }
-
-    // TODO: Replace with DB query joining favorites + places
-    // const userFavorites = await db
-    //   .select({ place: places })
-    //   .from(favorites)
-    //   .innerJoin(places, eq(favorites.placeId, places.id))
-    //   .where(eq(favorites.userId, session.userId));
-
-    // Mock: return a small subset of places as favorites
-    const mockFavorites = mockPlaces.slice(0, 3).map((p) => ({
-      id: p.id,
-      slug: p.slug,
-      name: p.name,
-      category: p.category,
-      categoryName: p.categoryName,
-      stateName: p.stateName,
-      image: p.image,
-      description: p.description,
-      addedAt: '2026-04-01T10:00:00Z',
-    }));
-
-    return NextResponse.json({
-      favorites: mockFavorites,
-      total: mockFavorites.length,
-    });
-  } catch (error) {
-    console.error('Error en GET /api/favorites:', error);
-    return NextResponse.json(
-      { error: 'Error interno del servidor' },
-      { status: 500 },
-    );
+  const session = await getSession();
+  if (!session) {
+    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
   }
+
+  const rows = await db
+    .select({
+      id: savedPlaces.id,
+      placeSlug: savedPlaces.placeSlug,
+      notes: savedPlaces.notes,
+      createdAt: savedPlaces.createdAt,
+    })
+    .from(savedPlaces)
+    .where(
+      and(
+        eq(savedPlaces.userId, session.userId),
+        isNotNull(savedPlaces.placeSlug),
+      ),
+    )
+    .orderBy(desc(savedPlaces.createdAt));
+
+  const favorites = rows
+    .map((row) => {
+      const place = row.placeSlug ? getPlaceBySlug(row.placeSlug) : null;
+      if (!place) return null; // slug no longer in catalog — soft-hide
+      return {
+        id: row.id,
+        slug: place.slug,
+        name: place.name,
+        category: place.category,
+        categoryName: place.categoryName,
+        stateName: place.stateName,
+        image: place.image,
+        description: place.description,
+        notes: row.notes,
+        addedAt: row.createdAt.toISOString(),
+      };
+    })
+    .filter((f): f is NonNullable<typeof f> => f !== null);
+
+  return NextResponse.json({ favorites, total: favorites.length });
 }
 
-/**
- * POST /api/favorites
- *
- * Adds a place to the user's favorites.
- *
- * Body:
- *   placeId – ID of the place to favorite
- */
 export async function POST(request: NextRequest) {
+  const session = await getSession();
+  if (!session) {
+    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+  }
+
+  let body: unknown;
   try {
-    const session = await getSession();
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: 'JSON inválido' }, { status: 400 });
+  }
 
-    if (!session) {
-      return NextResponse.json(
-        { error: 'No autenticado' },
-        { status: 401 },
-      );
-    }
-
-    const body = await request.json();
-
-    if (!body.placeId) {
-      return NextResponse.json(
-        { error: 'Se requiere placeId' },
-        { status: 400 },
-      );
-    }
-
-    // Validate the place exists
-    const place = mockPlaces.find((p) => p.id === body.placeId);
-    if (!place) {
-      return NextResponse.json(
-        { error: 'Lugar no encontrado' },
-        { status: 404 },
-      );
-    }
-
-    // TODO: Check for duplicate and insert into DB
-    // const [existing] = await db
-    //   .select()
-    //   .from(favorites)
-    //   .where(
-    //     and(
-    //       eq(favorites.userId, session.userId),
-    //       eq(favorites.placeId, body.placeId),
-    //     ),
-    //   )
-    //   .limit(1);
-    //
-    // if (existing) {
-    //   return NextResponse.json(
-    //     { error: 'Este lugar ya esta en tus favoritos' },
-    //     { status: 409 },
-    //   );
-    // }
-    //
-    // await db.insert(favorites).values({
-    //   userId: session.userId,
-    //   placeId: body.placeId,
-    // });
-
+  const parsed = postSchema.safeParse(body);
+  if (!parsed.success) {
     return NextResponse.json(
-      {
-        message: 'Lugar agregado a favoritos',
-        favorite: {
-          placeId: body.placeId,
-          placeName: place.name,
-          addedAt: new Date().toISOString(),
-        },
-      },
-      { status: 201 },
-    );
-  } catch (error) {
-    console.error('Error en POST /api/favorites:', error);
-    return NextResponse.json(
-      { error: 'Error interno del servidor' },
-      { status: 500 },
+      { error: 'Datos inválidos', issues: parsed.error.issues },
+      { status: 400 },
     );
   }
+
+  const place = getPlaceBySlug(parsed.data.placeSlug);
+  if (!place) {
+    return NextResponse.json({ error: 'Lugar no encontrado' }, { status: 404 });
+  }
+
+  // Dedup by unique index (userId, placeSlug).
+  const [existing] = await db
+    .select({ id: savedPlaces.id })
+    .from(savedPlaces)
+    .where(
+      and(
+        eq(savedPlaces.userId, session.userId),
+        eq(savedPlaces.placeSlug, parsed.data.placeSlug),
+      ),
+    )
+    .limit(1);
+
+  if (existing) {
+    if (parsed.data.notes !== undefined) {
+      await db
+        .update(savedPlaces)
+        .set({ notes: parsed.data.notes })
+        .where(eq(savedPlaces.id, existing.id));
+    }
+    return NextResponse.json(
+      { ok: true, alreadyFavorite: true, id: existing.id },
+      { status: 200 },
+    );
+  }
+
+  const [inserted] = await db
+    .insert(savedPlaces)
+    .values({
+      userId: session.userId,
+      placeSlug: parsed.data.placeSlug,
+      notes: parsed.data.notes ?? null,
+    })
+    .returning({ id: savedPlaces.id });
+
+  return NextResponse.json(
+    {
+      ok: true,
+      id: inserted.id,
+      favorite: {
+        placeSlug: place.slug,
+        placeName: place.name,
+        addedAt: new Date().toISOString(),
+      },
+    },
+    { status: 201 },
+  );
+}
+
+export async function DELETE(request: NextRequest) {
+  const session = await getSession();
+  if (!session) {
+    return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
+  }
+
+  const slug = new URL(request.url).searchParams.get('slug')?.trim();
+  if (!slug) {
+    return NextResponse.json({ error: 'slug requerido' }, { status: 400 });
+  }
+
+  await db
+    .delete(savedPlaces)
+    .where(
+      and(
+        eq(savedPlaces.userId, session.userId),
+        eq(savedPlaces.placeSlug, slug),
+      ),
+    );
+
+  return NextResponse.json({ ok: true });
 }

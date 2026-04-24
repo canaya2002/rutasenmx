@@ -1,16 +1,16 @@
 'use client';
 
-import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import type maplibregl from 'maplibre-gl';
 import Link from 'next/link';
 import { MapProvider, useMap } from '@/components/map/MapProvider';
 import MapView from '@/components/map/MapView';
 import { Search, SlidersHorizontal, X, ChevronDown, MapPin } from 'lucide-react';
 import Image from 'next/image';
-import { mockPlaces, type MockPlace } from '@/lib/data/mock';
+import type { MockPlace } from '@/lib/data/mock';
 import { PLACE_CATEGORIES, ESTADOS_MEXICO } from '@/lib/constants';
 import { useLocale } from '@/components/providers/LocaleProvider';
-import { registerCategoryIcons, categoryImageId } from '@/components/map/categoryIcons';
+import { registerCategoryIcons } from '@/components/map/categoryIcons';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -385,30 +385,50 @@ export default function ExplorarClient({
   const [showFilters, setShowFilters] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
-  /* ---------- Filter ---------- */
-  const filteredPlaces = useMemo(() => {
-    let result = [...mockPlaces];
+  // Server-filtered places. Previously this component imported the full
+  // `mockPlaces` array (~500 KB gzipped) into the client bundle just to run
+  // an in-memory filter. Now we hit `/api/places` — which can back straight
+  // onto Postgres if you migrate the catalog later. Debounced 180 ms so
+  // rapid typing doesn't hammer the endpoint.
+  const [filteredPlaces, setFilteredPlaces] = useState<MockPlace[]>([]);
+  const [loadingPlaces, setLoadingPlaces] = useState(false);
 
-    if (selectedCategories.length > 0) {
-      result = result.filter((p) => selectedCategories.includes(p.category));
-    }
-    if (selectedEstado) {
-      result = result.filter((p) => p.stateSlug === selectedEstado);
-    }
-    if (searchQuery.trim()) {
-      const q = searchQuery
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '');
-      result = result.filter((p) => {
-        const name = p.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        const desc = p.description.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        const state = p.stateName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        return name.includes(q) || desc.includes(q) || state.includes(q);
-      });
-    }
-
-    return result;
+  useEffect(() => {
+    const controller = new AbortController();
+    setLoadingPlaces(true);
+    const timer = setTimeout(async () => {
+      try {
+        const params = new URLSearchParams();
+        if (selectedCategories.length > 0) {
+          // API accepts a single category; if user picked multiple we send
+          // the first and client-filter the tail below.
+          params.set('category', selectedCategories[0]);
+        }
+        if (selectedEstado) params.set('state', selectedEstado);
+        if (searchQuery.trim()) params.set('search', searchQuery.trim());
+        params.set('limit', '200');
+        const res = await fetch(`/api/places?${params.toString()}`, {
+          signal: controller.signal,
+        });
+        if (!res.ok) return;
+        const data = (await res.json()) as { places: MockPlace[] };
+        let places = data.places;
+        if (selectedCategories.length > 1) {
+          places = places.filter((p) =>
+            selectedCategories.includes(p.category),
+          );
+        }
+        setFilteredPlaces(places);
+      } catch {
+        // AbortError on rapid typing is expected.
+      } finally {
+        setLoadingPlaces(false);
+      }
+    }, 180);
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
   }, [selectedCategories, selectedEstado, searchQuery]);
 
   const toggleCategory = useCallback((slug: string) => {
@@ -530,7 +550,7 @@ export default function ExplorarClient({
               <ChevronDown className="pointer-events-none absolute right-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-500" />
             </div>
             <span className="whitespace-nowrap rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700">
-              {L.placesCount(filteredPlaces.length)}
+              {loadingPlaces ? '…' : L.placesCount(filteredPlaces.length)}
             </span>
             {activeFilterCount > 0 && (
               <button

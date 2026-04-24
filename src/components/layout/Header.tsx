@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HeaderActions } from "./HeaderActions";
 import { Logo } from "./Logo";
 import { getTranslations } from "@/lib/i18n/server";
+import { isSocialEnabled } from "@/lib/feature-flags";
 
 export async function Header() {
   const t = await getTranslations();
@@ -11,7 +12,9 @@ export async function Header() {
     { href: "/rutas", label: t.common.routes },
     { href: "/pueblos-magicos", label: t.common.pueblosMagicos },
     { href: "/guias", label: t.common.guides },
-    { href: "/conectar", label: t.common.conectar, highlight: true },
+    ...(isSocialEnabled()
+      ? [{ href: "/conectar", label: t.common.conectar, highlight: true }]
+      : []),
   ];
 
   return (

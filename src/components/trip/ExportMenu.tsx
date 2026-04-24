@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   Download,
   FileText,
@@ -34,16 +34,60 @@ export interface ExportableTrip {
 export interface ExportMenuProps {
   trip: ExportableTrip;
   className?: string;
+  /**
+   * Override the detected plan. When omitted, ExportMenu hits /api/auth/me
+   * to decide whether to stamp the Free watermark.
+   */
+  planSlug?: 'free' | 'pro' | 'premium';
 }
 
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
-export default function ExportMenu({ trip, className }: ExportMenuProps) {
+export default function ExportMenu({ trip, className, planSlug }: ExportMenuProps) {
   const { locale } = useLocale();
   const isEn = locale === 'en';
-  const T = (es: string, en: string) => (isEn ? en : es);
+  const T = useCallback(
+    (es: string, en: string) => (isEn ? en : es),
+    [isEn],
+  );
   const [copied, setCopied] = useState(false);
+  const [detectedPlan, setDetectedPlan] = useState<
+    'free' | 'pro' | 'premium' | null
+  >(null);
+
+  // Detect plan once if the caller didn't pass one. Failure → assume Free
+  // so we err on the side of stamping the watermark rather than leaking
+  // a clean export.
+  useEffect(() => {
+    if (planSlug) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch('/api/auth/me');
+        if (!res.ok) {
+          if (!cancelled) setDetectedPlan('free');
+          return;
+        }
+        const data = await res.json();
+        const p = data?.user?.plan;
+        if (!cancelled) {
+          setDetectedPlan(p === 'pro' || p === 'premium' ? p : 'free');
+        }
+      } catch {
+        if (!cancelled) setDetectedPlan('free');
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [planSlug]);
+
+  const effectivePlan = planSlug ?? detectedPlan ?? 'free';
+  const watermark =
+    effectivePlan === 'free'
+      ? 'Rutas en MX · versión gratis'
+      : null;
 
   /* GPX export */
   const handleGPX = useCallback(async () => {
@@ -51,6 +95,10 @@ export default function ExportMenu({ trip, className }: ExportMenuProps) {
     const gpxString = generateGPX({
       name: trip.title,
       waypoints: trip.waypoints,
+      description:
+        effectivePlan === 'free'
+          ? 'Generado con Rutas en MX (versión gratis). Actualiza a Básico para exportar sin marca. https://rutasenmx.com/precios'
+          : undefined,
     });
 
     const blob = new Blob([gpxString], { type: 'application/gpx+xml' });
@@ -60,7 +108,7 @@ export default function ExportMenu({ trip, className }: ExportMenuProps) {
     a.download = `${trip.title.replace(/[^a-z0-9]/gi, '_')}.gpx`;
     a.click();
     URL.revokeObjectURL(url);
-  }, [trip]);
+  }, [trip, effectivePlan]);
 
   /* PDF export */
   const handlePDF = useCallback(async () => {
@@ -68,9 +116,10 @@ export default function ExportMenu({ trip, className }: ExportMenuProps) {
     const doc = generateTripPDF({
       title: trip.title,
       waypoints: trip.waypoints,
+      watermark,
     });
     doc.save(`${trip.title.replace(/[^a-z0-9]/gi, '_')}.pdf`);
-  }, [trip]);
+  }, [trip, watermark]);
 
   /* Copy share link */
   const shareUrl =
@@ -100,7 +149,7 @@ export default function ExportMenu({ trip, className }: ExportMenuProps) {
     } catch {
       /* user cancelled or API not available */
     }
-  }, [trip.title, shareUrl]);
+  }, [trip.title, shareUrl, T]);
 
   /* WhatsApp direct */
   const handleWhatsApp = useCallback(() => {
@@ -108,7 +157,7 @@ export default function ExportMenu({ trip, className }: ExportMenuProps) {
       T(`Mira mi ruta por México: ${trip.title} ${shareUrl}`, `Check out my route through Mexico: ${trip.title} ${shareUrl}`),
     );
     window.open(`https://wa.me/?text=${text}`, '_blank');
-  }, [trip.title, shareUrl]);
+  }, [trip.title, shareUrl, T]);
 
   return (
     <DropdownMenu>

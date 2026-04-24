@@ -128,7 +128,6 @@
   },
   "subscription": {
     "free": "Free",
-    "basic": "Basic",
     "pro": "Pro",
     "premium": "Premium",
     "monthly": "Monthly",

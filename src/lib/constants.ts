@@ -17,10 +17,9 @@ export const MEXICO_BOUNDS = {
 export const MEXICO_ZOOM = 5;
 
 export const PLAN_LIMITS = {
-  free: { maxSavedTrips: 1, maxStopsPerTrip: 7 },
-  basic: { maxSavedTrips: 3, maxStopsPerTrip: 20 },
-  pro: { maxSavedTrips: 5, maxStopsPerTrip: 50 },
-  premium: { maxSavedTrips: Infinity, maxStopsPerTrip: 150 },
+  free:    { maxSavedTrips: 1,        maxStopsPerTrip: 7,   aiAutopilotMonthly: 0  },
+  pro:     { maxSavedTrips: 10,       maxStopsPerTrip: 50,  aiAutopilotMonthly: 3  },
+  premium: { maxSavedTrips: Infinity, maxStopsPerTrip: 150, aiAutopilotMonthly: 15 },
 } as const;
 
 export const DISCOVERY_RADII = [5, 10, 25, 50] as const;

@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
 import { z } from 'zod';
 import { useLocale } from '@/components/providers/LocaleProvider';
+import { DeleteAccountPanel } from '@/components/profile/DeleteAccountPanel';
 
 interface UserProfile {
   id: string;
@@ -397,6 +398,10 @@ export default function PerfilPage() {
           {saving ? L.changing : L.changePassword}
         </button>
       </form>
+
+      <Suspense fallback={null}>
+        <DeleteAccountPanel />
+      </Suspense>
     </div>
   );
 }

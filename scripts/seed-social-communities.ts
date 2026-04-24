@@ -9,7 +9,6 @@
 import { sql } from 'drizzle-orm';
 
 import { db } from '../src/db';
-import { socialCommunities } from '../src/db/schema';
 
 const SEEDS: Array<{
   type: 'forum' | 'channel';

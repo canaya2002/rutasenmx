@@ -1,8 +1,7 @@
 import { db } from '@/db';
 import { places } from '@/db/schema';
 import { inArray } from 'drizzle-orm';
-import { haversineDistance } from '@/lib/utils';
-import type { AutopilotOutput, AutopilotDay, AutopilotStop, AutopilotInput } from './types';
+import type { AutopilotOutput, AutopilotDay, AutopilotInput } from './types';
 
 // ── Constants ───────────────────────────────────────────────────────────────
 
@@ -325,8 +324,8 @@ export function validateDrivingTimes(
  */
 export function validateDetours(
   days: AutopilotDay[],
-  origin: { lat: number; lng: number },
-  destination: { lat: number; lng: number },
+  _origin: { lat: number; lng: number },
+  _destination: { lat: number; lng: number },
 ): ValidationResult {
   const errors: ValidationError[] = [];
   const warnings: ValidationWarning[] = [];

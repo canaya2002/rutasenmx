@@ -2,6 +2,8 @@ import Stripe from 'stripe';
 import { db, subscriptions, billingEvents } from '@/db';
 import { eq } from 'drizzle-orm';
 import type { PlanSlug, BillingInterval } from './plans';
+import { getPlanIdBySlug } from './current-plan';
+import { emit, EVENTS } from '@/lib/analytics';
 
 // ── Stripe client ──────────────────────────────────────────────────────────
 function getStripe(): Stripe {
@@ -35,6 +37,11 @@ export async function createCheckoutSession(
     success_url: `${appUrl}/suscripcion?success=1`,
     cancel_url: `${appUrl}/precios?canceled=1`,
     metadata: { userId, planSlug, interval },
+    // Propagate metadata to the created Subscription so later webhook events
+    // (customer.subscription.updated/deleted) can still resolve userId + planSlug.
+    subscription_data: {
+      metadata: { userId, planSlug, interval },
+    },
     allow_promotion_codes: true,
     billing_address_collection: 'auto',
     locale: 'es',
@@ -122,6 +129,16 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session): Promis
   );
 
   await syncSubscription(stripeSubscription, userId);
+
+  emit(EVENTS.checkout_completed, {
+    userId,
+    properties: {
+      plan: session.metadata?.planSlug ?? null,
+      interval: session.metadata?.interval ?? null,
+      amount: session.amount_total ?? null,
+      currency: (session.currency ?? 'mxn').toUpperCase(),
+    },
+  });
 }
 
 export async function syncSubscription(
@@ -165,15 +182,38 @@ export async function syncSubscription(
     cancelAtPeriodEnd: stripeSubscription.cancel_at_period_end,
   };
 
+  // Checkout sets metadata.planSlug; some older sessions may still carry planId.
+  // Resolve to a real plan row UUID before inserting.
+  const slugFromMetadata = stripeSubscription.metadata?.planSlug as
+    | PlanSlug
+    | undefined;
+  const planIdFromMetadata = stripeSubscription.metadata?.planId as
+    | string
+    | undefined;
+  const resolvedPlanId = slugFromMetadata
+    ? await getPlanIdBySlug(slugFromMetadata)
+    : planIdFromMetadata ?? null;
+
   if (existing) {
     await db
       .update(subscriptions)
-      .set(subData)
+      .set({
+        ...subData,
+        ...(resolvedPlanId ? { planId: resolvedPlanId } : {}),
+      })
       .where(eq(subscriptions.id, existing.id));
   } else {
+    if (!resolvedPlanId) {
+      console.error(
+        'Stripe syncSubscription: no planId resolvable from metadata',
+        stripeSubscription.id,
+        stripeSubscription.metadata,
+      );
+      return;
+    }
     await db.insert(subscriptions).values({
       ...subData,
-      planId: stripeSubscription.metadata?.planId ?? '',
+      planId: resolvedPlanId,
     });
   }
 }
@@ -183,6 +223,16 @@ async function handleSubscriptionDeleted(stripeSubscription: Stripe.Subscription
     .update(subscriptions)
     .set({ status: 'canceled' })
     .where(eq(subscriptions.stripeSubscriptionId, stripeSubscription.id));
+
+  const userId = stripeSubscription.metadata?.userId as string | undefined;
+  if (userId) {
+    emit(EVENTS.subscription_canceled, {
+      userId,
+      properties: {
+        plan: stripeSubscription.metadata?.planSlug ?? null,
+      },
+    });
+  }
 }
 
 async function logBillingEvent(

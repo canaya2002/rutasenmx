@@ -1,0 +1,94 @@
+{
+  "expo": {
+    "name": "Rutas en MX",
+    "slug": "rutasmx",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "rutasenmx",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A0F14"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rutasenmx.app",
+      "associatedDomains": ["applinks:rutasenmx.com"],
+      "infoPlist": {
+        "NSCameraUsageDescription": "Rutas en MX usa la cámara para que puedas compartir fotos de tus viajes y tu perfil de Conectar.",
+        "NSPhotoLibraryUsageDescription": "Elige fotos desde tu galería para publicar en la comunidad y en tu perfil social.",
+        "NSLocationWhenInUseUsageDescription": "Mostramos tu ubicación en el mapa para sugerirte lugares cerca de ti durante tu viaje.",
+        "NSFaceIDUsageDescription": "Face ID protege tu sesión y tus compras dentro de la app.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.rutasenmx.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0A0F14"
+      },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            { "scheme": "https", "host": "rutasenmx.com" }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ],
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-local-authentication",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "La app accede a tus fotos para subir imágenes a tu perfil y publicaciones.",
+          "cameraPermission": "La app accede a la cámara para tomar fotos de tus viajes."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#06C167"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "apiBaseUrl": "https://rutasenmx.com",
+      "eas": {
+        "projectId": "TO_BE_CREATED_BY_EAS_INIT"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/TO_BE_CREATED_BY_EAS_INIT"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
+  }
+}

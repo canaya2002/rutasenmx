@@ -18,7 +18,6 @@ import {
 describe('getPlan', () => {
   it('returns the correct plan by slug', () => {
     expect(getPlan('free').slug).toBe('free');
-    expect(getPlan('basic').slug).toBe('basic');
     expect(getPlan('pro').slug).toBe('pro');
     expect(getPlan('premium').slug).toBe('premium');
   });
@@ -29,46 +28,50 @@ describe('getPlan', () => {
 });
 
 // ---------------------------------------------------------------------------
-// Plan limits enforcement
+// Plan limits
 // ---------------------------------------------------------------------------
 
 describe('plan limits', () => {
   it('free plan has restricted trip limit', () => {
-    const plan = getPlan('free');
-    expect(plan.maxSavedTrips).toBe(1);
+    expect(getPlan('free').maxSavedTrips).toBe(1);
   });
 
   it('free plan has restricted stops per trip', () => {
-    const plan = getPlan('free');
-    expect(plan.maxStopsPerTrip).toBe(7);
+    expect(getPlan('free').maxStopsPerTrip).toBe(7);
   });
 
-  it('basic plan has more trips than free', () => {
-    expect(getPlan('basic').maxSavedTrips).toBeGreaterThan(getPlan('free').maxSavedTrips);
+  it('pro plan has more trips than free', () => {
+    expect(getPlan('pro').maxSavedTrips).toBeGreaterThan(
+      getPlan('free').maxSavedTrips,
+    );
   });
 
-  it('pro plan has more trips than basic', () => {
-    expect(getPlan('pro').maxSavedTrips).toBeGreaterThan(getPlan('basic').maxSavedTrips);
+  it('pro plan gives at least 10 saved trips', () => {
+    expect(getPlan('pro').maxSavedTrips).toBeGreaterThanOrEqual(10);
   });
 
   it('premium plan has unlimited trips', () => {
-    const plan = getPlan('premium');
-    expect(plan.maxSavedTrips).toBe(Infinity);
+    expect(getPlan('premium').maxSavedTrips).toBe(Infinity);
   });
 
   it('premium plan has the most stops per trip', () => {
-    const premiumStops = getPlan('premium').maxStopsPerTrip;
-    expect(premiumStops).toBeGreaterThan(getPlan('pro').maxStopsPerTrip);
+    expect(getPlan('premium').maxStopsPerTrip).toBeGreaterThan(
+      getPlan('pro').maxStopsPerTrip,
+    );
   });
 });
 
 // ---------------------------------------------------------------------------
-// Free plan restrictions
+// Free plan restrictions (watermarked export, no premium features)
 // ---------------------------------------------------------------------------
 
 describe('free plan restrictions', () => {
-  it('does not include PDF export', () => {
-    expect(canAccess('free', 'pdf_export')).toBe(false);
+  it('includes PDF export (watermarked)', () => {
+    expect(canAccess('free', 'pdf_export')).toBe(true);
+  });
+
+  it('does not include clean export (no watermark)', () => {
+    expect(canAccess('free', 'clean_export')).toBe(false);
   });
 
   it('does not include ad-free experience', () => {
@@ -83,6 +86,10 @@ describe('free plan restrictions', () => {
     expect(canAccess('free', 'ai_autopilot')).toBe(false);
   });
 
+  it('does not include social connect', () => {
+    expect(canAccess('free', 'social_connect')).toBe(false);
+  });
+
   it('does not include offline mode', () => {
     expect(canAccess('free', 'offline')).toBe(false);
   });
@@ -95,10 +102,40 @@ describe('free plan restrictions', () => {
 });
 
 // ---------------------------------------------------------------------------
-// Premium plan unlimited trips
+// Pro plan — the conversion target
 // ---------------------------------------------------------------------------
 
-describe('premium plan unlimited features', () => {
+describe('pro plan', () => {
+  it('includes clean export (no watermark)', () => {
+    expect(canAccess('pro', 'clean_export')).toBe(true);
+  });
+
+  it('includes no_ads', () => {
+    expect(canAccess('pro', 'no_ads')).toBe(true);
+  });
+
+  it('includes collaboration', () => {
+    expect(canAccess('pro', 'collaboration')).toBe(true);
+  });
+
+  it('includes AI autopilot (upgrade trigger)', () => {
+    expect(canAccess('pro', 'ai_autopilot')).toBe(true);
+  });
+
+  it('includes social connect', () => {
+    expect(canAccess('pro', 'social_connect')).toBe(true);
+  });
+
+  it('does not include offline mode (premium-only)', () => {
+    expect(canAccess('pro', 'offline')).toBe(false);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Premium plan — the "no limits" tier
+// ---------------------------------------------------------------------------
+
+describe('premium plan', () => {
   it('has unlimited trips', () => {
     expect(checkTripLimit('premium', 0)).toBe(true);
     expect(checkTripLimit('premium', 100)).toBe(true);
@@ -111,33 +148,25 @@ describe('premium plan unlimited features', () => {
       expect(feature.included).toBe(true);
     });
   });
-});
 
-// ---------------------------------------------------------------------------
-// Feature access by plan
-// ---------------------------------------------------------------------------
-
-describe('canAccess', () => {
-  it('basic plan includes PDF export', () => {
-    expect(canAccess('basic', 'pdf_export')).toBe(true);
-  });
-
-  it('pro plan includes collaboration', () => {
-    expect(canAccess('pro', 'collaboration')).toBe(true);
-  });
-
-  it('pro plan includes no ads', () => {
-    expect(canAccess('pro', 'no_ads')).toBe(true);
-  });
-
-  it('premium plan includes AI autopilot', () => {
+  it('includes AI autopilot', () => {
     expect(canAccess('premium', 'ai_autopilot')).toBe(true);
   });
 
-  it('premium plan includes offline', () => {
+  it('includes offline mode', () => {
     expect(canAccess('premium', 'offline')).toBe(true);
   });
 
+  it('includes social connect', () => {
+    expect(canAccess('premium', 'social_connect')).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// canAccess edge cases
+// ---------------------------------------------------------------------------
+
+describe('canAccess', () => {
   it('returns false for unknown feature', () => {
     expect(canAccess('premium', 'nonexistent_feature')).toBe(false);
   });
@@ -156,9 +185,9 @@ describe('checkTripLimit', () => {
     expect(checkTripLimit('free', 1)).toBe(false);
   });
 
-  it('basic user can create up to max', () => {
-    expect(checkTripLimit('basic', 2)).toBe(true);
-    expect(checkTripLimit('basic', 3)).toBe(false);
+  it('pro user can create up to max', () => {
+    expect(checkTripLimit('pro', 9)).toBe(true);
+    expect(checkTripLimit('pro', 10)).toBe(false);
   });
 });
 
@@ -190,32 +219,28 @@ describe('meetsMinimumPlan', () => {
     expect(meetsMinimumPlan('free', 'free')).toBe(true);
   });
 
-  it('free does not meet basic', () => {
-    expect(meetsMinimumPlan('free', 'basic')).toBe(false);
+  it('free does not meet pro', () => {
+    expect(meetsMinimumPlan('free', 'pro')).toBe(false);
   });
 
-  it('basic meets basic', () => {
-    expect(meetsMinimumPlan('basic', 'basic')).toBe(true);
+  it('pro meets free and pro', () => {
+    expect(meetsMinimumPlan('pro', 'free')).toBe(true);
+    expect(meetsMinimumPlan('pro', 'pro')).toBe(true);
   });
 
-  it('pro meets basic', () => {
-    expect(meetsMinimumPlan('pro', 'basic')).toBe(true);
+  it('pro does not meet premium', () => {
+    expect(meetsMinimumPlan('pro', 'premium')).toBe(false);
   });
 
   it('premium meets everything', () => {
     expect(meetsMinimumPlan('premium', 'free')).toBe(true);
-    expect(meetsMinimumPlan('premium', 'basic')).toBe(true);
     expect(meetsMinimumPlan('premium', 'pro')).toBe(true);
     expect(meetsMinimumPlan('premium', 'premium')).toBe(true);
-  });
-
-  it('basic does not meet pro', () => {
-    expect(meetsMinimumPlan('basic', 'pro')).toBe(false);
   });
 });
 
 // ---------------------------------------------------------------------------
-// getPlanPrice
+// Pricing contract — $99 Pro, $299 Premium
 // ---------------------------------------------------------------------------
 
 describe('getPlanPrice', () => {
@@ -224,8 +249,16 @@ describe('getPlanPrice', () => {
     expect(getPlanPrice('free', 'annual')).toBe(0);
   });
 
+  it('pro monthly is $99 MXN (9900 cents)', () => {
+    expect(getPlanPrice('pro', 'monthly')).toBe(9900);
+  });
+
+  it('premium monthly is $299 MXN (29900 cents)', () => {
+    expect(getPlanPrice('premium', 'monthly')).toBe(29900);
+  });
+
   it('annual is cheaper than 12x monthly', () => {
-    const slugs: PlanSlug[] = ['basic', 'pro', 'premium'];
+    const slugs: PlanSlug[] = ['pro', 'premium'];
     for (const slug of slugs) {
       const monthly12 = getPlanPrice(slug, 'monthly') * 12;
       const annual = getPlanPrice(slug, 'annual');
@@ -251,15 +284,19 @@ describe('formatPlanPrice', () => {
 });
 
 // ---------------------------------------------------------------------------
-// PLANS array
+// PLANS array contract
 // ---------------------------------------------------------------------------
 
 describe('PLANS array', () => {
-  it('has exactly 4 plans', () => {
-    expect(PLANS).toHaveLength(4);
+  it('has exactly 3 plans after consolidation', () => {
+    expect(PLANS).toHaveLength(3);
   });
 
-  it('has one recommended plan', () => {
+  it('contains free, pro, premium in that order', () => {
+    expect(PLANS.map((p) => p.slug)).toEqual(['free', 'pro', 'premium']);
+  });
+
+  it('has exactly one recommended plan, which is Pro', () => {
     const recommended = PLANS.filter((p) => p.isRecommended);
     expect(recommended).toHaveLength(1);
     expect(recommended[0].slug).toBe('pro');

@@ -5,9 +5,14 @@ import Link from "next/link";
 import { Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { mockPlaces, mockStates, mockRoutes } from "@/lib/data/mock";
 
-const MAX_PER_CATEGORY = 5;
+/**
+ * Header search bar. Previously imported `mockPlaces`, `mockStates`,
+ * `mockRoutes` (~500 KB of static JSON) into every client bundle. Now it
+ * fetches from `/api/search/suggestions` with debounce, so the header ships
+ * kilobytes instead of megabytes and the search stays in sync with the
+ * catalog without a code change.
+ */
 
 interface SearchResult {
   label: string;
@@ -21,62 +26,27 @@ interface GroupedResults {
   rutas: SearchResult[];
 }
 
-function searchData(query: string): GroupedResults {
-  const q = query
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+interface SuggestionItem {
+  kind: 'place' | 'state' | 'category' | 'route';
+  label: string;
+  sub?: string;
+  href: string;
+}
 
-  const normalize = (str: string) =>
-    str
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
-
-  const lugares = mockPlaces
-    .filter(
-      (p) =>
-        normalize(p.name).includes(q) ||
-        normalize(p.stateName).includes(q) ||
-        normalize(p.description).includes(q) ||
-        normalize(p.categoryName).includes(q)
-    )
-    .slice(0, MAX_PER_CATEGORY)
-    .map((p) => ({
-      label: p.name,
-      href: `/lugares/${p.slug}`,
-      subtitle: `${p.categoryName} - ${p.stateName}`,
-    }));
-
-  const estados = mockStates
-    .filter(
-      (s) =>
-        normalize(s.name).includes(q) ||
-        normalize(s.description).includes(q)
-    )
-    .slice(0, MAX_PER_CATEGORY)
-    .map((s) => ({
-      label: s.name,
-      href: `/estados/${s.slug}`,
-      subtitle: s.capital ? `Capital: ${s.capital}` : undefined,
-    }));
-
-  const rutas = mockRoutes
-    .filter(
-      (r) =>
-        normalize(r.name).includes(q) ||
-        normalize(r.description).includes(q) ||
-        normalize(r.origin).includes(q) ||
-        normalize(r.destination).includes(q)
-    )
-    .slice(0, MAX_PER_CATEGORY)
-    .map((r) => ({
-      label: r.name,
-      href: `/rutas/${r.slug}`,
-      subtitle: `${r.origin} → ${r.destination}`,
-    }));
-
-  return { lugares, estados, rutas };
+function groupItems(items: SuggestionItem[]): GroupedResults {
+  const out: GroupedResults = { lugares: [], estados: [], rutas: [] };
+  for (const it of items) {
+    const entry: SearchResult = {
+      label: it.label,
+      href: it.href,
+      subtitle: it.sub,
+    };
+    if (it.kind === 'place') out.lugares.push(entry);
+    else if (it.kind === 'state') out.estados.push(entry);
+    else if (it.kind === 'route') out.rutas.push(entry);
+    // 'category' is ignored in this bar (header doesn't show categorías).
+  }
+  return out;
 }
 
 interface SearchBarProps {
@@ -105,23 +75,36 @@ export function SearchBar({
   });
   const inputRef = React.useRef<HTMLInputElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const timerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
 
-  // Debounced search
+  // Debounced network search.
   React.useEffect(() => {
-    if (timerRef.current) clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      if (value.length >= 2) {
-        setResults(searchData(value));
+    if (value.length < 2) {
+      setResults({ lugares: [], estados: [], rutas: [] });
+      setIsOpen(false);
+      onSearch?.(value);
+      return;
+    }
+
+    const controller = new AbortController();
+    const timer = setTimeout(async () => {
+      try {
+        const res = await fetch(
+          `/api/search/suggestions?q=${encodeURIComponent(value)}&limit=15`,
+          { signal: controller.signal },
+        );
+        if (!res.ok) return;
+        const data = (await res.json()) as { items: SuggestionItem[] };
+        setResults(groupItems(data.items));
         setIsOpen(true);
-      } else {
-        setResults({ lugares: [], estados: [], rutas: [] });
-        setIsOpen(false);
+      } catch {
+        // AbortError on rapid typing — safe to ignore.
       }
       onSearch?.(value);
     }, debounceMs);
+
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
+      clearTimeout(timer);
+      controller.abort();
     };
   }, [value, debounceMs, onSearch]);
 
@@ -176,7 +159,6 @@ export function SearchBar({
 
   return (
     <div ref={containerRef} className={cn("relative w-full max-w-md", className)}>
-      {/* Search icon */}
       <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
 
       <Input
@@ -190,7 +172,6 @@ export function SearchBar({
         aria-label="Buscar"
       />
 
-      {/* Clear button */}
       {value.length > 0 && (
         <button
           type="button"
@@ -202,7 +183,6 @@ export function SearchBar({
         </button>
       )}
 
-      {/* Results dropdown */}
       {isOpen && value.length >= 2 && (
         <div className="absolute left-0 right-0 top-full z-50 mt-1 max-h-96 overflow-y-auto rounded-lg border border-slate-200 bg-white shadow-lg">
           {totalResults === 0 ? (
