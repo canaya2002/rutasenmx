@@ -11,7 +11,6 @@ export type PlaceCategorySlug =
   | 'museos'
   | 'zonas-arqueologicas'
   | 'playas'
-  | 'cenotes'
   | 'haciendas'
   | 'centros-historicos';
 
@@ -121,5 +120,4 @@ export const PLACE_CATEGORY_CATALOG: PlaceCategoryMeta[] = [
   { slug: 'centros-historicos', name: 'Centros históricos', emoji: '⛪', color: '#DC2626' },
   { slug: 'haciendas', name: 'Haciendas', emoji: '🏡', color: '#E11D48' },
   { slug: 'playas', name: 'Playas', emoji: '🏖️', color: '#0EA5E9' },
-  { slug: 'cenotes', name: 'Cenotes', emoji: '💧', color: '#06B6D4' },
 ];

@@ -6,21 +6,35 @@ import { Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "./MobileNav";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { GlobalSearchOverlay } from "./GlobalSearchOverlay";
 import { useTranslation } from "@/components/providers/LocaleProvider";
 
 export function HeaderActions() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [searchOpen, setSearchOpen] = React.useState(false);
   const t = useTranslation();
+
+  // Global keyboard shortcut: ⌘K / Ctrl+K opens the search overlay.
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
     <div className="flex items-center gap-2">
-      {/* Search button — scrolls to hero search */}
+      {/* Search button — opens the global search overlay */}
       <Button
         variant="ghost"
         size="icon"
-        className="hidden rounded-full bg-black/50 text-white shadow-lg shadow-black/20 backdrop-blur-xl hover:bg-black/60 hover:text-white sm:inline-flex"
+        className="rounded-full bg-black/50 text-white shadow-lg shadow-black/20 backdrop-blur-xl hover:bg-black/60 hover:text-white"
         aria-label={t.common.search}
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onClick={() => setSearchOpen(true)}
       >
         <Search className="h-4 w-4" />
       </Button>
@@ -51,6 +65,9 @@ export function HeaderActions() {
 
       {/* Mobile navigation drawer */}
       <MobileNav open={mobileOpen} onOpenChange={setMobileOpen} />
+
+      {/* Global search overlay */}
+      <GlobalSearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </div>
   );
 }

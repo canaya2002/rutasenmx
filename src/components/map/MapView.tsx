@@ -135,7 +135,7 @@ export default function MapView({
   if (error) {
     return (
       <div
-        className={`flex h-[calc(100dvh-4rem)] w-full items-center justify-center bg-slate-50 ${className}`}
+        className={`flex h-full w-full items-center justify-center bg-slate-50 ${className}`}
         aria-label={t.map.unavailable}
       >
         <div className="mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
@@ -159,7 +159,7 @@ export default function MapView({
   return (
     <div
       ref={containerRef}
-      className={`h-[calc(100dvh-4rem)] w-full ${className}`}
+      className={`h-full w-full ${className}`}
       aria-label={t.map.interactive}
     />
   );

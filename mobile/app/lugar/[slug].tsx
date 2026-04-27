@@ -14,6 +14,7 @@ import { useIsFavorite, useToggleFavorite } from '@/hooks/useFavorites';
 import { useAuth } from '@/providers/AuthProvider';
 import { imageUrl } from '@/lib/images';
 import { haptics } from '@/lib/haptics';
+import { addDraftStop } from '@/lib/trip-draft';
 
 const BLURHASH = 'L5H2EC=PM+yV0g-mq.wG9c010J}I';
 
@@ -24,6 +25,39 @@ export default function PlaceDetailScreen() {
   const { data: place, isLoading, isError, refetch } = usePlace(slug);
   const isFavorite = useIsFavorite(slug);
   const toggleFavorite = useToggleFavorite();
+
+  async function onAddToRoute() {
+    if (!place || !slug) return;
+    void haptics.tap();
+    const result = await addDraftStop({
+      slug,
+      name: place.name,
+      lat: place.lat,
+      lng: place.lng,
+      stateName: place.stateName,
+      category: place.category,
+    });
+    if (result.ok) {
+      void haptics.success();
+      Alert.alert(
+        'Agregado a tu ruta',
+        `Llevas ${result.count} parada${result.count === 1 ? '' : 's'}. Continúa armando tu ruta.`,
+        [
+          { text: 'Seguir explorando', style: 'cancel' },
+          {
+            text: 'Ver ruta',
+            onPress: () => router.push('/mis-viajes'),
+          },
+        ],
+      );
+    } else {
+      void haptics.warning();
+      Alert.alert(
+        'Ya está en tu ruta',
+        `Esta parada ya formaba parte de las ${result.count} que llevas.`,
+      );
+    }
+  }
 
   function onToggleFavorite() {
     if (!place || !slug) return;
@@ -225,6 +259,20 @@ export default function PlaceDetailScreen() {
             <Ionicons name="navigate-outline" size={18} color="#06C167" />
             <Text className="text-sm font-semibold text-foreground">
               Abrir en Google Maps
+            </Text>
+          </MotionPressable>
+
+          {/* Add-to-route — saves to AsyncStorage so /planear can pick it up. */}
+          <MotionPressable
+            onPress={() => {
+              void onAddToRoute();
+            }}
+            accessibilityLabel="Agregar a ruta"
+            className="mt-2 flex-row items-center justify-center gap-2 rounded-full bg-emerald-500/85 py-3"
+          >
+            <Ionicons name="add-circle-outline" size={18} color="#fff" />
+            <Text className="text-sm font-semibold text-white">
+              Agregar a ruta
             </Text>
           </MotionPressable>
         </View>

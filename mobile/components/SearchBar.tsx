@@ -19,8 +19,17 @@ export function SearchBar({
   autoFocus,
 }: Props) {
   return (
-    <View className="flex-row items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5">
-      <Ionicons name="search" size={18} color="#94A3B8" />
+    <View
+      className="flex-row items-center gap-2.5 rounded-full border border-white/15 bg-black/40 px-4 py-3"
+      style={{
+        shadowColor: '#000',
+        shadowOpacity: 0.25,
+        shadowRadius: 16,
+        shadowOffset: { width: 0, height: 8 },
+        elevation: 6,
+      }}
+    >
+      <Ionicons name="search" size={18} color="#A8B0BD" />
       <TextInput
         value={value}
         onChangeText={onChange}
@@ -38,7 +47,7 @@ export function SearchBar({
         <MotionPressable
           onPress={() => onChange('')}
           hapticOnPressIn={false}
-          className="rounded-full bg-white/10 p-1"
+          className="rounded-full bg-white/15 p-1.5"
         >
           <Ionicons name="close" size={14} color="#F8FAFC" />
         </MotionPressable>
